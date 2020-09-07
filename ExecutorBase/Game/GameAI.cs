@@ -105,7 +105,9 @@ namespace WindBot.Game
             m_materialSelector = null;
             m_option = -1;
             m_yesno = -1;
-           
+            //////kdiy//////
+            m_announce = 0;
+            //////kdiy//////
             m_place = 0;
             if (Duel.Player == 0 && Duel.Phase == DuelPhase.Draw)
             {
@@ -748,20 +750,38 @@ namespace WindBot.Game
         /// Called when the AI has to declare a card.
         /// </summary>
         /// <returns>Id of the selected card.</returns>
+        /// kdiy////////
+        //public int OnAnnounceCard()
+        //{
+        //    if (m_announce == 0)
+        //        return 89631139; // Blue-eyes white dragon
+        //    return m_announce;
+        //}
         public int OnAnnounceCard()
         {
-            if (m_announce == 0)
-                return 89631139; // Blue-eyes white dragon
-            return m_announce;
+            if (m_announce != 0)
+            {
+                int announce = m_announce;
+                m_announce = 0;
+                return announce;
+            }
+            int result = Executor.OnAnnounceCard();
+            if (result != 0)
+                return result; 
+            return 89631139; // Blue-eyes white dragon
         }
+        /// kdiy////////
 
         // _ Others functions _
         // Those functions are used by the AI behavior.
 
-        
+
         private CardSelector m_materialSelector;
         private int m_place;
-        private int m_option;
+        ////kdiy/////
+        //private int m_option;
+        private int m_option = -1;
+        ////kdiy/////
         private int m_number;
         private int m_announce;
         private int m_yesno;
@@ -1040,12 +1060,14 @@ namespace WindBot.Game
         /// </summary>
         /// <param name="numbers">List of available numbers.</param>
         /// <returns>Index of the selected number.</returns>
-        public int OnAnnounceNumber(IList<int> numbers)
+        public virtual int OnAnnounceNumber(IList<int> numbers)
         {
             if (numbers.Contains(m_number))
                 return numbers.IndexOf(m_number);
-
-            return Executor.Rand.Next(0, numbers.Count); // Returns a random number.
+            /// kdiy///////
+            //return Executor.Rand.Next(0, numbers.Count); // Returns a random number.
+            return Executor.OnAnnounceNumber(numbers);
+            /// kdiy///////
         }
 
         /// <summary>

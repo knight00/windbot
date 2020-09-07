@@ -1,5 +1,11 @@
 [
     {
+        "name": "¤d´L",
+        "deck": "AI_Numeron",
+        "difficulty": 3,
+        "masterRules": [3, 5]
+    },
+    {
         "name": "Altergeist",
         "deck": "Altergeist",
         "difficulty": 3,

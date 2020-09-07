@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using YGOSharp.OCGWrapper.Enums;
@@ -103,7 +103,20 @@ namespace WindBot.Game.AI
         {
             // Some AI need do something on new turn
         }
-		
+
+
+        ///kdiy/////
+        public virtual int OnAnnounceCard()
+        {
+             return 0;
+        }
+
+        public virtual int OnAnnounceNumber(IList<int> numbers)
+        {
+            return Rand.Next(0, numbers.Count); // Returns a random number.
+        }
+        ///kdiy/////
+
         public virtual void OnDraw(int player)
         {
             // Some AI need do something on draw
