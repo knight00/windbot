@@ -91,15 +91,15 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
-            ClientCard gspell = Bot.Graveyard.GetFirstMatchingCard(card => card.IsSpell());
-            if ((gspell.IsCode(13707) && last_card.IsCode(12201, 13706))
-                || last_card.IsCode(13707))
-            {
-                if (CNo1summon > 0 && Duel.Turn > 1)
-                    return 13714;
-                return 13701;
-            }
-            return 13715;
+            //ClientCard gspell = Bot.Graveyard.GetFirstMatchingCard(card => card.IsSpell());
+            //if ((gspell.IsCode(13707) && last_card.IsCode(12201, 13706))
+            //    || last_card.IsCode(13707))
+            //{
+            //    if (CNo1summon > 0 && Duel.Turn > 1)
+            //        return 13714;
+            //    return 13701;
+            //}
+            return 13701;
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -237,6 +237,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Oricha()
         {
+            if (Util.ChainContainsCard(CardId.Oricha)) return false;
             if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(Card.HasXyzMaterial(1, 13706))))
             {
                 if (!(Card.HasXyzMaterial(1, 13706)))
@@ -295,19 +296,27 @@ namespace WindBot.Game.AI.Decks
             if (NumeronNo4 != null)
                 NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
             NumeronNo.Reverse();
-            //int count = Bot.ExtraDeck.GetMatchingCardsCount(card => card.IsCode(13701, 13702, 13703, 13704, 13714));
-            //if (count > 3) count = 4;
-            //count = 4 - count;
-            //for (int i = 0; i < count; ++i)
-            //{
-            //    //if (!(Bot.HasInExtra(13701) || Bot.HasInExtra(13702) || Bot.HasInExtra(13703) || Bot.HasInExtra(13704) || Bot.HasInExtra(13714)))
-            //    //{
-            //        if (CNo1summon > 0 && Duel.Turn > 1)
-            //            AI.SelectAnnounceID(13714);
-            //        AI.SelectAnnounceID(13701);
-            //    //}
-            //}
             AI.SelectNextCard(NumeronNo);
+            int count = 6 - Bot.GetMonsterCount();
+            if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
+            if (Bot.Deck.ContainsCardWithId(CardId.Numeronlead) && count > 3)
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    //if (!(Bot.HasInExtra(13701) || Bot.HasInExtra(13702) || Bot.HasInExtra(13703) || Bot.HasInExtra(13704) || Bot.HasInExtra(13714)))
+                    //{
+                        if (CNo1summon > 0 && Duel.Turn > 1)
+                            AI.SelectAnnounceID(13714);
+                        AI.SelectAnnounceID(13701);
+                        return true;
+                    //}
+                }
+            }
+            if (Bot.Deck.ContainsCardWithId(588))
+            {
+                AI.SelectAnnounceID(13715);
+                return true;
+            }
             return true;
         }
 
