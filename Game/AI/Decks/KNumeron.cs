@@ -131,7 +131,9 @@ namespace WindBot.Game.AI.Decks
                 for (int i = 0; i < attackers.Count; i++)
                 {
                     ClientCard attacker = attackers[i];
-                    if (attacker.IsCode(13701) && !attacker.IsDisabled() && Bot.GetMonsters().GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201,13706))))
+                    if (attacker.IsCode(13701) && !attacker.IsDisabled()
+                        && (Bot.GetMonsters().GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201,13706)))
+                        || Bot.SpellZone.GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201, 13706)))) )
                     {
                         att.Remove(attacker); att.Add(attacker); attackers.Remove(attacker); attackers.Add(attacker);
                     }
@@ -139,7 +141,9 @@ namespace WindBot.Game.AI.Decks
                 for (int i = 0; i < attackers.Count; i++)
                 {
                     ClientCard attacker = attackers[i];
-                    if ((attacker.IsCode(13702) || attacker.IsCode(13703) || attacker.IsCode(13704)) && !attacker.IsDisabled() && Bot.GetMonsters().GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201,13706))))
+                    if ((attacker.IsCode(13702) || attacker.IsCode(13703) || attacker.IsCode(13704)) && !attacker.IsDisabled()
+                        && Bot.GetMonsters().GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201,13706)))
+                        || (Bot.SpellZone.GetMatchingCardsCount(card => card.IsAttack() && card.HasSetcode(0x14b)) > 0 && (attacker.HasXyzMaterial() || (Bot.GetFieldSpellCard().IsFaceup() && !Bot.GetFieldSpellCard().IsDisabled() && Bot.GetFieldSpellCard().IsCode(12201, 13706)))) )
                     {
                         att.Remove(attacker); att.Add(attacker); attackers.Remove(attacker); attackers.Add(attacker);
                     }
@@ -273,6 +277,7 @@ namespace WindBot.Game.AI.Decks
                 AI.SelectAnnounceID(11);
                 return true;
             }
+
             if (Duel.Player == 0 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
                 AI.SelectCard(CardId.Numeronlead, 588, 597, 13717, 13708, 13709, 13710, 13713, 596);
             else if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
@@ -299,24 +304,30 @@ namespace WindBot.Game.AI.Decks
             AI.SelectNextCard(NumeronNo);
             int count = 6 - Bot.GetMonsterCount();
             if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
-            if (Bot.Deck.ContainsCardWithId(CardId.Numeronlead) && count > 3)
+            if (count > 3)
             {
-                for (int i = 0; i < 4; ++i)
+                for (int i = 0; i < 4; i++)
                 {
-                    //if (!(Bot.HasInExtra(13701) || Bot.HasInExtra(13702) || Bot.HasInExtra(13703) || Bot.HasInExtra(13704) || Bot.HasInExtra(13714)))
-                    //{
-                        if (CNo1summon > 0 && Duel.Turn > 1)
-                            AI.SelectAnnounceID(13714);
-                        AI.SelectAnnounceID(13701);
-                        return true;
-                    //}
+                    if (CNo1summon > 0 && Duel.Turn > 1)
+                        AI.SelectAnnounceID(13714);
+                    AI.SelectAnnounceID(13701);
                 }
             }
-            if (Bot.Deck.ContainsCardWithId(588))
+            else AI.SelectAnnounceID(13715);
+
+            if (Card.HasXyzMaterial(1, 10))
             {
-                AI.SelectAnnounceID(13715);
-                return true;
+                List<ClientCard> Oricamonster = Bot.GetMonsters();
+                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
+                foreach (ClientCard mon in Oricamonster2)
+                    Oricamonster.Add(mon);
+                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
+                Oricamonster.Remove(topmon);
+                Oricamonster.Sort(CardContainer.CompareCardAttack);
+                Oricamonster.Reverse();
+                AI.SelectCard(Oricamonster);
             }
+
             return true;
         }
 
@@ -366,8 +377,7 @@ namespace WindBot.Game.AI.Decks
             NumeronNo.Reverse();
             AI.SelectCard(NumeronNo);
 
-            if (Bot.Deck.ContainsCardWithId(CardId.Numeronlead) && Bot.GetFieldCount() > 3
-                && !(Bot.HasInExtra(123101) || Bot.HasInExtra(123102) || Bot.HasInExtra(123103) || Bot.HasInExtra(123104) || Bot.HasInExtra(13714)))
+            for (int i = 0; i < 4; i++)
             {
                 if (CNo1summon > 0 && Duel.Turn > 1)
                     AI.SelectAnnounceID(13714);
@@ -412,13 +422,9 @@ namespace WindBot.Game.AI.Decks
             {
                 AI.SelectCard(Destg2);
                 AI.SelectNextCard(13715, 494);
-                if (Destg2[Destg2.Count - 1].Controller == 0)
-                {
-                    if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(13716) || Bot.SpellZone.GetMonsters().ContainsCardWithId(13716))
-                        && !Bot.ExtraDeck.ContainsCardWithId(494) && !Bot.ExtraDeck.ContainsCardWithId(13715))
-                        AI.SelectAnnounceID(494);
-                    else AI.SelectAnnounceID(13715);
-                }
+                if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(494) || Bot.SpellZone.GetMonsters().ContainsCardWithId(494)))
+                    AI.SelectAnnounceID(13715);
+                else AI.SelectAnnounceID(494);
                 return true;
             }
             return false;
