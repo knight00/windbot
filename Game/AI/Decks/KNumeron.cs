@@ -64,6 +64,45 @@ namespace WindBot.Game.AI.Decks
             CNo1summon = 0;
         }
 
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        {
+            if (player == 0)
+            {
+                if (location == CardLocation.SpellZone)
+                {
+                    // unfinished
+                }
+                else if (location == CardLocation.MonsterZone)
+                {
+                    if (Card.Attack >= 10000 || !Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+                    {
+                        if ((Zones.z5 & available) > 0) return Zones.z5;
+                        if ((Zones.z6 & available) > 0) return Zones.z6;
+                        for (int i = 4; i >= 0; --i)
+                        {
+                            if (Bot.MonsterZone[i] == null)
+                            {
+                                int place = (int)System.Math.Pow(2, i);
+                                return place;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 4; i >= 0; --i)
+                        {
+                            if (Bot.SpellZone[i] == null)
+                            {
+                                int place = (int)System.Math.Pow(2, i) * 256;
+                                return place;
+                            }
+                        }
+                    }
+                }
+            }
+            return base.OnSelectPlace(cardId, player, location, available);
+        }
+
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
@@ -78,7 +117,7 @@ namespace WindBot.Game.AI.Decks
 
         public override bool OnSelectYesNo(long desc)
         {
-            if (desc == Util.GetStringId(826, 12) || desc == Util.GetStringId(13712, 0))
+            if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(13712, 0))
             {
                 return false;
             }
@@ -91,14 +130,6 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
-            //ClientCard gspell = Bot.Graveyard.GetFirstMatchingCard(card => card.IsSpell());
-            //if ((gspell.IsCode(13707) && last_card.IsCode(12201, 13706))
-            //    || last_card.IsCode(13707))
-            //{
-            //    if (CNo1summon > 0 && Duel.Turn > 1)
-            //        return 13714;
-            //    return 13701;
-            //}
             return 13701;
         }
 
@@ -302,7 +333,7 @@ namespace WindBot.Game.AI.Decks
                 NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
             NumeronNo.Reverse();
             AI.SelectNextCard(NumeronNo);
-            int count = 6 - Bot.GetMonsterCount();
+            int count = Util.GetBotAvailZonesFromExtraDeck();
             if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
             if (count > 3)
             {
