@@ -75,7 +75,10 @@ namespace WindBot.Game
             _ai = new GameAI(_duel, Game.Dialog, Game.Chat, Game.Log, "");
 #endif
             _ai.Executor = DecksManager.Instantiate(_ai, _duel, Game.Deck);
-            Deck = Deck.Load(_ai.Executor.Deck);
+            ////kdiy///////
+            //Deck = Deck.Load(_ai.Executor.Deck);
+            Deck = Deck.Load(_ai.Executor.Deck, game.Deckpath);
+            ////kdiy///////
 
             _select_hint = 0;
         }

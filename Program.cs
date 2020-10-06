@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 using System.Net;
@@ -80,6 +80,9 @@ namespace WindBot
             Info.Name = Config.GetString("Name", Info.Name);
             Info.Deck = Config.GetString("Deck", Info.Deck);
             Info.Dialog = Config.GetString("Dialog", Info.Dialog);
+            ////////kdiy///////
+            Info.Deckpath = Config.GetString("Deckpath", Info.Deckpath);
+            ////////kdiy///////
             Info.Host = Config.GetString("Host", Info.Host);
             Info.Port = Config.GetInt("Port", Info.Port);
             Info.HostInfo = Config.GetString("HostInfo", Info.HostInfo);
@@ -118,6 +121,11 @@ namespace WindBot
                     string dialog = HttpUtility.ParseQueryString(RawUrl).Get("dialog");
                     if (dialog != null)
                         Info.Dialog = dialog;
+                    /////////kdiy//////
+                    string deckpath = HttpUtility.ParseQueryString(RawUrl).Get("deckpath");
+                    if (deckpath != null)
+                        Info.Deckpath = deckpath;  
+                    /////////kdiy//////       
                     string version = HttpUtility.ParseQueryString(RawUrl).Get("version");
                     if (version != null)
                         Info.Version = Int16.Parse(version);
@@ -132,7 +140,7 @@ namespace WindBot
                         Info.Debug= bool.Parse(debug);
                     string chat = HttpUtility.ParseQueryString(RawUrl).Get("chat");
                     if (chat != null)
-                        Info.Chat = bool.Parse(chat);
+                        Info.Chat = bool.Parse(chat);                  
 
                     if (Info.Name == null || Info.Host == null || port == null)
                     {

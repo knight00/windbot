@@ -7,6 +7,9 @@ namespace WindBot
         public string Name { get; set; }
         public string Deck { get; set; }
         public string Dialog { get; set; }
+        /////////kdiy/////
+        public string Deckpath { get; set; }
+        /////////kdiy/////       
         public string Host { get; set; }
         public int Port { get; set; }
         public string HostInfo { get; set; }
@@ -19,6 +22,9 @@ namespace WindBot
             Name = "WindBot";
             Deck = null;
             Dialog = "default";
+            /////////kdiy/////
+            Deckpath = "";
+            /////////kdiy/////           
             Host = "127.0.0.1";
             Port = 7911;
             HostInfo = "";

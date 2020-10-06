@@ -28,12 +28,20 @@ namespace WindBot.Game
                 ExtraCards.Add(cardId);
         }
 
-        public static Deck Load(string name)
+        ////kdiy/////////
+        //public static Deck Load(string name,string deckpath)
+        public static Deck Load(string name,string deckpath)
+        ////kdiy/////////
         {
             StreamReader reader = null;
             try
             {
 #if !LIBWINDBOT
+                ////////kdiy///////
+                if (name.Contains("AI_perfectdicky")) {
+                reader = new StreamReader(new FileStream("../deck/" + deckpath + ".ydk", FileMode.Open, FileAccess.Read));
+                } else
+                ////////kdiy///////
                 reader = new StreamReader(new FileStream("Decks/" + name + ".ydk", FileMode.Open, FileAccess.Read));
 #else
                 reader = new StreamReader(new FileStream(Path.Combine(WindBot.AssetPath, "Decks/", name + ".ydk"), FileMode.Open, FileAccess.Read));

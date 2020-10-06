@@ -45,6 +45,9 @@ namespace WindBot
                 if (p[0] == "Name") Info.Name = p[1];
                 if (p[0] == "Deck") Info.Deck = p[1];
                 if (p[0] == "Dialog") Info.Dialog = p[1];
+                /////////kdiy/////////
+                if (p[0] == "Deckpath") Info.Deckpath = p[1];
+                /////////kdiy/////////               
                 if (p[0] == "Port") Info.Port = int.Parse(p[1]);
                 if (p[0] == "Hand") Info.Hand = int.Parse(p[1]);
                 if (p[0] == "Host") Info.Host = p[1];

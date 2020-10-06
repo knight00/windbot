@@ -1,13 +1,22 @@
 [
     {
-        "name": "�d�L",
+        "name": "KCG",
+        "deck": "AI_perfectdicky",
+        "dialog": "donthousand",
+        "difficulty": 0,
+        "masterRules": [3, 4, 5]
+    },
+    {
+        "name": "千尊",
         "deck": "AI_Numeron",
-        "difficulty": 3,
+        "dialog": "donthousand",
+        "difficulty": 4,
         "masterRules": [3, 5]
     },
     {
-        "name": "Altergeist",
+        "name": "尼亞－幻變騷靈",
         "deck": "Altergeist",
+        "dialog": "near.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
@@ -18,44 +27,49 @@
         "masterRules": [5]
     },
     {
-        "name": "Blue-Eyes",
+        "name": "複製植物－青眼",
         "deck": "Blue-Eyes",
+        "dialog": "copy.zh-CN",
         "difficulty": 3,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Blue-Eyes Ritual",
+        "name": "MAX龍果",
         "deck": "BlueEyesMaxDragon",
+        "dialog": "kiwi.zh-TW",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Burn",
+        "name": "永遠之魂－削血",
         "deck": "Burn",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Chain Burn",
+        "name": "燃血鬥士",
         "deck": "ChainBurn",
+        "dialog": "soul.zh-CN",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Cyberse",
+        "name": "試作型機器人1732",
         "deck": "ST1732",
         "difficulty": 2,
         "masterRules": [4, 5]
     },
     {
-        "name": "Dark Magician",
+        "name": "奇魔果",
         "deck": "DarkMagician",
+        "dialog": "ayane.zh-CN",
         "difficulty": 3,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Dragunity",
+        "name": "謎之劍士LV4－龍騎星爆",
         "deck": "Dragunity",
+        "dialog": "swordsman.zh-CN",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
@@ -66,32 +80,37 @@
         "masterRules": [5]
     },
     {
-        "name": "Dragun of Red-Eyes",
+        "name": "我太帥了",
         "deck": "Dragun",
+        "dialog": "nlch.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Frog",
+        "name": "永遠之魂－青蛙",
         "deck": "Frog",
+        "dialog": "soul.zh-CN",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Gren Maju Stun",
+        "name": "報社鬥士",
         "deck": "GrenMajuThunderBoarder",
+        "dialog": "kiwi.zh-TW",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Horus",
+        "name": "永遠之魂－荷鲁斯",
         "deck": "Horus",
+        "dialog": "soul.zh-CN",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Lightsworn Shaddoll Dino",
+        "name": "奇異果",
         "deck": "LightswornShaddoldinosour",
+        "dialog": "kiwi.zh-TW",
         "difficulty": 3,
         "masterRules": [3, 4, 5]
     },
@@ -102,104 +121,116 @@
         "masterRules": [4, 5]
     },
     {
-        "name": "Normal Monster Mash",
+        "name": "悠悠",
         "deck": "MokeyMokey",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Normal Monster Mash II",
+        "name": "悠悠王",
         "deck": "MokeyMokeyKing",
+        "dialog": "mokey.zh-CN",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Orcust",
+        "name": "重編程梁龍－自奏天琴",
         "deck": "Orcust",
+        "dialog": "nlch.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Qliphort",
+        "name": "尼亞－機殼",
         "deck": "Qliphort",
+        "dialog": "near.zh-CN",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "R5NK",
+        "name": "謎之劍士LV4-R5",
         "deck": "Rank V",
+        "dialog": "swordsman.zh-CN",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Rainbow",
+        "name": "琪露諾－彩虹",
         "deck": "Rainbow",
+        "dialog": "cirno.zh-CN",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Rose Scrap Synchro",
+        "name": "謎之劍士LV4－L8",
         "deck": "Level VIII",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Salamangreat",
+        "name": "重編程梁龍－轉生炎獸",
         "deck": "Salamangreat",
+        "dialog": "nlch.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Sky Striker",
+        "name": "重編程梁龍－閃刀姬",
         "deck": "SkyStriker",
+        "dialog": "ayane.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Time Thief",
+        "name": "時間小偷",
         "deck": "TimeThief",
         "difficulty": 2,
         "masterRules": [4, 5]
     },
     {
-        "name": "Toadally Awesome",
+        "name": "琪露諾－餅蛙",
         "deck": "Toadally Awesome",
+        "dialog": "cirno.zh-CN",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Trickstar",
+        "name": "尼亞－惡作劇明星",
         "deck": "Trickstar",
+        "dialog": "near.zh-CN",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Windwitch Gusto",
+        "name": "比特機靈－微風",
         "deck": "PureWinds",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Witchcrafter Grass",
+        "name": "玻璃女巫",
         "deck": "Witchcraft",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
     {
-        "name": "Yosenju",
+        "name": "尼亞－妖仙獸",
         "deck": "Yosenju",
+        "dialog": "near.zh-CN",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "ZEXAL Weapon",
+        "name": "謎之劍士LV4-異熱同心武器",
         "deck": "Zexal Weapons",
+        "dialog": "swordsman.zh-CN",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Zoodiac",
+        "name": "複製植物－十二獸",
         "deck": "Zoodiac",
+        "dialog": "copy.zh-CN",
         "difficulty": 3,
         "masterRules": [3, 4, 5]
     }
