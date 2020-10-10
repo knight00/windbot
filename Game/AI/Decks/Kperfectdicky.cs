@@ -28,7 +28,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
 
             AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(CardId.TreasureDraw, CardId.Costdown, CardId.CrossSacriface, CardId.DoubleSummon, CardId.Oricha));
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(CardId.TreasureDraw, CardId.Costdown, CardId.CrossSacriface, CardId.DoubleSummon, CardId.Oricha) && DefaultDontChainMyself());
             AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
             // Reposition
             AddExecutor(ExecutorType.Repos, MonsterRepos);
@@ -62,7 +62,35 @@ namespace WindBot.Game.AI.Decks
             {
                 return false;
             }
+            if (desc == 210) // Continue selecting? (Link Summoning)
+                return false;
+            if (desc == 31) // Direct Attack?
+                return true;
             return base.OnSelectYesNo(desc);
+        }
+
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
+        {
+            if (Duel.Phase == DuelPhase.BattleStart)
+                return null;
+
+            IList<ClientCard> selected = new List<ClientCard>();
+            selected.Remove(Card);
+
+            // select the last cards
+            for (int i = 1; i <= max; ++i)
+                selected.Add(cards[cards.Count - i]);
+
+            return selected;
+        }
+
+        public override int OnAnnounceCard()
+        {
+            ClientCard last_card = Util.GetLastChainCard();
+            ClientCard orica = Bot.GetFieldSpellCard();
+            if (orica == null)
+                return 12201;
+            return 13701;
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -72,7 +100,17 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
+            if (options[0] == Util.GetStringId(826, 15)) return 0;
             return options.Count > 1 ? options.Count - 1 : 0;
+        }
+
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        {
+            if (location == CardLocation.MonsterZone)
+            {
+                return available & ~Bot.GetLinkedZones();
+            }
+            return 0;
         }
 
         public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)

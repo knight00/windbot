@@ -27,10 +27,10 @@ namespace WindBot.Game.AI.Decks
         public KNumeronExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon, 602);
-            AddExecutor(ExecutorType.SpSummon, 603);
-            AddExecutor(ExecutorType.Activate, 603);
-            AddExecutor(ExecutorType.SpSummon, 612);
+            AddExecutor(ExecutorType.SpSummon, 602, Summonplace);
+            AddExecutor(ExecutorType.SpSummon, 603, Summonplace);
+            AddExecutor(ExecutorType.Activate, 603, Summonplace);
+            AddExecutor(ExecutorType.SpSummon, 612, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.CNo1, CNo1);
             AddExecutor(ExecutorType.Activate, CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.Number100Dragon);
@@ -44,8 +44,8 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, 13717, RUM1000);
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
 
-            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1));
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(514, 602, CardId.TreasureDraw, CardId.Costdown, CardId.CrossSacriface, CardId.DoubleSummon, CardId.Numeronlead, CardId.Oricha, CardId.CNo1000));
+            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(514, 602, CardId.TreasureDraw, CardId.Costdown, CardId.CrossSacriface, CardId.DoubleSummon, CardId.Numeronlead, CardId.Oricha, CardId.CNo1000) && DefaultDontChainMyself());
             AddExecutor(ExecutorType.Summon, ()=>Advancesummon() && !Card.IsCode(13711));
             //AddExecutor(ExecutorType.MonsterSet, Advancesummon);
             // Reposition
@@ -62,45 +62,6 @@ namespace WindBot.Game.AI.Decks
         {
             CrossSacrifaceCount = 0;
             CNo1summon = 0;
-        }
-
-        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
-        {
-            if (player == 0)
-            {
-                if (location == CardLocation.SpellZone)
-                {
-                    // unfinished
-                }
-                else if (location == CardLocation.MonsterZone)
-                {
-                    if (Card.Attack >= 10000 || !Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
-                    {
-                        if ((Zones.z5 & available) > 0) return Zones.z5;
-                        if ((Zones.z6 & available) > 0) return Zones.z6;
-                        for (int i = 4; i >= 0; --i)
-                        {
-                            if (Bot.MonsterZone[i] == null)
-                            {
-                                int place = (int)System.Math.Pow(2, i);
-                                return place;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        for (int i = 4; i >= 0; --i)
-                        {
-                            if (Bot.SpellZone[i] == null)
-                            {
-                                int place = (int)System.Math.Pow(2, i) * 256;
-                                return place;
-                            }
-                        }
-                    }
-                }
-            }
-            return base.OnSelectPlace(cardId, player, location, available);
         }
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
@@ -121,7 +82,26 @@ namespace WindBot.Game.AI.Decks
             {
                 return false;
             }
+            if (desc == 210) // Continue selecting? (Link Summoning)
+                return false;
+            if (desc == 31) // Direct Attack?
+                return true;
             return base.OnSelectYesNo(desc);
+        }
+
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
+        {
+            if (Duel.Phase == DuelPhase.BattleStart)
+                return null;
+
+            IList<ClientCard> selected = new List<ClientCard>();
+            selected.Remove(Card);
+
+            // select the last cards
+            for (int i = 1; i <= max; ++i)
+                selected.Add(cards[cards.Count - i]);
+
+            return selected;
         }
 
         public override int OnAnnounceCard()
@@ -130,6 +110,12 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
+            if (last_card.IsCode(CardId.CNo1000))
+            {
+                if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(494) || Bot.SpellZone.GetMonsters().ContainsCardWithId(494)))
+                    return 13715;
+                return 494;
+            }
             return 13701;
         }
 
@@ -221,6 +207,35 @@ namespace WindBot.Game.AI.Decks
             return null;
         }
 
+        private bool Summonplace()
+        {
+            if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+            {
+                for (int i = 4; i >= 0; --i)
+                {
+                    if (Bot.SpellZone[i] == null)
+                    {
+                        int place = (int)System.Math.Pow(2, i) * 256;
+                        AI.SelectPlace(place);
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 4; i >= 0; --i)
+                {
+                    if (Bot.MonsterZone[i] == null)
+                    {
+                        int place = (int)System.Math.Pow(2, i);
+                        AI.SelectPlace(place);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private bool Advancesummon()
         {
             if (Card.Level > 4 && DefaultTributeSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
@@ -250,8 +265,36 @@ namespace WindBot.Game.AI.Decks
             }
             if (Card.Level > 4)
                 return false;
+
+            if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+            {
+                for (int i = 4; i >= 0; --i)
+                {
+                    if (Bot.SpellZone[i] == null)
+                    {
+                        int place = (int)System.Math.Pow(2, i) * 256;
+                        AI.SelectPlace(place);
+                        AI.SelectPosition(CardPosition.FaceUpDefence);
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 4; i >= 0; --i)
+                {
+                    if (Bot.MonsterZone[i] == null)
+                    {
+                        int place = (int)System.Math.Pow(2, i);
+                        AI.SelectPlace(place);
+                        AI.SelectPosition(CardPosition.FaceUpDefence);
+                        return true;
+                    }
+                }
+            }
+
             AI.SelectPosition(CardPosition.FaceUpDefence);
-            return true;
+            return false;
         }
 
         private bool Spellset()
@@ -419,10 +462,35 @@ namespace WindBot.Game.AI.Decks
 
         private bool CNo1()
         {
-            if ((Duel.Player == 0 && Duel.Phase == DuelPhase.Main2) || Duel.Player == 1 || Duel.Turn<2)
+            if ((Duel.Player == 0 && Duel.Phase == DuelPhase.Main2) || Duel.Player == 1 || Duel.Turn < 2)
             {
                 CNo1summon++;
-                return true;
+                if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+                {
+                    for (int i = 4; i >= 0; --i)
+                    {
+                        if (Bot.SpellZone[i] == null)
+                        {
+                            int place = (int)System.Math.Pow(2, i) * 256;
+                            AI.SelectPlace(place);
+                            AI.SelectPosition(CardPosition.FaceUpAttack);
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 4; i >= 0; --i)
+                    {
+                        if (Bot.MonsterZone[i] == null)
+                        {
+                            int place = (int)System.Math.Pow(2, i);
+                            AI.SelectPlace(place);
+                            AI.SelectPosition(CardPosition.FaceUpAttack);
+                            return true;
+                        }
+                    }
+                }
             }
             return false;
         }
@@ -452,10 +520,10 @@ namespace WindBot.Game.AI.Decks
             if (Destg2.Count > 0)
             {
                 AI.SelectCard(Destg2);
-                AI.SelectNextCard(13715, 494);
                 if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(494) || Bot.SpellZone.GetMonsters().ContainsCardWithId(494)))
                     AI.SelectAnnounceID(13715);
                 else AI.SelectAnnounceID(494);
+                AI.SelectNextCard(13715, 494);
                 return true;
             }
             return false;
