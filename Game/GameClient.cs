@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Net;
 using System.Text;
 using YGOSharp.Network;
@@ -14,6 +14,7 @@ namespace WindBot.Game
         public string Deck;
         public string Dialog;
         ///////////kdiy///////
+        public string Deckfolder;
         public string Deckpath;
         ///////////kdiy///////       
         public int Hand;
@@ -33,6 +34,7 @@ namespace WindBot.Game
             Deck = Info.Deck;
             Dialog = Info.Dialog;
             //////////kdiy///////
+            Deckfolder = Info.Deckfolder;
             Deckpath = Info.Deckpath;
             //////////kdiy///////            
             Hand = Info.Hand;

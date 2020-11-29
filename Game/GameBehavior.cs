@@ -73,7 +73,7 @@ namespace WindBot.Game
             _ai.Executor = DecksManager.Instantiate(_ai, _duel, Game.Deck);
             ////kdiy///////
             //Deck = Deck.Load(_ai.Executor.Deck);
-            Deck = Deck.Load(_ai.Executor.Deck, game.Deckpath);
+            Deck = Deck.Load(_ai.Executor.Deck, game.Deckfolder + "/" + game.Deckpath);
             ////kdiy///////
 
             _select_hint = 0;

@@ -44,6 +44,7 @@ namespace WindBot
                 if (p[0] == "Deck") Info.Deck = p[1];
                 if (p[0] == "Dialog") Info.Dialog = p[1];
                 /////////kdiy/////////
+                if (p[0] == "Deckfolder") Info.Deckfolder = p[1];
                 if (p[0] == "Deckpath") Info.Deckpath = p[1];
                 /////////kdiy/////////               
                 if (p[0] == "Port") Info.Port = int.Parse(p[1]);

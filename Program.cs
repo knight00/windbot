@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Net;
@@ -85,6 +85,7 @@ namespace WindBot
             Info.Deck = Config.GetString("Deck", Info.Deck);
             Info.Dialog = Config.GetString("Dialog", Info.Dialog);
             ////////kdiy///////
+            Info.Deckfolder = Config.GetString("Deckfolder", Info.Deckfolder);
             Info.Deckpath = Config.GetString("Deckpath", Info.Deckpath);
             ////////kdiy///////
             Info.Host = Config.GetString("Host", Info.Host);
@@ -126,6 +127,9 @@ namespace WindBot
                     if (dialog != null)
                         Info.Dialog = dialog;
                     /////////kdiy//////
+                    string deckfolder = HttpUtility.ParseQueryString(RawUrl).Get("deckfolder");
+                    if (deckfolder != null)
+                        Info.Deckfolder = deckfolder;                      
                     string deckpath = HttpUtility.ParseQueryString(RawUrl).Get("deckpath");
                     if (deckpath != null)
                         Info.Deckpath = deckpath;  

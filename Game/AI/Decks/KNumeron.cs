@@ -233,7 +233,7 @@ namespace WindBot.Game.AI.Decks
                     }
                 }
             }
-            return false;
+            return true;
         }
 
         private bool Advancesummon()

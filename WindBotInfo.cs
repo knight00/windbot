@@ -8,6 +8,7 @@ namespace WindBot
         public string Deck { get; set; }
         public string Dialog { get; set; }
         /////////kdiy/////
+        public string Deckfolder { get; set; }
         public string Deckpath { get; set; }
         /////////kdiy/////       
         public string Host { get; set; }
@@ -23,12 +24,13 @@ namespace WindBot
             Deck = null;
             Dialog = "default";
             /////////kdiy/////
+            Deckfolder = "";
             Deckpath = "";
             /////////kdiy/////           
             Host = "127.0.0.1";
             Port = 7911;
             HostInfo = "";
-            Version = 38|1<<8|9<<16;
+            Version = 38|1<<8|8<<16;
             Hand = 0;
             Debug = false;
             Chat = true;
