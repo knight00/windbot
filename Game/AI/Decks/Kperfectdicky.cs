@@ -59,9 +59,7 @@ namespace WindBot.Game.AI.Decks
         public override bool OnSelectYesNo(long desc)
         {
             if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(13712, 0))
-            {
                 return false;
-            }
             if (desc == 210) // Continue selecting? (Link Summoning)
                 return false;
             if (desc == 31) // Direct Attack?
@@ -185,6 +183,7 @@ namespace WindBot.Game.AI.Decks
                 AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
+
             if (Card.Level > 4)
                 return false;
             AI.SelectPosition(CardPosition.FaceUpDefence);

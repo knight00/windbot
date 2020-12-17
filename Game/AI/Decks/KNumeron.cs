@@ -57,11 +57,13 @@ namespace WindBot.Game.AI.Decks
 
         private int CrossSacrifaceCount = 0;
         private int CNo1summon = 0;
+        private int No1annouce = 0;
 
         public override void OnNewTurn()
         {
             CrossSacrifaceCount = 0;
             CNo1summon = 0;
+            No1annouce = 0;
         }
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
@@ -78,10 +80,8 @@ namespace WindBot.Game.AI.Decks
 
         public override bool OnSelectYesNo(long desc)
         {
-            if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(13712, 0))
-            {
+            if ((desc == Util.GetStringId(826, 12) && (Duel.Player == 1 || No1annouce>=10)) || desc == Util.GetStringId(13712, 0))
                 return false;
-            }
             if (desc == 210) // Continue selecting? (Link Summoning)
                 return false;
             if (desc == 31) // Direct Attack?
@@ -116,6 +116,7 @@ namespace WindBot.Game.AI.Decks
                     return 13715;
                 return 494;
             }
+            No1annouce++;
             return 13701;
         }
 
@@ -209,7 +210,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Summonplace()
         {
-            if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+            if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
             {
                 for (int i = 4; i >= 0; --i)
                 {
@@ -220,18 +221,7 @@ namespace WindBot.Game.AI.Decks
                         return true;
                     }
                 }
-            }
-            else
-            {
-                for (int i = 4; i >= 0; --i)
-                {
-                    if (Bot.MonsterZone[i] == null)
-                    {
-                        int place = (int)System.Math.Pow(2, i);
-                        AI.SelectPlace(place);
-                        return true;
-                    }
-                }
+                return true;
             }
             return true;
         }
@@ -260,41 +250,28 @@ namespace WindBot.Game.AI.Decks
                     else continue;
                 }
                 AI.SelectMaterials(tribute);
-                AI.SelectPosition(CardPosition.FaceUpDefence);
-                return true;
+
+                if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+                {
+                    for (int i = 4; i >= 0; --i)
+                    {
+                        if (Bot.SpellZone[i] == null)
+                        {
+                            int place = (int)System.Math.Pow(2, i) * 256;
+                            AI.SelectPlace(place);
+                            AI.SelectPosition(CardPosition.FaceUpDefence);
+                            return true;
+                        }
+                    }
+                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                    return true;
+                }
             }
+
             if (Card.Level > 4)
                 return false;
-
-            if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
-            {
-                for (int i = 4; i >= 0; --i)
-                {
-                    if (Bot.SpellZone[i] == null)
-                    {
-                        int place = (int)System.Math.Pow(2, i) * 256;
-                        AI.SelectPlace(place);
-                        AI.SelectPosition(CardPosition.FaceUpDefence);
-                        return true;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 4; i >= 0; --i)
-                {
-                    if (Bot.MonsterZone[i] == null)
-                    {
-                        int place = (int)System.Math.Pow(2, i);
-                        AI.SelectPlace(place);
-                        AI.SelectPosition(CardPosition.FaceUpDefence);
-                        return true;
-                    }
-                }
-            }
-
             AI.SelectPosition(CardPosition.FaceUpDefence);
-            return false;
+            return true;
         }
 
         private bool Spellset()
@@ -384,6 +361,7 @@ namespace WindBot.Game.AI.Decks
                 {
                     if (CNo1summon > 0 && Duel.Turn > 1)
                         AI.SelectAnnounceID(13714);
+                    No1annouce++;
                     AI.SelectAnnounceID(13701);
                 }
             }
@@ -465,7 +443,7 @@ namespace WindBot.Game.AI.Decks
             if ((Duel.Player == 0 && Duel.Phase == DuelPhase.Main2) || Duel.Player == 1 || Duel.Turn < 2)
             {
                 CNo1summon++;
-                if (Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+                if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
                 {
                     for (int i = 4; i >= 0; --i)
                     {
