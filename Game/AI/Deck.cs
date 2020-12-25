@@ -36,17 +36,12 @@ namespace WindBot.Game
             StreamReader reader = null;
             try
             {
-#if !LIBWINDBOT
                 ////////kdiy///////
-                if (name.Contains("AI_perfectdicky")) {
-                reader = new StreamReader(new FileStream("../deck/" + deckpath + ".ydk", FileMode.Open, FileAccess.Read));
-                } else
+                if (name.Contains("AI_perfectdicky"))
+                reader = new StreamReader(new FileStream(Path.Combine(Program.AssetPath, "../deck/", deckpath + ".ydk"), FileMode.Open, FileAccess.Read));
+                else
                 ////////kdiy///////
-                reader = new StreamReader(new FileStream("Decks/" + name + ".ydk", FileMode.Open, FileAccess.Read));
-#else
                 reader = new StreamReader(new FileStream(Path.Combine(Program.AssetPath, "Decks/", name + ".ydk"), FileMode.Open, FileAccess.Read));
-#endif
-
                 Deck deck = new Deck();
                 bool main = true;
                 bool side = false;
