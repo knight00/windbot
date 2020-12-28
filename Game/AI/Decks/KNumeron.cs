@@ -20,6 +20,7 @@ namespace WindBot.Game.AI.Decks
             public const int Numeronlead = 13707;
             public const int CNo1 = 13705;
             public const int CNo1000 = 13715;
+            public const int CiNo1000 = 13716;
             public const int DoubleSummon = 43422537;
             public const int CrossSacriface = 26;
         }
@@ -35,6 +36,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.Number100Dragon);
             AddExecutor(ExecutorType.Activate, CardId.CNo1000, CNo1000Effects);
+            AddExecutor(ExecutorType.Activate, CardId.CNo1000, CiNo1000Effects);
 
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
             AddExecutor(ExecutorType.Activate, CardId.CrossSacriface, CrossSacriface);
@@ -481,6 +483,12 @@ namespace WindBot.Game.AI.Decks
                 return Card.IsFaceup() && Bot.UnderAttack && Bot.BattlingMonster==Card;
         }
 
+        private bool RUM1000()
+        {
+            AI.SelectAnnounceID(13715);
+            return true;
+        }
+
         private bool CNo1000Effects()
         {
             IList<ClientCard> Destg = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 5000 || !card.HasType(CardType.Xyz));
@@ -507,10 +515,11 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
-        private bool RUM1000()
+        private bool CiNo1000Effects()
         {
-            AI.SelectAnnounceID(13715);
-            return true;
+            if (Bot.UnderAttack && Bot.BattlingMonster == Card && Enemy.BattlingMonster.RealPower>=Card.RealPower)
+                return true;
+            return false;
         }
     }
 }
