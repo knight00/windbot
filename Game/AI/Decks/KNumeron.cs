@@ -331,14 +331,18 @@ namespace WindBot.Game.AI.Decks
                 return true;
             }
 
+            bool rum = false;
             if (Duel.Player == 0 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
-                AI.SelectCard(CardId.Numeronlead, 588, 597, 13717, 13708, 13709, 13710, 13713, 596);
+                AI.SelectCard(CardId.Numeronlead, 595, 588, 597, 13717, 13708, 13709, 13710, 13713, 596);
             else if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
-                AI.SelectCard(588, CardId.Numeronlead, 13717, 13708, 13709, 13710, 13713, 596, 597);
+            {
+                AI.SelectCard(588, CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                rum = true;
+            }
             else if (Duel.Player == 0)
-                AI.SelectCard(CardId.Numeronlead, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                AI.SelectCard(CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
             else if (Duel.Player == 1)
-                AI.SelectCard(CardId.Numeronlead, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                AI.SelectCard(595, 13717, 13708, 13709, 13710, 13713, 596, 597);
 
             List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
             ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
@@ -357,7 +361,7 @@ namespace WindBot.Game.AI.Decks
             AI.SelectNextCard(NumeronNo);
             int count = Util.GetBotAvailZonesFromExtraDeck();
             if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
-            if (count > 3)
+            if (count > 3 && !rum)
             {
                 for (int i = 0; i < 4; i++)
                 {

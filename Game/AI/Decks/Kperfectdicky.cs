@@ -1,9 +1,9 @@
-using System;
+using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
+using System.Linq;
 using WindBot;
 using WindBot.Game;
 using WindBot.Game.AI;
-using YGOSharp.OCGWrapper.Enums;
 
 namespace WindBot.Game.AI.Decks
 {
@@ -71,14 +71,17 @@ namespace WindBot.Game.AI.Decks
         {
             if (Duel.Phase == DuelPhase.BattleStart)
                 return null;
+            cards.Remove(Card);
 
-            IList<ClientCard> selected = new List<ClientCard>();
-            selected.Remove(Card);
-
+            List<ClientCard> selected = new List<ClientCard>();
+            if (cards.IsExistingMatchingCard(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)))
+            {
+                selected.AddRange(cards.Where(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)));
+                return Util.CheckSelectCount(selected, cards, min, max);
+            }
             // select the last cards
             for (int i = 1; i <= max; ++i)
                 selected.Add(cards[cards.Count - i]);
-
             return selected;
         }
 
