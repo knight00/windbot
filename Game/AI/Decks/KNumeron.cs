@@ -29,26 +29,40 @@ namespace WindBot.Game.AI.Decks
         public KNumeronExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
+            IList<int> activatem = new List<int>();
+
             AddExecutor(ExecutorType.SpSummon, 602, Summonplace);
             AddExecutor(ExecutorType.SpSummon, 603, Summonplace);
             AddExecutor(ExecutorType.Activate, 603, Summonplace);
+            activatem.Add(603);
             AddExecutor(ExecutorType.SpSummon, 612, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.CNo1, CNo1);
             AddExecutor(ExecutorType.Activate, CardId.CNo1);
+            activatem.Add(CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.Number100Dragon);
+            activatem.Add(CardId.Number100Dragon);
             AddExecutor(ExecutorType.Activate, CardId.CNo1000, CNo1000Effects);
-            AddExecutor(ExecutorType.Activate, CardId.CNo1000, CiNo1000Effects);
+            activatem.Add(CardId.CNo1000);
+            AddExecutor(ExecutorType.Activate, CardId.CiNo1000, CiNo1000Effects);
+            activatem.Add(CardId.CiNo1000);
 
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
+            activatem.Add(CardId.Costdown);
             AddExecutor(ExecutorType.Activate, CardId.CrossSacriface, CrossSacriface);
+            activatem.Add(CardId.CrossSacriface);
             AddExecutor(ExecutorType.Activate, CardId.DoubleSummon, DoubleSummon);
+            activatem.Add(CardId.DoubleSummon);
             AddExecutor(ExecutorType.Activate, CardId.Numeronlead, Numeronlead);
+            activatem.Add(CardId.Numeronlead);
             AddExecutor(ExecutorType.Activate, 588, RUM1000);
+            activatem.Add(588);
             AddExecutor(ExecutorType.Activate, 13717, RUM1000);
+            activatem.Add(13717);
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
+            activatem.Add(CardId.Oricha);
 
             AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace());
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(514, 602, CardId.TreasureDraw, CardId.Costdown, CardId.CrossSacriface, CardId.DoubleSummon, CardId.Numeronlead, CardId.Oricha, CardId.CNo1000) && DefaultDontChainMyself());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && DefaultDontChainMyself());
             AddExecutor(ExecutorType.Summon, ()=>Advancesummon() && !Card.IsCode(13711));
             //AddExecutor(ExecutorType.MonsterSet, Advancesummon);
             // Reposition
@@ -94,11 +108,8 @@ namespace WindBot.Game.AI.Decks
 
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
-            if (Duel.Phase == DuelPhase.BattleStart)
-                return null;
-
             IList<ClientCard> selected = new List<ClientCard>();
-            selected.Remove(Card);
+            //selected.Remove(Card);
 
             // select the last cards
             for (int i = 1; i <= max; ++i)
@@ -201,8 +212,6 @@ namespace WindBot.Game.AI.Decks
                     return AI.Attack(attacker, defender);
                 if (!OnPreBattleBetween(attacker, defender))
                     continue;
-                //if (attacker.RealPower == defender.RealPower && Bot.GetMonsterCount() < Enemy.GetMonsterCount())
-                //continue;
                 if (attacker.RealPower >= defender.RealPower || (attacker.RealPower >= defender.RealPower && ((attacker.HasSetcode(0x48) && !attacker.IsDisabled() && !(defender.HasSetcode(0x48) && !defender.IsDisabled())) || attacker.IsLastAttacker && defender.IsAttack())))
                     return AI.Attack(attacker, defender);
             }
