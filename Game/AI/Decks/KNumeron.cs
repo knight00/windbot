@@ -61,7 +61,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
 
-            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace());
+            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace() && !(Card.Location == CardLocation.Removed && Card.IsFacedown()));
             AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && DefaultDontChainMyself());
             AddExecutor(ExecutorType.Summon, ()=>Advancesummon() && !Card.IsCode(13711));
             //AddExecutor(ExecutorType.MonsterSet, Advancesummon);
@@ -353,6 +353,9 @@ namespace WindBot.Game.AI.Decks
                 AI.SelectCard(CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
             else if (Duel.Player == 1)
                 AI.SelectCard(595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+
+            if (!(Bot.Deck.ContainsCardWithId(CardId.Numeronlead) || Bot.Deck.ContainsCardWithId(595)))
+                rum = true;
 
             List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
             ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));

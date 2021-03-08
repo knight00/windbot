@@ -100,11 +100,174 @@ namespace WindBot.Game.AI.Decks
             public const int Raye = 26077387;
             public const int Drones_Token = 52340445;
             public const int Iblee = 10158145;
+
+            //BlackwingExecutor
+            public const int KrisTheCrackOfDawn = 81105204;
+            public const int SiroccoTheDawn = 75498415;
+            public const int ShuraTheBlueFlame = 58820853;
+            public const int BoraTheSpear = 49003716;
+            public const int KalutTheMoonShadow = 85215458;
+            public const int GaleTheWhirlwind = 2009101;
+            public const int BlizzardTheFarNorth = 22835145;
+            public const int MistralTheSilverShield = 46710683;
+            public const int Raigeki = 12580477;
+            public const int BlackWhirlwind = 91351370;
+            public const int DeltaCrowAntiReverse = 59839761;
+            public const int DimensionalPrison = 70342110;
+            public const int SilverwindTheAscendant = 33236860;
+            public const int BlackWingedDragon = 9012916;
+            public const int ArmorMaster = 69031175;
+            public const int ArmedWing = 76913983;
+            public const int GramTheShiningStar = 17377751;
+
+            //BlueEyesExecutor
+            public const int WhiteDragon = 89631139;
+            public const int AlternativeWhiteDragon = 38517737;
+            public const int DragonSpiritOfWhite = 45467446;
+            public const int WhiteStoneOfAncients = 71039903;
+            public const int WhiteStoneOfLegend = 79814787;
+            public const int SageWithEyesOfBlue = 8240199;
+            public const int EffectVeiler = 97268402;
+            public const int GalaxyCyclone = 5133471;
+            public const int HarpiesFeatherDuster = 18144506;
+            public const int ReturnOfTheDragonLords = 6853254;
+            public const int PotOfDesires = 35261759;
+            public const int TradeIn = 38120068;
+            public const int CardsOfConsonance = 39701395;
+            public const int DragonShrine = 41620959;
+            public const int MelodyOfAwakeningDragon = 48800175;
+            public const int SoulCharge = 54447022;
+            public const int SilversCry = 87025064;
+            public const int Giganticastle = 63422098;
+            public const int AzureEyesSilverDragon = 40908371;
+            public const int BlueEyesSpiritDragon = 59822133;
+            public const int GalaxyEyesDarkMatterDragon = 58820923;
+            public const int GalaxyEyesCipherBladeDragon = 2530830;
+            public const int GalaxyEyesFullArmorPhotonDragon = 39030163;
+            public const int GalaxyEyesPrimePhotonDragon = 31801517;
+            public const int GalaxyEyesCipherDragon = 18963306;
+            public const int HopeHarbingerDragonTitanicGalaxy = 63767246;
+            public const int SylvanPrincessprite = 33909817;
+
+            //BlueEyesMaxDragonExecutor
+            public const int BlueEyesWhiteDragon = 89631139;
+            public const int BlueEyesAlternativeWhiteDragon = 38517737;
+            public const int DeviritualTalismandra = 80701178;
+            public const int ManguOfTheTenTousandHands = 95492061;
+            public const int DevirrtualCandoll = 53303460;
+            public const int AshBlossom = 14558127;
+            public const int BlueEyesChaosMaxDragon = 55410871;
+            public const int CreatureSwap = 31036355;
+            public const int TheMelodyOfAwakeningDragon = 48800175;
+            public const int UpstartGoblin = 70368879;
+            public const int ChaosForm = 21082832;
+            public const int AdvancedRitualArt = 46052429;
+            public const int CalledByTheGrave = 24224830;
+            public const int Scapegoat = 73915051;
+            public const int InfiniteImpermanence = 10045474;
+            public const int RecklessGreed = 37576645;
+            public const int BorreloadDragon = 31833038;
+            public const int BirrelswordDragon = 85289965;
+            public const int KnightmareGryphon = 65330383;
+            public const int MissusRadiant = 3987233;
+            public const int LockBird = 94145021;
+            public const int Ghost = 59438930;
+
+            //CyberDragonExecutor
+            public const int CyberLaserDragon = 4162088;
+            public const int CyberBarrierDragon = 68774379;
+            public const int CyberDragon = 70095154;
+            public const int CyberDragonDrei = 59281922;
+            public const int CyberPhoenix = 3370104;
+            public const int ArmoredCybern = 67159705;
+            public const int ProtoCyberDragon = 26439287;
+            public const int CyberKirin = 76986005;
+            public const int CyberDragonCore = 23893227;
+            public const int CyberValley = 3657444;
+            public const int DifferentDimensionCapsule = 11961740;
+            public const int Polymerization = 24094653;
+            public const int PowerBond = 37630732;
+            public const int EvolutionBurst = 52875873;
+            public const int PhotonGeneratorUnit = 66607691;
+            public const int DeFusion = 95286165;
+            public const int AttackReflectorUnit = 91989718;
+            public const int CyberneticHiddenTechnology = 92773018;
+            public const int CallOfTheHaunted = 97077563;
+            public const int SevenToolsOfTheBandit = 3819470;
+            public const int CyberTwinDragon = 74157028;
+            public const int CyberEndDragon = 1546123;
+            public const int CyberDragonNova = 58069384;
+
+
+            //DarkMagicianExecutor
+            public const int DarkMagician = 46986414;
+            public const int GrinderGolem = 75732622;
+            public const int MagicianOfLllusion = 35191415;
+            public const int ApprenticeLllusionMagician = 30603688;
+            public const int WindwitchGlassBell = 71007216;
+            public const int MagiciansRod = 7084129;
+            public const int WindwitchIceBell = 43722862;
+            public const int SpellbookMagicianOfProphecy = 14824019;
+            public const int WindwitchSnowBell = 70117860;
+
+            public const int TheEyeOfTimaeus = 1784686;
+            public const int DarkMagicAttack = 2314238;
+            public const int SpellbookOfKnowledge = 23314220;
+            public const int SpellbookOfSecrets = 89739383;
+            public const int DarkMagicInheritance = 41735184;
+            public const int LllusionMagic = 73616671;
+            //public const int Scapegoat = 73915051;
+            public const int DarkMagicalCircle = 47222536;
+            public const int WonderWand = 67775894;
+            public const int MagicianNavigation = 7922915;
+            public const int EternalSoul = 48680970;
+
+            public const int DarkMagicianTheDragonKnight = 41721210;
+            public const int CrystalWingSynchroDragon = 50954680;
+            public const int OddEyesWingDragon = 58074177;
+            public const int ClearWingFastDragon = 90036274;
+            public const int WindwitchWinterBell = 14577226;
+            public const int OddEyesAbsoluteDragon = 16691074;
+            public const int Dracossack = 22110647;
+            public const int BigEye = 80117527;
+            public const int TroymarePhoenix = 2857636;
+            public const int TroymareCerberus = 75452921;
+            public const int ApprenticeWitchling = 71384012;
+            public const int VentriloauistsClaraAndLucika = 1482001;
+            /*public const int EbonLllusionMagician = 96471335;
+            public const int BorreloadDragon = 31833038;
+            public const int SaryujaSkullDread = 74997493;
+            public const int Hidaruma = 64514892;
+            public const int AkashicMagician = 28776350;
+            public const int SecurityDragon = 99111753;
+            public const int LinkSpider = 98978921;
+            public const int Linkuriboh = 41999284;*/
+
+            public const int ElShaddollWinda = 94977269;
+            public const int Ultimate = 86221741;
+            public const int GiantRex = 80280944;
+            public const int UltimateConductorTytanno = 18940556;
+            public const int SummonSorceress = 61665245;
+            public const int CrystronNeedlefiber = 50588353;
+            public const int FirewallDragon = 5043010;
+            public const int JackKnightOfTheLavenderDust = 28692962;
+            public const int JackKnightOfTheCobaltDepths = 92204263;
+            public const int JackKnightOfTheCrimsonLotus = 56809158;
+            public const int JackKnightOfTheGoldenBlossom = 29415459;
+            public const int JackKnightOfTheVerdantGale = 66022706;
+            public const int JackKnightOfTheAmberShade = 93020401;
+            public const int JackKnightOfTheAzureSky = 20537097;
+            public const int MekkKnightMorningStar = 72006609;
+            public const int JackKnightOfTheWorldScar = 38502358;
+            public const int WhisperOfTheWorldLegacy = 62530723;
+            public const int TrueDepthsOfTheWorldLegacy = 98935722;
+            public const int KeyToTheWorldLegacy = 2930675;
         }
 
         private int CrossSacrifaceCount = 0;
         //ST1732Executor
         bool BalancerLordUsed = false;
+
         //AltergeistExecutor
         List<int> Impermanence_list = new List<int>();
         bool Multifaker_ssfromhand = false;
@@ -146,6 +309,28 @@ namespace WindBot.Game.AI.Decks
             97268402
         };
 
+        //BlueEyesExecutor
+        private List<ClientCard> UsedAlternativeWhiteDragon = new List<ClientCard>();
+        ClientCard UsedGalaxyEyesCipherDragon;
+        bool AlternativeWhiteDragonSummoned = false;
+        bool SoulChargeUsed = false;
+
+        //BlueEyesMaxDragonExecutor
+        int Talismandra_count = 0;
+        int Candoll_count = 0;
+        bool Talismandra_used = false;
+        bool Candoll_used = false;
+        int RitualArt_count = 0;
+        int ChaosForm_count = 0;
+        int MaxDragon_count = 0;
+        int TheMelody_count = 0;
+
+        //CyberDragonExecutor
+        bool PowerBondUsed = false;
+
+        //DarkMagicianExecutor
+
+
         public KperfectdickyExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
@@ -165,9 +350,6 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpSummon, CardId.Linkslayer);
             AddExecutor(ExecutorType.Activate, CardId.Linkslayer, LinkslayerEffect);
             activatem.Add(CardId.Linkslayer);
-            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider);
-            AddExecutor(ExecutorType.Activate, CardId.LinkSpider);
-            activatem.Add(CardId.LinkSpider);
             AddExecutor(ExecutorType.Activate, CardId.MindControl, MindControlEffect);
             activatem.Add(CardId.MindControl);
             AddExecutor(ExecutorType.SpSummon, CardId.Backlinker);
@@ -226,7 +408,6 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.BottomlessTrapHole, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.BookOfMoon, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, DefaultSpellSet);
@@ -330,6 +511,279 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, CardId.Silquitous, Silquitous_summon);
             AddExecutor(ExecutorType.Summon, CardId.Multifaker, Multifaker_summon);
 
+            //BlackwingExecutor
+            AddExecutor(ExecutorType.Activate, CardId.Raigeki, DefaultRaigeki);
+            activatem.Add(CardId.Raigeki);
+            AddExecutor(ExecutorType.Activate, CardId.BlackWhirlwind, BlackWhirlwindEffect);
+            activatem.Add(CardId.BlackWhirlwind);
+            AddExecutor(ExecutorType.SpSummon, CardId.KrisTheCrackOfDawn);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.KrisTheCrackOfDawn);
+            AddExecutor(ExecutorType.Summon, CardId.SiroccoTheDawn, SiroccoTheDawnSummon);
+            activatem.Add(CardId.SiroccoTheDawn);
+            AddExecutor(ExecutorType.Summon, CardId.ShuraTheBlueFlame, ShuraTheBlueFlameSummon);
+            activatem.Add(CardId.ShuraTheBlueFlame);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.ShuraTheBlueFlame);
+            AddExecutor(ExecutorType.SpSummon, CardId.BoraTheSpear);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.BoraTheSpear);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.KalutTheMoonShadow, KalutTheMoonShadowSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.GaleTheWhirlwind);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.GaleTheWhirlwind);
+            AddExecutor(ExecutorType.Summon, CardId.BlizzardTheFarNorth, BlizzardTheFarNorthSummon);
+            activatem.Add(CardId.BlackWhirlwind);
+            AddExecutor(ExecutorType.MonsterSet, CardId.MistralTheSilverShield);
+            AddExecutor(ExecutorType.SpSummon, CardId.SilverwindTheAscendant);
+            AddExecutor(ExecutorType.SpSummon, CardId.ArmorMaster);
+            AddExecutor(ExecutorType.SpSummon, CardId.GramTheShiningStar);
+            AddExecutor(ExecutorType.SpSummon, CardId.ArmedWing);
+            AddExecutor(ExecutorType.SpSummon, CardId.BlackWingedDragon);
+            AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultUniqueTrap);
+            activatem.Add(CardId.DimensionalPrison);
+            AddExecutor(ExecutorType.Activate, CardId.DeltaCrowAntiReverse, DeltaCrowAntiReverseEffect);
+            activatem.Add(CardId.DeltaCrowAntiReverse);
+            AddExecutor(ExecutorType.Activate, CardId.BoraTheSpear, BoraTheSpearEffect);
+            activatem.Add(CardId.BoraTheSpear);
+            AddExecutor(ExecutorType.Activate, CardId.KalutTheMoonShadow, AttackUpEffect);
+            activatem.Add(CardId.KalutTheMoonShadow);
+            AddExecutor(ExecutorType.Activate, CardId.SiroccoTheDawn, AttackUpEffect);
+            activatem.Add(CardId.SiroccoTheDawn);
+            AddExecutor(ExecutorType.Activate, CardId.GaleTheWhirlwind, GaleTheWhirlwindEffect);
+            activatem.Add(CardId.GaleTheWhirlwind);
+
+            //BlueEyesExecutor
+            // destroy traps
+            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, DefaultHarpiesFeatherDusterFirst);
+            activatem.Add(CardId.HarpiesFeatherDuster);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, DefaultGalaxyCyclone);
+            activatem.Add(CardId.GalaxyCyclone);
+            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            activatem.Add(CardId.HarpiesFeatherDuster);
+            AddExecutor(ExecutorType.Activate, CardId.DragonShrine, DragonShrineEffect);
+            activatem.Add(CardId.DragonShrine);
+            // Sage search
+            AddExecutor(ExecutorType.Summon, CardId.SageWithEyesOfBlue, SageWithEyesOfBlueSummon);
+
+            // search Alternative White Dragon
+            AddExecutor(ExecutorType.Activate, CardId.MelodyOfAwakeningDragon, MelodyOfAwakeningDragonEffect);
+            activatem.Add(CardId.MelodyOfAwakeningDragon);
+            AddExecutor(ExecutorType.Activate, CardId.CardsOfConsonance, CardsOfConsonanceEffect);
+            activatem.Add(CardId.CardsOfConsonance);
+            AddExecutor(ExecutorType.Activate, CardId.TradeIn, TradeInEffect);
+            activatem.Add(CardId.TradeIn);
+            AddExecutor(ExecutorType.Activate, CardId.PotOfDesires, DefaultPotOfDesires);
+            activatem.Add(CardId.PotOfDesires);
+            // spsummon Alternative White Dragon if possible
+            AddExecutor(ExecutorType.SpSummon, CardId.AlternativeWhiteDragon, AlternativeWhiteDragonSummon);
+
+            // reborn
+            AddExecutor(ExecutorType.Activate, CardId.ReturnOfTheDragonLords, RebornEffect);
+            activatem.Add(CardId.ReturnOfTheDragonLords);
+            AddExecutor(ExecutorType.Activate, CardId.SilversCry, RebornEffect);
+            activatem.Add(CardId.SilversCry);
+            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, RebornEffect);
+            activatem.Add(CardId.MonsterReborn);
+            // monster effects
+            AddExecutor(ExecutorType.Activate, CardId.AlternativeWhiteDragon, AlternativeWhiteDragonEffect);
+            activatem.Add(CardId.AlternativeWhiteDragon);
+            AddExecutor(ExecutorType.Activate, CardId.SageWithEyesOfBlue, SageWithEyesOfBlueEffect);
+            activatem.Add(CardId.SageWithEyesOfBlue);
+            AddExecutor(ExecutorType.Activate, CardId.WhiteStoneOfAncients, WhiteStoneOfAncientsEffect);
+            activatem.Add(CardId.WhiteStoneOfAncients);
+            AddExecutor(ExecutorType.Activate, CardId.DragonSpiritOfWhite, DragonSpiritOfWhiteEffect);
+            activatem.Add(CardId.DragonSpiritOfWhite);
+            AddExecutor(ExecutorType.Activate, CardId.BlueEyesSpiritDragon, BlueEyesSpiritDragonEffect);
+            activatem.Add(CardId.BlueEyesSpiritDragon);
+            AddExecutor(ExecutorType.Activate, CardId.HopeHarbingerDragonTitanicGalaxy, HopeHarbingerDragonTitanicGalaxyEffect);
+            activatem.Add(CardId.HopeHarbingerDragonTitanicGalaxy);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyEyesCipherDragon, GalaxyEyesCipherDragonEffect);
+            activatem.Add(CardId.GalaxyEyesCipherDragon);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyEyesPrimePhotonDragon, GalaxyEyesPrimePhotonDragonEffect);
+            activatem.Add(CardId.GalaxyEyesPrimePhotonDragon);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyEyesFullArmorPhotonDragon, GalaxyEyesFullArmorPhotonDragonEffect);
+            activatem.Add(CardId.GalaxyEyesFullArmorPhotonDragon);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyEyesCipherBladeDragon, GalaxyEyesCipherBladeDragonEffect);
+            activatem.Add(CardId.GalaxyEyesCipherBladeDragon);
+            AddExecutor(ExecutorType.Activate, CardId.GalaxyEyesDarkMatterDragon, GalaxyEyesDarkMatterDragonEffect);
+            activatem.Add(CardId.GalaxyEyesDarkMatterDragon);
+            AddExecutor(ExecutorType.Activate, CardId.AzureEyesSilverDragon, AzureEyesSilverDragonEffect);
+            activatem.Add(CardId.AzureEyesSilverDragon);
+            AddExecutor(ExecutorType.Activate, CardId.SylvanPrincessprite, SylvanPrincesspriteEffect);
+            activatem.Add(CardId.SylvanPrincessprite);
+            // normal summon
+            AddExecutor(ExecutorType.Summon, CardId.SageWithEyesOfBlue, WhiteStoneSummon);
+            AddExecutor(ExecutorType.Summon, CardId.WhiteStoneOfAncients, WhiteStoneSummon);
+            AddExecutor(ExecutorType.Summon, CardId.WhiteStoneOfLegend, WhiteStoneSummon);
+
+            // special summon from extra
+            AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesCipherDragon, GalaxyEyesCipherDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesPrimePhotonDragon, GalaxyEyesPrimePhotonDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesFullArmorPhotonDragon, GalaxyEyesFullArmorPhotonDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesCipherBladeDragon, GalaxyEyesCipherBladeDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesDarkMatterDragon, GalaxyEyesDarkMatterDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.Giganticastle, GiganticastleSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.BlueEyesSpiritDragon, BlueEyesSpiritDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.HopeHarbingerDragonTitanicGalaxy, HopeHarbingerDragonTitanicGalaxySummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.SylvanPrincessprite, SylvanPrincesspriteSummon);
+
+            // if we don't have other things to do...
+            AddExecutor(ExecutorType.Activate, CardId.SoulCharge, SoulChargeEffect);
+            activatem.Add(CardId.SoulCharge);
+            // summon White Stone to use the hand effect of Sage
+            AddExecutor(ExecutorType.Summon, CardId.WhiteStoneOfLegend, WhiteStoneSummonForSage);
+            AddExecutor(ExecutorType.Summon, CardId.WhiteStoneOfAncients, WhiteStoneSummonForSage);
+            AddExecutor(ExecutorType.Summon, CardId.SageWithEyesOfBlue, WhiteStoneSummonForSage);
+            AddExecutor(ExecutorType.Activate, CardId.SageWithEyesOfBlue, SageWithEyesOfBlueEffectInHand);
+            activatem.Add(CardId.SageWithEyesOfBlue);
+
+            //BlueEyesMaxDragonExecutor
+            //counter
+            AddExecutor(ExecutorType.Activate, CardId.AshBlossom, DefaultAshBlossomAndJoyousSpring);
+            activatem.Add(CardId.AshBlossom);
+            AddExecutor(ExecutorType.Activate, CardId.MaxxC, MaxxCeff);
+            AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, DefaultInfiniteImpermanence);
+            activatem.Add(CardId.InfiniteImpermanence);
+            AddExecutor(ExecutorType.Activate, CardId.CalledByTheGrave, CalledByTheGraveeff);
+            activatem.Add(CardId.CalledByTheGrave);
+            activatem.Add(CardId.UpstartGoblin);
+            AddExecutor(ExecutorType.Activate, CardId.BlueEyesAlternativeWhiteDragon, BlueEyesAlternativeWhiteDragoneff);
+            activatem.Add(CardId.BlueEyesAlternativeWhiteDragon);
+            AddExecutor(ExecutorType.Activate, CardId.CreatureSwap, CreatureSwapeff);
+            activatem.Add(CardId.CreatureSwap);
+            AddExecutor(ExecutorType.Activate, CardId.TheMelodyOfAwakeningDragon, TheMelodyOfAwakeningDragoneff);
+            activatem.Add(CardId.TheMelodyOfAwakeningDragon);
+            AddExecutor(ExecutorType.Summon, CardId.ManguOfTheTenTousandHands);
+            AddExecutor(ExecutorType.Activate, CardId.ManguOfTheTenTousandHands, TenTousandHandseff);
+            activatem.Add(CardId.ManguOfTheTenTousandHands);
+            AddExecutor(ExecutorType.Activate, DeviritualCheck);
+            activatem.Add(CardId.Scapegoat);
+            AddExecutor(ExecutorType.Activate, CardId.AdvancedRitualArt);
+            activatem.Add(CardId.AdvancedRitualArt);
+            AddExecutor(ExecutorType.Activate, CardId.ChaosForm, ChaosFormeff);
+            activatem.Add(CardId.ChaosForm);
+            AddExecutor(ExecutorType.SpSummon, CardId.MissusRadiant, MissusRadiantsp);
+            AddExecutor(ExecutorType.Activate, CardId.MissusRadiant, MissusRadianteff);
+            activatem.Add(CardId.MissusRadiant);
+            AddExecutor(ExecutorType.Activate, CardId.Linkuriboh, Linkuriboheff);
+            activatem.Add(CardId.Linkuriboh);
+            AddExecutor(ExecutorType.SpSummon, CardId.Linkuriboh, Linkuribohsp);
+            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider);
+            AddExecutor(ExecutorType.SpSummon, CardId.BirrelswordDragon, BirrelswordDragonsp);
+            AddExecutor(ExecutorType.Activate, CardId.BirrelswordDragon, BirrelswordDragoneff);
+            activatem.Add(CardId.BirrelswordDragon);
+            AddExecutor(ExecutorType.Activate, CardId.TheMelodyOfAwakeningDragon, TheMelodyOfAwakeningDragoneffsecond);
+            activatem.Add(CardId.TheMelodyOfAwakeningDragon);
+            AddExecutor(ExecutorType.Activate, CardId.RecklessGreed, RecklessGreedeff);
+            activatem.Add(CardId.RecklessGreed);
+            AddExecutor(ExecutorType.Activate, CardId.Scapegoat, Scapegoateff);
+            activatem.Add(CardId.Scapegoat);
+
+            //CyberDragonExecutor
+            AddExecutor(ExecutorType.Activate, CardId.DifferentDimensionCapsule, Capsule);
+            AddExecutor(ExecutorType.Activate, CardId.Polymerization, PolymerizationEffect);
+            AddExecutor(ExecutorType.Activate, CardId.PowerBond, PowerBondEffect);
+            AddExecutor(ExecutorType.Activate, CardId.EvolutionBurst, EvolutionBurstEffect);
+            AddExecutor(ExecutorType.Activate, CardId.PhotonGeneratorUnit);
+            AddExecutor(ExecutorType.Activate, CardId.DeFusion, DeFusionEffect);
+
+            AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, DefaultUniqueTrap);
+            AddExecutor(ExecutorType.Activate, CardId.AttackReflectorUnit);
+            AddExecutor(ExecutorType.Activate, CardId.SevenToolsOfTheBandit, DefaultTrap);
+            AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, DefaultCallOfTheHaunted);
+
+            AddExecutor(ExecutorType.SummonOrSet, CardId.CyberDragonDrei, NoCyberDragonSpsummon);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.CyberPhoenix, NoCyberDragonSpsummon);
+            AddExecutor(ExecutorType.Summon, CardId.CyberValley, NoCyberDragonSpsummon);
+            AddExecutor(ExecutorType.MonsterSet, CardId.CyberDragonCore, NoCyberDragonSpsummon);
+            AddExecutor(ExecutorType.MonsterSet, CardId.ArmoredCybern, ArmoredCybernSet);
+            AddExecutor(ExecutorType.SummonOrSet, CardId.ProtoCyberDragon, ProtoCyberDragonSummon);
+            AddExecutor(ExecutorType.Summon, CardId.CyberKirin, CyberKirinSummon);
+
+            AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
+            AddExecutor(ExecutorType.SpSummon, CardId.CyberEndDragon);
+            AddExecutor(ExecutorType.SpSummon, CardId.CyberTwinDragon);
+            AddExecutor(ExecutorType.SpSummon, CardId.CyberBarrierDragon);
+            AddExecutor(ExecutorType.SpSummon, CardId.CyberLaserDragon);
+
+            AddExecutor(ExecutorType.Activate, CardId.CyberBarrierDragon);
+            AddExecutor(ExecutorType.Activate, CardId.CyberLaserDragon);
+            AddExecutor(ExecutorType.Activate, CardId.CyberDragonDrei);
+            AddExecutor(ExecutorType.Activate, CardId.CyberPhoenix);
+            AddExecutor(ExecutorType.Activate, CardId.CyberKirin);
+            AddExecutor(ExecutorType.Activate, CardId.ArmoredCybern, ArmoredCybernEffect);
+            AddExecutor(ExecutorType.Activate, CardId.CyberValley);
+
+            //DarkMagicianExecutor
+            //counter
+            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, SolemnStrikeeff);
+            AddExecutor(ExecutorType.Activate, CardId.AshBlossom, ChainEnemy);
+            AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragoneff);
+            //AddExecutor(ExecutorType.Activate, CardId.Scapegoat,Scapegoateff);
+            //first do
+            AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin, UpstartGoblineff);
+            AddExecutor(ExecutorType.Activate, CardId.DarkMagicalCircle, DarkMagicalCircleeff);
+            AddExecutor(ExecutorType.Activate, CardId.SpellbookOfSecrets, SpellbookOfSecreteff);
+            AddExecutor(ExecutorType.Activate, CardId.DarkMagicInheritance, DarkMagicInheritanceeff);
+            AddExecutor(ExecutorType.Activate, CardId.DarkMagicAttack, DarkMagicAttackeff);
+            //trap set
+            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike);
+            AddExecutor(ExecutorType.SpellSet, CardId.MagicianNavigation, MagicianNavigationset);
+            AddExecutor(ExecutorType.SpellSet, CardId.EternalSoul, EternalSoulset);
+            /*AddExecutor(ExecutorType.SpellSet, CardId.Scapegoat, Scapegoatset);            
+            //sheep
+            AddExecutor(ExecutorType.SpSummon, CardId.Hidaruma, Hidarumasp);
+            AddExecutor(ExecutorType.SpSummon, CardId.Linkuriboh, Linkuribohsp);
+            AddExecutor(ExecutorType.Activate, CardId.Linkuriboh, Linkuriboheff);
+            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, Linkuribohsp);
+            AddExecutor(ExecutorType.SpSummon, CardId.BorreloadDragon, BorreloadDragonsp);
+            AddExecutor(ExecutorType.SpSummon, CardId.BorreloadDragon, BorreloadDragoneff);*/
+            //plan A             
+            AddExecutor(ExecutorType.Activate, CardId.WindwitchIceBell, WindwitchIceBelleff);
+            AddExecutor(ExecutorType.Activate, CardId.WindwitchGlassBell, WindwitchGlassBelleff);
+            AddExecutor(ExecutorType.Activate, CardId.WindwitchSnowBell, WindwitchSnowBellsp);
+            AddExecutor(ExecutorType.SpSummon, CardId.WindwitchWinterBell, WindwitchWinterBellsp);
+            AddExecutor(ExecutorType.Activate, CardId.WindwitchWinterBell, WindwitchWinterBelleff);
+
+            AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragonsp);
+            // if fail
+            AddExecutor(ExecutorType.SpSummon, CardId.ClearWingFastDragon, ClearWingFastDragonsp);
+            AddExecutor(ExecutorType.Activate, CardId.ClearWingFastDragon, ClearWingFastDragoneff);
+            // plan B
+            //AddExecutor(ExecutorType.Activate, CardId.GrinderGolem, GrinderGolemeff);
+            // AddExecutor(ExecutorType.SpSummon, CardId.Linkuriboh, Linkuribohsp);
+            //AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, LinkSpidersp);
+            //AddExecutor(ExecutorType.SpSummon, CardId.AkashicMagician);
+            //plan C
+            AddExecutor(ExecutorType.SpSummon, CardId.OddEyesAbsoluteDragon, OddEyesAbsoluteDragonsp);
+            AddExecutor(ExecutorType.Activate, CardId.OddEyesAbsoluteDragon, OddEyesAbsoluteDragoneff);
+            AddExecutor(ExecutorType.Activate, CardId.OddEyesWingDragon);
+            //summon
+            AddExecutor(ExecutorType.Summon, CardId.WindwitchGlassBell, WindwitchGlassBellsummonfirst);
+            AddExecutor(ExecutorType.Summon, CardId.SpellbookMagicianOfProphecy, SpellbookMagicianOfProphecysummon);
+            AddExecutor(ExecutorType.Activate, CardId.SpellbookMagicianOfProphecy, SpellbookMagicianOfProphecyeff);
+            AddExecutor(ExecutorType.Summon, CardId.MagiciansRod, MagiciansRodsummon);
+            AddExecutor(ExecutorType.Activate, CardId.MagiciansRod, MagiciansRodeff);
+            AddExecutor(ExecutorType.Summon, CardId.WindwitchGlassBell, WindwitchGlassBellsummon);
+            //activate
+            AddExecutor(ExecutorType.Activate, CardId.LllusionMagic, LllusionMagiceff);
+            AddExecutor(ExecutorType.SpellSet, CardId.LllusionMagic, LllusionMagicset);
+            AddExecutor(ExecutorType.Activate, CardId.SpellbookOfKnowledge, SpellbookOfKnowledgeeff);
+            AddExecutor(ExecutorType.Activate, CardId.WonderWand, WonderWandeff);
+            AddExecutor(ExecutorType.Activate, CardId.TheEyeOfTimaeus, TheEyeOfTimaeuseff);
+            AddExecutor(ExecutorType.SpSummon, CardId.ApprenticeLllusionMagician, ApprenticeLllusionMagiciansp);
+            AddExecutor(ExecutorType.Activate, CardId.ApprenticeLllusionMagician, ApprenticeLllusionMagicianeff);
+            //other thing                     
+            AddExecutor(ExecutorType.Activate, CardId.MagicianOfLllusion);
+            AddExecutor(ExecutorType.Activate, CardId.MagicianNavigation, MagicianNavigationeff);
+            AddExecutor(ExecutorType.Activate, CardId.EternalSoul, EternalSouleff);
+            AddExecutor(ExecutorType.SpSummon, CardId.BigEye, BigEyesp);
+            AddExecutor(ExecutorType.Activate, CardId.BigEye, BigEyeeff);
+            AddExecutor(ExecutorType.SpSummon, CardId.Dracossack, Dracossacksp);
+            AddExecutor(ExecutorType.Activate, CardId.Dracossack, Dracossackeff);
+            AddExecutor(ExecutorType.SpSummon, CardId.ApprenticeWitchling, ApprenticeWitchlingsp);
+            AddExecutor(ExecutorType.Activate, CardId.ApprenticeWitchling, ApprenticeWitchlingeff);
+            AddExecutor(ExecutorType.SpSummon, CardId.VentriloauistsClaraAndLucika, VentriloauistsClaraAndLucikasp);
+
+
+
 
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
             activatem.Add(CardId.Costdown);
@@ -368,10 +822,40 @@ namespace WindBot.Game.AI.Decks
             ss_other_monster = false;
             Impermanence_list.Clear();
             attacked_Meluseek.Clear();
+
+            UsedAlternativeWhiteDragon.Clear();
+            UsedGalaxyEyesCipherDragon = null;
+            AlternativeWhiteDragonSummoned = false;
+            SoulChargeUsed = false;
+
+            Talismandra_used = false;
+            Candoll_used = false;
+
+            CrystalWingSynchroDragon_used = false;
+            Secret_used = false;
+            maxxc_used = false;
+            lockbird_used = false;
+            ghost_used = false;
+            WindwitchGlassBelleff_used = false;
+            Spellbook_summon = false;
+            Rod_summon = false;
+            GlassBell_summon = false;
+            magician_sp = false;
+            big_attack = false;
+            big_attack_used = false;
+            soul_used = false;
+
+            base.OnNewTurn();
         }
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
+            if (Util.IsTurn1OrMain2()
+               && (cardId == CardId.Meluseek || cardId == CardId.Silquitous))
+            {
+                return CardPosition.FaceUpDefence;
+            }
+
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
@@ -381,6 +865,7 @@ namespace WindBot.Game.AI.Decks
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;
             }
+
             return 0;
         }
 
@@ -397,16 +882,149 @@ namespace WindBot.Game.AI.Decks
 
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
+            if (max == 2 && cards[0].Location == CardLocation.Deck)
+            {
+                Logger.DebugWriteLine("OnSelectCard MelodyOfAwakeningDragon");
+                List<ClientCard> result = new List<ClientCard>();
+                if (!Bot.HasInHand(CardId.WhiteDragon))
+                    result.AddRange(cards.Where(card => card.IsCode(CardId.WhiteDragon)).Take(1));
+                result.AddRange(cards.Where(card => card.IsCode(CardId.AlternativeWhiteDragon)));
+                return Util.CheckSelectCount(result, cards, min, max);
+            }
+
             List<ClientCard> selected = new List<ClientCard>();
             if (cards.IsExistingMatchingCard(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)))
             {
                 selected.AddRange(cards.Where(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)));
                 return Util.CheckSelectCount(selected, cards, min, max);
             }
+
+            long HIINT_TOGRAVE = 504;
+            if (max == 1 && cards[0].Location == CardLocation.Deck
+                    && Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(23002292) && Bot.GetRemainingCount(CardId.WakingtheDragon, 1) > 0)
+            {
+                IList<ClientCard> result = new List<ClientCard>();
+                foreach (ClientCard card in cards)
+                {
+                    if (card.IsCode(CardId.WakingtheDragon))
+                    {
+                        result.Add(card);
+                        AI.SelectPlace(SelectSetPlace());
+                        break;
+                    }
+                }
+                if (result.Count > 0) return result;
+            }
+            else if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(CardId.EvenlyMatched) && Duel.LastChainPlayer != 0)
+            {
+                Logger.DebugWriteLine("EvenlyMatched: min=" + min.ToString() + ", max=" + max.ToString());
+            }
+            else if (cards[0].Location == CardLocation.Hand && cards[cards.Count - 1].Location == CardLocation.Hand
+                && (hint == 501 || hint == HIINT_TOGRAVE) && min == max)
+            {
+                if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.OneForOne)) return null;
+                Logger.DebugWriteLine("Hand drop except OneForOne");
+                int todrop = min;
+                IList<ClientCard> result = new List<ClientCard>();
+                IList<ClientCard> ToRemove = new List<ClientCard>(cards);
+
+                List<int> record = new List<int>();
+                foreach (ClientCard card in ToRemove)
+                {
+                    if (card?.Id != 0 && !record.Contains(card.Id)) record.Add(card.Id);
+                    else
+                    {
+                        result.Add(card);
+                        if (--todrop <= 0) break;
+                    }
+                }
+                if (todrop <= 0) return result;
+                foreach (ClientCard card in result) ToRemove.Remove(card);
+                foreach (int throw_id in cards_improper)
+                {
+                    foreach (ClientCard card in ToRemove)
+                    {
+                        if (card.IsCode(throw_id))
+                        {
+                            result.Add(card);
+                            if (--todrop <= 0) return result;
+                        }
+                    }
+                }
+                return null;
+            }
+
             // select the last cards
             for (int i = 1; i <= max; ++i)
                 selected.Add(cards[cards.Count - i]);
             return selected;
+        }
+
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        {
+            if (player == 0)
+            {
+                if (location == CardLocation.SpellZone)
+                {
+                    // unfinished
+                }
+                else if (location == CardLocation.MonsterZone)
+                {
+                    if (cardId == CardId.Linkuriboh)
+                    {
+                        if ((Zones.z5 & available) > 0) return Zones.z5;
+                        if ((Zones.z6 & available) > 0) return Zones.z6;
+                        for (int i = 4; i >= 0; --i)
+                        {
+                            if (Bot.MonsterZone[i] == null)
+                            {
+                                int place = (int)System.Math.Pow(2, i);
+                                return place;
+                            }
+                        }
+                    }
+                    if (isAltergeist(cardId))
+                    {
+                        if (Bot.HasInMonstersZone(CardId.Hexstia))
+                        {
+                            for (int i = 0; i < 7; ++i)
+                            {
+                                if (i == 4) continue;
+                                if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(CardId.Hexstia))
+                                {
+                                    int next_index = get_Hexstia_linkzone(i);
+                                    if (next_index != -1 && (available & (int)(System.Math.Pow(2, next_index))) > 0)
+                                    {
+                                        return (int)(System.Math.Pow(2, next_index));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardId == CardId.Hexstia)
+                        {
+                            // ex zone
+                            if ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && isAltergeist(Bot.MonsterZone[1].Id)) return Zones.z5;
+                            if ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && isAltergeist(Bot.MonsterZone[3].Id)) return Zones.z6;
+                            if (((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && !isAltergeist(Bot.MonsterZone[3].Id))
+                                || ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] == null)) return Zones.z5;
+                            if (((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && !isAltergeist(Bot.MonsterZone[1].Id))
+                                || ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] == null)) return Zones.z6;
+                            // main zone
+                            for (int i = 1; i < 5; ++i)
+                            {
+                                if (Bot.MonsterZone[i] != null && isAltergeist(Bot.MonsterZone[i].Id))
+                                {
+                                    if ((available & (int)System.Math.Pow(2, i - 1)) > 0) return (int)System.Math.Pow(2, i - 1);
+                                }
+                            }
+                        }
+                        // 1 or 3
+                        if ((Zones.z1 & available) > 0) return Zones.z1;
+                        if ((Zones.z3 & available) > 0) return Zones.z3;
+                    }
+                }
+            }
+            return base.OnSelectPlace(cardId, player, location, available);
         }
 
         public override int OnAnnounceCard()
@@ -429,9 +1047,65 @@ namespace WindBot.Game.AI.Decks
             return options.Count > 1 ? options.Count - 1 : 0;
         }
 
-        public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)
+        public override bool OnSelectHand()
         {
-            return base.OnPreBattleBetween(attacker, defender);
+            // go first
+            return true;
+        }
+
+        public bool MonsterRepos()
+        {
+            if (Card.Attack == 0) return (Card.IsAttack() && Card.Id != 78371393 && Card.Id != 4779091 && Card.Id != 31764700 && Card.Id != 24 && Card.Id != 900000098);
+            if (Card.Id == 78371393 || Card.Id == 4779091 || Card.Id == 31764700 || Card.Id == 24 || Card.Id == 900000098) return (Card.IsDefense());
+
+            if (Card.IsCode(CardId.Meluseek) || Bot.HasInMonstersZone(CardId.Meluseek))
+            {
+                return Card.HasPosition(CardPosition.Defence);
+            }
+
+            if (isAltergeist(Card) && Bot.HasInHandOrInSpellZone(CardId.Protocol) && Card.IsFacedown())
+                return true;
+
+            bool enemyBetter = Util.IsAllEnemyBetter(true);
+            if (Card.IsAttack() && enemyBetter)
+                return true;
+            if (Card.IsFacedown())
+                return true;
+            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
+                return true;
+            if (Card.IsDefense() && Card.IsCode(CardId.BlueEyesSpiritDragon, CardId.AzureEyesSilverDragon))
+                return true;
+            if (Card.IsAttack() && Card.IsCode(CardId.SageWithEyesOfBlue, CardId.WhiteStoneOfAncients, CardId.WhiteStoneOfLegend))
+                return true;
+            return false;
+        }
+
+        public bool MonsterSet()
+        {
+            if (Util.GetOneEnemyBetterThanMyBest() == null && Bot.GetMonsterCount() > 0) return false;
+            if (Card.Level > 4) return false;
+            int rest_lp = Bot.LifePoints;
+            int count = Bot.GetMonsterCount();
+            List<ClientCard> list = Enemy.GetMonsters();
+            list.Sort(CardContainer.CompareCardAttack);
+            foreach (ClientCard card in list)
+            {
+                if (!card.HasPosition(CardPosition.Attack)) continue;
+                if (count-- > 0) continue;
+                rest_lp -= card.Attack;
+            }
+            if (rest_lp < 1700)
+            {
+                AI.SelectPosition(CardPosition.FaceDownDefence);
+                return true;
+            }
+            return false;
+        }
+
+        public bool MonsterSummon()
+        {
+            if (Enemy.GetMonsterCount() + Bot.GetMonsterCount() > 0) return false;
+            return Card.Attack >= Enemy.LifePoints;
         }
 
         public override ClientCard OnSelectAttacker(IList<ClientCard> attackers, IList<ClientCard> defenders)
@@ -457,6 +1131,25 @@ namespace WindBot.Game.AI.Decks
 
         public override BattlePhaseAction OnSelectAttackTarget(ClientCard attacker, IList<ClientCard> defenders)
         {
+            if (attacker.IsCode(CardId.BlueEyesChaosMaxDragon) && !attacker.IsDisabled() &&
+               Enemy.HasInMonstersZone(new[] { CardId.DeviritualTalismandra, CardId.DevirrtualCandoll }))
+            {
+                for (int i = 0; i < defenders.Count; i++)
+                {
+                    ClientCard defender = defenders[i];
+                    attacker.RealPower = attacker.Attack;
+                    defender.RealPower = defender.GetDefensePower();
+                    if (attacker.IsCode(CardId.Borrelsword) && !attacker.IsDisabled())
+                        return AI.Attack(attacker, defender);
+                    if (!OnPreBattleBetween(attacker, defender))
+                        continue;
+                    if (defender.IsCode(CardId.DevirrtualCandoll, CardId.DeviritualTalismandra))
+                    {
+                        return AI.Attack(attacker, defender);
+                    }
+                }
+            }
+
             for (int i = 0; i < defenders.Count; ++i)
             {
                 ClientCard defender = defenders[i];
@@ -464,15 +1157,40 @@ namespace WindBot.Game.AI.Decks
                 defender.RealPower = defender.GetDefensePower();
                 if (defender.IsCode(732) && defender.IsAttack())
                     defender.RealPower = defender.Attack * 2;
-                if (!OnPreBattleBetween(attacker, defender))
-                    continue;
                 if (attacker.RealPower >= defender.RealPower || (attacker.RealPower >= defender.RealPower && ((attacker.HasSetcode(0x48) && !attacker.IsDisabled() && !(defender.HasSetcode(0x48) && !defender.IsDisabled())) || attacker.IsLastAttacker && defender.IsAttack())))
                     return AI.Attack(attacker, defender);
                 if ((attacker.Id == 78371393 || attacker.Id == 4779091 || attacker.Id == 31764700 || attacker.Id == 24 || attacker.Id == 900000098) && !attacker.IsDisabled())
                     return AI.Attack(attacker, defender);
             }
+
             if (Enemy.GetMonsterCount() == 0 || attacker.CanDirectAttack)
                 return AI.Attack(attacker, null);
+            return null;
+        }
+
+        public override IList<ClientCard> OnSelectXyzMaterial(IList<ClientCard> cards, int min, int max)
+        {
+            Logger.DebugWriteLine("OnSelectXyzMaterial " + cards.Count + " " + min + " " + max);
+            IList<ClientCard> result = Util.SelectPreferredCards(UsedAlternativeWhiteDragon, cards, min, max);
+            return Util.CheckSelectCount(result, cards, min, max);
+        }
+
+        public override IList<ClientCard> OnSelectSynchroMaterial(IList<ClientCard> cards, int sum, int min, int max)
+        {
+            Logger.DebugWriteLine("OnSelectSynchroMaterial " + cards.Count + " " + sum + " " + min + " " + max);
+            if (sum != 8)
+                return null;
+
+            foreach (ClientCard AlternativeWhiteDragon in UsedAlternativeWhiteDragon)
+            {
+                if (cards.IndexOf(AlternativeWhiteDragon) > 0)
+                {
+                    UsedAlternativeWhiteDragon.Remove(AlternativeWhiteDragon);
+                    Logger.DebugWriteLine("select UsedAlternativeWhiteDragon");
+                    return new[] { AlternativeWhiteDragon };
+                }
+            }
+
             return null;
         }
 
@@ -481,19 +1199,34 @@ namespace WindBot.Game.AI.Decks
             if (Card.Level > 4 && DefaultTributeSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
             {
                 List<ClientCard> monster_sorted = new List<ClientCard>();
-                IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
-                IList<ClientCard> monster_sorted2 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
-                foreach (ClientCard monster in monster_sorted1)
+                List<ClientCard> monster_sorted0 = new List<ClientCard>();
+                IList<ClientCard> monster_sorted01 = Bot.MonsterZone.GetMonsters();
+                IList<ClientCard> monster_sorted02 = Bot.SpellZone.GetMonsters();
+                IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack -500));
+                IList<ClientCard> monster_sorted2 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack -500));
+                foreach (ClientCard monster in monster_sorted01)
                 {
                     monster_sorted.Add(monster);
                 }
-                foreach (ClientCard monster in monster_sorted2)
+                foreach (ClientCard monster in monster_sorted02)
                 {
                     monster_sorted.Add(monster);
                 }
-                monster_sorted.Sort(CardContainer.CompareCardAttack);
+                foreach (ClientCard card in monster_sorted)
+                {
+                    if (card.IsDisabled() || (card.Attack < card.BaseAttack - 500))
+                    {
+                        monster_sorted.Remove(card);
+                        monster_sorted0.Add(card);
+                    }
+                }
+                foreach (ClientCard card in monster_sorted0)
+                {
+                    monster_sorted.Add(card);
+                }
+                monster_sorted0.Sort(CardContainer.CompareCardAttack);
                 List<ClientCard> tribute = new List<ClientCard>();
-                foreach (ClientCard monster in monster_sorted)
+                foreach (ClientCard monster in monster_sorted0)
                 {
                     if (monster.Rank < 1 || monster.IsDisabled() || (monster.Attack == 0 && monster.BaseAttack > 0))
                         tribute.Add(monster);
@@ -3341,259 +4074,3019 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
-        //public override ClientCard OnSelectAttacker(IList<ClientCard> attackers, IList<ClientCard> defenders)
-        //{
-        //    List<ClientCard> Meluseek_list = new List<ClientCard>();
-        //    for (int i = 0; i < attackers.Count; ++i)
-        //    {
-        //        ClientCard attacker = attackers[i];
-        //        if (attacker.IsCode(CardId.Meluseek) && !attacker.IsDisabled())
-        //        {
-        //            if (Enemy.GetMonsterCount() > 0) return attacker;
-        //            // Meluseek attack first even in direct attack
-        //            else Meluseek_list.Add(attacker);
-        //        }
-        //        if (attacker.IsCode(CardId.Borrelsword) && !attacker.IsDisabled()) return attacker;
-        //    }
-        //    if (Meluseek_list.Count > 0)
-        //    {
-        //        foreach (ClientCard card in Meluseek_list)
-        //        {
-        //            attackers.Remove(card);
-        //            attackers.Add(card);
-        //        }
-        //    }
-        //    return null;
-        //}
-
-        public override bool OnSelectHand()
+        //BlackwingExecutor
+        private bool ShuraTheBlueFlameSummon()
         {
-            // go first
+            if (Bot.HasInMonstersZone(CardId.SiroccoTheDawn) && Bot.GetMonsters().GetHighestAttackMonster().Attack < 3800)
+                return true;
+            return false;
+        }
+
+        private bool BlackWhirlwindEffect()
+        {
+            if (Card.Location == CardLocation.Hand && Bot.HasInSpellZone(Card.Id))
+                return false;
+            if (ActivateDescription == Util.GetStringId((int)Card.Id, 0))
+                AI.SelectCard(CardId.GaleTheWhirlwind);
             return true;
         }
 
-        public bool MonsterRepos()
+        private bool SiroccoTheDawnSummon()
         {
-            if (Card.Attack == 0) return (Card.IsAttack() && Card.Id != 78371393 && Card.Id != 4779091 && Card.Id != 31764700 && Card.Id != 24 && Card.Id != 900000098);
-            if (Card.Id == 78371393 || Card.Id == 4779091 || Card.Id == 31764700 || Card.Id == 24 || Card.Id == 900000098) return (Card.IsDefense());
-
-            if (Card.IsCode(CardId.Meluseek) || Bot.HasInMonstersZone(CardId.Meluseek))
-            {
-                return Card.HasPosition(CardPosition.Defence);
-            }
-
-            if (isAltergeist(Card) && Bot.HasInHandOrInSpellZone(CardId.Protocol) && Card.IsFacedown())
-                return true;
-
-            bool enemyBetter = Util.IsAllEnemyBetter(true);
-            if (Card.IsAttack() && enemyBetter)
-                return true;
-            if (Card.IsDefense() && !enemyBetter)
+            int OpponentMonster = Enemy.GetMonsterCount();
+            int AIMonster = Bot.GetMonsterCount();
+            if (OpponentMonster != 0 && AIMonster == 0)
                 return true;
             return false;
         }
 
-        public bool MonsterSet()
+        private bool BoraTheSpearEffect()
         {
-            if (Util.GetOneEnemyBetterThanMyBest() == null && Bot.GetMonsterCount() > 0) return false;
-            if (Card.Level > 4) return false;
-            int rest_lp = Bot.LifePoints;
-            int count = Bot.GetMonsterCount();
-            List<ClientCard> list = Enemy.GetMonsters();
-            list.Sort(CardContainer.CompareCardAttack);
-            foreach (ClientCard card in list)
+            List<ClientCard> monster = Bot.GetMonsters();
+            foreach (ClientCard card in monster)
+                if (card != null && card.IsCode(CardId.KrisTheCrackOfDawn, CardId.KalutTheMoonShadow, CardId.GaleTheWhirlwind, CardId.BoraTheSpear, CardId.SiroccoTheDawn, CardId.ShuraTheBlueFlame, CardId.BlizzardTheFarNorth))
+                    return true;
+            return false;
+        }
+
+        private bool KalutTheMoonShadowSummon()
+        {
+            foreach (ClientCard card in Bot.Hand)
+                if (card != null && card.IsCode(CardId.KrisTheCrackOfDawn, CardId.GaleTheWhirlwind, CardId.BoraTheSpear, CardId.SiroccoTheDawn, CardId.ShuraTheBlueFlame, CardId.BlizzardTheFarNorth))
+                    return false;
+            return true;
+        }
+
+        private bool BlizzardTheFarNorthSummon()
+        {
+            foreach (ClientCard card in Bot.Graveyard)
+                if (card != null && card.IsCode(CardId.KalutTheMoonShadow, CardId.BoraTheSpear, CardId.ShuraTheBlueFlame, CardId.KrisTheCrackOfDawn))
+                    return true;
+            return false;
+        }
+
+        private bool DeltaCrowAntiReverseEffect()
+        {
+            int Count = 0;
+
+            List<ClientCard> monster = Bot.GetMonsters();
+            foreach (ClientCard card in monster)
+                if (card != null && card.IsCode(CardId.KrisTheCrackOfDawn, CardId.KalutTheMoonShadow, CardId.GaleTheWhirlwind, CardId.BoraTheSpear, CardId.SiroccoTheDawn, CardId.ShuraTheBlueFlame, CardId.BlizzardTheFarNorth))
+                    Count++;
+
+            if (Count == 3)
+                return true;
+            return false;
+        }
+
+        private bool GaleTheWhirlwindEffect()
+        {
+            if (Card.Position == (int)CardPosition.FaceUp)
             {
-                if (!card.HasPosition(CardPosition.Attack)) continue;
-                if (count-- > 0) continue;
-                rest_lp -= card.Attack;
-            }
-            if (rest_lp < 1700)
-            {
-                AI.SelectPosition(CardPosition.FaceDownDefence);
+                AI.SelectCard(Enemy.GetMonsters().GetHighestAttackMonster());
                 return true;
             }
             return false;
         }
 
-        public bool MonsterSummon()
+        private bool AttackUpEffect()
         {
-            if (Enemy.GetMonsterCount() + Bot.GetMonsterCount() > 0) return false;
-            return Card.Attack >= Enemy.LifePoints;
+            ClientCard bestMy = Bot.GetMonsters().GetHighestAttackMonster();
+            ClientCard bestEnemyATK = Enemy.GetMonsters().GetHighestAttackMonster();
+            ClientCard bestEnemyDEF = Enemy.GetMonsters().GetHighestDefenseMonster();
+            if (bestMy == null || (bestEnemyATK == null && bestEnemyDEF == null))
+                return false;
+            if (bestEnemyATK != null && bestMy.Attack < bestEnemyATK.Attack)
+                return true;
+            if (bestEnemyDEF != null && bestMy.Attack < bestEnemyDEF.Defense)
+                return true;
+            return false;
         }
 
-        //public override BattlePhaseAction OnSelectAttackTarget(ClientCard attacker, IList<ClientCard> defenders)
-        //{
-        //    if (EvenlyMatched_ready())
-        //    {
-        //        List<ClientCard> enemy_m = Enemy.GetMonsters();
-        //        enemy_m.Sort(CardContainer.CompareCardAttack);
-        //        //enemy_m.Reverse();
-        //        foreach (ClientCard e_card in enemy_m)
-        //        {
-        //            if (e_card.HasPosition(CardPosition.Attack))
-        //            {
-        //                return AI.Attack(attacker, e_card);
-        //            }
-        //        }
-        //    }
-        //    for (int i = 0; i < defenders.Count; ++i)
-        //    {
-        //        ClientCard defender = defenders[i];
-        //        attacker.RealPower = attacker.Attack;
-        //        defender.RealPower = defender.GetDefensePower();
-        //        if (attacker.IsCode(CardId.Borrelsword) && !attacker.IsDisabled())
-        //            return AI.Attack(attacker, defender);
-        //        if (!OnPreBattleBetween(attacker, defender))
-        //            continue;
-        //        if (attacker.RealPower == defender.RealPower && Bot.GetMonsterCount() < Enemy.GetMonsterCount())
-        //            continue;
-        //        if (attacker.RealPower > defender.RealPower || (attacker.RealPower >= defender.RealPower && attacker.IsLastAttacker && defender.IsAttack()))
-        //            return AI.Attack(attacker, defender);
-        //    }
-
-        //    if (attacker.CanDirectAttack && (Enemy.GetMonsterCount() == 0 || !attacker.IsDisabled()))
-        //        return AI.Attack(attacker, null);
-
-        //    return null;
-        //}
-
-        //public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
-        //{
-
-        //    long HIINT_TOGRAVE = 504;
-        //    if (max == 1 && cards[0].Location == CardLocation.Deck
-        //        && Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(23002292) && Bot.GetRemainingCount(CardId.WakingtheDragon, 1) > 0)
-        //    {
-        //        IList<ClientCard> result = new List<ClientCard>();
-        //        foreach (ClientCard card in cards)
-        //        {
-        //            if (card.IsCode(CardId.WakingtheDragon))
-        //            {
-        //                result.Add(card);
-        //                AI.SelectPlace(SelectSetPlace());
-        //                break;
-        //            }
-        //        }
-        //        if (result.Count > 0) return result;
-        //    }
-        //    else if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(CardId.EvenlyMatched) && Duel.LastChainPlayer != 0)
-        //    {
-        //        Logger.DebugWriteLine("EvenlyMatched: min=" + min.ToString() + ", max=" + max.ToString());
-        //    }
-        //    else if (cards[0].Location == CardLocation.Hand && cards[cards.Count - 1].Location == CardLocation.Hand
-        //        && (hint == 501 || hint == HIINT_TOGRAVE) && min == max)
-        //    {
-        //        if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.OneForOne)) return null;
-        //        Logger.DebugWriteLine("Hand drop except OneForOne");
-        //        int todrop = min;
-        //        IList<ClientCard> result = new List<ClientCard>();
-        //        IList<ClientCard> ToRemove = new List<ClientCard>(cards);
-        //        // throw redundance
-        //        List<int> record = new List<int>();
-        //        foreach (ClientCard card in ToRemove)
-        //        {
-        //            if (card?.Id != 0 && !record.Contains(card.Id)) record.Add(card.Id);
-        //            else
-        //            {
-        //                result.Add(card);
-        //                if (--todrop <= 0) break;
-        //            }
-        //        }
-        //        if (todrop <= 0) return result;
-        //        foreach (ClientCard card in result) ToRemove.Remove(card);
-        //        // throw improper
-        //        foreach (int throw_id in cards_improper)
-        //        {
-        //            foreach (ClientCard card in ToRemove)
-        //            {
-        //                if (card.IsCode(throw_id))
-        //                {
-        //                    result.Add(card);
-        //                    if (--todrop <= 0) return result;
-        //                }
-        //            }
-        //        }
-        //        // throw all??
-        //        return null;
-        //    }
-        //    return null;
-        //}
-
-        //public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
-        //{
-        //    if (Util.IsTurn1OrMain2()
-        //        && (cardId == CardId.Meluseek || cardId == CardId.Silquitous))
-        //    {
-        //        return CardPosition.FaceUpDefence;
-        //    }
-        //    return 0;
-        //}
-
-        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        //BlueEyesExecutor
+        private bool DragonShrineEffect()
         {
-            if (player == 0)
+            AI.SelectCard(
+                CardId.DragonSpiritOfWhite,
+                CardId.WhiteDragon,
+                CardId.WhiteStoneOfAncients,
+                CardId.WhiteStoneOfLegend
+                );
+            if (!Bot.HasInHand(CardId.WhiteDragon))
             {
-                if (location == CardLocation.SpellZone)
+                AI.SelectNextCard(CardId.WhiteStoneOfLegend);
+            }
+            else
+            {
+                AI.SelectNextCard(
+                    CardId.WhiteStoneOfAncients,
+                    CardId.DragonSpiritOfWhite,
+                    CardId.WhiteStoneOfLegend
+                    );
+            }
+            return true;
+        }
+
+        private bool MelodyOfAwakeningDragonEffect()
+        {
+            AI.SelectCard(
+                CardId.WhiteStoneOfAncients,
+                CardId.DragonSpiritOfWhite,
+                CardId.WhiteStoneOfLegend,
+                CardId.GalaxyCyclone,
+                CardId.EffectVeiler,
+                CardId.TradeIn,
+                CardId.SageWithEyesOfBlue
+                );
+            return true;
+        }
+
+        private bool CardsOfConsonanceEffect()
+        {
+            if (!Bot.HasInHand(CardId.WhiteDragon))
+            {
+                AI.SelectCard(CardId.WhiteStoneOfLegend);
+            }
+            else if (Bot.HasInHand(CardId.TradeIn))
+            {
+                AI.SelectCard(CardId.WhiteStoneOfLegend);
+            }
+            else
+            {
+                AI.SelectCard(CardId.WhiteStoneOfAncients);
+            }
+            return true;
+        }
+
+        private bool TradeInEffect()
+        {
+            if (Bot.HasInHand(CardId.DragonSpiritOfWhite))
+            {
+                AI.SelectCard(CardId.DragonSpiritOfWhite);
+                return true;
+            }
+            else if (HasTwoInHand(CardId.WhiteDragon))
+            {
+                AI.SelectCard(CardId.WhiteDragon);
+                return true;
+            }
+            else if (HasTwoInHand(CardId.AlternativeWhiteDragon))
+            {
+                AI.SelectCard(CardId.AlternativeWhiteDragon);
+                return true;
+            }
+            else if (!Bot.HasInHand(CardId.WhiteDragon) || !Bot.HasInHand(CardId.AlternativeWhiteDragon))
+            {
+                AI.SelectCard(CardId.WhiteDragon, CardId.AlternativeWhiteDragon);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool AlternativeWhiteDragonEffect()
+        {
+            ClientCard target = Util.GetProblematicEnemyMonster(Card.GetDefensePower());
+            if (target != null)
+            {
+                AI.SelectCard(target);
+                UsedAlternativeWhiteDragon.Add(Card);
+                return true;
+            }
+            if (Util.GetBotAvailZonesFromExtraDeck(Card) > 0
+                && (Bot.HasInMonstersZone(new[]
                 {
-                    // unfinished
+                    CardId.SageWithEyesOfBlue,
+                    CardId.WhiteStoneOfAncients,
+                    CardId.WhiteStoneOfLegend,
+                    CardId.WhiteDragon,
+                    CardId.DragonSpiritOfWhite
+                }) || Bot.GetCountCardInZone(Bot.MonsterZone, CardId.AlternativeWhiteDragon) >= 2))
+            {
+                target = Util.GetBestEnemyMonster(false, true);
+                AI.SelectCard(target);
+                UsedAlternativeWhiteDragon.Add(Card);
+                return true;
+            }
+            return false;
+        }
+
+        private bool RebornEffect()
+        {
+            if (Duel.Player == 0 && Duel.CurrentChain.Count > 0)
+            {
+                // Silver's Cry spsummon Dragon Spirit at chain 2 will miss the timing
+                return false;
+            }
+            if (Duel.Player == 0 && (Duel.Phase == DuelPhase.Draw || Duel.Phase == DuelPhase.Standby))
+            {
+                // Let Azure-Eyes spsummon first
+                return false;
+            }
+            IList<int> targets = new[] {
+                    CardId.HopeHarbingerDragonTitanicGalaxy,
+                    CardId.GalaxyEyesDarkMatterDragon,
+                    CardId.AlternativeWhiteDragon,
+                    CardId.AzureEyesSilverDragon,
+                    CardId.BlueEyesSpiritDragon,
+                    CardId.WhiteDragon,
+                    CardId.DragonSpiritOfWhite
+                };
+            if (!Bot.HasInGraveyard(targets))
+            {
+                return false;
+            }
+            ClientCard floodgate = Enemy.SpellZone.GetFloodgate();
+            if (floodgate != null && Bot.HasInGraveyard(CardId.DragonSpiritOfWhite))
+            {
+                AI.SelectCard(CardId.DragonSpiritOfWhite);
+            }
+            else
+            {
+                AI.SelectCard(targets);
+            }
+            return true;
+        }
+
+        private bool AzureEyesSilverDragonEffect()
+        {
+            if (Enemy.GetSpellCount() > 0)
+            {
+                AI.SelectCard(CardId.DragonSpiritOfWhite);
+            }
+            else
+            {
+                AI.SelectCard(CardId.WhiteDragon);
+            }
+            return true;
+        }
+
+        private bool SageWithEyesOfBlueSummon()
+        {
+            return !Bot.HasInHand(new[]
+                {
+                    CardId.WhiteStoneOfAncients,
+                    CardId.WhiteStoneOfLegend
+                });
+        }
+
+        private bool SageWithEyesOfBlueEffect()
+        {
+            if (Card.Location == CardLocation.Hand)
+            {
+                return false;
+            }
+            AI.SelectCard(
+                CardId.WhiteStoneOfAncients,
+                CardId.EffectVeiler,
+                CardId.WhiteStoneOfLegend
+                );
+            return true;
+        }
+
+        private bool WhiteStoneSummonForSage()
+        {
+            return Bot.HasInHand(CardId.SageWithEyesOfBlue);
+        }
+
+        private bool SageWithEyesOfBlueEffectInHand()
+        {
+            if (Card.Location != CardLocation.Hand)
+            {
+                return false;
+            }
+            if (!Bot.HasInMonstersZone(new[]
+                {
+                    CardId.WhiteStoneOfLegend,
+                    CardId.WhiteStoneOfAncients
+                }) || Bot.HasInMonstersZone(new[]
+                {
+                    CardId.AlternativeWhiteDragon,
+                    CardId.WhiteDragon,
+                    CardId.DragonSpiritOfWhite
+                }))
+            {
+                return false;
+            }
+            AI.SelectCard(CardId.WhiteStoneOfLegend, CardId.WhiteStoneOfAncients);
+            if (Enemy.GetSpellCount() > 0)
+            {
+                AI.SelectNextCard(CardId.DragonSpiritOfWhite);
+            }
+            else
+            {
+                AI.SelectNextCard(CardId.WhiteDragon);
+            }
+            return true;
+        }
+
+        private bool DragonSpiritOfWhiteEffect()
+        {
+            if (ActivateDescription == -1)
+            {
+                ClientCard target = Util.GetBestEnemySpell();
+                AI.SelectCard(target);
+                return true;
+            }
+            else if (HaveEnoughWhiteDragonInHand())
+            {
+                if (Duel.Player == 0 && Duel.Phase == DuelPhase.BattleStart)
+                {
+                    return Card.Attacked;
                 }
-                else if (location == CardLocation.MonsterZone)
+                if (Duel.Player == 1 && Duel.Phase == DuelPhase.End)
                 {
-                    if (cardId == CardId.Linkuriboh)
+                    return Bot.HasInMonstersZone(CardId.AzureEyesSilverDragon, true)
+                        && !Bot.HasInGraveyard(CardId.DragonSpiritOfWhite)
+                        && !Bot.HasInGraveyard(CardId.WhiteDragon);
+                }
+                if (Util.IsChainTarget(Card))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool BlueEyesSpiritDragonEffect()
+        {
+            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(CardId.BlueEyesSpiritDragon, 0))
+            {
+                return Duel.LastChainPlayer == 1;
+            }
+            else if (Duel.Player == 1 && (Duel.Phase == DuelPhase.BattleStart || Duel.Phase == DuelPhase.End))
+            {
+                AI.SelectCard(CardId.AzureEyesSilverDragon);
+                return true;
+            }
+            else
+            {
+                if (Util.IsChainTarget(Card))
+                {
+                    AI.SelectCard(CardId.AzureEyesSilverDragon);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        private bool HopeHarbingerDragonTitanicGalaxyEffect()
+        {
+            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(CardId.HopeHarbingerDragonTitanicGalaxy, 0))
+            {
+                return Duel.LastChainPlayer == 1;
+            }
+            return true;
+        }
+
+        private bool WhiteStoneOfAncientsEffect()
+        {
+            if (ActivateDescription == Util.GetStringId(CardId.WhiteStoneOfAncients, 0))
+            {
+                if (Bot.HasInHand(CardId.TradeIn)
+                    && !Bot.HasInHand(CardId.WhiteDragon)
+                    && !Bot.HasInHand(CardId.AlternativeWhiteDragon))
+                {
+                    AI.SelectCard(CardId.WhiteDragon);
+                    return true;
+                }
+                if (AlternativeWhiteDragonSummoned)
+                {
+                    return false;
+                }
+                if (Bot.HasInHand(CardId.WhiteDragon)
+                    && !Bot.HasInHand(CardId.AlternativeWhiteDragon)
+                    && Bot.HasInGraveyard(CardId.AlternativeWhiteDragon))
+                {
+                    AI.SelectCard(CardId.AlternativeWhiteDragon);
+                    return true;
+                }
+                if (Bot.HasInHand(CardId.AlternativeWhiteDragon)
+                    && !Bot.HasInHand(CardId.WhiteDragon)
+                    && Bot.HasInGraveyard(CardId.WhiteDragon))
+                {
+                    AI.SelectCard(CardId.WhiteDragon);
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                if (Enemy.GetSpellCount() > 0)
+                {
+                    AI.SelectCard(CardId.DragonSpiritOfWhite);
+                }
+                else
+                {
+                    AI.SelectCard(CardId.WhiteDragon);
+                }
+                return true;
+            }
+        }
+
+        private bool AlternativeWhiteDragonSummon()
+        {
+            AlternativeWhiteDragonSummoned = true;
+            return true;
+        }
+
+        private bool WhiteStoneSummon()
+        {
+            return Bot.HasInMonstersZone(new[]
+                {
+                    CardId.SageWithEyesOfBlue,
+                    CardId.WhiteStoneOfAncients,
+                    CardId.WhiteStoneOfLegend,
+                    CardId.AlternativeWhiteDragon,
+                    CardId.WhiteDragon,
+                    CardId.DragonSpiritOfWhite
+                });
+        }
+
+        private bool GalaxyEyesCipherDragonSummon()
+        {
+            if (Duel.Turn == 1 || SoulChargeUsed)
+            {
+                return false;
+            }
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            if (monsters.Count == 1 && !monsters[0].IsFacedown() && ((monsters[0].IsDefense() && monsters[0].GetDefensePower() >= 3000) && monsters[0].HasType(CardType.Xyz)))
+            {
+                return true;
+            }
+            if (monsters.Count >= 3)
+            {
+                foreach (ClientCard monster in monsters)
+                {
+                    if (!monster.IsFacedown() && ((monster.IsDefense() && monster.GetDefensePower() >= 3000) || monster.HasType(CardType.Xyz)))
                     {
-                        if ((Zones.z5 & available) > 0) return Zones.z5;
-                        if ((Zones.z6 & available) > 0) return Zones.z6;
-                        for (int i = 4; i >= 0; --i)
-                        {
-                            if (Bot.MonsterZone[i] == null)
-                            {
-                                int place = (int)System.Math.Pow(2, i);
-                                return place;
-                            }
-                        }
-                    }
-                    if (isAltergeist(cardId))
-                    {
-                        if (Bot.HasInMonstersZone(CardId.Hexstia))
-                        {
-                            for (int i = 0; i < 7; ++i)
-                            {
-                                if (i == 4) continue;
-                                if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(CardId.Hexstia))
-                                {
-                                    int next_index = get_Hexstia_linkzone(i);
-                                    if (next_index != -1 && (available & (int)(System.Math.Pow(2, next_index))) > 0)
-                                    {
-                                        return (int)(System.Math.Pow(2, next_index));
-                                    }
-                                }
-                            }
-                        }
-                        if (cardId == CardId.Hexstia)
-                        {
-                            // ex zone
-                            if ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && isAltergeist(Bot.MonsterZone[1].Id)) return Zones.z5;
-                            if ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && isAltergeist(Bot.MonsterZone[3].Id)) return Zones.z6;
-                            if (((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && !isAltergeist(Bot.MonsterZone[3].Id))
-                                || ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] == null)) return Zones.z5;
-                            if (((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && !isAltergeist(Bot.MonsterZone[1].Id))
-                                || ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] == null)) return Zones.z6;
-                            // main zone
-                            for (int i = 1; i < 5; ++i)
-                            {
-                                if (Bot.MonsterZone[i] != null && isAltergeist(Bot.MonsterZone[i].Id))
-                                {
-                                    if ((available & (int)System.Math.Pow(2, i - 1)) > 0) return (int)System.Math.Pow(2, i - 1);
-                                }
-                            }
-                        }
-                        // 1 or 3
-                        if ((Zones.z1 & available) > 0) return Zones.z1;
-                        if ((Zones.z3 & available) > 0) return Zones.z3;
+                        return true;
                     }
                 }
             }
-            return base.OnSelectPlace(cardId, player, location, available);
+            return false;
         }
+
+        private bool GalaxyEyesPrimePhotonDragonSummon()
+        {
+            if (Duel.Turn == 1)
+            {
+                return false;
+            }
+            if (Util.IsOneEnemyBetterThanValue(2999, false))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesFullArmorPhotonDragonSummon()
+        {
+            if (Bot.HasInMonstersZone(CardId.GalaxyEyesCipherDragon))
+            {
+                foreach (ClientCard monster in Bot.GetMonsters())
+                {
+                    if ((monster.IsDisabled() && monster.HasType(CardType.Xyz) && !monster.Equals(UsedGalaxyEyesCipherDragon))
+                        || (Duel.Phase == DuelPhase.Main2 && monster.Equals(UsedGalaxyEyesCipherDragon)))
+                    {
+                        AI.SelectCard(monster);
+                        return true;
+                    }
+                }
+            }
+            if (Bot.HasInMonstersZone(CardId.GalaxyEyesPrimePhotonDragon))
+            {
+                if (!Util.IsOneEnemyBetterThanValue(4000, false))
+                {
+                    AI.SelectCard(CardId.GalaxyEyesPrimePhotonDragon);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesCipherBladeDragonSummon()
+        {
+            if (Bot.HasInMonstersZone(CardId.GalaxyEyesFullArmorPhotonDragon) && Util.GetProblematicEnemyCard() != null)
+            {
+                AI.SelectCard(CardId.GalaxyEyesFullArmorPhotonDragon);
+                return true;
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesDarkMatterDragonSummon()
+        {
+            if (Bot.HasInMonstersZone(CardId.GalaxyEyesFullArmorPhotonDragon))
+            {
+                AI.SelectCard(CardId.GalaxyEyesFullArmorPhotonDragon);
+                return true;
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesPrimePhotonDragonEffect()
+        {
+            return true;
+        }
+
+        private bool GalaxyEyesCipherDragonEffect()
+        {
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            foreach (ClientCard monster in monsters)
+            {
+                if (monster.HasType(CardType.Xyz))
+                {
+                    AI.SelectCard(monster);
+                    UsedGalaxyEyesCipherDragon = Card;
+                    return true;
+                }
+            }
+            foreach (ClientCard monster in monsters)
+            {
+                if (monster.IsDefense())
+                {
+                    AI.SelectCard(monster);
+                    UsedGalaxyEyesCipherDragon = Card;
+                    return true;
+                }
+            }
+            UsedGalaxyEyesCipherDragon = Card;
+            return true;
+        }
+
+        private bool GalaxyEyesFullArmorPhotonDragonEffect()
+        {
+            ClientCard target = Util.GetProblematicEnemySpell();
+            if (target != null)
+            {
+                AI.SelectCard(target);
+                return true;
+            }
+            target = Util.GetProblematicEnemyMonster();
+            if (target != null)
+            {
+                AI.SelectCard(target);
+                return true;
+            }
+            foreach (ClientCard spell in Enemy.GetSpells())
+            {
+                if (spell.IsFaceup())
+                {
+                    AI.SelectCard(spell);
+                    return true;
+                }
+            }
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            if (monsters.Count >= 2)
+            {
+                foreach (ClientCard monster in monsters)
+                {
+                    if (monster.IsDefense())
+                    {
+                        AI.SelectCard(monster);
+                        return true;
+                    }
+                }
+                return true;
+            }
+            if (monsters.Count == 2)
+            {
+                foreach (ClientCard monster in monsters)
+                {
+                    if (monster.IsMonsterInvincible() || monster.IsMonsterDangerous() || monster.GetDefensePower() > 4000)
+                    {
+                        AI.SelectCard(monster);
+                        return true;
+                    }
+                }
+            }
+            if (monsters.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesCipherBladeDragonEffect()
+        {
+            if (Card.Location == CardLocation.Grave)
+            {
+                return true;
+            }
+            ClientCard target = Util.GetProblematicEnemyCard();
+            if (target != null)
+            {
+                AI.SelectCard(target);
+                return true;
+            }
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            foreach (ClientCard monster in monsters)
+            {
+                if (monster.IsDefense())
+                {
+                    AI.SelectCard(monster);
+                    return true;
+                }
+            }
+            foreach (ClientCard monster in monsters)
+            {
+                AI.SelectCard(monster);
+                return true;
+            }
+            List<ClientCard> spells = Enemy.GetSpells();
+            foreach (ClientCard spell in spells)
+            {
+                if (spell.IsFacedown())
+                {
+                    AI.SelectCard(spell);
+                    return true;
+                }
+            }
+            foreach (ClientCard spell in spells)
+            {
+                AI.SelectCard(spell);
+                return true;
+            }
+            return false;
+        }
+
+        private bool GalaxyEyesDarkMatterDragonEffect()
+        {
+            AI.SelectCard(
+                CardId.WhiteStoneOfAncients,
+                CardId.WhiteStoneOfLegend,
+                CardId.DragonSpiritOfWhite,
+                CardId.WhiteDragon
+                );
+            AI.SelectNextCard(
+                CardId.WhiteStoneOfAncients,
+                CardId.WhiteStoneOfLegend,
+                CardId.DragonSpiritOfWhite,
+                CardId.WhiteDragon
+                );
+            return true;
+        }
+
+        private bool GiganticastleSummon()
+        {
+            if (Duel.Phase != DuelPhase.Main1 || Duel.Turn == 1 || SoulChargeUsed)
+                return false;
+            int bestSelfAttack = Util.GetBestAttack(Bot);
+            int bestEnemyAttack = Util.GetBestPower(Enemy);
+            return bestSelfAttack <= bestEnemyAttack && bestEnemyAttack > 2500 && bestEnemyAttack <= 3100;
+        }
+
+        private bool BlueEyesSpiritDragonSummon()
+        {
+            if (Duel.Phase == DuelPhase.Main1)
+            {
+                if (UsedAlternativeWhiteDragon.Count > 0)
+                {
+                    return true;
+                }
+                if (Duel.Turn == 1 || SoulChargeUsed)
+                {
+                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                    return true;
+                }
+            }
+            if (Duel.Phase == DuelPhase.Main2)
+            {
+                AI.SelectPosition(CardPosition.FaceUpDefence);
+                return true;
+            }
+            return false;
+        }
+
+        private bool HopeHarbingerDragonTitanicGalaxySummon()
+        {
+            if (Duel.Phase == DuelPhase.Main1)
+            {
+                if (UsedAlternativeWhiteDragon.Count > 0)
+                {
+                    return true;
+                }
+                if (Duel.Turn == 1 || SoulChargeUsed)
+                {
+                    return true;
+                }
+            }
+            if (Duel.Phase == DuelPhase.Main2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool SylvanPrincesspriteSummon()
+        {
+            if (Duel.Turn == 1)
+            {
+                return true;
+            }
+            if (Duel.Phase == DuelPhase.Main1 && !Bot.HasInMonstersZone(new[]
+                {
+                    CardId.AlternativeWhiteDragon,
+                    CardId.WhiteDragon,
+                    CardId.DragonSpiritOfWhite
+                }))
+            {
+                return true;
+            }
+            if (Duel.Phase == DuelPhase.Main2 || SoulChargeUsed)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool SylvanPrincesspriteEffect()
+        {
+            AI.SelectCard(CardId.WhiteStoneOfLegend, CardId.WhiteStoneOfAncients);
+            return true;
+        }
+
+        private bool SoulChargeEffect()
+        {
+            if (Bot.HasInMonstersZone(CardId.BlueEyesSpiritDragon, true))
+                return false;
+            int count = Bot.GetGraveyardMonsters().Count;
+            int space = 5 - Bot.GetMonstersInMainZone().Count;
+            if (count < space)
+                count = space;
+            if (count < 2 || Bot.LifePoints < count * 1000)
+                return false;
+            if (Duel.Turn != 1)
+            {
+                int attack = 0;
+                int defence = 0;
+                foreach (ClientCard monster in Bot.GetMonsters())
+                {
+                    if (!monster.IsDefense())
+                    {
+                        attack += monster.Attack;
+                    }
+                }
+                foreach (ClientCard monster in Enemy.GetMonsters())
+                {
+                    defence += monster.GetDefensePower();
+                }
+                if (attack - defence > Enemy.LifePoints)
+                    return false;
+            }
+            AI.SelectCard(
+                CardId.BlueEyesSpiritDragon,
+                CardId.HopeHarbingerDragonTitanicGalaxy,
+                CardId.AlternativeWhiteDragon,
+                CardId.WhiteDragon,
+                CardId.DragonSpiritOfWhite,
+                CardId.AzureEyesSilverDragon,
+                CardId.WhiteStoneOfAncients,
+                CardId.WhiteStoneOfLegend
+                );
+            SoulChargeUsed = true;
+            return true;
+        }
+
+        private bool HasTwoInHand(int id)
+        {
+            int num = 0;
+            foreach (ClientCard card in Bot.Hand)
+            {
+                if (card != null && card.IsCode(id))
+                    num++;
+            }
+            return num >= 2;
+        }
+
+        private bool HaveEnoughWhiteDragonInHand()
+        {
+            return HasTwoInHand(CardId.WhiteDragon) || (
+                Bot.HasInGraveyard(CardId.WhiteDragon)
+                && Bot.HasInGraveyard(CardId.WhiteStoneOfAncients)
+                );
+        }
+
+        //BlueEyesMaxDragonExecutor
+        private void Count_check()
+        {
+            TheMelody_count = 0;
+            Talismandra_count = 0;
+            Candoll_count = 0;
+            RitualArt_count = 0;
+            ChaosForm_count = 0;
+            MaxDragon_count = 0;
+            foreach (ClientCard check in Bot.Hand)
+            {
+                if (check.IsCode(CardId.AdvancedRitualArt))
+                    RitualArt_count++;
+                if (check.IsCode(CardId.ChaosForm))
+                    ChaosForm_count++;
+                if (check.IsCode(CardId.DevirrtualCandoll))
+                    Candoll_count++;
+                if (check.IsCode(CardId.DeviritualTalismandra))
+                    Talismandra_count++;
+                if (check.IsCode(CardId.BlueEyesChaosMaxDragon))
+                    MaxDragon_count++;
+                if (check.IsCode(CardId.TheMelodyOfAwakeningDragon))
+                    TheMelody_count++;
+            }
+        }
+
+        private bool MaxxCeff()
+        {
+            return Duel.Player == 1;
+        }
+
+        private bool CalledByTheGraveeff()
+        {
+            if (Duel.LastChainPlayer == 1)
+            {
+                ClientCard lastCard = Util.GetLastChainCard();
+                if (lastCard.IsCode(CardId.MaxxC))
+                {
+                    AI.SelectCard(CardId.MaxxC);
+                    if (Util.ChainContainsCard(CardId.TheMelodyOfAwakeningDragon))
+                        AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                    return UniqueFaceupSpell();
+                }
+                if (lastCard.IsCode(CardId.LockBird))
+                {
+                    AI.SelectCard(CardId.LockBird);
+                    if (Util.ChainContainsCard(CardId.TheMelodyOfAwakeningDragon))
+                        AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                    return UniqueFaceupSpell();
+                }
+                if (lastCard.IsCode(CardId.Ghost))
+                {
+                    AI.SelectCard(CardId.Ghost);
+                    if (Util.ChainContainsCard(CardId.TheMelodyOfAwakeningDragon))
+                        AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                    return UniqueFaceupSpell();
+                }
+                if (lastCard.IsCode(CardId.AshBlossom))
+                {
+                    AI.SelectCard(CardId.AshBlossom);
+                    if (Util.ChainContainsCard(CardId.TheMelodyOfAwakeningDragon))
+                        AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                    return UniqueFaceupSpell();
+                }
+            }
+            return false;
+        }
+        private bool BlueEyesAlternativeWhiteDragoneff()
+        {
+            if (Card.Location == CardLocation.Hand)
+            {
+                if (Duel.Turn == 1)
+                    return false;
+                return true;
+            }
+            else
+            {
+                if (Util.GetProblematicEnemyMonster(3000, true) != null)
+                {
+                    AI.SelectCard(Util.GetProblematicEnemyMonster(3000, true));
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool CreatureSwapeff()
+        {
+            if (Bot.HasInMonstersZone(CardId.BlueEyesChaosMaxDragon, true) && Duel.Phase == DuelPhase.Main1 &&
+                (Bot.HasInMonstersZone(CardId.DeviritualTalismandra) || Bot.HasInMonstersZone(CardId.DevirrtualCandoll)))
+            {
+                AI.SelectCard(CardId.DevirrtualCandoll, CardId.DeviritualTalismandra);
+                return true;
+            }
+            return false;
+        }
+        private bool TheMelodyOfAwakeningDragoneff()
+        {
+            Count_check();
+            if (TheMelody_count >= 2 && Bot.GetRemainingCount(CardId.BlueEyesChaosMaxDragon, 3) > 0)
+            {
+                AI.SelectCard(CardId.TheMelodyOfAwakeningDragon);
+                AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                return true;
+            }
+            if (Bot.HasInHand(CardId.BlueEyesWhiteDragon) && Bot.GetRemainingCount(CardId.BlueEyesChaosMaxDragon, 3) > 0)
+            {
+                AI.SelectCard(CardId.BlueEyesWhiteDragon);
+                AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                return true;
+            }
+            return false;
+        }
+        private bool TheMelodyOfAwakeningDragoneffsecond()
+        {
+            Count_check();
+            if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.BlueEyesChaosMaxDragon, 3) > 0 &&
+                !Bot.HasInHand(CardId.BlueEyesChaosMaxDragon) && Bot.Hand.Count >= 3)
+            {
+                if (RitualArt_count >= 2)
+                {
+                    foreach (ClientCard m in Bot.Hand)
+                    {
+                        if (m.IsCode(CardId.AdvancedRitualArt))
+                            AI.SelectCard(m);
+                    }
+                }
+                foreach (ClientCard m in Bot.Hand)
+                {
+                    if (!m.IsCode(CardId.AdvancedRitualArt))
+                        AI.SelectCard(m);
+                }
+                AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
+                return true;
+            }
+            return false;
+        }
+        private bool TenTousandHandseff()
+        {
+            Count_check();
+            if (Talismandra_count >= 2 && Bot.GetRemainingCount(CardId.BlueEyesChaosMaxDragon, 3) > 0)
+            {
+                AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                return true;
+            }
+            if (Candoll_count >= 2 || MaxDragon_count >= 2)
+            {
+                if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.AdvancedRitualArt, 3) > 0)
+                {
+                    AI.SelectCard(CardId.AdvancedRitualArt);
+                    return true;
+                }
+                if (ChaosFormCanUse() && Bot.GetRemainingCount(CardId.ChaosForm, 1) > 0)
+                {
+                    AI.SelectCard(CardId.ChaosForm);
+                    return true;
+                }
+            }
+            if (RitualArt_count + ChaosForm_count >= 2)
+            {
+                AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                return true;
+            }
+            if (Candoll_count + Talismandra_count > 1)
+            {
+                if (MaxDragon_count >= 1)
+                {
+                    if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.AdvancedRitualArt, 3) > 0)
+                    {
+                        AI.SelectCard(CardId.AdvancedRitualArt);
+                        return true;
+                    }
+                    if (ChaosFormCanUse() && Bot.GetRemainingCount(CardId.ChaosForm, 1) > 0)
+                    {
+                        AI.SelectCard(CardId.ChaosForm);
+                        return true;
+                    }
+                }
+                if (Bot.HasInHand(CardId.AdvancedRitualArt) || Bot.HasInHand(CardId.ChaosForm))
+                {
+                    AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                    return true;
+                }
+            }
+            if (ChaosForm_count >= 1)
+            {
+                if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.AdvancedRitualArt, 3) > 0)
+                {
+                    AI.SelectCard(CardId.AdvancedRitualArt);
+                    return true;
+                }
+                if (ChaosFormCanUse() && Bot.GetRemainingCount(CardId.ChaosForm, 1) > 0)
+                {
+                    AI.SelectCard(CardId.ChaosForm);
+                    return true;
+                }
+            }
+            if (Talismandra_count >= 1)
+            {
+                AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                return true;
+            }
+            if (MaxDragon_count >= 1)
+            {
+                if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.AdvancedRitualArt, 3) > 0)
+                {
+                    AI.SelectCard(CardId.AdvancedRitualArt);
+                    return true;
+                }
+                if (ChaosFormCanUse() && Bot.GetRemainingCount(CardId.ChaosForm, 1) > 0)
+                {
+                    AI.SelectCard(CardId.ChaosForm);
+                    return true;
+                }
+            }
+            if (RitualArtCanUse() && Bot.GetRemainingCount(CardId.AdvancedRitualArt, 3) > 0)
+            {
+                AI.SelectCard(CardId.AdvancedRitualArt);
+            }
+            if (ChaosFormCanUse() && Bot.GetRemainingCount(CardId.ChaosForm, 1) > 0)
+            {
+                AI.SelectCard(CardId.ChaosForm);
+            }
+            return true;
+        }
+
+        private bool RitualArtCanUse()
+        {
+            return Bot.GetRemainingCount(CardId.BlueEyesWhiteDragon, 2) > 0;
+        }
+
+        private bool ChaosFormCanUse()
+        {
+            ClientCard check = null;
+            foreach (ClientCard m in Bot.GetGraveyardMonsters())
+            {
+                if (m.IsCode(CardId.BlueEyesAlternativeWhiteDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesWhiteDragon))
+                    check = m;
+            }
+
+            foreach (ClientCard m in Bot.Hand)
+            {
+                if (m.IsCode(CardId.BlueEyesWhiteDragon))
+                    check = m;
+            }
+            if (check != null)
+            {
+
+                return true;
+            }
+            return false;
+        }
+
+        private bool DeviritualCheck()
+        {
+            Count_check();
+            if (Card.IsCode(CardId.DeviritualTalismandra, CardId.DevirrtualCandoll))
+            {
+                if (Card.Location == CardLocation.MonsterZone)
+                {
+                    if (RitualArtCanUse())
+                    {
+                        AI.SelectCard(CardId.AdvancedRitualArt);
+                    }
+                    else
+                    {
+                        AI.SelectCard(CardId.ChaosForm);
+                    }
+                    return true;
+                }
+                if (Card.Location == CardLocation.Hand)
+                {
+                    if (Card.IsCode(CardId.DevirrtualCandoll))
+                    {
+                        if (MaxDragon_count >= 2 && Talismandra_count >= 1 || Candoll_used)
+                            return false;
+                    }
+                    if (Card.IsCode(CardId.DeviritualTalismandra))
+                    {
+                        if (RitualArt_count + ChaosForm_count >= 2 && Candoll_count >= 1 || Talismandra_used)
+                            return false;
+                        Talismandra_used = true;
+                        return true;
+                    }
+                    if (RitualArtCanUse())
+                    {
+                        Candoll_used = true;
+                        AI.SelectCard(CardId.AdvancedRitualArt);
+                        return true;
+                    }
+                    if (ChaosFormCanUse())
+                    {
+                        Candoll_used = true;
+                        AI.SelectCard(CardId.ChaosForm);
+                        return true;
+                    }
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        private bool ChaosFormeff()
+        {
+            ClientCard check = null;
+            foreach (ClientCard m in Bot.Graveyard)
+            {
+                if (m.IsCode(CardId.BlueEyesAlternativeWhiteDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesWhiteDragon))
+                    check = m;
+
+            }
+
+            if (check != null)
+            {
+                AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                AI.SelectNextCard(check);
+                return true;
+            }
+            foreach (ClientCard m in Bot.Hand)
+            {
+                if (m.IsCode(CardId.BlueEyesWhiteDragon))
+                    check = m;
+            }
+            if (check != null)
+            {
+                AI.SelectCard(CardId.BlueEyesChaosMaxDragon);
+                AI.SelectNextCard(check);
+                return true;
+            }
+            return false;
+        }
+        private bool MissusRadiantsp()
+        {
+            IList<ClientCard> material_list = new List<ClientCard>();
+            foreach (ClientCard monster in Bot.GetMonsters())
+            {
+                if (monster.HasAttribute(CardAttribute.Earth) && monster.Level == 1)
+                    material_list.Add(monster);
+                if (material_list.Count == 2) break;
+            }
+            if (material_list.Count < 2) return false;
+            if (Bot.HasInMonstersZone(CardId.MissusRadiant)) return false;
+            AI.SelectMaterials(material_list);
+            if (Bot.MonsterZone[0] == null && Bot.MonsterZone[2] == null && Bot.MonsterZone[5] == null)
+                AI.SelectPlace(Zones.z5);
+            else
+                AI.SelectPlace(Zones.z6);
+            return true;
+        }
+
+        private bool MissusRadianteff()
+        {
+            AI.SelectCard(CardId.MaxxC, CardId.MissusRadiant);
+            return true;
+        }
+
+        private bool Linkuribohsp()
+        {
+            foreach (ClientCard c in Bot.GetMonsters())
+            {
+                if (!c.IsCode(CardId.Linkuriboh) && c.Level == 1)
+                {
+                    AI.SelectMaterials(c);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool Linkuriboheff()
+        {
+            if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.Linkuriboh)) return false;
+            return true;
+        }
+        private bool BirrelswordDragonsp()
+        {
+
+            IList<ClientCard> material_list = new List<ClientCard>();
+            foreach (ClientCard m in Bot.GetMonsters())
+            {
+                if (m.IsCode(CardId.MissusRadiant))
+                {
+                    material_list.Add(m);
+                    break;
+                }
+            }
+            foreach (ClientCard m in Bot.GetMonsters())
+            {
+                if (m.IsCode(CardId.Linkuriboh) || m.Level == 1)
+                {
+                    material_list.Add(m);
+                    if (material_list.Count == 3)
+                        break;
+                }
+            }
+            if (material_list.Count == 3)
+            {
+                AI.SelectMaterials(material_list);
+                return true;
+            }
+            return false;
+        }
+
+        private bool BirrelswordDragoneff()
+        {
+            if (ActivateDescription == Util.GetStringId(CardId.BirrelswordDragon, 0))
+            {
+                if (Util.IsChainTarget(Card) && Util.GetBestEnemyMonster(true, true) != null)
+                {
+                    AI.SelectCard(Util.GetBestEnemyMonster(true, true));
+                    return true;
+                }
+                if (Duel.Player == 1 && Bot.BattlingMonster == Card)
+                {
+                    AI.SelectCard(Enemy.BattlingMonster);
+                    return true;
+                }
+                if (Duel.Player == 1 && Bot.BattlingMonster != null &&
+                    (Enemy.BattlingMonster.Attack - Bot.BattlingMonster.Attack) >= Bot.LifePoints)
+                {
+                    AI.SelectCard(Enemy.BattlingMonster);
+                    return true;
+                }
+                if (Duel.Player == 0 && Duel.Phase == DuelPhase.BattleStart)
+                {
+                    foreach (ClientCard check in Enemy.GetMonsters())
+                    {
+                        if (check.IsAttack())
+                        {
+                            AI.SelectCard(check);
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+
+        private bool RecklessGreedeff()
+        {
+            int count = 0;
+            foreach (ClientCard card in Bot.GetSpells())
+            {
+                if (card.IsCode(CardId.RecklessGreed))
+                    count++;
+            }
+            if (DefaultOnBecomeTarget()) return true;
+            if (Duel.Player == 0 && Duel.Phase >= DuelPhase.Main1)
+            {
+                if (Bot.LifePoints <= 4000 || count >= 2)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool Scapegoateff()
+        {
+            if (Duel.Player == 0) return false;
+            if (Duel.Phase == DuelPhase.End) return true;
+            if (Duel.LastChainPlayer == 1 && DefaultOnBecomeTarget()) return true;
+            if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+            {
+                int total_atk = 0;
+                List<ClientCard> enemy_monster = Enemy.GetMonsters();
+                foreach (ClientCard m in enemy_monster)
+                {
+                    if (m.IsAttack() && !m.Attacked) total_atk += m.Attack;
+                }
+                if (total_atk >= Bot.LifePoints) return true;
+            }
+            return false;
+        }
+
+        //CyberDragonExecutor
+        private bool CyberDragonInHand() { return Bot.HasInHand(CardId.CyberDragon); }
+        private bool CyberDragonInGraveyard() { return Bot.HasInGraveyard(CardId.CyberDragon); }
+        private bool CyberDragonInMonsterZone() { return Bot.HasInMonstersZone(CardId.CyberDragon); }
+        private bool CyberDragonIsBanished() { return Bot.HasInBanished(CardId.CyberDragon); }
+
+        private bool Capsule()
+        {
+            IList<int> SelectedCard = new List<int>();
+            SelectedCard.Add(CardId.PowerBond);
+            SelectedCard.Add(CardId.DarkHole);
+            SelectedCard.Add(CardId.Raigeki);
+            AI.SelectCard(SelectedCard);
+            return true;
+        }
+
+        private bool PolymerizationEffect()
+        {
+            if (Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.ProtoCyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) >= 3)
+                AI.SelectCard(CardId.CyberEndDragon);
+            else
+                AI.SelectCard(CardId.CyberTwinDragon);
+            return true;
+        }
+
+        private bool PowerBondEffect()
+        {
+            PowerBondUsed = true;
+            if (Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.ProtoCyberDragon) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragonCore) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonCore) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) >= 3)
+                AI.SelectCard(CardId.CyberEndDragon);
+            else
+                AI.SelectCard(CardId.CyberTwinDragon);
+            return true;
+        }
+
+        private bool EvolutionBurstEffect()
+        {
+            ClientCard bestMy = Bot.GetMonsters().GetHighestAttackMonster();
+            if (bestMy == null || !Util.IsOneEnemyBetterThanValue(bestMy.Attack, false))
+                return false;
+            else
+                AI.SelectCard(Enemy.MonsterZone.GetHighestAttackMonster());
+            return true;
+        }
+
+        private bool NoCyberDragonSpsummon()
+        {
+            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0))
+                return false;
+            return true;
+        }
+
+        private bool ArmoredCybernSet()
+        {
+            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0) || (Bot.HasInHand(CardId.CyberDragonDrei) || Bot.HasInHand(CardId.CyberPhoenix)) && !Util.IsOneEnemyBetterThanValue(1800, true))
+                return false;
+            return true;
+        }
+
+        private bool ProtoCyberDragonSummon()
+        {
+            if (Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonCore) >= 1 && Bot.HasInHand(CardId.Polymerization) || Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonCore) >= 1 && Bot.HasInHand(CardId.PowerBond))
+                return true;
+            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0) || (Bot.HasInHand(CardId.CyberDragonDrei) || Bot.HasInHand(CardId.CyberPhoenix)) && !Util.IsOneEnemyBetterThanValue(1800, true))
+                return false;
+            return true;
+        }
+
+        private bool CyberKirinSummon()
+        {
+            return PowerBondUsed;
+        }
+
+        private bool ArmoredCybernEffect()
+        {
+            if (Card.Location == CardLocation.Hand)
+                return true;
+            else if (Card.Location == CardLocation.SpellZone)
+            {
+                if (Util.IsOneEnemyBetterThanValue(Bot.GetMonsters().GetHighestAttackMonster().Attack, true))
+                    if (ActivateDescription == Util.GetStringId(CardId.ArmoredCybern, 2))
+                        return true;
+                return false;
+            }
+            return false;
+        }
+
+        private bool DeFusionEffect()
+        {
+            if (Duel.Phase == DuelPhase.Battle)
+            {
+                if (!Bot.HasAttackingMonster())
+                    return true;
+            }
+            return false;
+        }
+
+        //DarkMagicianExecutor
+        private void EternalSoulSelect()
+        {
+            AI.SelectPosition(CardPosition.FaceUpAttack);
+            /*
+            if (Enemy.HasInMonstersZone(CardId.MekkKnightMorningStar))
+            {
+                int MekkKnightZone = 0;
+                int BotZone = 0;
+                for (int i = 0; i <= 6; i++)
+                {
+                    if (Enemy.MonsterZone[i] != null && Enemy.MonsterZone[i].IsCode(CardId.MekkKnightMorningStar))
+                    {
+                        MekkKnightZone = i;
+                        break;
+                    }
+                }
+                if (Bot.MonsterZone[GetReverseColumnMainZone(MekkKnightZone)] == null)
+                {
+                    BotZone = GetReverseColumnMainZone(MekkKnightZone);
+                    AI.SelectPlace(ReverseZoneTo16bit(BotZone));
+                }
+                else
+                {
+                    for (int i = 0; i <= 6; i++)
+                    {
+                        if (!NoJackKnightColumn(i))
+                        {
+                            if (Bot.MonsterZone[GetReverseColumnMainZone(i)] == null)
+                            {
+                                AI.SelectPlace(ReverseZoneTo16bit(GetReverseColumnMainZone(i)));
+                                break;
+                            }
+                        }
+                    }
+                }                
+                Logger.DebugWriteLine("******************MekkKnightMorningStar");
+            }
+            else
+            {
+                for (int i = 0; i <= 6; i++)
+                {
+                    if (!NoJackKnightColumn(i))
+                    {
+                        if (Bot.MonsterZone[GetReverseColumnMainZone(i)] == null)
+                        {
+                            AI.SelectPlace(ReverseZoneTo16bit(GetReverseColumnMainZone(i)));
+                            break;
+                        } 
+                    }
+                }
+            }
+            */
+        }
+        int attackerzone = -1;
+        int defenderzone = -1;
+        bool Secret_used = false;
+        bool plan_A = false;
+        bool plan_C = false;
+        int maxxc_done = 0;
+        int lockbird_done = 0;
+        int ghost_done = 0;
+        bool maxxc_used = false;
+        bool lockbird_used = false;
+        bool ghost_used = false;
+        bool WindwitchGlassBelleff_used = false;
+        int ApprenticeLllusionMagician_count = 0;
+        bool Spellbook_summon = false;
+        bool Rod_summon = false;
+        bool GlassBell_summon = false;
+        bool magician_sp = false;
+        bool soul_used = false;
+        bool big_attack = false;
+        bool big_attack_used = false;
+        bool CrystalWingSynchroDragon_used = false;
+        public override void OnNewPhase()
+        {
+            //Util.UpdateLinkedZone();
+            //Logger.DebugWriteLine("Zones.CheckLinkedPointZones= " + Zones.CheckLinkedPointZones);
+            //Logger.DebugWriteLine("Zones.CheckMutualEnemyZoneCount= " + Zones.CheckMutualEnemyZoneCount);
+            plan_C = false;
+            ApprenticeLllusionMagician_count = 0;
+            foreach (ClientCard count in Bot.GetMonsters())
+            {
+                if (count.IsCode(CardId.ApprenticeLllusionMagician) && count.IsFaceup())
+                    ApprenticeLllusionMagician_count++;
+            }
+            foreach (ClientCard dangerous in Enemy.GetMonsters())
+            {
+                if (dangerous != null && dangerous.IsShouldNotBeTarget() && dangerous.Attack > 2500 &&
+                    !Bot.HasInHandOrHasInMonstersZone(CardId.ApprenticeLllusionMagician))
+                {
+                    plan_C = true;
+                    Logger.DebugWriteLine("*********dangerous = " + dangerous.Id);
+                }
+            }
+            if (Bot.HasInHand(CardId.SpellbookMagicianOfProphecy) &&
+              Bot.HasInHand(CardId.MagiciansRod) &&
+              Bot.HasInHand(CardId.WindwitchGlassBell))
+            {
+                if (Bot.HasInHand(CardId.SpellbookOfKnowledge) ||
+                    Bot.HasInHand(CardId.WonderWand))
+                    Rod_summon = true;
+                else
+                    Spellbook_summon = true;
+            }
+            else if
+                 (Bot.HasInHand(CardId.SpellbookMagicianOfProphecy) &&
+                 Bot.HasInHand(CardId.MagiciansRod))
+            {
+                if (Bot.HasInSpellZone(CardId.EternalSoul) &&
+                    !(Bot.HasInHand(CardId.DarkMagician) || Bot.HasInHand(CardId.DarkMagician)))
+                    Rod_summon = true;
+                else if (Bot.HasInHand(CardId.SpellbookOfKnowledge) ||
+                    Bot.HasInHand(CardId.WonderWand))
+                    Rod_summon = true;
+                else
+                    Spellbook_summon = true;
+            }
+            else if
+                  (Bot.HasInHand(CardId.SpellbookMagicianOfProphecy) &&
+                 Bot.HasInHand(CardId.WindwitchGlassBell))
+            {
+                if (plan_A)
+                    Rod_summon = true;
+                else
+                    GlassBell_summon = true;
+            }
+            else if
+                  (Bot.HasInHand(CardId.MagiciansRod) &&
+                 Bot.HasInHand(CardId.WindwitchGlassBell))
+            {
+                if (plan_A)
+                    Rod_summon = true;
+                else
+                    GlassBell_summon = true;
+            }
+            else
+            {
+                Spellbook_summon = true;
+                Rod_summon = true;
+                GlassBell_summon = true;
+            }
+        }
+
+        private bool WindwitchIceBelleff()
+        {
+            if (lockbird_used) return false;
+            if (Enemy.HasInMonstersZone(CardId.ElShaddollWinda)) return false;
+            if (maxxc_used) return false;
+            if (WindwitchGlassBelleff_used) return false;
+            //AI.SelectPlace(Zones.z2, 1);
+            if (Bot.GetRemainingCount(CardId.WindwitchGlassBell, 2) >= 1)
+                AI.SelectCard(CardId.WindwitchGlassBell);
+            else if (Bot.HasInHand(CardId.WindwitchGlassBell))
+                AI.SelectCard(CardId.WindwitchSnowBell);
+            AI.SelectPosition(CardPosition.FaceUpDefence);
+            return true;
+        }
+
+        private bool WindwitchGlassBelleff()
+        {
+            if (Bot.HasInMonstersZone(CardId.WindwitchIceBell))
+            {
+                int ghost_count = 0;
+                foreach (ClientCard check in Enemy.Graveyard)
+                {
+                    if (check.IsCode(CardId.Ghost))
+                        ghost_count++;
+                }
+                if (ghost_count != ghost_done)
+                    AI.SelectCard(CardId.WindwitchIceBell);
+                else
+                    AI.SelectCard(CardId.WindwitchSnowBell);
+            }
+            else
+                AI.SelectCard(CardId.WindwitchIceBell);
+            WindwitchGlassBelleff_used = true;
+            return true;
+        }
+
+        private bool WindwitchSnowBellsp()
+        {
+            if (maxxc_used) return false;
+            if (Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+            {
+                AI.SelectPosition(CardPosition.FaceUpDefence);
+                return true;
+            }
+            return false;
+        }
+
+        private bool WindwitchWinterBellsp()
+        {
+            if (maxxc_used) return false;
+            if (Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                 Bot.HasInMonstersZone(CardId.WindwitchGlassBell) &&
+                 Bot.HasInMonstersZone(CardId.WindwitchSnowBell))
+            {
+                //AI.SelectPlace(Zones.z5, Zones.ExtraMonsterZones);
+                AI.SelectCard(CardId.WindwitchIceBell, CardId.WindwitchGlassBell);
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool WindwitchWinterBelleff()
+        {
+            AI.SelectCard(CardId.WindwitchGlassBell);
+            return true;
+        }
+
+        private bool ClearWingFastDragonsp()
+        {
+            if (Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+            {
+
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ClearWingFastDragoneff()
+        {
+            if (Card.Location == CardLocation.MonsterZone)
+            {
+                if (Duel.Player == 1)
+                    return DefaultTrap();
+                return true;
+            }
+            return false;
+        }
+        private bool CrystalWingSynchroDragonsp()
+        {
+            if (Bot.HasInMonstersZone(CardId.WindwitchSnowBell) && Bot.HasInMonstersZone(CardId.WindwitchWinterBell))
+            {
+                //AI.SelectPlace(Zones.z5, Zones.ExtraMonsterZones);
+                plan_A = true;
+                return true;
+            }
+            return false;
+        }
+
+        /* private bool GrinderGolemeff()
+         {
+
+             if (plan_A) return false;
+             AI.SelectPosition(CardPosition.FaceUpDefence);
+             if (Bot.GetMonstersExtraZoneCount() == 0)
+                 return true;
+             if (Bot.HasInMonstersZone(CardId.AkashicMagician) ||
+                 Bot.HasInMonstersZone(CardId.SecurityDragon))
+                 return true;
+             return false;
+         }*/
+
+        /*  private bool Linkuribohsp()
+          {
+              if (Bot.HasInMonstersZone(CardId.GrinderGolem + 1))
+              {
+                  AI.SelectCard(CardId.GrinderGolem + 1);
+                  return true;
+              }
+              return false;
+          }
+
+          private bool LinkSpidersp()
+          {
+              if(Bot.HasInMonstersZone(CardId.GrinderGolem+1))
+              {
+                  AI.SelectCard(CardId.GrinderGolem + 1);
+                  return true;
+              }
+              return false;
+          }*/
+
+        private bool OddEyesAbsoluteDragonsp()
+        {
+            if (plan_C)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool OddEyesAbsoluteDragoneff()
+        {
+            Logger.DebugWriteLine("OddEyesAbsoluteDragonef 1");
+            if (Card.Location == CardLocation.MonsterZone/*ActivateDescription == Util.GetStringId(CardId.OddEyesAbsoluteDragon, 0)*/)
+            {
+                Logger.DebugWriteLine("OddEyesAbsoluteDragonef 2");
+                return Duel.Player == 1;
+            }
+            else if (Card.Location == CardLocation.Grave/*ActivateDescription == Util.GetStringId(CardId.OddEyesAbsoluteDragon, 0)*/)
+            {
+                Logger.DebugWriteLine("OddEyesAbsoluteDragonef 3");
+                AI.SelectCard(CardId.OddEyesWingDragon);
+                return true;
+            }
+            return false;
+        }
+
+        private bool SolemnStrikeeff()
+        {
+            if (Bot.LifePoints > 1500 && Duel.LastChainPlayer == 1)
+                return true;
+            return false;
+        }
+
+        private bool ChainEnemy()
+        {
+            if (Util.GetLastChainCard() != null &&
+                Util.GetLastChainCard().IsCode(CardId.UpstartGoblin))
+                return false;
+            return Duel.LastChainPlayer == 1;
+        }
+
+        private bool CrystalWingSynchroDragoneff()
+        {
+            if (Duel.LastChainPlayer == 1)
+            {
+                CrystalWingSynchroDragon_used = true;
+                return true;
+            }
+            return false;
+        }
+
+        /*
+        private bool Scapegoatset()
+        {
+            if (Bot.HasInSpellZone(CardId.Scapegoat)) return false;
+            return (Bot.GetMonsterCount() - Bot.GetMonstersExtraZoneCount()) < 2;
+        }
+
+        public bool Scapegoateff()
+        {
+            if (Duel.Player == 0) return false;           
+            if (DefaultOnBecomeTarget() && !Enemy.HasInMonstersZone(CardId.UltimateConductorTytanno))
+            {
+                Logger.DebugWriteLine("*************************sheepeff");
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.CrystalWingSynchroDragon)) return false;     
+            if(Duel.Phase == DuelPhase.End)
+            {
+                Logger.DebugWriteLine("*************************sheepeff");
+                return true;
+            }
+            if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+            {
+                
+                int total_atk = 0;
+                List<ClientCard> enemy_monster = Enemy.GetMonsters();
+                foreach (ClientCard m in enemy_monster)
+                {
+                    if (m.IsAttack() && !m.Attacked) total_atk += m.Attack;
+                }
+                if (total_atk >= Bot.LifePoints && !Enemy.HasInMonstersZone(CardId.UltimateConductorTytanno)) return true;
+            }
+            return false;
+        }
+        
+        private bool Hidarumasp()
+        {
+            if (!Bot.HasInMonstersZone(CardId.Scapegoat + 1)) return false;
+            if(Bot.MonsterZone[5]==null)
+            {
+                AI.SelectCard(new[] { CardId.Scapegoat + 1, CardId.Scapegoat + 1 });               
+                return true;
+            }
+            if (Bot.MonsterZone[6] == null)
+            {
+                AI.SelectCard(new[] { CardId.Scapegoat + 1, CardId.Scapegoat + 1 });                
+                return true;
+            }
+            return false;
+
+        }
+
+        private bool Linkuribohsp()
+        {
+            foreach (ClientCard c in Bot.GetMonsters())
+            {
+                if (!c.IsCode(CardId.WindwitchSnowBell) && c.Level == 1 && !c.IsCode(CardId.LinkSpider) && !c.IsCode(CardId.Linkuriboh))
+                {
+                    AI.SelectCard(c);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        private bool Linkuriboheff()
+        {
+            if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.Linkuriboh)) return false;
+            if (Bot.HasInMonstersZone(CardId.WindwitchSnowBell)) return false;
+            return true;
+        }
+        private bool BorreloadDragonsp()
+        {
+            if(Bot.HasInMonstersZone(CardId.Hidaruma)&&
+                Bot.HasInMonstersZone(CardId.Linkuriboh))
+            {
+                AI.SelectCard(new[] { CardId.Hidaruma, CardId.Linkuriboh, CardId.LinkSpider ,CardId.Linkuriboh});
+                return true;
+            }
+            
+            return false;
+        }
+
+       
+        private bool BorreloadDragoneff()
+        {
+            if (ActivateDescription == -1)
+            {
+                ClientCard enemy_monster = Enemy.BattlingMonster;
+                if (enemy_monster != null && enemy_monster.HasPosition(CardPosition.Attack))
+                {
+                    return enemy_monster.Attack > 2000;
+                }
+                return true;
+            };
+            ClientCard BestEnemy = Util.GetBestEnemyMonster(true,true);            
+            if (BestEnemy == null || BestEnemy.HasPosition(CardPosition.FaceDown)) return false;
+            AI.SelectCard(BestEnemy);
+            return true;  
+        }*/
+        private bool EternalSoulset()
+        {
+            if (Bot.GetHandCount() > 6) return true;
+            if (!Bot.HasInSpellZone(CardId.EternalSoul))
+                return true;
+            return false;
+        }
+
+        private bool EternalSouleff()
+        {
+            IList<ClientCard> grave = Bot.Graveyard;
+            IList<ClientCard> magician = new List<ClientCard>();
+            foreach (ClientCard check in grave)
+            {
+                if (check.IsCode(CardId.DarkMagician))
+                {
+                    magician.Add(check);
+                }
+            }
+            if (Util.IsChainTarget(Card) && Bot.GetMonsterCount() == 0)
+            {
+                AI.SelectYesNo(false);
+                return true;
+            }
+            if (Util.ChainCountPlayer(0) > 0) return false;
+
+            if (Enemy.HasInSpellZone(CardId.HarpiesFeatherDuster) && Card.IsFacedown())
+                return false;
+
+            foreach (ClientCard target in Duel.ChainTargets)
+            {
+                if ((target.IsCode(CardId.DarkMagician, CardId.DarkMagicianTheDragonKnight))
+                    && Card.IsFacedown())
+                {
+                    AI.SelectYesNo(false);
+                    return true;
+                }
+            }
+
+            if (Enemy.HasInSpellZone(CardId.DarkHole) && Card.IsFacedown() &&
+                (Bot.HasInMonstersZone(CardId.DarkMagician) || Bot.HasInMonstersZone(CardId.DarkMagicianTheDragonKnight)))
+            {
+                AI.SelectYesNo(false);
+                return true;
+            }
+            if (Bot.HasInGraveyard(CardId.DarkMagicianTheDragonKnight) &&
+                !Bot.HasInMonstersZone(CardId.DarkMagicianTheDragonKnight) && !plan_C)
+            {
+                EternalSoulSelect();
+                AI.SelectCard(CardId.DarkMagicianTheDragonKnight);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInSpellZone(CardId.DarkMagicalCircle) &&
+                (Enemy.HasInMonstersZone(CardId.SummonSorceress) || Enemy.HasInMonstersZone(CardId.FirewallDragon)))
+            {
+                soul_used = true;
+                magician_sp = true;
+                EternalSoulSelect();
+                AI.SelectCard(magician);
+                return true;
+            }
+            if (Duel.Player == 1 && Duel.Phase == DuelPhase.BattleStart && Enemy.GetMonsterCount() > 0)
+            {
+                if (Card.IsFacedown() && Bot.HasInMonstersZone(CardId.VentriloauistsClaraAndLucika))
+                {
+                    AI.SelectYesNo(false);
+                    return true;
+                }
+                if (Card.IsFacedown() &&
+                (Bot.HasInMonstersZone(CardId.DarkMagician) || Bot.HasInMonstersZone(CardId.DarkMagicianTheDragonKnight)))
+                {
+                    AI.SelectYesNo(false);
+                    return true;
+                }
+                if (Bot.HasInGraveyard(CardId.DarkMagicianTheDragonKnight) ||
+                    Bot.HasInGraveyard(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    EternalSoulSelect();
+                    AI.SelectCard(magician);
+                    return true;
+                }
+                if (Bot.HasInHand(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    AI.SelectCard(CardId.DarkMagician);
+                    EternalSoulSelect();
+                    return true;
+                }
+            }
+            if (Duel.Player == 0 && Duel.Phase == DuelPhase.Main1)
+            {
+                if (Bot.HasInHand(CardId.DarkMagicalCircle) && !Bot.HasInSpellZone(CardId.DarkMagicalCircle))
+                    return false;
+                if (Bot.HasInGraveyard(CardId.DarkMagicianTheDragonKnight) ||
+                    Bot.HasInGraveyard(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    AI.SelectCard(magician);
+                    EternalSoulSelect();
+                    return true;
+                }
+                if (Bot.HasInHand(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    AI.SelectCard(CardId.DarkMagician);
+                    EternalSoulSelect();
+                    return true;
+                }
+            }
+            if (Duel.Phase == DuelPhase.End)
+            {
+                if (Card.IsFacedown() && Bot.HasInMonstersZone(CardId.VentriloauistsClaraAndLucika))
+                {
+                    AI.SelectYesNo(false);
+                    return true;
+                }
+                if (Bot.HasInGraveyard(CardId.DarkMagicianTheDragonKnight) ||
+                    Bot.HasInGraveyard(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    AI.SelectCard(magician);
+                    EternalSoulSelect();
+                    return true;
+                }
+                if (Bot.HasInHand(CardId.DarkMagician))
+                {
+                    soul_used = true;
+                    magician_sp = true;
+                    AI.SelectCard(CardId.DarkMagician);
+                    EternalSoulSelect();
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        private bool MagicianNavigationset()
+        {
+            if (Bot.GetHandCount() > 6) return true;
+            if (Bot.HasInSpellZone(CardId.LllusionMagic)) return true;
+            if (Bot.HasInHand(CardId.DarkMagician) && !Bot.HasInSpellZone(CardId.MagicianNavigation))
+                return true;
+            return false;
+        }
+
+        private bool MagicianNavigationeff()
+        {
+            bool spell_act = false;
+            IList<ClientCard> spell = new List<ClientCard>();
+            if (Duel.LastChainPlayer == 1)
+            {
+                foreach (ClientCard check in Enemy.GetSpells())
+                {
+                    if (Util.GetLastChainCard() == check)
+                    {
+                        spell.Add(check);
+                        spell_act = true;
+                        break;
+                    }
+                }
+            }
+            bool soul_faceup = false;
+            foreach (ClientCard check in Bot.GetSpells())
+            {
+                if (check.IsCode(CardId.EternalSoul) && check.IsFaceup())
+                {
+                    soul_faceup = true;
+                }
+            }
+            if (Card.Location == CardLocation.Grave && spell_act)
+            {
+                Logger.DebugWriteLine("**********************Navigationeff***********");
+                AI.SelectCard(spell);
+                return true;
+            }
+            if (Util.IsChainTarget(Card))
+            {
+                AI.SelectPlace(Zones.z0 | Zones.z4);
+                AI.SelectCard(CardId.DarkMagician);
+                ClientCard check = Util.GetOneEnemyBetterThanValue(2500, true);
+                if (check != null)
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                else
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                magician_sp = true;
+                return UniqueFaceupSpell();
+            }
+            if (DefaultOnBecomeTarget() && !soul_faceup)
+            {
+                AI.SelectPlace(Zones.z0 | Zones.z4);
+                AI.SelectCard(CardId.DarkMagician);
+                ClientCard check = Util.GetOneEnemyBetterThanValue(2500, true);
+                if (check != null)
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                else
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                magician_sp = true;
+                return true;
+            }
+            if (Duel.Player == 0 && Card.Location == CardLocation.SpellZone && !maxxc_used && Bot.HasInHand(CardId.DarkMagician))
+            {
+                AI.SelectPlace(Zones.z0 | Zones.z4);
+                AI.SelectCard(CardId.DarkMagician);
+                ClientCard check = Util.GetOneEnemyBetterThanValue(2500, true);
+                if (check != null)
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                else
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                magician_sp = true;
+                return UniqueFaceupSpell();
+            }
+            if (Duel.Player == 1 && Bot.HasInSpellZone(CardId.DarkMagicalCircle) &&
+                (Enemy.HasInMonstersZone(CardId.SummonSorceress) || Enemy.HasInMonstersZone(CardId.FirewallDragon))
+                && Card.Location == CardLocation.SpellZone)
+            {
+                AI.SelectPlace(Zones.z0 | Zones.z4);
+                AI.SelectCard(CardId.DarkMagician);
+                ClientCard check = Util.GetOneEnemyBetterThanValue(2500, true);
+                if (check != null)
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                else
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                magician_sp = true;
+                return UniqueFaceupSpell();
+            }
+            if (Enemy.GetFieldCount() > 0 &&
+                (Duel.Phase == DuelPhase.BattleStart || Duel.Phase == DuelPhase.End) &&
+                Card.Location == CardLocation.SpellZone && !maxxc_used)
+            {
+                AI.SelectPlace(Zones.z0 | Zones.z4);
+                AI.SelectCard(CardId.DarkMagician);
+                ClientCard check = Util.GetOneEnemyBetterThanValue(2500, true);
+                if (check != null)
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                else
+                    AI.SelectNextCard(CardId.ApprenticeLllusionMagician, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                magician_sp = true;
+                return UniqueFaceupSpell();
+            }
+
+            return false;
+        }
+        private bool DarkMagicalCircleeff()
+        {
+            if (Card.Location == CardLocation.Hand)
+            {
+                //AI.SelectPlace(Zones.z2, 2);
+                if (Bot.LifePoints <= 4000)
+                    return true;
+                return UniqueFaceupSpell();
+            }
+            else
+            {
+                if (magician_sp)
+                {
+                    AI.SelectCard(Util.GetBestEnemyCard(false, true));
+                    if (Util.GetBestEnemyCard(false, true) != null)
+                        Logger.DebugWriteLine("*************SelectCard= " + Util.GetBestEnemyCard(false, true).Id);
+                    magician_sp = false;
+                }
+            }
+            return true;
+        }
+        private bool LllusionMagicset()
+        {
+            if (Bot.GetMonsterCount() >= 1 &&
+                !(Bot.GetMonsterCount() == 1 && Bot.HasInMonstersZone(CardId.CrystalWingSynchroDragon)) &&
+                !(Bot.GetMonsterCount() == 1 && Bot.HasInMonstersZone(CardId.ClearWingFastDragon)) &&
+                !(Bot.GetMonsterCount() == 1 && Bot.HasInMonstersZone(CardId.VentriloauistsClaraAndLucika)))
+                return true;
+            return false;
+        }
+        private bool LllusionMagiceff()
+        {
+            if (lockbird_used) return false;
+            if (Duel.LastChainPlayer == 0) return false;
+            ClientCard target = null;
+            bool soul_exist = false;
+            //AI.SelectPlace(Zones.z2, 2);
+            foreach (ClientCard m in Bot.GetSpells())
+            {
+                if (m.IsCode(CardId.EternalSoul) && m.IsFaceup())
+                    soul_exist = true;
+            }
+            if (!soul_used && soul_exist)
+            {
+                if (Bot.HasInMonstersZone(CardId.MagiciansRod))
+                {
+                    AI.SelectCard(CardId.MagiciansRod);
+                    AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                    return true;
+                }
+            }
+            if (Duel.Player == 0)
+            {
+                int ghost_count = 0;
+                foreach (ClientCard check in Enemy.Graveyard)
+                {
+                    if (check.IsCode(CardId.Ghost))
+                        ghost_count++;
+                }
+                if (ghost_count != ghost_done)
+                {
+                    if (Duel.CurrentChain.Count >= 2 && Util.GetLastChainCard().IsCode(0))
+                    {
+                        AI.SelectCard(CardId.MagiciansRod);
+                        AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                        return true;
+                    }
+                }
+                int count = 0;
+                foreach (ClientCard m in Bot.GetMonsters())
+                {
+                    if (Util.IsChainTarget(m))
+                    {
+                        count++;
+                        target = m;
+                        Logger.DebugWriteLine("************IsChainTarget= " + target.Id);
+                        break;
+                    }
+                }
+                if (count == 0) return false;
+                if ((target.IsCode(CardId.WindwitchGlassBell, CardId.WindwitchIceBell)) &&
+                    Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                    Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+                    return false;
+                AI.SelectCard(target);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+
+            if (Bot.HasInMonstersZone(CardId.MagiciansRod) || Bot.HasInMonstersZone(CardId.SpellbookMagicianOfProphecy))
+            {
+                AI.SelectCard(CardId.MagiciansRod, CardId.SpellbookMagicianOfProphecy);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+            {
+                AI.SelectCard(CardId.WindwitchGlassBell);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInMonstersZone(CardId.WindwitchIceBell))
+            {
+                AI.SelectCard(CardId.WindwitchIceBell);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInMonstersZone(CardId.WindwitchSnowBell))
+            {
+                AI.SelectCard(CardId.WindwitchSnowBell);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInMonstersZone(CardId.SpellbookMagicianOfProphecy))
+            {
+                AI.SelectCard(CardId.SpellbookMagicianOfProphecy);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            if (Duel.Player == 1 && Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician) &&
+               (Bot.HasInSpellZone(CardId.EternalSoul) || Bot.HasInSpellZone(CardId.MagicianNavigation)))
+            {
+                AI.SelectCard(CardId.ApprenticeLllusionMagician);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+
+            if ((Bot.GetRemainingCount(CardId.DarkMagician, 3) > 1 || Bot.HasInGraveyard(CardId.DarkMagician)) &&
+                Bot.HasInSpellZone(CardId.MagicianNavigation) &&
+                (Bot.HasInMonstersZone(CardId.DarkMagician) || Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician)) &&
+                Duel.Player == 1 && !Bot.HasInHand(CardId.DarkMagician))
+            {
+                AI.SelectCard(CardId.DarkMagician, CardId.ApprenticeLllusionMagician);
+                AI.SelectNextCard(CardId.DarkMagician, CardId.DarkMagician);
+                return true;
+            }
+            return false;
+        }
+        private bool SpellbookMagicianOfProphecyeff()
+        {
+            Logger.DebugWriteLine("*********Secret_used= " + Secret_used);
+            if (Secret_used)
+                AI.SelectCard(CardId.SpellbookOfKnowledge);
+            else
+                AI.SelectCard(CardId.SpellbookOfSecrets, CardId.SpellbookOfKnowledge);
+            return true;
+        }
+
+        private bool TheEyeOfTimaeuseff()
+        {
+            //AI.SelectPlace(Zones.z2, 2);
+            return true;
+        }
+
+        private bool UpstartGoblineff()
+        {
+            //AI.SelectPlace(Zones.z2, 2);
+            return true;
+        }
+        private bool SpellbookOfSecreteff()
+        {
+            if (lockbird_used) return false;
+            //AI.SelectPlace(Zones.z2, 2);
+            Secret_used = true;
+            if (Bot.HasInHand(CardId.SpellbookMagicianOfProphecy))
+                AI.SelectCard(CardId.SpellbookOfKnowledge);
+            else
+                AI.SelectCard(CardId.SpellbookMagicianOfProphecy);
+            return true;
+        }
+
+        private bool SpellbookOfKnowledgeeff()
+        {
+            int count = 0;
+            foreach (ClientCard check in Bot.GetMonsters())
+            {
+                if (!check.IsCode(CardId.CrystalWingSynchroDragon))
+                    count++;
+            }
+            Logger.DebugWriteLine("%%%%%%%%%%%%%%%%SpellCaster= " + count);
+            if (lockbird_used) return false;
+            if (Bot.HasInSpellZone(CardId.LllusionMagic) && count < 2)
+                return false;
+            //AI.SelectPlace(Zones.z2, 2);
+            if (Bot.HasInMonstersZone(CardId.SpellbookMagicianOfProphecy) ||
+                Bot.HasInMonstersZone(CardId.MagiciansRod) ||
+                Bot.HasInMonstersZone(CardId.WindwitchGlassBell) ||
+                Bot.HasInMonstersZone(CardId.WindwitchIceBell))
+            {
+                AI.SelectCard(CardId.SpellbookMagicianOfProphecy, CardId.MagiciansRod, CardId.WindwitchGlassBell);
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician) && Bot.GetSpellCount() < 2 && Duel.Phase == DuelPhase.Main2)
+            {
+                AI.SelectCard(CardId.ApprenticeLllusionMagician);
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.DarkMagician) &&
+                    Bot.HasInSpellZone(CardId.EternalSoul) && Duel.Phase == DuelPhase.Main2)
+            {
+                AI.SelectCard(CardId.DarkMagician);
+                return true;
+            }
+            return false;
+        }
+
+        private bool WonderWandeff()
+        {
+            if (lockbird_used) return false;
+            int count = 0;
+            foreach (ClientCard check in Bot.GetMonsters())
+            {
+                if (!check.IsCode(CardId.CrystalWingSynchroDragon))
+                    count++;
+            }
+            Logger.DebugWriteLine("%%%%%%%%%%%%%%%%SpellCaster= " + count);
+            if (Card.Location == CardLocation.Hand)
+            {
+                if (Bot.HasInSpellZone(CardId.LllusionMagic) && count < 2)
+                    return false;
+                //AI.SelectPlace(Zones.z2, 2);
+                if (Bot.HasInMonstersZone(CardId.SpellbookMagicianOfProphecy) ||
+                Bot.HasInMonstersZone(CardId.MagiciansRod) ||
+                Bot.HasInMonstersZone(CardId.WindwitchGlassBell) ||
+                Bot.HasInMonstersZone(CardId.WindwitchIceBell))
+                {
+                    AI.SelectCard(
+                        CardId.SpellbookMagicianOfProphecy,
+                        CardId.MagiciansRod,
+                        CardId.WindwitchGlassBell,
+                        CardId.WindwitchIceBell
+                        );
+                    return UniqueFaceupSpell();
+                }
+
+                if (Bot.HasInMonstersZone(CardId.DarkMagician) &&
+                    Bot.HasInSpellZone(CardId.EternalSoul) && Duel.Phase == DuelPhase.Main2)
+                {
+                    AI.SelectCard(CardId.DarkMagician);
+                    return UniqueFaceupSpell();
+                }
+                if (Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician) && Bot.GetSpellCount() < 2 && Duel.Phase == DuelPhase.Main2)
+                {
+                    AI.SelectCard(CardId.ApprenticeLllusionMagician);
+                    return UniqueFaceupSpell();
+                }
+                if (Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician) && Bot.GetHandCount() <= 3 && Duel.Phase == DuelPhase.Main2)
+                {
+                    AI.SelectCard(CardId.ApprenticeLllusionMagician);
+                    return UniqueFaceupSpell();
+                }
+            }
+            else
+            {
+                if (Duel.Turn != 1)
+                {
+                    if (Duel.Phase == DuelPhase.Main1 && Enemy.GetSpellCountWithoutField() == 0 &&
+                    Util.GetBestEnemyMonster(true, true) == null)
+                        return false;
+                    if (Duel.Phase == DuelPhase.Main1 && Enemy.GetSpellCountWithoutField() == 0 &&
+                        Util.GetBestEnemyMonster().IsFacedown())
+                        return true;
+                    if (Duel.Phase == DuelPhase.Main1 && Enemy.GetSpellCountWithoutField() == 0 &&
+                        Util.GetBestBotMonster(true) != null &&
+                        Util.GetBestBotMonster(true).Attack > Util.GetBestEnemyMonster(true).Attack)
+                        return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        private bool ApprenticeLllusionMagiciansp()
+        {
+            //AI.SelectPlace(Zones.z2, 1);
+            if (Bot.HasInHand(CardId.DarkMagician) && !Bot.HasInSpellZone(CardId.MagicianNavigation))
+            {
+                if (Bot.GetRemainingCount(CardId.DarkMagician, 3) > 0)
+                {
+                    AI.SelectCard(CardId.DarkMagician);
+                    AI.SelectPosition(CardPosition.FaceUpAttack);
+                    return true;
+                }
+                return false;
+            }
+            if ((Bot.HasInHand(CardId.SpellbookOfSecrets) ||
+                  Bot.HasInHand(CardId.DarkMagicAttack)))
+            {
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                AI.SelectCard(CardId.SpellbookOfSecrets, CardId.DarkMagicAttack);
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician))
+                return false;
+            int count = 0;
+            foreach (ClientCard check in Bot.Hand)
+            {
+                if (check.IsCode(CardId.WonderWand))
+                    count++;
+            }
+            if (count >= 2)
+            {
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                AI.SelectCard(CardId.WonderWand);
+                return true;
+            }
+            if (!Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation) &&
+                !Bot.HasInHand(CardId.DarkMagician) && Bot.GetHandCount() > 2 &&
+                Bot.GetMonsterCount() == 0)
+            {
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                AI.SelectCard(CardId.MagicianOfLllusion, CardId.ApprenticeLllusionMagician, CardId.TheEyeOfTimaeus, CardId.DarkMagicInheritance, CardId.WonderWand);
+                return true;
+            }
+            if (!Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.DarkMagician))
+            {
+                if (Bot.HasInHandOrInSpellZone(CardId.LllusionMagic) && Bot.GetMonsterCount() >= 1)
+                    return false;
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                int Navigation_count = 0;
+                foreach (ClientCard Navigation in Bot.Hand)
+                {
+                    if (Navigation.IsCode(CardId.MagicianNavigation))
+                        Navigation_count++;
+                }
+                if (Navigation_count >= 2)
+                {
+                    AI.SelectCard(CardId.MagicianNavigation);
+                    return true;
+                }
+                AI.SelectCard(CardId.MagicianOfLllusion, CardId.ApprenticeLllusionMagician, CardId.TheEyeOfTimaeus, CardId.DarkMagicInheritance, CardId.WonderWand);
+                return true;
+            }
+            return false;
+        }
+        private bool ApprenticeLllusionMagicianeff()
+        {
+            if (Util.ChainContainsCard(CardId.ApprenticeLllusionMagician)) return false;
+            if (Duel.Phase == DuelPhase.Battle ||
+                Duel.Phase == DuelPhase.BattleStart ||
+                Duel.Phase == DuelPhase.BattleStep ||
+                Duel.Phase == DuelPhase.Damage ||
+                Duel.Phase == DuelPhase.DamageCal
+               )
+            {
+                if (ActivateDescription == -1)
+                {
+                    Logger.DebugWriteLine("ApprenticeLllusionMagicianadd");
+                    return true;
+                }
+                if (Card.IsDisabled()) return false;
+                if ((Bot.BattlingMonster == null)) return false;
+                if ((Enemy.BattlingMonster == null)) return false;
+                if (Bot.BattlingMonster.Attack < Enemy.BattlingMonster.Attack)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return true;
+        }
+        private bool SpellbookMagicianOfProphecysummon()
+        {
+            //AI.SelectPlace(Zones.z2, 1);
+            if (lockbird_used) return false;
+            if (Spellbook_summon)
+            {
+                if (Secret_used)
+                    AI.SelectCard(CardId.SpellbookOfKnowledge);
+                else
+                    AI.SelectCard(CardId.SpellbookOfSecrets, CardId.SpellbookOfKnowledge);
+                return true;
+            }
+            return false;
+        }
+        private bool MagiciansRodsummon()
+        {
+            if (lockbird_used) return false;
+            //AI.SelectPlace(Zones.z2, 1);
+            if (Rod_summon) return true;
+            return true;
+        }
+
+        private bool DarkMagicAttackeff()
+        {
+            //AI.SelectPlace(Zones.z1, 2);
+            return DefaultHarpiesFeatherDusterFirst();
+        }
+        private bool DarkMagicInheritanceeff()
+        {
+            if (lockbird_used) return false;
+            IList<ClientCard> grave = Bot.Graveyard;
+            IList<ClientCard> spell = new List<ClientCard>();
+            int count = 0;
+            foreach (ClientCard check in grave)
+            {
+                if (Card.HasType(CardType.Spell))
+                {
+                    spell.Add(check);
+                    count++;
+                }
+            }
+            if (count >= 2)
+            {
+                //AI.SelectPlace(Zones.z2, 2);
+                AI.SelectCard(spell);
+                if (Bot.HasInHandOrInSpellZone(CardId.EternalSoul) && Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle))
+                    if (Bot.GetRemainingCount(CardId.DarkMagician, 3) >= 2 && !Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.LllusionMagic))
+                    {
+                        AI.SelectNextCard(CardId.LllusionMagic);
+                        return true;
+                    }
+
+                if (Bot.HasInHand(CardId.ApprenticeLllusionMagician) &&
+                  (!Bot.HasInHandOrInSpellZone(CardId.EternalSoul) || !Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation)))
+                {
+                    AI.SelectNextCard(CardId.MagicianNavigation);
+                    return true;
+                }
+                if (Bot.HasInHandOrInSpellZone(CardId.EternalSoul) && !Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.DarkMagician) &&
+                    !Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.LllusionMagic))
+                {
+                    AI.SelectNextCard(CardId.LllusionMagic);
+                    return true;
+                }
+
+                if (Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation) &&
+                    !Bot.HasInHand(CardId.DarkMagician) &&
+                    !Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                    Bot.GetRemainingCount(CardId.LllusionMagic, 1) > 0)
+                {
+                    AI.SelectNextCard(CardId.LllusionMagic);
+                    return true;
+                }
+
+                if ((Bot.HasInHandOrInSpellZone(CardId.EternalSoul) || Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation)) &&
+                    !Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle))
+                {
+                    AI.SelectNextCard(CardId.DarkMagicalCircle);
+                    return true;
+                }
+                if (Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle))
+                {
+                    if (Bot.HasInGraveyard(CardId.MagicianNavigation))
+                    {
+                        AI.SelectNextCard(CardId.EternalSoul, CardId.MagicianNavigation, CardId.DarkMagicalCircle);
+                    }
+                    else
+                        AI.SelectNextCard(CardId.EternalSoul, CardId.MagicianNavigation, CardId.DarkMagicalCircle);
+                    return true;
+                }
+                if (Bot.HasInGraveyard(CardId.MagicianNavigation))
+                {
+                    AI.SelectNextCard(CardId.EternalSoul, CardId.DarkMagicalCircle, CardId.MagicianNavigation);
+                }
+                else
+                    AI.SelectNextCard(CardId.MagicianNavigation, CardId.DarkMagicalCircle, CardId.EternalSoul);
+                return true;
+            }
+            return false;
+        }
+        private bool MagiciansRodeff()
+        {
+            if (Card.Location == CardLocation.MonsterZone)
+            {
+                if (Bot.HasInHandOrInSpellZone(CardId.EternalSoul) && Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle))
+                    if (Bot.GetRemainingCount(CardId.DarkMagician, 3) >= 2 && Bot.GetRemainingCount(CardId.LllusionMagic, 1) > 0)
+                    {
+                        AI.SelectCard(CardId.LllusionMagic);
+                        return true;
+                    }
+
+                if (Bot.HasInHand(CardId.ApprenticeLllusionMagician) &&
+                  !Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation) &&
+                  Bot.GetRemainingCount(CardId.MagicianNavigation, 3) > 0)
+                {
+                    AI.SelectCard(CardId.MagicianNavigation);
+                    return true;
+                }
+
+                if (Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                    !Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.DarkMagician) &&
+                    Bot.GetRemainingCount(CardId.LllusionMagic, 1) > 0)
+                {
+                    AI.SelectCard(CardId.LllusionMagic);
+                    return true;
+                }
+
+                if (Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation) &&
+                    !Bot.HasInHand(CardId.DarkMagician) &&
+                    !Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                    Bot.GetRemainingCount(CardId.LllusionMagic, 1) > 0)
+                {
+                    AI.SelectCard(CardId.LllusionMagic);
+                    return true;
+                }
+                if (!Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                    Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle) &&
+                    Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation) &&
+                    Bot.GetRemainingCount(CardId.EternalSoul, 3) > 0)
+                {
+                    AI.SelectCard(CardId.EternalSoul);
+                    return true;
+                }
+                if ((Bot.HasInHandOrInSpellZone(CardId.EternalSoul) || Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation)) &&
+                    !Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle) &&
+                    Bot.GetRemainingCount(CardId.DarkMagicalCircle, 3) > 0)
+                {
+                    AI.SelectCard(CardId.DarkMagicalCircle);
+                    return true;
+                }
+                if (!Bot.HasInHandOrInSpellZone(CardId.EternalSoul) &&
+                    !Bot.HasInHandOrInSpellZone(CardId.MagicianNavigation))
+                {
+                    if (Bot.HasInHand(CardId.DarkMagician) &&
+                        !Bot.HasInGraveyard(CardId.MagicianNavigation) &&
+                        Bot.GetRemainingCount(CardId.MagicianNavigation, 3) > 0
+                        )
+                        AI.SelectCard(CardId.MagicianNavigation);
+                    else if (!Bot.HasInHandOrInSpellZone(CardId.DarkMagicalCircle))
+                        AI.SelectCard(CardId.DarkMagicalCircle);
+                    else
+                        AI.SelectCard(CardId.EternalSoul);
+                    return true;
+                }
+                if (!Bot.HasInHand(CardId.MagicianNavigation))
+                {
+                    AI.SelectCard(CardId.MagicianNavigation);
+                    return true;
+                }
+                if (!Bot.HasInHand(CardId.DarkMagicalCircle))
+                {
+                    AI.SelectCard(CardId.DarkMagicalCircle);
+                    return true;
+                }
+                if (!Bot.HasInHand(CardId.EternalSoul))
+                {
+                    AI.SelectCard(CardId.EternalSoul);
+                    return true;
+                }
+                AI.SelectCard(CardId.LllusionMagic, CardId.EternalSoul, CardId.DarkMagicalCircle, CardId.MagicianNavigation);
+                return true;
+            }
+            else
+            {
+                if (Bot.HasInMonstersZone(CardId.VentriloauistsClaraAndLucika))
+                {
+                    AI.SelectCard(CardId.VentriloauistsClaraAndLucika);
+                    return true;
+                }
+                int Enemy_atk = 0;
+                IList<ClientCard> list = new List<ClientCard>();
+                foreach (ClientCard monster in Enemy.GetMonsters())
+                {
+                    if (monster.IsAttack())
+                        list.Add(monster);
+                }
+                Enemy_atk = GetTotalATK(list);
+                int bot_atk = 0;
+                IList<ClientCard> list_1 = new List<ClientCard>();
+                foreach (ClientCard monster in Bot.GetMonsters())
+                {
+                    if (Util.GetWorstBotMonster(true) != null)
+                    {
+                        if (monster.IsAttack() && monster.Id != Util.GetWorstBotMonster(true).Id)
+                            list_1.Add(monster);
+                    }
+                }
+                bot_atk = GetTotalATK(list);
+                if (Bot.HasInHand(CardId.MagiciansRod)) return false;
+                if (Bot.HasInMonstersZone(CardId.ApprenticeWitchling) && Bot.GetMonsterCount() == 1 && Bot.HasInSpellZone(CardId.EternalSoul))
+                    return false;
+                if (Bot.LifePoints <= (Enemy_atk - bot_atk) &&
+                    Bot.GetMonsterCount() > 1) return false;
+                if ((Bot.LifePoints - Enemy_atk <= 1000) &&
+                    Bot.GetMonsterCount() == 1) return false;
+                AI.SelectCard(CardId.VentriloauistsClaraAndLucika, CardId.SpellbookMagicianOfProphecy, CardId.WindwitchGlassBell, CardId.WindwitchIceBell, CardId.MagiciansRod, CardId.DarkMagician, CardId.MagicianOfLllusion);
+                return true;
+            }
+        }
+
+        private bool WindwitchGlassBellsummonfirst()
+        {
+            if (Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                Bot.HasInMonstersZone(CardId.WindwitchSnowBell) &&
+                !Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+                return true;
+            return false;
+        }
+        private bool WindwitchGlassBellsummon()
+        {
+            if (lockbird_used) return false;
+            if (!plan_A && (Bot.HasInGraveyard(CardId.WindwitchGlassBell) || Bot.HasInMonstersZone(CardId.WindwitchGlassBell)))
+                return false;
+            //AI.SelectPlace(Zones.z2, 1);
+            if (GlassBell_summon && Bot.HasInMonstersZone(CardId.WindwitchIceBell) &&
+                !Bot.HasInMonstersZone(CardId.WindwitchGlassBell))
+                return true;
+            if (WindwitchGlassBelleff_used) return false;
+            if (GlassBell_summon) return true;
+            return false;
+        }
+        private bool BigEyesp()
+        {
+            if (plan_C) return false;
+            if (Util.IsOneEnemyBetterThanValue(2500, false) &&
+                !Bot.HasInHandOrHasInMonstersZone(CardId.ApprenticeLllusionMagician))
+            {
+                //AI.SelectPlace(Zones.z5, Zones.ExtraMonsterZones);
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                return true;
+            }
+            return false;
+        }
+
+        private bool BigEyeeff()
+        {
+            ClientCard target = Util.GetBestEnemyMonster(false, true);
+            if (target != null && target.Attack >= 2500)
+            {
+                AI.SelectCard(CardId.DarkMagician);
+                AI.SelectNextCard(target);
+                return true;
+            }
+            return false;
+
+        }
+        private bool Dracossacksp()
+        {
+            if (plan_C) return false;
+            if (Util.IsOneEnemyBetterThanValue(2500, false) &&
+                !Bot.HasInHandOrHasInMonstersZone(CardId.ApprenticeLllusionMagician))
+            {
+                //AI.SelectPlace(Zones.z5, Zones.ExtraMonsterZones);
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+                return true;
+            }
+            return false;
+        }
+
+        private bool Dracossackeff()
+        {
+            if (ActivateDescription == Util.GetStringId(CardId.Dracossack, 0))
+            {
+                AI.SelectCard(CardId.DarkMagician);
+                return true;
+
+            }
+            ClientCard target = Util.GetBestEnemyCard(false, true);
+            if (target != null)
+            {
+                AI.SelectCard(CardId.Dracossack + 1);
+                AI.SelectNextCard(target);
+                return true;
+            }
+            return false;
+        }
+
+        private bool ApprenticeWitchlingsp()
+        {
+            int rod_count = 0;
+            foreach (ClientCard rod in Bot.GetMonsters())
+            {
+                if (rod.IsCode(CardId.MagiciansRod))
+                    rod_count++;
+            }
+            if (rod_count >= 2)
+            {
+                AI.SelectCard(CardId.MagiciansRod, CardId.MagiciansRod);
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.DarkMagician) &&
+                Bot.HasInMonstersZone(CardId.MagiciansRod) &&
+                (Bot.HasInSpellZone(CardId.EternalSoul) || Bot.GetMonsterCount() >= 4)
+                && Duel.Phase == DuelPhase.Main2)
+            {
+                if (rod_count >= 2)
+                    AI.SelectCard(CardId.MagiciansRod, CardId.MagiciansRod);
+                else
+                    AI.SelectCard(CardId.MagiciansRod, CardId.DarkMagician);
+                return true;
+            }
+            if (Bot.HasInMonstersZone(CardId.MagiciansRod) &&
+                Bot.HasInMonstersZone(CardId.ApprenticeLllusionMagician) &&
+                (Bot.HasInSpellZone(CardId.EternalSoul) || Bot.HasInSpellZone(CardId.MagicianNavigation))
+                && Duel.Phase == DuelPhase.Main2)
+            {
+                if (rod_count >= 2)
+                    AI.SelectCard(CardId.MagiciansRod, CardId.MagiciansRod);
+                else
+                    AI.SelectCard(CardId.MagiciansRod, CardId.DarkMagician);
+                return true;
+            }
+            return false;
+        }
+
+        private bool ApprenticeWitchlingeff()
+        {
+            AI.SelectCard(CardId.MagiciansRod, CardId.DarkMagician, CardId.ApprenticeLllusionMagician);
+            return true;
+        }
+
+        private bool VentriloauistsClaraAndLucikasp()
+        {
+            if (Bot.HasInSpellZone(CardId.LllusionMagic)) return false;
+            if (Bot.HasInMonstersZone(CardId.MagiciansRod) && !Bot.HasInGraveyard(CardId.MagiciansRod) &&
+                (Bot.HasInSpellZone(CardId.EternalSoul) || Bot.HasInSpellZone(CardId.MagicianNavigation)))
+            {
+                AI.SelectCard(CardId.MagiciansRod);
+                return true;
+            }
+            return false;
+        }
+        public override void OnChaining(int player, ClientCard card)
+        {
+            base.OnChaining(player, card);
+        }
+
+
+        public override void OnChainEnd()
+        {
+            /*if (Enemy.MonsterZone[5] != null)
+            {
+                Logger.DebugWriteLine("%%%%%%%%%%%%%%%%Enemy.MonsterZone[5].LinkMarker= " + Enemy.MonsterZone[5].LinkMarker);
+                Logger.DebugWriteLine("%%%%%%%%%%%%%%%%Enemy.MonsterZone[5].LinkLevel= " + Enemy.MonsterZone[5].LinkLevel);                
+            }
+                
+            if (Enemy.MonsterZone[6] != null)
+            {
+                Logger.DebugWriteLine("%%%%%%%%%%%%%%%%Enemy.MonsterZone[6].LinkMarker= " + Enemy.MonsterZone[6].LinkMarker);
+                Logger.DebugWriteLine("%%%%%%%%%%%%%%%%Enemy.MonsterZone[6].LinkLevel= " + Enemy.MonsterZone[6].LinkLevel);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                if (Enemy.MonsterZone[i] != null)
+                    Logger.DebugWriteLine("++++++++MONSTER ZONE[" + i + "]= " + Enemy.MonsterZone[i].Attack);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                if (Bot.MonsterZone[i] != null)
+                    Logger.DebugWriteLine("++++++++MONSTER ZONE[" + i + "]= " + Bot.MonsterZone[i].Id);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (Bot.SpellZone[i] != null)
+                    Logger.DebugWriteLine("++++++++SpellZone[" + i + "]= " + Bot.SpellZone[i].Id);
+            }*/
+            if (Util.ChainContainsCard(CardId.MaxxC))
+                maxxc_used = true;
+            if ((Duel.CurrentChain.Count >= 1 && Util.GetLastChainCard().Id == 0) ||
+                (Duel.CurrentChain.Count == 2 && !Util.ChainContainPlayer(0) && Duel.CurrentChain[0].Id == 0))
+            {
+                Logger.DebugWriteLine("current chain = " + Duel.CurrentChain.Count);
+                Logger.DebugWriteLine("******last chain card= " + Util.GetLastChainCard().Id);
+                int maxxc_count = 0;
+                foreach (ClientCard check in Enemy.Graveyard)
+                {
+                    if (check.IsCode(CardId.MaxxC))
+                        maxxc_count++;
+                }
+                if (maxxc_count != maxxc_done)
+                {
+                    Logger.DebugWriteLine("************************last chain card= " + Util.GetLastChainCard().Id);
+                    maxxc_used = true;
+                }
+                int lockbird_count = 0;
+                foreach (ClientCard check in Enemy.Graveyard)
+                {
+                    if (check.IsCode(CardId.LockBird))
+                        lockbird_count++;
+                }
+                if (lockbird_count != lockbird_done)
+                {
+                    Logger.DebugWriteLine("************************last chain card= " + Util.GetLastChainCard().Id);
+                    lockbird_used = true;
+                }
+                int ghost_count = 0;
+                foreach (ClientCard check in Enemy.Graveyard)
+                {
+                    if (check.IsCode(CardId.Ghost))
+                        ghost_count++;
+                }
+                if (ghost_count != ghost_done)
+                {
+                    Logger.DebugWriteLine("************************last chain card= " + Util.GetLastChainCard().Id);
+                    ghost_used = true;
+                }
+                if (ghost_used && Util.ChainContainsCard(CardId.WindwitchGlassBell))
+                {
+                    AI.SelectCard(CardId.WindwitchIceBell);
+                    Logger.DebugWriteLine("***********WindwitchGlassBell*********************");
+                }
+
+            }
+            foreach (ClientCard dangerous in Enemy.GetMonsters())
+            {
+                if (dangerous != null && dangerous.IsShouldNotBeTarget() &&
+                    (dangerous.Attack > 2500 || dangerous.Defense > 2500) &&
+                    !Bot.HasInHandOrHasInMonstersZone(CardId.ApprenticeLllusionMagician))
+                {
+                    plan_C = true;
+                    Logger.DebugWriteLine("*********dangerous = " + dangerous.Id);
+                }
+            }
+            int count = 0;
+            foreach (ClientCard check in Enemy.Graveyard)
+            {
+                if (check.IsCode(CardId.MaxxC))
+                    count++;
+            }
+            maxxc_done = count;
+            count = 0;
+            foreach (ClientCard check in Enemy.Graveyard)
+            {
+                if (check.IsCode(CardId.LockBird))
+                    count++;
+            }
+            lockbird_done = count;
+            count = 0;
+            foreach (ClientCard check in Enemy.Graveyard)
+            {
+                if (check.IsCode(CardId.Ghost))
+                    count++;
+            }
+            ghost_done = count;
+            base.OnChainEnd();
+        }
+
+
+        public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)
+        {
+            /*
+            if (Enemy.HasInMonstersZone(CardId.MekkKnightMorningStar))
+            {
+                attackerzone = -1;
+                defenderzone = -1;
+                for (int a = 0; a <= 6; a++)
+                    for (int b = 0; b <= 6; b++)
+                    {
+                        if (Bot.MonsterZone[a] != null && Enemy.MonsterZone[b] != null &&
+                            SameMonsterColumn(a, b) &&
+                            Bot.MonsterZone[a].IsCode(attacker.Id) && Enemy.MonsterZone[b].IsCode(defender.Id))
+                        {
+                            attackerzone = a;
+                            defenderzone = b;
+                        }
+                    }
+                Logger.DebugWriteLine("**********attack_zone= " + attackerzone + "  defender_zone= " + defenderzone);
+                if (!SameMonsterColumn(attackerzone, defenderzone) && IsJackKnightMonster(defenderzone))
+                {
+                    Logger.DebugWriteLine("**********cant attack ");
+                    return false;
+                }
+            }
+            */
+            //Logger.DebugWriteLine("@@@@@@@@@@@@@@@@@@@ApprenticeLllusionMagician= " + ApprenticeLllusionMagician_count);            
+            if (Bot.HasInSpellZone(CardId.OddEyesWingDragon))
+                big_attack = true;
+            if (Duel.Player == 0 && Bot.GetMonsterCount() >= 2 && plan_C)
+            {
+                Logger.DebugWriteLine("*********dangerous********************* ");
+                if (attacker.IsCode(CardId.OddEyesAbsoluteDragon, CardId.OddEyesWingDragon))
+                    attacker.RealPower = 9999;
+            }
+            if ((attacker.IsCode(CardId.DarkMagician, CardId.MagiciansRod, CardId.BigEye, CardId.ApprenticeWitchling)) &&
+                Bot.HasInHandOrHasInMonstersZone(CardId.ApprenticeLllusionMagician))
+            {
+                attacker.RealPower += 2000;
+            }
+            if (attacker.IsCode(CardId.ApprenticeLllusionMagician) && ApprenticeLllusionMagician_count >= 2)
+            {
+                attacker.RealPower += 2000;
+            }
+            if (attacker.IsCode(CardId.DarkMagician, CardId.DarkMagicianTheDragonKnight) && Bot.HasInSpellZone(CardId.EternalSoul))
+            {
+                return true;
+            }
+            if (attacker.IsCode(CardId.CrystalWingSynchroDragon))
+            {
+                if (defender.Level >= 5)
+                    attacker.RealPower = 9999;
+                if (CrystalWingSynchroDragon_used == false)
+                    return true;
+            }
+            if (!big_attack_used && big_attack)
+            {
+                attacker.RealPower = 9999;
+                big_attack_used = true;
+                return true;
+            }
+            if (attacker.IsCode(CardId.ApprenticeLllusionMagician))
+                Logger.DebugWriteLine("@@@@@@@@@@@@@@@@@@@ApprenticeLllusionMagician= " + attacker.RealPower);
+            if (Bot.HasInSpellZone(CardId.EternalSoul) && attacker.IsCode(CardId.DarkMagician, CardId.DarkMagicianTheDragonKnight, CardId.MagicianOfLllusion))
+                return true;
+            return base.OnPreBattleBetween(attacker, defender);
+        }
+        /*
+        public override BattlePhaseAction OnSelectAttackTarget(ClientCard attacker, IList<ClientCard> defenders)
+        {
+            for (int i = 0; i < defenders.Count; ++i)
+            {
+                ClientCard defender = defenders[i];
+                if (Enemy.HasInMonstersZone(CardId.MekkKnightMorningStar))
+                {
+                    for (int b = 0; b <= 6; b++)
+                    {
+                        if (Enemy.MonsterZone[b] != null &&
+                            SameMonsterColumn(attackerzone, b) &&
+                            Bot.MonsterZone[attackerzone].IsCode(attacker.Id) && Enemy.MonsterZone[b].IsCode(defender.Id))
+                        {
+                            defenderzone = b;
+                        }
+                    }
+                    if (defenderzone == -1)
+                    {
+                        Logger.DebugWriteLine("**********firstattackerzone= " + attackerzone + "  firstTargetzone= " + defenderzone);
+
+                        return null;
+                    }
+                }
+            }
+            defenderzone = -1;
+            return base.OnSelectAttackTarget(attacker,defenders);
+        }
+        */
+        /*
+        public override ClientCard OnSelectAttacker(IList<ClientCard> attackers, IList<ClientCard> defenders)
+        {            
+            for (int i = 0; i < attackers.Count; ++i)
+            {                
+                ClientCard attacker = attackers[i];
+                for(int j = 0;j < defenders.Count;++j)
+                {
+                    ClientCard defender = defenders[j];
+                    if (Enemy.HasInMonstersZone(CardId.MekkKnightMorningStar))
+                    {
+                        attackerzone = -1;
+                        defenderzone = -1;
+                        for(int a = 0;a <= 6;a++)
+                            for(int b = 0;b <= 6;b++)
+                            {
+                                if (Bot.MonsterZone[a] != null && Enemy.MonsterZone[b]!=null &&
+                                    SameMonsterColumn(a,b) && 
+                                    Bot.MonsterZone[a].IsCode(attacker.Id) && Enemy.MonsterZone[b].IsCode(defender.Id))
+                                {
+                                    attackerzone = a;
+                                    defenderzone = b;
+                                }
+                            }
+                           
+                        if (defenderzone != -1)                            
+                            {                                
+                                Logger.DebugWriteLine("**********firstattackerzone= " + attackerzone + "  firstdefenderzone= " + defenderzone);
+                                return attacker;
+                            }                       
+                    }
+                }                
+            }
+            return base.OnSelectAttacker(attackers,defenders);
+        }
+        */
+
+
     }
 }
