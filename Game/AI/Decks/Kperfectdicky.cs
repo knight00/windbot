@@ -45,7 +45,6 @@ namespace WindBot.Game.AI.Decks
             public const int MirrorForce = 44095762;
             public const int TorrentialTribute = 53582587;
             public const int RecodedAlive = 70238111;
-            public const int DimensionalBarrier = 83326048;
             public const int CompulsoryEvacuationDevice = 94192409;
             public const int SolemnStrike = 40605147;
             public const int DecodeTalker = 1861629;
@@ -369,24 +368,6 @@ namespace WindBot.Game.AI.Decks
             public const int GhostOgreAndSnowRabbit = 59438930;
             public const int GhostBelle = 73642296;
             public const int SmashingGround = 97169186;
-            public const int AllureofDarkness = 1475311;
-            public const int InterruptedKaijuSlumber = 99330325;
-
-            public const int SandaionTheTimelord = 33015627;
-            public const int GabrionTheTimelord = 6616912;
-            public const int MichionTheTimelord = 7733560;
-            public const int ZaphionTheTimelord = 28929131;
-            public const int HailonTheTimelord = 34137269;
-            public const int RaphionTheTimelord = 60222213;
-            public const int SadionTheTimelord = 65314286;
-            public const int MetaionTheTimelord = 74530899;
-            public const int KamionTheTimelord = 91712985;
-            public const int LazionTheTimelord = 92435533;
-            public const int LeftArmofTheForbiddenOne = 7902349;
-            public const int RightLegofTheForbiddenOne = 8124921;
-            public const int LeftLegofTheForbiddenOne = 44519536;
-            public const int RightArmofTheForbiddenOne = 70903634;
-            public const int ExodiaTheForbiddenOne = 33396948;
         }
 
         private int CrossSacrifaceCount = 0;
@@ -532,13 +513,12 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpellSet, CardId.CynetBackdoor, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.RecodedAlive, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.BottomlessTrapHole, DefaultSpellSet);
             AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, DefaultSpellSet);
             AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, DefaultCompulsoryEvacuationDevice);
             activatem.Add(CardId.CompulsoryEvacuationDevice);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, DefaultDimensionalBarrier);
-            activatem.Add(CardId.DimensionalBarrier);
+            AddExecutor(ExecutorType.Activate, _CardId.DimensionalBarrier, DefaultDimensionalBarrier);
+            activatem.Add(_CardId.DimensionalBarrier);
             AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, DefaultTorrentialTribute);
             activatem.Add(CardId.TorrentialTribute);
             AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultUniqueTrap);
@@ -1235,18 +1215,18 @@ namespace WindBot.Game.AI.Decks
 
             AddExecutor(ExecutorType.Activate, CardId.Scapegoat, DefaultScapegoat);
             activatem.Add(CardId.Scapegoat);
-            AddExecutor(ExecutorType.Activate, CardId.GhostOgreAndSnowRabbit, DefaultGhostOgreAndSnowRabbit);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostOgreAndSnowRabbit, DefaultGhostOgreAndSnowRabbit);
             activatem.Add(CardId.GhostOgreAndSnowRabbit);
-            AddExecutor(ExecutorType.Activate, CardId.GhostBelle, DefaultGhostBelleAndHauntedMansion);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostBelle, DefaultGhostBelleAndHauntedMansion);
             activatem.Add(CardId.GhostBelle);
-            AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, DefaultEffectVeiler);
+            AddExecutor(ExecutorType.Activate, _CardId.EffectVeiler, DefaultEffectVeiler);
             activatem.Add(CardId.EffectVeiler);
-            AddExecutor(ExecutorType.Activate, CardId.SmashingGround, DefaultSmashingGround);
+            AddExecutor(ExecutorType.Activate, _CardId.SmashingGround, DefaultSmashingGround);
             activatem.Add(CardId.SmashingGround);
-            AddExecutor(ExecutorType.Activate, CardId.AllureofDarkness, DefaultAllureofDarkness);
-            activatem.Add(CardId.AllureofDarkness);
-            AddExecutor(ExecutorType.Activate, CardId.InterruptedKaijuSlumber, DefaultInterruptedKaijuSlumber);
-            activatem.Add(CardId.InterruptedKaijuSlumber);
+            AddExecutor(ExecutorType.Activate, _CardId.AllureofDarkness, DefaultAllureofDarkness);
+            activatem.Add(_CardId.AllureofDarkness);
+            AddExecutor(ExecutorType.Activate, _CardId.InterruptedKaijuSlumber, DefaultInterruptedKaijuSlumber);
+            activatem.Add(_CardId.InterruptedKaijuSlumber);
             AddExecutor(ExecutorType.SpSummon, _CardId.JizukirutheStarDestroyingKaiju, DefaultKaijuSpsummon);
             AddExecutor(ExecutorType.SpSummon, _CardId.GadarlatheMysteryDustKaiju, DefaultKaijuSpsummon);
             AddExecutor(ExecutorType.SpSummon, _CardId.GamecieltheSeaTurtleKaiju, DefaultKaijuSpsummon);
@@ -1259,23 +1239,23 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpSummon, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
             AddExecutor(ExecutorType.Activate, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
             activatem.Add(_CardId.EvilswarmExcitonKnight);
-            
-            AddExecutor(ExecutorType.Summon, CardId.SandaionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.GabrionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.MichionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.ZaphionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.HailonTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.RaphionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.SadionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.MetaionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.KamionTheTimelord, DefaultTimelordSummon);
-            AddExecutor(ExecutorType.Summon, CardId.LazionTheTimelord, DefaultTimelordSummon);
 
-            AddExecutor(ExecutorType.Summon, CardId.LeftArmofTheForbiddenOne, JustDontIt);
-            AddExecutor(ExecutorType.Summon, CardId.RightLegofTheForbiddenOne, JustDontIt);
-            AddExecutor(ExecutorType.Summon, CardId.LeftLegofTheForbiddenOne, JustDontIt);
-            AddExecutor(ExecutorType.Summon, CardId.RightArmofTheForbiddenOne, JustDontIt);
-            AddExecutor(ExecutorType.Summon, CardId.ExodiaTheForbiddenOne, JustDontIt);
+            AddExecutor(ExecutorType.Summon, _CardId.SandaionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.GabrionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.MichionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.ZaphionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.HailonTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.RaphionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.SadionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.MetaionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.KamionTheTimelord, DefaultTimelordSummon);
+            AddExecutor(ExecutorType.Summon, _CardId.LazionTheTimelord, DefaultTimelordSummon);
+
+            AddExecutor(ExecutorType.Summon, _CardId.LeftArmofTheForbiddenOne, JustDontIt);
+            AddExecutor(ExecutorType.Summon, _CardId.RightLegofTheForbiddenOne, JustDontIt);
+            AddExecutor(ExecutorType.Summon, _CardId.LeftLegofTheForbiddenOne, JustDontIt);
+            AddExecutor(ExecutorType.Summon, _CardId.RightArmofTheForbiddenOne, JustDontIt);
+            AddExecutor(ExecutorType.Summon, _CardId.ExodiaTheForbiddenOne, JustDontIt);
 
             //KCG
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
@@ -1300,6 +1280,32 @@ namespace WindBot.Game.AI.Decks
         List<int> should_not_negate = new List<int>
         {
             81275020, 28985331
+        };
+
+        private List<long> HintMsgForEnemy = new List<long>
+        {
+            HintMsg.Release, HintMsg.Destroy, HintMsg.Remove, HintMsg.ToGrave, HintMsg.ReturnToHand, HintMsg.ToDeck,
+            HintMsg.FusionMaterial, HintMsg.SynchroMaterial, HintMsg.XyzMaterial, HintMsg.LinkMaterial
+        };
+
+        private List<long> HintMsgForDeck = new List<long>
+        {
+            HintMsg.SpSummon, HintMsg.ToGrave, HintMsg.Remove, HintMsg.AddToHand, HintMsg.FusionMaterial
+        };
+
+        private List<long> HintMsgForSelf = new List<long>
+        {
+            HintMsg.Equip
+        };
+
+        private List<long> HintMsgForMaterial = new List<long>
+        {
+            HintMsg.FusionMaterial, HintMsg.SynchroMaterial, HintMsg.XyzMaterial, HintMsg.LinkMaterial, HintMsg.Release
+        };
+
+        private List<long> HintMsgForMaxSelect = new List<long>
+        {
+            HintMsg.SpSummon, HintMsg.ToGrave, HintMsg.AddToHand, HintMsg.FusionMaterial, HintMsg.Destroy
         };
 
         public override void OnNewTurn()
@@ -1383,8 +1389,11 @@ namespace WindBot.Game.AI.Decks
             return base.OnSelectYesNo(desc);
         }
 
-        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> _cards, int min, int max, long hint, bool cancelable)
         {
+            IList<ClientCard> selected = new List<ClientCard>();
+            IList<ClientCard> cards = new List<ClientCard>(_cards);
+
             if (max == 2 && cards[0].Location == CardLocation.Deck)
             {
                 Logger.DebugWriteLine("OnSelectCard MelodyOfAwakeningDragon");
@@ -1395,85 +1404,88 @@ namespace WindBot.Game.AI.Decks
                 return Util.CheckSelectCount(result, cards, min, max);
             }
 
-            List<ClientCard> selected = new List<ClientCard>();
-            if (cards.IsExistingMatchingCard(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)))
-            {
-                selected.AddRange(cards.Where(card => (card.Location == CardLocation.Deck || card.Location == CardLocation.Grave) && card.IsCode(7902349, 8124921, 70903634, 44519536, 33396948)));
-                return Util.CheckSelectCount(selected, cards, min, max);
-            }
-
-            long HIINT_TOGRAVE = 504;
-            if (max == 1 && cards[0].Location == CardLocation.Deck
-                    && Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(23002292) && Bot.GetRemainingCount(CardId.WakingtheDragon, 1) > 0)
-            {
-                IList<ClientCard> result = new List<ClientCard>();
-                foreach (ClientCard card in cards)
-                {
-                    if (card.IsCode(CardId.WakingtheDragon))
-                    {
-                        result.Add(card);
-                        AI.SelectPlace(SelectSetPlace());
-                        break;
-                    }
-                }
-                if (result.Count > 0) return result;
-            }
-            else if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(CardId.EvenlyMatched) && Duel.LastChainPlayer != 0)
-            {
-                Logger.DebugWriteLine("EvenlyMatched: min=" + min.ToString() + ", max=" + max.ToString());
-            }
-            else if (cards[0].Location == CardLocation.Hand && cards[cards.Count - 1].Location == CardLocation.Hand
-                && (hint == 501 || hint == HIINT_TOGRAVE) && min == max)
-            {
-                if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.OneForOne)) return null;
-                Logger.DebugWriteLine("Hand drop except OneForOne");
-                int todrop = min;
-                IList<ClientCard> result = new List<ClientCard>();
-                IList<ClientCard> ToRemove = new List<ClientCard>(cards);
-
-                List<int> record = new List<int>();
-                foreach (ClientCard card in ToRemove)
-                {
-                    if (card?.Id != 0 && !record.Contains(card.Id)) record.Add(card.Id);
-                    else
-                    {
-                        result.Add(card);
-                        if (--todrop <= 0) break;
-                    }
-                }
-                if (todrop <= 0) return result;
-                foreach (ClientCard card in result) ToRemove.Remove(card);
-                foreach (int throw_id in cards_improper)
-                {
-                    foreach (ClientCard card in ToRemove)
-                    {
-                        if (card.IsCode(throw_id))
-                        {
-                            result.Add(card);
-                            if (--todrop <= 0) return result;
-                        }
-                    }
-                }
-                return null;
-            }
-
             if (Duel.Phase == DuelPhase.BattleStart)
                 return null;
             if (AI.HaveSelectedCards())
                 return null;
+            if (max > cards.Count)
+                max = cards.Count;
 
-            foreach (ClientCard tc in selected)
+            if (HintMsgForEnemy.Contains(hint))
             {
-                if (tc.Controller != 0)
+                IList<ClientCard> enemyCards = cards.Where(card => card.Controller == 1).ToList();
+
+                // select enemy's card first
+                while (enemyCards.Count > 0 && selected.Count < max)
                 {
-                    selected.Remove(tc);
-                    selected.Add(tc);
+                    ClientCard card = enemyCards[Program.Rand.Next(enemyCards.Count)];
+                    selected.Add(card);
+                    enemyCards.Remove(card);
+                    cards.Remove(card);
                 }
             }
 
-            // select the last cards
-            for (int i = 1; i <= max; ++i)
-            selected.Add(cards[cards.Count - i]);
+            if (HintMsgForDeck.Contains(hint))
+            {
+                IList<ClientCard> deckCards = cards.Where(card => card.Location == CardLocation.Deck).ToList();
+
+                // select deck's card first
+                while (deckCards.Count > 0 && selected.Count < max)
+                {
+                    ClientCard card = deckCards[Program.Rand.Next(deckCards.Count)];
+                    selected.Add(card);
+                    deckCards.Remove(card);
+                    cards.Remove(card);
+                }
+            }
+
+            if (HintMsgForSelf.Contains(hint))
+            {
+                IList<ClientCard> botCards = cards.Where(card => card.Controller == 0).ToList();
+
+                // select bot's card first
+                while (botCards.Count > 0 && selected.Count < max)
+                {
+                    ClientCard card = botCards[Program.Rand.Next(botCards.Count)];
+                    selected.Add(card);
+                    botCards.Remove(card);
+                    cards.Remove(card);
+                }
+            }
+
+            if (HintMsgForMaterial.Contains(hint))
+            {
+                IList<ClientCard> materials = cards.OrderBy(card => card.Attack).ToList();
+
+                // select low attack first
+                while (materials.Count > 0 && selected.Count < min)
+                {
+                    ClientCard card = materials[0];
+                    selected.Add(card);
+                    materials.Remove(card);
+                    cards.Remove(card);
+                }
+            }
+
+            // select random cards
+            while (selected.Count < min)
+            {
+                ClientCard card = cards[Program.Rand.Next(cards.Count)];
+                selected.Add(card);
+                cards.Remove(card);
+            }
+
+            if (HintMsgForMaxSelect.Contains(hint))
+            {
+                // select max cards
+                while (selected.Count < max)
+                {
+                    ClientCard card = cards[Program.Rand.Next(cards.Count)];
+                    selected.Add(card);
+                    cards.Remove(card);
+                }
+            }
+
             return selected;
         }
 
@@ -1566,7 +1578,7 @@ namespace WindBot.Game.AI.Decks
             return base.OnSelectPlace(cardId, player, location, available);
         }
 
-        public override int OnAnnounceCard()
+        public override int OnAnnounceCard(IList<int> avail)
         {
             ClientCard last_card = Util.GetLastChainCard();
             ClientCard orica = Bot.GetFieldSpellCard();

@@ -109,9 +109,6 @@ namespace WindBot.Game
             m_materialSelector = null;
             m_option = -1;
             m_yesno = -1;
-            //////kdiy//////
-            m_announce = 0;
-            //////kdiy//////
             m_place = 0;
             if (Duel.Player == 0 && Duel.Phase == DuelPhase.Draw)
             {

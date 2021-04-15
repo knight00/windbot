@@ -110,19 +110,6 @@ namespace WindBot.Game.AI
             // Some AI need do something on new turn
         }
 
-
-        ///kdiy/////
-        public virtual int OnAnnounceCard()
-        {
-             return 0;
-        }
-
-        public virtual int OnAnnounceNumber(IList<int> numbers)
-        {
-            return Rand.Next(0, numbers.Count); // Returns a random number.
-        }
-        ///kdiy/////
-
         public virtual void OnDraw(int player)
         {
             // Some AI need do something on draw
@@ -230,6 +217,13 @@ namespace WindBot.Game.AI
             // For overriding
             return 0;
         }
+
+        ///kdiy/////
+        public virtual int OnAnnounceNumber(IList<int> numbers)
+        {
+            return Rand.Next(0, numbers.Count); // Returns a random number.
+        }
+        ///kdiy/////
 
         public void SetMain(MainPhase main)
         {
