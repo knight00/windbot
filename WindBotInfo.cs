@@ -6,6 +6,7 @@ namespace WindBot
     {
         public string Name { get; set; }
         public string Deck { get; set; }
+        public string DeckFile { get; set; }
         public string Dialog { get; set; }
         /////////kdiy/////
         public string Deckfolder { get; set; }
@@ -22,6 +23,7 @@ namespace WindBot
         {
             Name = "WindBot";
             Deck = null;
+            DeckFile = null;
             Dialog = "default";
             /////////kdiy/////
             Deckfolder = "";
