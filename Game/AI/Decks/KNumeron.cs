@@ -24,12 +24,15 @@ namespace WindBot.Game.AI.Decks
             public const int CiNo1000 = 13716;
             public const int DoubleSummon = 43422537;
             public const int CrossSacriface = 26;
+            public const int Cyclone = 5318639;
         }
 
         public KNumeronExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
             IList<int> activatem = new List<int>();
+            AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
+            activatem.Add(CardId.Cyclone);
 
             AddExecutor(ExecutorType.SpSummon, 602, Summonplace);
             AddExecutor(ExecutorType.SpSummon, 603, Summonplace);
@@ -62,7 +65,9 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.Oricha);
 
             AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace() && !(Card.Location == CardLocation.Removed && Card.IsFacedown()));
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && DefaultDontChainMyself());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherSpellEffect());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherTrapEffect());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherMonsterEffect());
             AddExecutor(ExecutorType.Summon, ()=>Advancesummon() && !Card.IsCode(13711));
             //AddExecutor(ExecutorType.MonsterSet, Advancesummon);
             // Reposition
@@ -108,8 +113,20 @@ namespace WindBot.Game.AI.Decks
 
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
+             if (Duel.Phase == DuelPhase.BattleStart)
+                return null;
+            if (AI.HaveSelectedCards())
+                return null;
+
             IList<ClientCard> selected = new List<ClientCard>();
-            //selected.Remove(Card);
+            foreach (ClientCard tc in selected)
+            {
+                if (tc.Controller != 0)
+                {
+                    selected.Remove(tc);
+                    selected.Add(tc);
+                }
+            }
 
             // select the last cards
             for (int i = 1; i <= max; ++i)
@@ -240,7 +257,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Advancesummon()
         {
-            if (Card.Level > 4 && DefaultTributeSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
+            if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
             {
                 List<ClientCard> monster_sorted = new List<ClientCard>();
                 IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
@@ -418,9 +435,38 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
+        private int _lastDoubleSummon;
         private bool DoubleSummon()
         {
-            return Bot.Hand.GetMatchingCardsCount(card => card.HasType(CardType.Monster)) > 0;
+            if (_lastDoubleSummon == Duel.Turn)
+                return false;
+
+            if (Main.SummonableCards.Count == 0)
+                return false;
+
+            if (Main.SummonableCards.Count == 1 && Main.SummonableCards[0].Level < 5)
+            {
+                bool canTribute = false;
+                foreach (ClientCard handCard in Bot.Hand)
+                {
+                    if (handCard.IsMonster() && handCard.Level > 4 && handCard.Level < 6)
+                        canTribute = true;
+                }
+                if (!canTribute)
+                    return false;
+            }
+
+            int monsters = 0;
+            foreach (ClientCard handCard in Bot.Hand)
+            {
+                if (handCard.IsMonster())
+                    monsters++;
+            }
+            if (monsters <= 1)
+                return false;
+
+            _lastDoubleSummon = Duel.Turn;
+            return true;
         }
 
         private bool TreasureDraw()
@@ -537,6 +583,24 @@ namespace WindBot.Game.AI.Decks
             if (Bot.UnderAttack && Bot.BattlingMonster == Card && Enemy.BattlingMonster.RealPower>=Card.RealPower)
                 return true;
             return false;
+        }
+
+        private bool OtherSpellEffect()
+        {
+            if (Enemy.GetSpellCount()==0)
+                return false;
+            AI.SelectCard(Enemy.GetSpells());
+            return Card.IsSpell() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
+        }
+
+        private bool OtherTrapEffect()
+        {
+            return Card.IsTrap() && Program.Rand.Next(9) >= 3 && DefaultTrap() && DefaultDontChainMyself();
+        }
+
+        private bool OtherMonsterEffect()
+        {
+            return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
     }
 }

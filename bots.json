@@ -7,11 +7,18 @@
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "千尊",
-        "deck": "AI_Numeron",
-        "dialog": "donthousand",
-        "difficulty": 4,
-        "masterRules": [3, 5]
+        "name": "悠悠",
+        "deck": "MokeyMokey",
+        "dialog": "default",
+        "difficulty": 1,
+        "masterRules": [3, 4, 5]
+    },
+    {
+        "name": "悠悠王",
+        "deck": "MokeyMokeyKing",
+        "dialog": "mokey.zh-CN",
+        "difficulty": 1,
+        "masterRules": [3, 4, 5]
     },
     {
         "name": "尼亞－幻變騷靈",
@@ -23,6 +30,7 @@
     {
         "name": "ABC-Dragon Buster",
         "deck": "ABC",
+        "dialog": "default",
         "difficulty": 3,
         "masterRules": [5]
     },
@@ -43,6 +51,7 @@
     {
         "name": "永遠之魂－削血",
         "deck": "Burn",
+        "dialog": "default",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
@@ -56,6 +65,7 @@
     {
         "name": "試作型機器人1732",
         "deck": "ST1732",
+        "dialog": "default",
         "difficulty": 2,
         "masterRules": [4, 5]
     },
@@ -76,6 +86,7 @@
     {
         "name": "Dogmatika",
         "deck": "Dogmatika",
+        "dialog": "default",
         "difficulty": 3,
         "masterRules": [5]
     },
@@ -87,8 +98,9 @@
         "masterRules": [4, 5]
     },
     {
-        "name": "Familiar Possessed",
+        "name": "憑依裝著",
         "deck": "FamiliarPossessed",
+        "dialog": "default",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
     },
@@ -100,7 +112,7 @@
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "Feelin' Lucky",
+        "name": "自選卡組",
         "deck": "",
         "difficulty": 0,
         "masterRules": [3, 4, 5]
@@ -113,7 +125,7 @@
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "永遠之魂－荷鲁斯",
+        "name": "永遠之魂－荷魯斯",
         "deck": "Horus",
         "dialog": "soul.zh-CN",
         "difficulty": 1,
@@ -129,21 +141,9 @@
     {
         "name": "Mathmech",
         "deck": "MathMech",
+        "dialog": "default",
         "difficulty": 2,
         "masterRules": [4, 5]
-    },
-    {
-        "name": "悠悠",
-        "deck": "MokeyMokey",
-        "difficulty": 1,
-        "masterRules": [3, 4, 5]
-    },
-    {
-        "name": "悠悠王",
-        "deck": "MokeyMokeyKing",
-        "dialog": "mokey.zh-CN",
-        "difficulty": 1,
-        "masterRules": [3, 4, 5]
     },
     {
         "name": "重編程梁龍－自奏天琴",
@@ -152,8 +152,10 @@
         "difficulty": 3,
         "masterRules": [4, 5]
     },
-        "name": "Phantasm",
+    {
+        "name": "幻煌果",
         "deck": "Phantasm",
+        "dialog": "default",
         "difficulty": 0,
         "masterRules": [4, 5]
     },
@@ -181,6 +183,7 @@
     {
         "name": "謎之劍士LV4－L8",
         "deck": "Level VIII",
+        "dialog": "default",
         "difficulty": 2,
         "masterRules": [3, 4, 5]
     },
@@ -199,8 +202,9 @@
         "masterRules": [4, 5]
     },
     {
-        "name": "時間小偷",
+        "name": "時劫者",
         "deck": "TimeThief",
+        "dialog": "default",
         "difficulty": 2,
         "masterRules": [4, 5]
     },
@@ -221,12 +225,14 @@
     {
         "name": "比特機靈－微風",
         "deck": "PureWinds",
+        "dialog": "default",
         "difficulty": 1,
         "masterRules": [3, 4, 5]
     },
     {
         "name": "玻璃女巫",
         "deck": "Witchcraft",
+        "dialog": "default",
         "difficulty": 3,
         "masterRules": [4, 5]
     },
@@ -250,5 +256,12 @@
         "dialog": "copy.zh-CN",
         "difficulty": 3,
         "masterRules": [3, 4, 5]
+    },
+    {
+        "name": "千尊",
+        "deck": "AI_Numeron",
+        "dialog": "donthousand",
+        "difficulty": 4,
+        "masterRules": [3, 5]
     }
 ]

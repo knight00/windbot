@@ -79,6 +79,7 @@ namespace WindBot.Game.AI.Decks
             public const int ZWBuild = 62623659;
             public const int HopePlace = 26493435;
             public const int Oricha = 12201;
+            public const int Cyclone = 5318639;
         }
 
         public KHopeExecutor(GameAI ai, Duel duel)
@@ -98,8 +99,15 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SummonOrSet, CardId.ZwLightningBlade, () => false);
 
             IList<int> activatem = new List<int>();
+            AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
+            activatem.Add(CardId.Cyclone);
+            
             AddExecutor(ExecutorType.Activate, CardId.Numeronlead, Numeronlead);
             activatem.Add(CardId.Numeronlead);
+            AddExecutor(ExecutorType.Activate, CardId.ZsAscent);
+            activatem.Add(CardId.ZsAscent);
+            AddExecutor(ExecutorType.Activate, CardId.ZsArmsSage);
+            activatem.Add(CardId.ZsArmsSage);
             AddExecutor(ExecutorType.Activate, CardId.XyzChangeTactics, XyzChangeTactics);
             activatem.Add(CardId.XyzChangeTactics);
             AddExecutor(ExecutorType.Activate, CardId.CrossSacriface, CrossSacriface);
@@ -122,6 +130,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.DarkHole);
 
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Double, Number39UtopiaDouble);
+            AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne, NumberS39UtopiaOne);
             AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiaOne, NumberS39UtopiaOneEffects);
@@ -134,9 +143,10 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpSummon, CardId.ZwDragon, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwLionArms, Summonplace);
 
-            AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
             AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, DefaultNumberS39UtopiaTheLightningEffect);
             activatem.Add(CardId.NumberS39UtopiatheLightning);
+            AddExecutor(ExecutorType.Activate, CardId.Number39Utopia, Number39UtopiaEffects);
+            activatem.Add(CardId.Number39Utopia);
             AddExecutor(ExecutorType.Activate, CardId.ZwLionArms, ZwLionArms);
             activatem.Add(CardId.ZwLionArms);
             AddExecutor(ExecutorType.Activate, CardId.ZwTornadoBringer, ZwWeapon);
@@ -151,7 +161,9 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.GodPheonix);
 
             AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && DefaultDontChainMyself());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherSpellEffect());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherTrapEffect());
+            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherMonsterEffect());
             AddExecutor(ExecutorType.Summon, Advancesummon);
             AddExecutor(ExecutorType.MonsterSet, Advancesummon);
             AddExecutor(ExecutorType.Repos, MonsterRepos);
@@ -188,6 +200,23 @@ namespace WindBot.Game.AI.Decks
             if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(13712, 0))
                 return false;
             return base.OnSelectYesNo(desc);
+        }
+
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
+        {
+             if (Duel.Phase == DuelPhase.BattleStart)
+                return null;
+            if (AI.HaveSelectedCards())
+                return null;
+
+            IList<ClientCard> selected = new List<ClientCard>();
+            //selected.Remove(Card);
+
+            // select the last cards
+            for (int i = 1; i <= max; ++i)
+                selected.Add(cards[cards.Count - i]);
+
+            return selected;
         }
 
         public override int OnAnnounceCard()
@@ -297,7 +326,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Advancesummon()
         {
-            if (Card.Level > 4 && DefaultTributeSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
+            if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
             {
                 List<ClientCard> monster_sorted = new List<ClientCard>();
                 IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
@@ -747,6 +776,16 @@ namespace WindBot.Game.AI.Decks
                     AI.SelectAnnounceID(10);
                     return true;
                 }
+                if (!(Card.HasXyzMaterial(1, 26493435)))
+                {
+                    AI.SelectAnnounceID(26493435);
+                    return true;
+                }
+                if (!(Card.HasXyzMaterial(1, 100000382)))
+                {
+                    AI.SelectAnnounceID(100000382);
+                    return true;
+                }
                 if (!(Card.HasXyzMaterial(1, 13706)))
                 {
                     AI.SelectAnnounceID(13706);
@@ -757,14 +796,19 @@ namespace WindBot.Game.AI.Decks
                     AI.SelectAnnounceID(160000107);
                     return true;
                 }
-                if (!(Card.HasXyzMaterial(1, 26493435)))
+                if (!(Card.HasXyzMaterial(1, 100000097)))
                 {
-                    AI.SelectAnnounceID(26493435);
+                    AI.SelectAnnounceID(100000097);
                     return true;
                 }
-                if (!(Card.HasXyzMaterial(1, 100000382)))
+                if (!(Card.HasXyzMaterial(1, 100000096)))
                 {
-                    AI.SelectAnnounceID(100000382);
+                    AI.SelectAnnounceID(100000096);
+                    return true;
+                }
+                if (!(Card.HasXyzMaterial(1, 100000098)))
+                {
+                    AI.SelectAnnounceID(100000098);
                     return true;
                 }
                 if (!(Card.HasXyzMaterial(1, 146)))
@@ -826,9 +870,38 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
+        private int _lastDoubleSummon;
         private bool DoubleSummon()
         {
-            return Bot.Hand.GetMatchingCardsCount(card => card.HasType(CardType.Monster)) > 0;
+            if (_lastDoubleSummon == Duel.Turn)
+                return false;
+
+            if (Main.SummonableCards.Count == 0)
+                return false;
+
+            if (Main.SummonableCards.Count == 1 && Main.SummonableCards[0].Level < 5)
+            {
+                bool canTribute = false;
+                foreach (ClientCard handCard in Bot.Hand)
+                {
+                    if (handCard.IsMonster() && handCard.Level > 4 && handCard.Level < 6)
+                        canTribute = true;
+                }
+                if (!canTribute)
+                    return false;
+            }
+
+            int monsters = 0;
+            foreach (ClientCard handCard in Bot.Hand)
+            {
+                if (handCard.IsMonster())
+                    monsters++;
+            }
+            if (monsters <= 1)
+                return false;
+
+            _lastDoubleSummon = Duel.Turn;
+            return true;
         }
 
         private bool TreasureDraw()
@@ -836,6 +909,24 @@ namespace WindBot.Game.AI.Decks
             if (6 - Bot.GetHandCount() > 0 && Bot.Deck.Count <= 6 - Bot.GetHandCount())
                 return false;
             return true;
+        }
+
+        private bool OtherSpellEffect()
+        {
+            if (Enemy.GetSpellCount()==0)
+                return false;
+            AI.SelectCard(Enemy.GetSpells());
+            return Card.IsSpell() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
+        }
+
+        private bool OtherTrapEffect()
+        {
+            return Card.IsTrap() && Program.Rand.Next(9) >= 3 && DefaultTrap() && DefaultDontChainMyself();
+        }
+
+        private bool OtherMonsterEffect()
+        {
+            return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
     }
 }

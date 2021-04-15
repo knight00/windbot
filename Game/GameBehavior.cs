@@ -72,11 +72,12 @@ namespace WindBot.Game
             _ai = new GameAI(_duel, Game.Dialog, Game.Chat, Game.Log, Program.AssetPath);
             _ai.Executor = DecksManager.Instantiate(_ai, _duel, Game.Deck);
             ////kdiy///////
-            if(game.Deckfolder == "")
-            Deck = Deck.Load(_ai.Executor.Deck, game.Deckpath);
+            //Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck);
+            if (game.Deckfolder == "")
+                Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck, game.Deckpath);
             else
+                Deck = Deck.Load(_ai.Executor.Deck, game.Deckfolder + "/" + game.Deckpath);
             ////kdiy///////
-            Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck);
 
             _select_hint = 0;
         }
