@@ -112,12 +112,6 @@
         "masterRules": [3, 4, 5]
     },
     {
-        "name": "自選卡組",
-        "deck": "",
-        "difficulty": 0,
-        "masterRules": [3, 4, 5]
-    },
-    {
         "name": "報社鬥士",
         "deck": "GrenMajuThunderBoarder",
         "dialog": "kiwi.zh-TW",
