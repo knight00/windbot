@@ -8750,10 +8750,5 @@ namespace WindBot.Game.AI.Decks
         {
             return false;
         }
-
-        private bool DefaultTimelordSummon()
-        {
-            return Bot.GetMonsterCount() == 0;
-        }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "welcome": [
+    ""
+  ],
+  "deckerror": [
+    ""
+  ],
+  "duelstart": [
+    ""
+  ],
+  "newturn": [
+    ""
+  ],
+  "endturn": [
+    ""
+  ],
+  "directattack": [
+    ""
+  ],
+  "attack": [
+    ""
+  ],
+  "ondirectattack": [
+    ""
+  ],
+  "facedownmonstername": "",
+  "activate": [
+    ""
+  ],
+  "summon": [
+    ""
+  ],
+  "setmonster": [
+    ""
+  ],
+  "chaining": [
+    ""
+  ]
+}

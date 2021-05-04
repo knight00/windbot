@@ -463,7 +463,7 @@ namespace WindBot.Game.AI.Decks
             else if (Duel.Player == 1)
                 AI.SelectCard(595, 13717, 13708, 13709, 13710, 13713, 596, 597);
 
-            if (!(Bot.Deck.ContainsCardWithId(CardId.Numeronlead) || Bot.Deck.ContainsCardWithId(595)))
+            if (!(Bot.Deck.ContainsCardWithId(CardId.Numeronlead)))
                 rum = true;
 
             List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
@@ -483,7 +483,9 @@ namespace WindBot.Game.AI.Decks
             AI.SelectNextCard(NumeronNo);
             int count = Util.GetBotAvailZonesFromExtraDeck();
             if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
-            if (count > 3 && !rum)
+            if (rum)
+                AI.SelectAnnounceID(13715);
+            if (count > 3)
             {
                 for (int i = 0; i < 4; i++)
                 {
