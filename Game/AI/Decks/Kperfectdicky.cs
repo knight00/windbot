@@ -1380,7 +1380,7 @@ namespace WindBot.Game.AI.Decks
 
         public override bool OnSelectYesNo(long desc)
         {
-            if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(13712, 0))
+            if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
             if (desc == 210) // Continue selecting? (Link Summoning)
                 return false;
@@ -1584,7 +1584,9 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
-            return 13701;
+            if (avail.Contains(802))
+                return 802;
+            return Program.Rand.Next(avail.Count);
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -1594,7 +1596,8 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
-            if (options[0] == Util.GetStringId(826, 15)) return 0;
+            if (options[0] == Util.GetStringId(826, 15))
+                return 0;
             return options.Count > 1 ? options.Count - 1 : 0;
         }
 

@@ -61,6 +61,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(588);
             AddExecutor(ExecutorType.Activate, 13717, RUM1000);
             activatem.Add(13717);
+            AddExecutor(ExecutorType.Activate, 596, Numeronmat);
+            activatem.Add(596);
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
 
@@ -128,7 +130,7 @@ namespace WindBot.Game.AI.Decks
 
         public override bool OnSelectYesNo(long desc)
         {
-            if ((desc == Util.GetStringId(826, 12) && (Duel.Player == 1 || No1annouce>=10)) || desc == Util.GetStringId(13712, 0))
+            if ((desc == Util.GetStringId(826, 12) && (Duel.Player == 1 || No1annouce>=10)) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
             if (desc == 210) // Continue selecting? (Link Summoning)
                 return false;
@@ -456,15 +458,11 @@ namespace WindBot.Game.AI.Decks
             else if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
             {
                 AI.SelectCard(588, CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
-                rum = true;
             }
             else if (Duel.Player == 0)
                 AI.SelectCard(CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
             else if (Duel.Player == 1)
                 AI.SelectCard(595, 13717, 13708, 13709, 13710, 13713, 596, 597);
-
-            if (!(Bot.Deck.ContainsCardWithId(CardId.Numeronlead)))
-                rum = true;
 
             List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
             ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
@@ -483,8 +481,12 @@ namespace WindBot.Game.AI.Decks
             AI.SelectNextCard(NumeronNo);
             int count = Util.GetBotAvailZonesFromExtraDeck();
             if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
+
+            if (!(Bot.Deck.ContainsCardWithId(CardId.Numeronlead)) && Bot.Deck.ContainsCardWithId(588))
+                rum = true;
             if (rum)
                 AI.SelectAnnounceID(13715);
+
             if (count > 3)
             {
                 for (int i = 0; i < 4; i++)
@@ -644,6 +646,11 @@ namespace WindBot.Game.AI.Decks
         {
             AI.SelectAnnounceID(13715);
             return true;
+        }
+
+        private bool Numeronmat()
+        {
+            return Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => !card.HasType(CardType.Xyz) && card.Level > 0) > 0;
         }
 
         private bool CNo1000Effects()
