@@ -234,14 +234,6 @@ namespace WindBot.Game.AI.Decks
             public const int TroymareCerberus = 75452921;
             public const int ApprenticeWitchling = 71384012;
             public const int VentriloauistsClaraAndLucika = 1482001;
-            /*public const int EbonLllusionMagician = 96471335;
-            public const int BorreloadDragon = 31833038;
-            public const int SaryujaSkullDread = 74997493;
-            public const int Hidaruma = 64514892;
-            public const int AkashicMagician = 28776350;
-            public const int SecurityDragon = 99111753;
-            public const int LinkSpider = 98978921;
-            public const int Linkuriboh = 41999284;*/
 
             public const int ElShaddollWinda = 94977269;
             public const int Ultimate = 86221741;
@@ -440,6 +432,18 @@ namespace WindBot.Game.AI.Decks
         public KperfectdickyExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
+            AddExecutor(ExecutorType.SpSummon);
+            AddExecutor(ExecutorType.Activate, OtherSpellEffect);
+            AddExecutor(ExecutorType.Activate, OtherTrapEffect);
+            AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
+
+            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
+            AddExecutor(ExecutorType.Activate, ImFeelingUnlucky);
+
+            AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
+            AddExecutor(ExecutorType.SpellSet, Spellset);
+            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+
             IList<int> activatem = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
@@ -1265,15 +1269,6 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
 
-            AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherSpellEffect());
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherTrapEffect());
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherMonsterEffect());
-
-            AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
-            AddExecutor(ExecutorType.SpellSet, Spellset);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-
             AddExecutor(ExecutorType.Activate, CardId.TreasureDraw, TreasureDraw);
         }
 
@@ -1381,6 +1376,8 @@ namespace WindBot.Game.AI.Decks
         public override bool OnSelectYesNo(long desc)
         {
             if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
+                return false;
+            if (desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
             if (desc == 210) // Continue selecting? (Link Summoning)
                 return false;
@@ -7967,6 +7964,11 @@ namespace WindBot.Game.AI.Decks
         private bool OtherMonsterEffect()
         {
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
+        }
+
+        private bool ImFeelingUnlucky()
+        {
+            return DefaultDontChainMyself();
         }
 
         private void SelectXYZDetach(List<int> Overlays)

@@ -85,6 +85,19 @@ namespace WindBot.Game.AI.Decks
         public KHopeExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
+            AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
+            AddExecutor(ExecutorType.Activate, OtherSpellEffect);
+            AddExecutor(ExecutorType.Activate, OtherTrapEffect);
+            AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
+
+            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
+            AddExecutor(ExecutorType.Activate, ImFeelingUnlucky);
+
+            AddExecutor(ExecutorType.Summon, Advancesummon);
+            AddExecutor(ExecutorType.MonsterSet, Advancesummon);
+            AddExecutor(ExecutorType.Repos, MonsterRepos);
+            AddExecutor(ExecutorType.SpellSet, Spellset);
+
             AddExecutor(ExecutorType.SpSummon, CardId.ClosedGod, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.ZsAscent, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.ZsArmsSage, Summonplace);
@@ -160,15 +173,6 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.GodPheonix, GodPheonixEffects);
             activatem.Add(CardId.GodPheonix);
 
-            AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherSpellEffect());
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherTrapEffect());
-            AddExecutor(ExecutorType.Activate, () => !Card.IsCode(activatem) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.Summon, Advancesummon);
-            AddExecutor(ExecutorType.MonsterSet, Advancesummon);
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
-            AddExecutor(ExecutorType.SpellSet, Spellset);
-
             AddExecutor(ExecutorType.Activate, CardId.TreasureDraw, TreasureDraw);
         }
 
@@ -225,6 +229,12 @@ namespace WindBot.Game.AI.Decks
         {
             if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
+            if (desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
+                return false;
+            if (desc == 210) // Continue selecting? (Link Summoning)
+                return false;
+            if (desc == 31) // Direct Attack?
+                return true;
             return base.OnSelectYesNo(desc);
         }
 
@@ -324,6 +334,12 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
+            if (avail.Contains(264))
+            {
+                if (Bot.HasInSpellZone(264))
+                return 266;
+                else return 264;
+            }
             return 13701;
         }
 
@@ -494,6 +510,7 @@ namespace WindBot.Game.AI.Decks
             else AI.SelectOption(1);
             return true;
         }
+
         private bool GodPheonixEffects()
         {
             if (ActivateDescription == Util.GetStringId(824, 0))
@@ -518,7 +535,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Number39UtopiaDouble()
         {
-            if (Duel.Player == 0 && Bot.ExtraDeck.ContainsCardWithId(CardId.Number39Utopia) && Bot.GetRemainingCount(CardId.DoubleChance, 2) > 0)
+            if (Duel.Player == 0 && Bot.GetRemainingCount(CardId.DoubleChance, 2) > 0)
             {
                 AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
@@ -528,8 +545,8 @@ namespace WindBot.Game.AI.Decks
 
         private bool Number39UtopiaDoubleEffects()
         {
-            if (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) + Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) == 0)
-                AI.SelectAnnounceID(CardId.Number39);
+            //if (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) + Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) == 0)
+            //    AI.SelectAnnounceID(CardId.Number39);
             AI.SelectAnnounceID(CardId.Number39Utopia);
             return true;
         }
@@ -541,7 +558,8 @@ namespace WindBot.Game.AI.Decks
             if (Duel.Player == 1
                 || (Bot.BattlingMonster == Card && (Bot.HasInHand(CardId.DoubleChance) || Bot.Deck.ContainsCardWithId(CardId.DoubleChance))))
             {
-                if (Duel.Player == 1) return true;
+                if (Duel.Player == 1)
+                    return true;
                 else
                 {
                     UtopiaCount++;
@@ -599,7 +617,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool NumberC39Utopia()
         {
-            if (Bot.LifePoints <= 1000 || Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(0x48)) > 2 && Bot.HasInHand(366))
+            if (Enemy.GetSpellCount()>0)
                 return true;
             return false;
         }
@@ -718,46 +736,35 @@ namespace WindBot.Game.AI.Decks
 
         private bool WRUM()
         {
-            if (ActivateDescription != -1)
+            IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.HasSetcode(0x7f));
+            IList<ClientCard> utopia = new List<ClientCard>();
+            foreach (ClientCard target in targets)
             {
-                if (ActivateDescription == Util.GetStringId(13717, 7))
-                    return false;
-                if (ActivateDescription == Util.GetStringId(13714, 13))
+                if (targets.Count >= 1)
+                    break;
+                if (target.Rank == 4)
                 {
-                    IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.HasSetcode(0x7f));
-                    IList<ClientCard> utopia = new List<ClientCard>();
-                    foreach (ClientCard target in targets)
-                    {
-                        if (targets.Count >= 1)
-                            break;
-                        if (target.Rank == 4)
-                        {
-                            utopia.Add(target);
-                            break;
-                        }
-                        utopia.Add(target);
-                    }
-                    if (targets.Count == 0)
-                        return false;
-                    AI.SelectCard(targets);
-                    int opt1 = 2, opt2 = 4;
-                    if (targets.ContainsMonsterWithRank(4))
-                    {
-                        opt1 -= 1; opt2 -= 1;
-                        if (!(!Bot.HasInExtra(62) && !Bot.HasInMonstersZoneOrInGraveyard(62) && !Bot.HasInBanished(62)))
-                        { opt1 -= 1; opt2 -= 1; }
-                        if (!(!Bot.HasInExtra(326) && !Bot.HasInMonstersZoneOrInGraveyard(326) && !Bot.HasInBanished(326)))
-                            opt2 -= 1;
-                    }
-                    else
-                    {
-                        if (!(!Bot.HasInExtra(61) && !Bot.HasInMonstersZoneOrInGraveyard(61) && !Bot.HasInBanished(61)))
-                        { opt1 -= 1; opt2 -= 1; }
-                        if (!(!Bot.HasInExtra(62) && !Bot.HasInMonstersZoneOrInGraveyard(62) && !Bot.HasInBanished(62)))
-                        { opt1 -= 1; opt2 -= 1; }
-                    }
-                    return true;
+                    utopia.Add(target);
+                    break;
                 }
+                utopia.Add(target);
+            }
+            if (targets.Count == 0)
+                return false;
+            AI.SelectCard(targets);
+            if (targets.ContainsMonsterWithRank(4))
+            {
+                AI.SelectAnnounceID(13719);
+                AI.SelectAnnounceID(63);
+            }
+            else if (targets.ContainsMonsterWithRank(5))
+            {
+                AI.SelectAnnounceID(13719);
+                AI.SelectAnnounceID(13719);
+            } else if (targets.ContainsMonsterWithRank(10))
+            {
+                AI.SelectAnnounceID(110);
+                AI.SelectAnnounceID(389);
             }
             return true;
         }
@@ -870,6 +877,11 @@ namespace WindBot.Game.AI.Decks
                     AI.SelectAnnounceID(12);
                     return true;
                 }
+                if (!(Card.HasXyzMaterial(1, 13706)))
+                {
+                    AI.SelectAnnounceID(13706);
+                    return true;
+                }
                 if (!(Card.HasXyzMaterial(1, 10)))
                 {
                     AI.SelectAnnounceID(10);
@@ -883,11 +895,6 @@ namespace WindBot.Game.AI.Decks
                 if (!(Card.HasXyzMaterial(1, 100000382)))
                 {
                     AI.SelectAnnounceID(100000382);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 13706)))
-                {
-                    AI.SelectAnnounceID(13706);
                     return true;
                 }
                 if (!(Card.HasXyzMaterial(1, 160000107)))
@@ -1026,6 +1033,11 @@ namespace WindBot.Game.AI.Decks
         private bool OtherMonsterEffect()
         {
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
+        }
+
+        private bool ImFeelingUnlucky()
+        {
+            return DefaultDontChainMyself();
         }
     }
 }

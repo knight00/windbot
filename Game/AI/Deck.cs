@@ -25,7 +25,7 @@ namespace WindBot.Game
             else if(mainDeck)
                 Cards.Add(cardId);
             else
-                ExtraCards.Add(cardId);
+                ExtraCards.Add(cardId);  
         }
 
         ////kdiy/////////
@@ -73,6 +73,13 @@ namespace WindBot.Game
                     deck.AddNewCard(id, main, side);
                 }
 
+                ////kdiy/////////
+                if (name.Contains("AI_Numeron") || name.Contains("AI_Hope")) {
+                    deck.Cards.Add(85);
+                    deck.Cards.Add(86);
+                }
+                deck.ExtraCards.Add(111);
+                ////kdiy/////////  
                 reader.Close();
 
                 return deck;

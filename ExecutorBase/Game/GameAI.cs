@@ -740,10 +740,16 @@ namespace WindBot.Game
         public int OnAnnounceCard(IList<int> avail)
         {
             int selected = Executor.OnAnnounceCard(avail);
-            if (avail.Contains(selected))
-                return selected;
+            ////kdiy/////
+            //if (avail.Contains(selected))
+            //    return selected;
+            ////kdiy/////
             if (avail.Contains(m_announce))
                 return m_announce;
+            ////kdiy/////
+            else if (avail.Contains(selected))
+                return selected;
+            ////kdiy/////
             else if (m_announce > 0)
                 Log(LogLevel.Error, "Pre-announced card cant be used: " + m_announce);
             return avail[0];
