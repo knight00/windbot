@@ -240,7 +240,7 @@ namespace WindBot.Game.AI.Decks
             ClientCard last_chain_card = Util.GetLastChainCard();
             if (orica == null)
                 return 12201;
-            if (last_chain_card.IsCode(CardId.CNo1000))
+            if (last_chain_card != null && last_chain_card.IsCode(CardId.CNo1000))
             {
                 if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon) || Bot.SpellZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)))
                     return CardId.CNo1000;
@@ -249,7 +249,7 @@ namespace WindBot.Game.AI.Decks
             No1annouce++;
 
             IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup());
-            if (last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
+            if (last_chain_card != null && last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
             {
                 ClientCard last_card = last_cards[0];
                 if (last_card.IsCode(593))

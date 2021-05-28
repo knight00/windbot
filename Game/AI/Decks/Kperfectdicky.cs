@@ -1577,7 +1577,6 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnAnnounceCard(IList<int> avail)
         {
-            ClientCard last_card = Util.GetLastChainCard();
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null)
                 return 12201;
