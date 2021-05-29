@@ -20,6 +20,7 @@ namespace WindBot.Game.AI.Decks
             public const int Costdown = 609;
             public const int Numeronlead = 13707;
             public const int CNo1 = 13705;
+            public const int No1000 = 586;
             public const int CNo1000 = 13715;
             public const int CiNo1000 = 13716;
             public const int DoubleSummon = 43422537;
@@ -57,6 +58,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.Number100Dragon);
             activatem.Add(CardId.Number100Dragon);
+            AddExecutor(ExecutorType.Activate, CardId.No1000, CNo1000Effects);
+            activatem.Add(CardId.No1000);
             AddExecutor(ExecutorType.Activate, CardId.CNo1000, CNo1000Effects);
             activatem.Add(CardId.CNo1000);
             AddExecutor(ExecutorType.Activate, CardId.CiNo1000, CiNo1000Effects);
@@ -238,7 +241,7 @@ namespace WindBot.Game.AI.Decks
         {
             ClientCard orica = Bot.GetFieldSpellCard();
             ClientCard last_chain_card = Util.GetLastChainCard();
-            if (orica == null)
+            if (orica == null && avail.Contains(12201))
                 return 12201;
             if (last_chain_card != null && last_chain_card.IsCode(CardId.CNo1000))
             {
@@ -248,12 +251,12 @@ namespace WindBot.Game.AI.Decks
             }
             No1annouce++;
 
-            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup());
+            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup() && card.Sequence == 0);
             if (last_chain_card != null && last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
             {
                 ClientCard last_card = last_cards[0];
                 if (last_card.IsCode(593))
-                    return 586;
+                    return CardId.No1000;
                 else if (last_card.IsCode(588))
                     return CardId.CNo1000;
                 else
@@ -660,14 +663,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool RUM_DonThousand()
         {
-            AI.SelectAnnounceID(586);
+            AI.SelectAnnounceID(CardId.No1000);
             return true;
         }
 
         private bool CNo1000Effects()
         {
-            IList<ClientCard> Destg = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 5000 || !card.HasType(CardType.Xyz));
-            IList<ClientCard> Destg3 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 5000 || !card.HasType(CardType.Xyz));
+            IList<ClientCard> Destg = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 4500 || !card.HasType(CardType.Xyz));
+            IList<ClientCard> Destg3 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 4500 || !card.HasType(CardType.Xyz));
             IList<ClientCard> Destg2 = Enemy.GetMonsters();
             foreach (ClientCard des in Destg3)
                 Destg.Add(des);

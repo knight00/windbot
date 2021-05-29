@@ -331,7 +331,7 @@ namespace WindBot.Game.AI.Decks
         public override int OnAnnounceCard(IList<int> avail)
         {
             ClientCard orica = Bot.GetFieldSpellCard();
-            if (orica == null)
+            if (orica == null && avail.Contains(12201))
                 return 12201;
             if (avail.Contains(264))
             {
