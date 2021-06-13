@@ -657,6 +657,8 @@ namespace WindBot.Game.AI.Decks
 
         private bool RUM1000()
         {
+            if (Card.IsCode(588) && Card.Location==CardLocation.Grave)
+                AI.SelectAnnounceID(594);
             AI.SelectAnnounceID(CardId.CNo1000);
             return true;
         }
