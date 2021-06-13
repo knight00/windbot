@@ -128,6 +128,24 @@ namespace WindBot
             Info.Hand = Config.GetInt("Hand", Info.Hand);
             Info.Debug = Config.GetBool("Debug", Info.Debug);
             Info.Chat = Config.GetBool("Chat", Info.Chat);
+            Info.RoomId = Config.GetInt("RoomId", Info.RoomId);
+            string b64CreateGame = Config.GetString("CreateGame");
+            if (b64CreateGame != null)
+            {
+                try
+                {
+                    var ms = new MemoryStream(Convert.FromBase64String(b64CreateGame));
+                    var ser = new DataContractJsonSerializer(typeof(CreateGameInfo));
+                    Info.CreateGame = ser.ReadObject(ms) as CreateGameInfo;
+                    // "Best of 0" is not allowed by the server, use that to check for validity.
+                    if (Info.CreateGame.bestOf == 0) Info.CreateGame = null;
+                }
+                catch (Exception ex)
+                {
+                    Info.CreateGame = null;
+                    Logger.DebugWriteLine("Error while parsing CreateGame json: " + ex);
+                }
+            }
             Run(Info);
         }
 
