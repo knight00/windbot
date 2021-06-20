@@ -166,7 +166,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.ZwTornadoBringer);
             AddExecutor(ExecutorType.Activate, CardId.ZwLightningBlade, ZwWeapon);
             activatem.Add(CardId.ZwLightningBlade);
-            AddExecutor(ExecutorType.Activate, 723, FNo0_Slash);
+            AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
+            AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
 
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
@@ -505,6 +506,13 @@ namespace WindBot.Game.AI.Decks
         }
 
         private bool FNo0_Slash()
+        {
+            if (Duel.Player == 0 && Duel.Turn == 1)
+                return false;
+            return true;
+        }
+
+        private bool FNo0_Slash_Effects()
         {
             if (Duel.Player == 1 && !Bot.UnderAttack)
                 return false;
