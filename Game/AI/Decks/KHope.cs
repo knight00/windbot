@@ -166,6 +166,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.ZwTornadoBringer);
             AddExecutor(ExecutorType.Activate, CardId.ZwLightningBlade, ZwWeapon);
             activatem.Add(CardId.ZwLightningBlade);
+            AddExecutor(ExecutorType.Activate, 723, FNo0_Slash);
+            activatem.Add(723);
 
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
@@ -500,6 +502,13 @@ namespace WindBot.Game.AI.Decks
             if (Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
                 return false;
             return base.DefaultMonsterRepos();
+        }
+
+        private bool FNo0_Slash()
+        {
+            if (Duel.Player == 1 && !Bot.UnderAttack)
+                return false;
+            return true;
         }
 
         private bool GodPheonix()

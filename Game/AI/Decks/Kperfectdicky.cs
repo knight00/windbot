@@ -1262,6 +1262,8 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, _CardId.ExodiaTheForbiddenOne, JustDontIt);
 
             //KCG
+            AddExecutor(ExecutorType.Activate, 723, FNo0_Slash);
+            activatem.Add(723);
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
             activatem.Add(CardId.Costdown);
             AddExecutor(ExecutorType.Activate, CardId.CrossSacriface, CrossSacriface);
@@ -1853,6 +1855,13 @@ namespace WindBot.Game.AI.Decks
                 AI.SelectCard(Oricamonster);
             }
 
+            return true;
+        }
+
+        private bool FNo0_Slash()
+        {
+            if (Duel.Player == 1 && !Bot.UnderAttack)
+                return false;
             return true;
         }
 

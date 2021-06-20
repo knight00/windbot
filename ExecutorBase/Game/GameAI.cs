@@ -749,9 +749,9 @@ namespace WindBot.Game
             ////kdiy/////
             else if (avail.Contains(selected))
                 return selected;
-            ////kdiy/////
             else if (m_announce > 0)
                 Log(LogLevel.Error, "Pre-announced card cant be used: " + m_announce);
+            ////kdiy/////
             return avail[0];
         }
 

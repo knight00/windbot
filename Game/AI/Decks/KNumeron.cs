@@ -31,7 +31,7 @@ namespace WindBot.Game.AI.Decks
         public KNumeronExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace() && !(Card.Location == CardLocation.Removed && Card.IsFacedown()));
+            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace());
             AddExecutor(ExecutorType.Activate, OtherSpellEffect);
             AddExecutor(ExecutorType.Activate, OtherTrapEffect);
             AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
@@ -79,6 +79,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(13717);
             AddExecutor(ExecutorType.Activate, 593, RUM_DonThousand);
             activatem.Add(593);
+            AddExecutor(ExecutorType.Activate, 723, FNo0_Slash);
+            activatem.Add(723);
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
 
@@ -251,7 +253,7 @@ namespace WindBot.Game.AI.Decks
             }
             No1annouce++;
 
-            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup() && card.Sequence == 0);
+            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup() && card.Sequence == Bot.Graveyard.Count - 1);
             if (last_chain_card != null && last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
             {
                 ClientCard last_card = last_cards[0];
@@ -262,8 +264,7 @@ namespace WindBot.Game.AI.Decks
                 else
                     return 13701;
             }
-
-            return 13701;
+            return avail[0];
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -474,14 +475,12 @@ namespace WindBot.Game.AI.Decks
             }
 
             IList<ClientCard> selected = Bot.Deck.GetMatchingCards(card=>card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap()));
-            if (Duel.Player == 0 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
-                AI.SelectCard(CardId.Numeronlead, 595, 588, 597, 13717, 13708, 13709, 13710, 13713, 596);
-            else if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
-                AI.SelectCard(588, CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+            if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
+                AI.SelectCard(588, 593, CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
             else if (Duel.Player == 0)
-                AI.SelectCard(CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                AI.SelectCard(CardId.Numeronlead, 588, 593, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
             else if (Duel.Player == 1)
-                AI.SelectCard(595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
 
             List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
             ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
@@ -498,19 +497,19 @@ namespace WindBot.Game.AI.Decks
                 NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
             NumeronNo.Reverse();
             AI.SelectNextCard(NumeronNo);
-            int count = Util.GetBotAvailZonesFromExtraDeck();
-            if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
 
-            if (count > 3)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (CNo1summon > 0 && Duel.Turn > 1)
-                        AI.SelectAnnounceID(13714);
-                    No1annouce++;
-                    AI.SelectAnnounceID(13701);
-                }
-            }
+            //int count = Util.GetBotAvailZonesFromExtraDeck();
+            //if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
+            //if (count > 3)
+            //{
+            //    for (int i = 0; i < 4; i++)
+            //    {
+            //        if (CNo1summon > 0 && Duel.Turn > 1)
+            //            AI.SelectAnnounceID(13714);
+            //        No1annouce++;
+            //        AI.SelectAnnounceID(13701);
+            //    }
+            //}
 
             if (Card.HasXyzMaterial(1, 10))
             {
@@ -666,6 +665,13 @@ namespace WindBot.Game.AI.Decks
         private bool RUM_DonThousand()
         {
             AI.SelectAnnounceID(CardId.No1000);
+            return true;
+        }
+
+        private bool FNo0_Slash()
+        {
+            if (Duel.Player == 1 && !Bot.UnderAttack)
+                return false;
             return true;
         }
 
