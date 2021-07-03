@@ -34,6 +34,7 @@ namespace WindBot.Game
         ////kdiy/////////
         {
             StreamReader reader = null;
+            Deck deck = new Deck();
             try
             {
                 ////////kdiy///////
@@ -45,7 +46,6 @@ namespace WindBot.Game
                 ////////kdiy///////
                 reader = new StreamReader(new FileStream(Path.IsPathRooted(name) ? name : Path.Combine(Program.AssetPath, "Decks/", name + ".ydk"), FileMode.Open, FileAccess.Read));
 
-                Deck deck = new Deck();
                 bool main = true;
                 bool side = false;
 
@@ -81,14 +81,13 @@ namespace WindBot.Game
                 deck.ExtraCards.Add(111);
                 ////kdiy/////////  
                 reader.Close();
-
-                return deck;
             }
             catch (Exception)
             {
+                Logger.WriteLine("Failed to load deck: " + name + ".");
                 reader?.Close();
-                return null;
             }
+            return deck;
         }
     }
 }

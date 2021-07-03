@@ -133,6 +133,7 @@ namespace WindBot
                         {
                             sw.WriteLine("[" + DateTime.Now.ToString("yy-MM-dd HH:mm:ss") + "] Tick Error: " + ex);
                         }
+                        client.Connection.Close();
                         return;
                     }
 #endif
