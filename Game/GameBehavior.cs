@@ -76,9 +76,9 @@ namespace WindBot.Game
             ////kdiy///////
             //Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck);
             if (game.Deckfolder == "")
-                Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck, game.Deckpath);
+                Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck, game.Deckpath, game.Seed);
             else
-                Deck = Deck.Load(_ai.Executor.Deck, game.Deckfolder + "/" + game.Deckpath);
+                Deck = Deck.Load(_ai.Executor.Deck, game.Deckfolder + "/" + game.Deckpath, game.Seed);
             ////kdiy///////
 
             _select_hint = 0;
@@ -1750,6 +1750,16 @@ namespace WindBot.Game
                                 stack.AddLast(rhs >> (int)lhs);
                             }
                             break;
+                        ////////kdiy/////////////
+                        case Opcodes.OPCODE_ISOTYPE:
+                           if (stack.Count >= 1)
+                            {
+                                int otype = (int)stack.Last.Value;
+                                stack.RemoveLast();
+                                stack.AddLast(((otype & card.Ot) != 0) ? 1 : 0);
+                            }
+                            break;
+                        ////////kdiy/////////////    
                         case Opcodes.OPCODE_ISCODE:
                             if (stack.Count >= 1)
                             {

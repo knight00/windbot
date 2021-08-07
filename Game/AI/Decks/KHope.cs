@@ -33,7 +33,6 @@ namespace WindBot.Game.AI.Decks
             public const int GodPheonix = 824;
 
             public const int ClosedGod = 98127546;
-            public const int Number41 = 90590303;
             public const int Number86 = 63504681;
             public const int Number39Double = 62517849;
             public const int ZwLionArms = 265;
@@ -150,7 +149,6 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.NumberS39UtopiaOne);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning, NumberS39UtopiatheLightning);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39, Summonplace);
-            AddExecutor(ExecutorType.SpSummon, CardId.Number41, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.Number86, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.SNo0, SNo0);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwDragon, Summonplace);
@@ -679,13 +677,6 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
-        private bool Number41()
-        {
-            if (Util.IsAllEnemyBetter())
-                return true;
-            return false;
-        }
-
         private bool Number100DragonEffects()
         {
             if (Duel.Player == 0)
@@ -891,6 +882,11 @@ namespace WindBot.Game.AI.Decks
                 if (!(Card.HasXyzMaterial(1, 12)))
                 {
                     AI.SelectAnnounceID(12);
+                    return true;
+                }
+                if (!(Card.HasXyzMaterial(1, 95856586)))
+                {
+                    AI.SelectAnnounceID(95856586);
                     return true;
                 }
                 if (!(Card.HasXyzMaterial(1, 13706)))
