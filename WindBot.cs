@@ -68,6 +68,10 @@ namespace WindBot
             public string Debug { get; set; }
             [DataMember]
             public string Chat { get; set; }
+            /////kdiy////////	
+            [DataMember]
+            public string Seed { get; set; }
+            /////kdiy////////	
         }
 
         public static void RunAndroid(string arg)
@@ -93,6 +97,9 @@ namespace WindBot
                 if (data.HostInfo != null) Info.HostInfo = data.HostInfo;
                 if (data.Version != null) Info.Version = int.Parse(data.Version);
                 if (data.Chat != null) Info.Chat = int.Parse(data.Chat) != 0;
+                /////////kdiy/////////
+                if (data.Seed != null) Info.Seed = int.Parse(data.Seed) != 0;
+                /////////kdiy/////////
                 if (data.Debug != null) Info.Debug = int.Parse(data.Debug) != 0;
             }
             catch (Exception ex)

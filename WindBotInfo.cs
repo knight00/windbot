@@ -44,6 +44,9 @@ namespace WindBot
         public int Hand { get; set; }
         public bool Debug { get; set; }
         public bool Chat { get; set; }
+        /////////kdiy/////       
+        public bool Seed { get; set; }
+        /////////kdiy/////       
         public int RoomId { get; set; }
         public CreateGameInfo CreateGame { get; set; }
         public WindBotInfo()
@@ -63,6 +66,9 @@ namespace WindBot
             Hand = 0;
             Debug = false;
             Chat = true;
+            /////////kdiy/////  
+            Seed = false;     
+            /////////kdiy/////       
             RoomId = 0;
             CreateGame = null;
         }

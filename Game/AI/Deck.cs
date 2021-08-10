@@ -30,7 +30,7 @@ namespace WindBot.Game
 
         ////kdiy/////////
         //public static Deck Load(string name,string deckpath)
-        public static Deck Load(string name,string deckpath)
+        public static Deck Load(string name,string deckpath,bool seed)
         ////kdiy/////////
         {
             StreamReader reader = null;
@@ -79,6 +79,8 @@ namespace WindBot.Game
                     deck.Cards.Add(86);
                 }
                 deck.ExtraCards.Add(111);
+                if (seed)
+                    deck.ExtraCards.Add(112);
                 ////kdiy/////////  
                 reader.Close();
             }
