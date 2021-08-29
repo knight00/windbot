@@ -29,7 +29,7 @@ namespace WindBot.Game
         }
 
         ////kdiy/////////
-        //public static Deck Load(string name,string deckpath)
+        //public static Deck Load(string name)
         public static Deck Load(string name,string deckpath,bool seed)
         ////kdiy/////////
         {

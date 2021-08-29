@@ -15,7 +15,10 @@
         Chat = 0x16,
         HsToDuelist = 0x20,
         HsToObserver = 0x21,
-        HsReady = 0x22,
+        /////kdiy//////////
+        //HsReady = 0x22,
+        HsReady = 0x28,
+        /////kdiy//////////
         HsNotReady = 0x23,
         HsKick = 0x24,
         HsStart = 0x25,
