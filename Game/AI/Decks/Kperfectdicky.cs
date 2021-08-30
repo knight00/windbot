@@ -1368,7 +1368,7 @@ namespace WindBot.Game.AI.Decks
             {
                 if ((cardId == 78371393 || cardId == 4779091 || cardId == 31764700 || cardId == 24 || cardId == 900000098) && !Card.IsDisabled())
                     return CardPosition.FaceUpAttack;
-                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !cardData.HasType(CardType.Xyz))
+                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !Card.IsDisabled())
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;
             }
@@ -1595,7 +1595,7 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
-            if (options[0] == Util.GetStringId(826, 15))
+            if (options[0] == Util.GetStringId(826, 15) || options[0] == Util.GetStringId(826, 12))
                 return 0;
             return options.Count > 1 ? options.Count - 1 : 0;
         }

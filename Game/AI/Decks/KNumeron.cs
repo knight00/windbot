@@ -79,6 +79,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(13717);
             AddExecutor(ExecutorType.Activate, 593, RUM_DonThousand);
             activatem.Add(593);
+            AddExecutor(ExecutorType.SpSummon, 209, FNo0);
+            AddExecutor(ExecutorType.Activate, 209, FNo0_Effects);
             AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
             AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
@@ -130,7 +132,7 @@ namespace WindBot.Game.AI.Decks
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
-                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !cardData.HasType(CardType.Xyz))
+                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !(cardData.HasType(CardType.Xyz) && !Card.IsDisabled()))
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;
             }
@@ -275,6 +277,8 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
+            if (options[0] == Util.GetStringId(826, 12))
+                return 0;
             return options.Count > 1 ? options.Count - 1 : 0;
         }
 
@@ -667,6 +671,18 @@ namespace WindBot.Game.AI.Decks
         {
             AI.SelectAnnounceID(CardId.No1000);
             return true;
+        }
+
+        private bool FNo0()
+        {
+            if (CNo1summon == 0)
+                return false;
+            return true;
+        }
+
+        private bool FNo0_Effects()
+        {
+            return false;
         }
 
         private bool FNo0_Slash()

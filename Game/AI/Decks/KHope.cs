@@ -219,7 +219,7 @@ namespace WindBot.Game.AI.Decks
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
-                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !Card.HasType(CardType.Xyz))
+                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !(cardData.HasType(CardType.Xyz) && !Card.IsDisabled()))
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;
             }
@@ -350,6 +350,8 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
+            if (options[0] == Util.GetStringId(826, 12))
+                return 0;
             return options.Count > 1 ? options.Count - 1 : 0;
         }
 
