@@ -79,6 +79,11 @@ namespace WindBot.Game.AI.Decks
             public const int HopePlace = 26493435;
             public const int Oricha = 12201;
             public const int Cyclone = 5318639;
+
+            public const int Anti_Spell = 58921041;
+            public const int ImperialOrder = 61740673;
+            public const int Kagari = 63288573;
+            public const int Shizuku = 90673288;
         }
 
         public KHopeExecutor(GameAI ai, Duel duel)
@@ -1031,21 +1036,116 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
+        public ClientCard GetFloodgate_Alter(bool canBeTarget = false, bool is_bounce = true)
+        {
+            foreach (ClientCard card in Enemy.GetSpells())
+            {
+                if (card != null && card.IsFloodgate() && card.IsFaceup() &&
+                    !card.IsCode(CardId.Anti_Spell, CardId.ImperialOrder)
+                    && (!is_bounce || card.IsTrap())
+                    && (!canBeTarget || !card.IsShouldNotBeTarget()))
+                    return card;
+            }
+            return null;
+        }
+
+        public ClientCard GetProblematicEnemyCard_Alter(bool canBeTarget = false, bool is_bounce = true)
+        {
+            ClientCard card = Enemy.MonsterZone.GetFloodgate(canBeTarget);
+            if (card != null)
+                return card;
+
+            card = GetFloodgate_Alter(canBeTarget, is_bounce);
+            if (card != null)
+                return card;
+
+            card = Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
+            if (card != null
+                && (Duel.Player == 0 || (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)))
+                return card;
+
+            card = Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
+            if (card != null)
+                return card;
+            List<ClientCard> enemy_monsters = Enemy.GetMonsters();
+            enemy_monsters.Sort(CardContainer.CompareCardAttack);
+            enemy_monsters.Reverse();
+            foreach (ClientCard target in enemy_monsters)
+            {
+                if (target.HasType(CardType.Fusion) || target.HasType(CardType.Ritual) || target.HasType(CardType.Synchro) || target.HasType(CardType.Xyz) || (target.HasType(CardType.Link) && target.LinkCount >= 2))
+                {
+                    if (target.IsCode(CardId.Kagari, CardId.Shizuku)) continue;
+                    if (!canBeTarget || !(target.IsShouldNotBeTarget() || target.IsShouldNotBeMonsterTarget())) return target;
+                }
+            }
+
+            return null;
+        }
+
+        public ClientCard GetBestEnemyCard_random()
+        {
+            // monsters
+            ClientCard card = Util.GetProblematicEnemyMonster(0, true);
+            if (card != null)
+                return card;
+            if (Util.GetOneEnemyBetterThanMyBest() != null)
+            {
+                card = Enemy.MonsterZone.GetHighestAttackMonster(true);
+                if (card != null)
+                    return card;
+            }
+
+            // spells
+            List<ClientCard> enemy_spells = Enemy.GetSpells();
+            RandomSort(enemy_spells);
+            foreach (ClientCard sp in enemy_spells)
+            {
+                if (sp.IsFaceup() && !sp.IsDisabled()) return sp;
+            }
+            if (enemy_spells.Count > 0) return enemy_spells[0];
+
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            if (monsters.Count > 0)
+            {
+                RandomSort(monsters);
+                return monsters[0];
+            }
+
+            return null;
+        }
+        public void RandomSort(List<ClientCard> list)
+        {
+
+            int n = list.Count;
+            while (n-- > 1)
+            {
+                int index = Program.Rand.Next(n + 1);
+                ClientCard temp = list[index];
+                list[index] = list[n];
+                list[n] = temp;
+            }
+        }
+
         private bool OtherSpellEffect()
         {
             if (Enemy.GetSpellCount()==0)
                 return false;
-            AI.SelectCard(Enemy.GetSpells());
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsSpell() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 
         private bool OtherTrapEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsTrap() && Program.Rand.Next(9) >= 3 && DefaultTrap() && DefaultDontChainMyself();
         }
 
         private bool OtherMonsterEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 

@@ -709,9 +709,6 @@ namespace WindBot.Game
                 previous.location = 0; // the card is removed when it go to overlay, so here we treat it as a new card
             }
             else
-                /////kdiy//////////////
-                if(!(previous.location == current.location && previous.controler == current.controler && previous.sequence == current.sequence))
-                /////kdiy//////////////
                 _duel.RemoveCard((CardLocation)previous.location, card, previous.controler, previous.sequence);
 
             if ((current.location & (int)CardLocation.Overlay) != 0)
@@ -736,9 +733,6 @@ namespace WindBot.Game
                 }
                 else
                 {
-                    /////kdiy//////////////
-                    if(!(previous.location == current.location && previous.controler == current.controler && previous.sequence == current.sequence))
-                    /////kdiy//////////////
                     _duel.AddCard((CardLocation)current.location, card, current.controler, current.sequence, current.position, cardId);
                     if (card != null && previous.location != current.location)
                         card.IsSpecialSummoned = false;

@@ -1391,8 +1391,15 @@ namespace WindBot.Game.AI.Decks
 
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> _cards, int min, int max, long hint, bool cancelable)
         {
+            if (Duel.Phase == DuelPhase.BattleStart)
+                return null;
+            if (AI.HaveSelectedCards())
+                return null;
+
             IList<ClientCard> selected = new List<ClientCard>();
             IList<ClientCard> cards = new List<ClientCard>(_cards);
+            if (max > cards.Count)
+                max = cards.Count;
 
             if (max == 2 && cards[0].Location == CardLocation.Deck)
             {
@@ -1403,13 +1410,6 @@ namespace WindBot.Game.AI.Decks
                 result.AddRange(cards.Where(card => card.IsCode(CardId.AlternativeWhiteDragon)));
                 return Util.CheckSelectCount(result, cards, min, max);
             }
-
-            if (Duel.Phase == DuelPhase.BattleStart)
-                return null;
-            if (AI.HaveSelectedCards())
-                return null;
-            if (max > cards.Count)
-                max = cards.Count;
 
             if (HintMsgForEnemy.Contains(hint))
             {
@@ -7968,17 +7968,22 @@ namespace WindBot.Game.AI.Decks
         {
             if (Enemy.GetSpellCount()==0)
                 return false;
-            AI.SelectCard(Enemy.GetSpells());
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsSpell() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 
         private bool OtherTrapEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsTrap() && Program.Rand.Next(9) >= 3 && DefaultTrap() && DefaultDontChainMyself();
         }
 
         private bool OtherMonsterEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 

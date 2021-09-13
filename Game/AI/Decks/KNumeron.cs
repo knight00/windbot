@@ -26,6 +26,11 @@ namespace WindBot.Game.AI.Decks
             public const int DoubleSummon = 43422537;
             public const int CrossSacriface = 26;
             public const int Cyclone = 5318639;
+
+            public const int Anti_Spell = 58921041;
+            public const int ImperialOrder = 61740673;
+            public const int Kagari = 63288573;
+            public const int Shizuku = 90673288;
         }
 
         public KNumeronExecutor(GameAI ai, Duel duel)
@@ -254,7 +259,6 @@ namespace WindBot.Game.AI.Decks
                     return CardId.CNo1000;
                 return CardId.CNumber100Dragon;
             }
-            No1annouce++;
 
             IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup() && card.Sequence == Bot.Graveyard.Count - 1);
             if (last_chain_card != null && last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
@@ -265,7 +269,10 @@ namespace WindBot.Game.AI.Decks
                 else if (last_card.IsCode(588))
                     return CardId.CNo1000;
                 else
+                {
                     return 13701;
+                    No1annouce++;
+                }
             }
             return avail[0];
         }
@@ -609,9 +616,10 @@ namespace WindBot.Game.AI.Decks
 
             for (int i = 0; i < 4; i++)
             {
-                if (CNo1summon > 0 && Duel.Turn > 1)
+                if (CNo1summon > 0 && Duel.Turn > 1 && i==0)
                     AI.SelectAnnounceID(13714);
                 AI.SelectAnnounceID(13701);
+                No1annouce++;
             }
             return true;
         }
@@ -677,6 +685,11 @@ namespace WindBot.Game.AI.Decks
         {
             if (CNo1summon == 0)
                 return false;
+            List<ClientCard> mat1 = Bot.MonsterZone.GetMonsters();
+            List<ClientCard> mat2 = Bot.SpellZone.GetMonsters();
+            foreach (ClientCard mon in mat2)
+                mat1.Add(mon);
+            AI.SelectCard(mat1);
             return true;
         }
 
@@ -701,27 +714,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool CNo1000Effects()
         {
-            IList<ClientCard> Destg = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 4500 || !card.HasType(CardType.Xyz));
-            IList<ClientCard> Destg3 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsFacedown() || card.IsDisabled() || card.Attack < 4500 || !card.HasType(CardType.Xyz));
-            IList<ClientCard> Destg2 = Enemy.GetMonsters();
-            foreach (ClientCard des in Destg3)
-                Destg.Add(des);
-            if (Bot.ExtraDeck.GetMatchingCardsCount(card=>card.HasSetcode(0x1048))>0)
-            { 
-                foreach (ClientCard tc in Destg)
-                {
-                    Destg2.Add(tc);
-                } 
-            }
+            IList<ClientCard> Destg = Enemy.GetMonsters().GetMatchingCards(card => !card.IsMonsterInvincible());
+            List<ClientCard> Destg2 = new List<ClientCard>();
+            foreach (ClientCard des in Destg)
+                Destg2.Add(des);
+            Destg2.Sort(CardContainer.CompareCardAttack);
+            Destg2.Reverse();
             if (Destg2.Count > 0)
-            {
-                AI.SelectCard(Destg2);
-                if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon) || Bot.SpellZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)))
-                    AI.SelectAnnounceID(CardId.CNo1000);
-                else AI.SelectAnnounceID(CardId.CNumber100Dragon);
-                AI.SelectNextCard(CardId.CNo1000, CardId.CNumber100Dragon);
                 return true;
-            }
             return false;
         }
 
@@ -732,21 +732,116 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
+        public ClientCard GetFloodgate_Alter(bool canBeTarget = false, bool is_bounce = true)
+        {
+            foreach (ClientCard card in Enemy.GetSpells())
+            {
+                if (card != null && card.IsFloodgate() && card.IsFaceup() &&
+                    !card.IsCode(CardId.Anti_Spell, CardId.ImperialOrder)
+                    && (!is_bounce || card.IsTrap())
+                    && (!canBeTarget || !card.IsShouldNotBeTarget()))
+                    return card;
+            }
+            return null;
+        }
+
+        public ClientCard GetProblematicEnemyCard_Alter(bool canBeTarget = false, bool is_bounce = true)
+        {
+            ClientCard card = Enemy.MonsterZone.GetFloodgate(canBeTarget);
+            if (card != null)
+                return card;
+
+            card = GetFloodgate_Alter(canBeTarget, is_bounce);
+            if (card != null)
+                return card;
+
+            card = Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
+            if (card != null
+                && (Duel.Player == 0 || (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)))
+                return card;
+
+            card = Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
+            if (card != null)
+                return card;
+            List<ClientCard> enemy_monsters = Enemy.GetMonsters();
+            enemy_monsters.Sort(CardContainer.CompareCardAttack);
+            enemy_monsters.Reverse();
+            foreach (ClientCard target in enemy_monsters)
+            {
+                if (target.HasType(CardType.Fusion) || target.HasType(CardType.Ritual) || target.HasType(CardType.Synchro) || target.HasType(CardType.Xyz) || (target.HasType(CardType.Link) && target.LinkCount >= 2))
+                {
+                    if (target.IsCode(CardId.Kagari, CardId.Shizuku)) continue;
+                    if (!canBeTarget || !(target.IsShouldNotBeTarget() || target.IsShouldNotBeMonsterTarget())) return target;
+                }
+            }
+
+            return null;
+        }
+
+        public ClientCard GetBestEnemyCard_random()
+        {
+            // monsters
+            ClientCard card = Util.GetProblematicEnemyMonster(0, true);
+            if (card != null)
+                return card;
+            if (Util.GetOneEnemyBetterThanMyBest() != null)
+            {
+                card = Enemy.MonsterZone.GetHighestAttackMonster(true);
+                if (card != null)
+                    return card;
+            }
+
+            // spells
+            List<ClientCard> enemy_spells = Enemy.GetSpells();
+            RandomSort(enemy_spells);
+            foreach (ClientCard sp in enemy_spells)
+            {
+                if (sp.IsFaceup() && !sp.IsDisabled()) return sp;
+            }
+            if (enemy_spells.Count > 0) return enemy_spells[0];
+
+            List<ClientCard> monsters = Enemy.GetMonsters();
+            if (monsters.Count > 0)
+            {
+                RandomSort(monsters);
+                return monsters[0];
+            }
+
+            return null;
+        }
+        public void RandomSort(List<ClientCard> list)
+        {
+
+            int n = list.Count;
+            while (n-- > 1)
+            {
+                int index = Program.Rand.Next(n + 1);
+                ClientCard temp = list[index];
+                list[index] = list[n];
+                list[n] = temp;
+            }
+        }
+
         private bool OtherSpellEffect()
         {
             if (Enemy.GetSpellCount()==0)
                 return false;
-            AI.SelectCard(Enemy.GetSpells());
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsSpell() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 
         private bool OtherTrapEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsTrap() && Program.Rand.Next(9) >= 3 && DefaultTrap() && DefaultDontChainMyself();
         }
 
         private bool OtherMonsterEffect()
         {
+            ClientCard target = GetProblematicEnemyCard_Alter(true);
+            AI.SelectCard(target);
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
         }
 
