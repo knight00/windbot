@@ -42,9 +42,12 @@ namespace WindBot.Game.AI.Decks
             public const int NumberC39UtopiaVictory = 63;
             public const int NumberS39UtopiaOne = 65;
             public const int NumberS39UtopiatheLightning = 326;
+            public const int Number6 = 511002090;
             public const int Number39 = 13719;
             public const int Number99 = 210;
             public const int Number93 = 389;
+            public const int NumberN99 = 110;
+            public const int Number100 = 13714;
             public const int FNo0 = 209;
             public const int SNo0 = 364;
 
@@ -61,9 +64,10 @@ namespace WindBot.Game.AI.Decks
             public const int ZWTrust = 4017398;
             public const int OverlayRebirth = 511001765;
             public const int OverlayReborn = 511001632;
-            public const int HRUM = 511000209;
+            public const int HRUM = 109;
             public const int WRUM = 13734;
             public const int ZWRUM = 36224040;
+            public const int RDM = 87;
             public const int ThousandRUM = 511015134;
             public const int GetRUM = 810000033;
             public const int DoubleChance = 94770493;
@@ -89,18 +93,9 @@ namespace WindBot.Game.AI.Decks
         public KHopeExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
-            AddExecutor(ExecutorType.Activate, OtherSpellEffect);
-            AddExecutor(ExecutorType.Activate, OtherTrapEffect);
-            AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
-
-            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
-            AddExecutor(ExecutorType.Activate, ImFeelingUnlucky);
-
-            AddExecutor(ExecutorType.Summon, Advancesummon);
-            AddExecutor(ExecutorType.MonsterSet, Advancesummon);
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
-            AddExecutor(ExecutorType.SpellSet, Spellset);
+            IList<int> activatem = new List<int>();
+            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
+            activatem.Add(CardId.DarkHole);
 
             AddExecutor(ExecutorType.SpSummon, CardId.ClosedGod, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.ZsAscent, Summonplace);
@@ -115,13 +110,11 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SummonOrSet, CardId.ZwTornadoBringer, () => false);
             AddExecutor(ExecutorType.SummonOrSet, CardId.ZwLightningBlade, () => false);
 
-            IList<int> activatem = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
-            activatem.Add(CardId.Cyclone);
-            
+            activatem.Add(CardId.Cyclone);        
             AddExecutor(ExecutorType.Activate, CardId.Numeronlead, Numeronlead);
             activatem.Add(CardId.Numeronlead);
-            AddExecutor(ExecutorType.Activate, CardId.ZsAscent);
+            AddExecutor(ExecutorType.Activate, CardId.ZsAscent, ZsAscent);
             activatem.Add(CardId.ZsAscent);
             AddExecutor(ExecutorType.Activate, CardId.ZsArmsSage);
             activatem.Add(CardId.ZsArmsSage);
@@ -143,11 +136,18 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.Honest);
             AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
             activatem.Add(CardId.MysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            activatem.Add(CardId.DarkHole);
+            AddExecutor(ExecutorType.Activate, CardId.SeventhSword, SeventhSword);
+            activatem.Add(CardId.SeventhSword);
 
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Double, Number39UtopiaDouble);
             AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
+            activatem.Add(CardId.Number39Double);
+            AddExecutor(ExecutorType.Activate, CardId.NumberN99, NumberN99);
+            activatem.Add(CardId.NumberN99);
+            AddExecutor(ExecutorType.Activate, CardId.Number93, Number93);
+            activatem.Add(CardId.Number93);
+            AddExecutor(ExecutorType.Activate, CardId.Number6, Number6);
+            activatem.Add(CardId.Number6);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, Summonplace);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne, NumberS39UtopiaOne);
             AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiaOne, NumberS39UtopiaOneEffects);
@@ -172,12 +172,29 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
             AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
+            AddExecutor(ExecutorType.Activate, CardId.WRUM, WRUM);
+            activatem.Add(CardId.WRUM);
+            AddExecutor(ExecutorType.Activate, CardId.HRUM, HRUM);
+            activatem.Add(CardId.HRUM);
+            AddExecutor(ExecutorType.Activate, CardId.RDM, RDM);
+            activatem.Add(CardId.RDM);
 
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
             AddExecutor(ExecutorType.Summon, CardId.GodPheonix, GodPheonix);
             AddExecutor(ExecutorType.Activate, CardId.GodPheonix, GodPheonixEffects);
             activatem.Add(CardId.GodPheonix);
+
+            AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
+            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && ImFeelingUnlucky());
+            AddExecutor(ExecutorType.Summon, Advancesummon);
+            AddExecutor(ExecutorType.MonsterSet, Advancesummon);
+            AddExecutor(ExecutorType.Repos, MonsterRepos);
+            AddExecutor(ExecutorType.SpellSet, Spellset);
 
             AddExecutor(ExecutorType.Activate, CardId.TreasureDraw, TreasureDraw);
         }
@@ -428,6 +445,30 @@ namespace WindBot.Game.AI.Decks
             return null;
         }
 
+        public override IList<ClientCard> OnSelectXyzMaterial(IList<ClientCard> cards, int min, int max)
+        {
+            IList<ClientCard> result = Util.SelectPreferredCards(new[] {
+                CardId.ZsAscent,
+                CardId.ZsArmsSage
+            }, cards, min, max);
+            return Util.CheckSelectCount(result, cards, min, max);
+        }
+
+        private void SelectXYZDetach(List<int> Overlays)
+        {
+            AI.SelectCard(
+                CardId.ZsAscent,
+                CardId.ZsArmsSage,
+                CardId.Number39,
+                CardId.Number39Double,
+                CardId.Number39Utopia,
+                CardId.NumberC39Utopia,
+                CardId.NumberC39UtopiaVictory,
+                CardId.NumberS39UtopiaOne,
+                CardId.NumberS39UtopiatheLightning
+                );
+        }
+
         private bool Summonplace()
         {
             if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
@@ -521,6 +562,7 @@ namespace WindBot.Game.AI.Decks
         {
             if (Duel.Player == 1 && !Bot.UnderAttack)
                 return false;
+            SelectXYZDetach(Card.Overlays);
             return true;
         }
 
@@ -566,9 +608,56 @@ namespace WindBot.Game.AI.Decks
 
         private bool Number39UtopiaDoubleEffects()
         {
-            //if (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) + Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Id == CardId.Number39) == 0)
-            //    AI.SelectAnnounceID(CardId.Number39);
+            SelectXYZDetach(Card.Overlays);
             AI.SelectAnnounceID(CardId.Number39Utopia);
+            return true;
+        }
+
+        private bool NumberN99()
+        {
+            SelectXYZDetach(Card.Overlays);
+            if (Bot.GetMonsters().GetMatchingCardsCount(card => card.IsCode(CardId.Number93) && !card.IsDisabled() && card.IsFaceup()) == 0)
+                AI.SelectAnnounceID(CardId.Number93);
+            else
+            {
+                List<int> announce_numbers = new List<int> { CardId.Number6, CardId.Number100, CardId.Number39, CardId.Number99, CardId.NumberN99, 37, 81, 150, 240, CardId.SNo0, 13716 };
+                int no = Program.Rand.Next(11);
+                AI.SelectAnnounceID(announce_numbers[no]);
+            }
+            return true;
+        }
+
+        private bool Number93()
+        {
+            SelectXYZDetach(Card.Overlays);
+            List<int> announce_numbers = new List<int> { CardId.Number93, CardId.Number6, CardId.Number100, CardId.Number39, CardId.Number99, CardId.NumberN99, 37, 81, 150, 240, CardId.SNo0, 13716 };
+            int no = Program.Rand.Next(12);
+            AI.SelectAnnounceID(announce_numbers[no]);
+            return true;
+        }
+
+        private bool Number6()
+        {
+            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(9161357, 0))
+            {
+                IList<ClientCard> targets = Bot.Graveyard.GetMatchingCards(card => card.HasSetcode(0x48));
+                IList<ClientCard> equiptg = new List<ClientCard>();
+                foreach (ClientCard target in targets)
+                {
+                    if (targets.Count >= 1)
+                        break;
+                    if (target.Attack == targets.GetHighestAttackMonster(true).Attack)
+                    {
+                        equiptg.Add(target);
+                        break;
+                    }
+                    equiptg.Add(target);
+                }
+                if (targets.Count == 0)
+                    return false;
+                AI.SelectCard(targets);
+                return true;
+            }
             return true;
         }
 
@@ -580,7 +669,10 @@ namespace WindBot.Game.AI.Decks
                 || (Bot.BattlingMonster == Card && (Bot.HasInHand(CardId.DoubleChance) || Bot.Deck.ContainsCardWithId(CardId.DoubleChance))))
             {
                 if (Duel.Player == 1)
+                {
+                    SelectXYZDetach(Card.Overlays);
                     return true;
+                }
                 else
                 {
                     UtopiaCount++;
@@ -692,31 +784,6 @@ namespace WindBot.Game.AI.Decks
                 return Card.IsFaceup() && Bot.UnderAttack && Bot.BattlingMonster == Card;
         }
 
-        private bool Number6Effects()
-        {
-            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(9161357, 0))
-            {
-                IList<ClientCard> targets = Bot.Graveyard.GetMatchingCards(card => card.HasSetcode(0x48));
-                IList<ClientCard> equiptg = new List<ClientCard>();
-                foreach (ClientCard target in targets)
-                {
-                    if (targets.Count >= 1)
-                        break;
-                    if (target.Attack == targets.GetHighestAttackMonster(true).Attack)
-                    {
-                        equiptg.Add(target);
-                        break;
-                    }
-                    equiptg.Add(target);
-                }
-                if (targets.Count == 0)
-                    return false;
-                AI.SelectCard(targets);
-                return true;
-            }
-            return true;
-        }
-
         private bool Abyss()
         {
             return Duel.Player == 0 || Duel.Turn > 1;
@@ -783,6 +850,42 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
+        private bool HRUM()
+        {
+            IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(CardId.Number39Utopia));
+            if (targets.Count == 0)
+                return false;
+            AI.SelectCard(targets);
+            AI.SelectAnnounceID(CardId.NumberN99);
+            return true;
+        }
+
+        private bool RDM()
+        {
+            IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.HasSetcode(0x7f) && !((card.IsCode(CardId.Number39) || card.IsCode(CardId.NumberN99)) && !Card.IsDisabled()));
+            if (targets.Count == 0)
+                return false;
+            AI.SelectCard(targets);
+            AI.SelectAnnounceID(CardId.Number100);
+            return true;
+        }
+
+         private bool SeventhSword()
+        {
+            IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(99) && !Card.IsDisabled());
+            if (targets.Count == 0)
+            {
+                AI.SelectAnnounceID(99);
+                AI.SelectAnnounceID(98);
+            }
+            else
+            {
+                AI.SelectAnnounceID(97);
+                AI.SelectAnnounceID(96);
+            }
+            return true;
+        }
+
         private bool GagagaLeader()
         {
             if (Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(0x54) && card.HasType(CardType.Monster)) > 1)
@@ -842,7 +945,7 @@ namespace WindBot.Game.AI.Decks
   
         private bool GagagaMagicianEffect()
         {
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.Level != 4 && card.Level >0 && card.Position != (int)CardPosition.FaceUp && card.IsFaceup()) > 0)
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.Level != 4 && card.Level >0 && card.Position != (int)CardPosition.FaceUp && card.IsFaceup()) + Bot.SpellZone.GetMatchingCardsCount(card => card.Level != 4 && card.Level >0 && card.Position != (int)CardPosition.FaceUp && card.IsFaceup()) > 0)
             {
                 IList<ClientCard> Gagaga = Bot.MonsterZone.GetMatchingCards(card => card.Level != 4 && card.Level > 0 && card.Position != (int)CardPosition.FaceUp && card.IsFaceup());
                 IList<ClientCard> Gagaga2 = Bot.SpellZone.GetMatchingCards(card => card.Level != 4 && card.Level > 0 && card.Position != (int)CardPosition.FaceUp && card.IsFaceup());
@@ -974,6 +1077,12 @@ namespace WindBot.Game.AI.Decks
         }
 
         private bool Numeronlead()
+        {
+            AI.SelectAnnounceID(13701);
+            return true;
+        }
+
+        private bool ZsAscent()
         {
             AI.SelectAnnounceID(13701);
             return true;

@@ -432,18 +432,6 @@ namespace WindBot.Game.AI.Decks
         public KperfectdickyExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.Activate, OtherSpellEffect);
-            AddExecutor(ExecutorType.Activate, OtherTrapEffect);
-            AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
-
-            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
-            AddExecutor(ExecutorType.Activate, ImFeelingUnlucky);
-
-            AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
-            AddExecutor(ExecutorType.SpellSet, Spellset);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-
             IList<int> activatem = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
@@ -1271,6 +1259,16 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.CrossSacriface);
             AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
             activatem.Add(CardId.Oricha);
+
+            AddExecutor(ExecutorType.SpSummon);
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
+            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
+            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && ImFeelingUnlucky());
+            AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
+            AddExecutor(ExecutorType.SpellSet, Spellset);
+            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
 
             AddExecutor(ExecutorType.Activate, CardId.TreasureDraw, TreasureDraw);
         }
