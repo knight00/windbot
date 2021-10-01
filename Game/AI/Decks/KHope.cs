@@ -136,7 +136,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.Honest);
             AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
             activatem.Add(CardId.MysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.SeventhSword, SeventhSword);
+            AddExecutor(ExecutorType.Activate, CardId.SeventhSword);
             activatem.Add(CardId.SeventhSword);
 
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Double, Number39UtopiaDouble);
@@ -201,6 +201,7 @@ namespace WindBot.Game.AI.Decks
 
         private int ZwCount = 0;
         private int UtopiaCount = 0;
+        private int WRUMCount = 0;
         private int CrossSacrifaceCount = 0;
 
         private List<long> HintMsgForEnemy = new List<long>
@@ -233,6 +234,7 @@ namespace WindBot.Game.AI.Decks
         {
             ZwCount = 0;
             UtopiaCount = 0;
+            WRUMCount = 0;
             CrossSacrifaceCount = 0;
         }
 
@@ -272,6 +274,9 @@ namespace WindBot.Game.AI.Decks
             IList<ClientCard> cards = new List<ClientCard>(_cards);
             if (max > cards.Count)
                 max = cards.Count;
+
+            if (_cards.ContainsCardWithId(CardId.Number86))
+                return _cards.GetMatchingCards(card => card.IsCode(CardId.Number86));
 
             if (HintMsgForEnemy.Contains(hint))
             {
@@ -356,10 +361,37 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null && avail.Contains(12201))
                 return 12201;
+
+            ClientCard last_chain_card = Util.GetLastChainCard();
+            if (last_chain_card != null && last_chain_card.IsCode(CardId.WRUM))
+            {
+                WRUMCount++;
+                if (Bot.HasInMonstersZone(CardId.Number39) || WRUMCount%2==0)
+                    return CardId.NumberC39UtopiaVictory;
+                return CardId.Number39;
+            }
+
+            if (last_chain_card != null && last_chain_card.IsCode(CardId.SeventhSword))
+            {
+                IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(99) && !Card.IsDisabled());
+                if (targets.Count == 0)
+                {
+                    if (Bot.HasInMonstersZone(99))
+                        return 98;
+                    return 99;
+                }
+                else
+                {
+                    if (Bot.HasInMonstersZone(97))
+                        return 96;
+                    return 97;
+                }
+            }
+
             if (avail.Contains(264))
             {
                 if (Bot.HasInSpellZone(264))
-                return 266;
+                    return 266;
                 else return 264;
             }
             return 13701;
@@ -568,9 +600,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool GodPheonix()
         {
-            if (Card.Controller == 0)
-                AI.SelectOption(0);
-            else AI.SelectOption(1);
+            AI.SelectAnnounceID(802);
             return true;
         }
 
@@ -598,7 +628,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Number39UtopiaDouble()
         {
-            if (Duel.Player == 0 && Bot.GetRemainingCount(CardId.DoubleChance, 2) > 0)
+            if (Duel.Player == 0 && Bot.GetRemainingCount(CardId.DoubleChance, 1) > 0)
             {
                 AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
@@ -833,20 +863,21 @@ namespace WindBot.Game.AI.Decks
             if (targets.Count == 0)
                 return false;
             AI.SelectCard(targets);
-            if (targets.ContainsMonsterWithRank(4))
-            {
-                AI.SelectAnnounceID(13719);
-                AI.SelectAnnounceID(63);
-            }
-            else if (targets.ContainsMonsterWithRank(5))
-            {
-                AI.SelectAnnounceID(13719);
-                AI.SelectAnnounceID(13719);
-            } else if (targets.ContainsMonsterWithRank(10))
-            {
-                AI.SelectAnnounceID(110);
-                AI.SelectAnnounceID(389);
-            }
+            //if (targets.ContainsMonsterWithRank(4))
+            //{
+            //    AI.SelectAnnounceID(63);
+            //    AI.SelectAnnounceID(13719);
+            //}
+            //else if (targets.ContainsMonsterWithRank(5))
+            //{
+            //    AI.SelectAnnounceID(13719);
+            //    AI.SelectAnnounceID(13719);
+            //}
+            //else if (targets.ContainsMonsterWithRank(10))
+            //{
+            //    AI.SelectAnnounceID(389);
+            //    AI.SelectAnnounceID(110);
+            //}
             return true;
         }
 
@@ -870,21 +901,21 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
-         private bool SeventhSword()
-        {
-            IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(99) && !Card.IsDisabled());
-            if (targets.Count == 0)
-            {
-                AI.SelectAnnounceID(99);
-                AI.SelectAnnounceID(98);
-            }
-            else
-            {
-                AI.SelectAnnounceID(97);
-                AI.SelectAnnounceID(96);
-            }
-            return true;
-        }
+        // private bool SeventhSword()
+        //{
+        //    IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(99) && !Card.IsDisabled());
+        //    if (targets.Count == 0)
+        //    {
+        //        AI.SelectAnnounceID(99);
+        //        AI.SelectAnnounceID(98);
+        //    }
+        //    else
+        //    {
+        //        AI.SelectAnnounceID(97);
+        //        AI.SelectAnnounceID(96);
+        //    }
+        //    return true;
+        //}
 
         private bool GagagaLeader()
         {
