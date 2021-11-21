@@ -21,6 +21,97 @@
         "masterRules": [3, 4, 5]
     },
     {
+        "name": "神风AI",
+        "deck": "SF",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "貘良AI",
+        "deck": "AML",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "暗神风AI",
+        "deck": "ASF",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "暗黑大邪神",
+        "deck": "AHDXS",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "光道",
+        "deck": "GD",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "帕伽索斯AI",
+        "deck": "PJSS",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "电脑侠",
+        "deck": "PC",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "女武神",
+        "deck": "NWS",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "花花AI",
+        "deck": "HH",
+        "dialog": "soul.zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "大法师",
+        "deck": "DFS",
+        "dialog": "soul.zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "快斗AI",
+        "deck": "KD",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "小雨AI",
+        "deck": "XY",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "除外",
+        "deck": "CW",
+        "dialog": "zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "尼亞－幻變騷靈",
         "deck": "Altergeist",
         "dialog": "near.zh-CN",
@@ -254,6 +345,13 @@
     {
         "name": "千尊",
         "deck": "AI_Numeron",
+        "dialog": "donthousand",
+        "difficulty": 4,
+        "masterRules": [3, 5]
+    },
+    {
+        "name": "Zexal",
+        "deck": "AI_Hope",
         "dialog": "donthousand",
         "difficulty": 4,
         "masterRules": [3, 5]
