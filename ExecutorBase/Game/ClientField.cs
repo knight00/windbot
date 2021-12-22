@@ -98,6 +98,13 @@ namespace WindBot.Game
             return GetCount(Hand);
         }
 
+        ////kdiy/////////////////
+        public int GetdeckCount()
+        {
+            return GetCount(Deck);
+        }
+        ////kdiy/////////////////
+
         public int GetSpellCountWithoutField()
         {
             int count = 0;

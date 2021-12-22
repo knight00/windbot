@@ -116,6 +116,10 @@ namespace WindBot.Game.AI
             public const int RoyalDecreel = 51452091;
             public const int NaturiaBeast = 33198837;
             public const int AntiSpellFragrance = 58921041;
+
+            //////kdiy/////////////////
+            public const int qianyannajishen = 63519819;
+            //////kdiy/////////////////
         }
 
         protected DefaultExecutor(GameAI ai, Duel duel)
@@ -427,6 +431,15 @@ namespace WindBot.Game.AI
             AI.SelectCard(selected);
             return true;
         }
+
+        ////////kdiy////////////////
+        protected bool DefaultCallOfTheHaunted1()
+        {
+            ClientCard selected = Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()).OrderByDescending(card => card.Attack).FirstOrDefault();
+            AI.SelectCard(selected);
+            return true;
+        }
+        ////////kdiy////////////////
 
         /// <summary>
         /// Default Scapegoat effect
@@ -747,6 +760,32 @@ namespace WindBot.Game.AI
 
             return false;
         }
+
+        //////kdiy/////////////////////
+        protected bool DefaultSFMonsterRepos()
+        {
+
+            if (Bot.HasInMonstersZone(_CardId.qianyannajishen))
+                return true;
+
+            if (Enemy.HasInMonstersZone(_CardId.BlueEyesChaosMAXDragon, true) &&
+                Card.IsAttack() && (4000 - Card.Defense) * 2 > (4000 - Card.Attack))
+                return false;
+            if (Enemy.HasInMonstersZone(_CardId.BlueEyesChaosMAXDragon, true) &&
+                Card.IsDefense() && Card.IsFaceup() &&
+                (4000 - Card.Defense) * 2 > (4000 - Card.Attack))
+                return true;
+
+            bool enemyBetter = Util.IsAllEnemyBetter(true);
+            if (Card.IsAttack() && enemyBetter)
+                return true;
+            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
+                return true;
+
+
+            return false;
+        }
+        //////kdiy/////////////////////
 
         /// <summary>
         /// If spell will be negated

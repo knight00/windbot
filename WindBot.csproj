@@ -71,6 +71,19 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Game\AI\Deck.cs" />
+    <Compile Include="Game\AI\Decks\GX_AHDXSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_AMLExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_ASFExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_CWExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_DFSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_GDExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_HHExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_KDExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_NWSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_PCExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_PJSSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_SFExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_XYExecutor.cs" />
     <Compile Include="Game\AI\Decks\KHope.cs" />
     <Compile Include="Game\AI\Decks\KNumeron.cs" />
     <Compile Include="Game\AI\Decks\Kperfectdicky.cs" />

@@ -281,7 +281,7 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
-        protected bool Liequaneffect()
+        private bool Liequaneffect()
         {
 
             ClientCard target = Util.GetBestEnemyMonster() ;
@@ -293,6 +293,7 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
+
         //发动羽毛扫的条件
         private bool YumaosaoActive()
         {
