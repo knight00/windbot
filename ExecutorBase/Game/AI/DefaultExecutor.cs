@@ -315,6 +315,66 @@ namespace WindBot.Game.AI
         /// <summary>
         /// Destroy face-down cards first, in our turn.
         /// </summary>
+        ///kidy/////////
+        protected bool DefaultOrica()
+        {
+            if (Util.ChainContainsCard(12201)) return false;
+            if (Card.HasXyzMaterial(1, 13706))
+            {
+                IList<ClientCard> selected = Bot.Deck.GetMatchingCards(card => card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap()));
+                if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
+                    AI.SelectCard(588, 593, 13707, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                else if (Duel.Player == 0)
+                    AI.SelectCard(13707, 588, 593, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
+                else if (Duel.Player == 1)
+                    AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
+
+                List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
+                ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
+                ClientCard NumeronNo2 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13702));
+                ClientCard NumeronNo3 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13703));
+                ClientCard NumeronNo4 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13704));
+                if (NumeronNo1 != null)
+                    NumeronNo.Remove(NumeronNo1); NumeronNo.Add(NumeronNo1);
+                if (NumeronNo2 != null)
+                    NumeronNo.Remove(NumeronNo2); NumeronNo.Add(NumeronNo2);
+                if (NumeronNo3 != null)
+                    NumeronNo.Remove(NumeronNo3); NumeronNo.Add(NumeronNo3);
+                if (NumeronNo4 != null)
+                    NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
+                NumeronNo.Reverse();
+                AI.SelectNextCard(NumeronNo);
+
+                //int count = Util.GetBotAvailZonesFromExtraDeck();
+                //if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
+                //if (count > 3)
+                //{
+                //    for (int i = 0; i < 4; i++)
+                //    {
+                //        if (CNo1summon > 0 && Duel.Turn > 1)
+                //            AI.SelectAnnounceID(13714);
+                //        No1annouce++;
+                //        AI.SelectAnnounceID(13701);
+                //    }
+                //}
+            }
+
+            if (Card.HasXyzMaterial(1, 10))
+            {
+                List<ClientCard> Oricamonster = Bot.GetMonsters();
+                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
+                foreach (ClientCard mon in Oricamonster2)
+                    Oricamonster.Add(mon);
+                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
+                Oricamonster.Remove(topmon);
+                Oricamonster.Sort(CardContainer.CompareCardAttack);
+                Oricamonster.Reverse();
+                AI.SelectCard(Oricamonster);
+            }
+
+            return true;
+        }
+        ///kidy/////////
         protected bool DefaultMysticalSpaceTyphoon()
         {
             if (Duel.CurrentChain.Any(card => card.IsCode(_CardId.MysticalSpaceTyphoon)))

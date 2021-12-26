@@ -98,7 +98,7 @@ namespace WindBot
                 if (data.Version != null) Info.Version = int.Parse(data.Version);
                 if (data.Chat != null) Info.Chat = int.Parse(data.Chat) != 0;
                 /////////kdiy/////////
-                if (data.Seed != null) Info.Seed = int.Parse(data.Seed) != 0;
+                if (data.Seed != null) Info.Seed = int.Parse(data.Seed);
                 /////////kdiy/////////
                 if (data.Debug != null) Info.Debug = int.Parse(data.Debug) != 0;
             }

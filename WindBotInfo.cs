@@ -45,7 +45,7 @@ namespace WindBot
         public bool Debug { get; set; }
         public bool Chat { get; set; }
         /////////kdiy/////       
-        public bool Seed { get; set; }
+        public int Seed { get; set; }
         /////////kdiy/////       
         public int RoomId { get; set; }
         public CreateGameInfo CreateGame { get; set; }
@@ -67,7 +67,7 @@ namespace WindBot
             Debug = false;
             Chat = true;
             /////////kdiy/////  
-            Seed = false;     
+            Seed = 0;     
             /////////kdiy/////       
             RoomId = 0;
             CreateGame = null;

@@ -343,6 +343,13 @@
         "masterRules": [3, 4, 5]
     },
     {
+        "name": "ZCG·太阳神",
+        "deck": "Ra",
+        "dialog": "ZZ-Star",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "千尊",
         "deck": "AI_Numeron",
         "dialog": "donthousand",

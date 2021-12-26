@@ -104,7 +104,7 @@ namespace WindBot.Game
             return GetCount(Deck);
         }
         ////kdiy/////////////////
-
+        
         public int GetSpellCountWithoutField()
         {
             int count = 0;
@@ -370,12 +370,16 @@ namespace WindBot.Game
         {
             return cards.Count(card => card != null && card.IsCode(cardId));
         }
-
+        ///// diy /////
+        public int GetCountCardInZone(IEnumerable<ClientCard> cards, CardType type, int setcode)
+        {
+            return cards.Count(card => card != null && card.HasType(type) && card.HasSetcode(setcode));
+        }
+        ///// diy /////
         private static List<ClientCard> GetCards(IEnumerable<ClientCard> cards, CardType type)
         {
             return cards.Where(card => card != null && card.HasType(type)).ToList();
         }
-
         private static List<ClientCard> GetCards(IEnumerable<ClientCard> cards)
         {
             return cards.Where(card => card != null).ToList();

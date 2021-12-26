@@ -94,13 +94,18 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             IList<int> activatem = new List<int>();
+            IList<int> spsummonm = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
             activatem.Add(CardId.DarkHole);
 
             AddExecutor(ExecutorType.SpSummon, CardId.ClosedGod, Summonplace);
+            spsummonm.Add(CardId.ClosedGod);
             AddExecutor(ExecutorType.SpSummon, CardId.ZsAscent, Summonplace);
+            spsummonm.Add(CardId.ZsAscent);
             AddExecutor(ExecutorType.SpSummon, CardId.ZsArmsSage, Summonplace);
+            spsummonm.Add(CardId.ZsArmsSage);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwHorseSword, Summonplace);
+            spsummonm.Add(CardId.ZwHorseSword);
             AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, GoblindberghFirst);
             AddExecutor(ExecutorType.Summon, CardId.UtopiaMini, Summonplace);
             AddExecutor(ExecutorType.Summon, CardId.Dondondon, Summonplace);
@@ -140,6 +145,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.SeventhSword);
 
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Double, Number39UtopiaDouble);
+            spsummonm.Add(CardId.Number39Double);
             AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
             activatem.Add(CardId.Number39Double);
             AddExecutor(ExecutorType.Activate, CardId.NumberN99, NumberN99);
@@ -149,15 +155,23 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Number6, Number6);
             activatem.Add(CardId.Number6);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, Summonplace);
+            spsummonm.Add(CardId.Number39Utopia);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne, NumberS39UtopiaOne);
+            spsummonm.Add(CardId.NumberS39UtopiaOne);
             AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiaOne, NumberS39UtopiaOneEffects);
             activatem.Add(CardId.NumberS39UtopiaOne);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning, NumberS39UtopiatheLightning);
+            spsummonm.Add(CardId.NumberS39UtopiatheLightning);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39, Summonplace);
+            spsummonm.Add(CardId.Number39);
             AddExecutor(ExecutorType.SpSummon, CardId.Number86, Summonplace);
+            spsummonm.Add(CardId.Number86);
             AddExecutor(ExecutorType.SpSummon, CardId.SNo0, SNo0);
+            spsummonm.Add(CardId.SNo0);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwDragon, Summonplace);
+            spsummonm.Add(CardId.ZwDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwLionArms, Summonplace);
+            spsummonm.Add(CardId.ZwLionArms);
 
             AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, DefaultNumberS39UtopiaTheLightningEffect);
             activatem.Add(CardId.NumberS39UtopiatheLightning);
@@ -170,6 +184,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.ZwLightningBlade, ZwWeapon);
             activatem.Add(CardId.ZwLightningBlade);
             AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
+            spsummonm.Add(723);
             AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
             AddExecutor(ExecutorType.Activate, CardId.WRUM, WRUM);
@@ -178,19 +193,19 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.HRUM);
             AddExecutor(ExecutorType.Activate, CardId.RDM, RDM);
             activatem.Add(CardId.RDM);
+            AddExecutor(ExecutorType.SpSummon, CardId.NumberC39Utopia, () => false);
+            spsummonm.Add(CardId.NumberC39Utopia);
 
-            AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
+            AddExecutor(ExecutorType.Activate, CardId.Oricha, DefaultOrica);
             activatem.Add(CardId.Oricha);
             AddExecutor(ExecutorType.Summon, CardId.GodPheonix, GodPheonix);
             AddExecutor(ExecutorType.Activate, CardId.GodPheonix, GodPheonixEffects);
             activatem.Add(CardId.GodPheonix);
 
-            AddExecutor(ExecutorType.SpSummon, () => Summonplace() && !Card.HasType(CardType.Xyz));
+            AddExecutor(ExecutorType.SpSummon, ()=> !spsummonm.Contains(Card.Id) && Summonplace());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
-            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && ImFeelingUnlucky());
             AddExecutor(ExecutorType.Summon, Advancesummon);
             AddExecutor(ExecutorType.MonsterSet, Advancesummon);
             AddExecutor(ExecutorType.Repos, MonsterRepos);
@@ -359,10 +374,49 @@ namespace WindBot.Game.AI.Decks
         public override int OnAnnounceCard(IList<int> avail)
         {
             ClientCard orica = Bot.GetFieldSpellCard();
-            if (orica == null && avail.Contains(12201))
-                return 12201;
-
             ClientCard last_chain_card = Util.GetLastChainCard();
+            if (orica == null && avail.Contains(CardId.Oricha))
+                return CardId.Oricha;
+
+            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.Sequence == Bot.Graveyard.Count - 1);
+            if (orica != null && orica.IsCode(CardId.Oricha) && last_chain_card != null && last_chain_card == orica)
+            {
+                if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(orica.HasXyzMaterial(1, 12))))
+                {
+                    if (!(Card.HasXyzMaterial(1, 12)) && avail.Contains(12))
+                        return 12;
+                    else if (!(Card.HasXyzMaterial(1, 95856586)) && avail.Contains(95856586))
+                        return 95856586;
+                    else if (!(Card.HasXyzMaterial(1, 13706)) && avail.Contains(13706))
+                        return 13706;
+                    else if (!(Card.HasXyzMaterial(1, 10)) && avail.Contains(10))
+                        return 10;
+                    else if (!(Card.HasXyzMaterial(1, CardId.XyzChangeTactics)) && avail.Contains(CardId.XyzChangeTactics))
+                        return CardId.XyzChangeTactics;
+                    else if (!(Card.HasXyzMaterial(1, 26493435)) && avail.Contains(26493435))
+                        return 26493435;
+                    else if (!(Card.HasXyzMaterial(1, 100000382)) && avail.Contains(100000382))
+                        return 100000382;
+                    else if (!(Card.HasXyzMaterial(1, 160000107)) && avail.Contains(160000107))
+                        return 160000107;
+                    else if (!(Card.HasXyzMaterial(1, 100000097)) && avail.Contains(100000097))
+                        return 100000097;
+                    else if (!(Card.HasXyzMaterial(1, 100000096)) && avail.Contains(100000096))
+                        return 100000096;
+                    else if (!(Card.HasXyzMaterial(1, 100000098)) && avail.Contains(100000098))
+                        return 100000098;
+                    else if (!(Card.HasXyzMaterial(1, 146)) && avail.Contains(146))
+                        return 146;
+                    else if (!(Card.HasXyzMaterial(1, 511001271)) && avail.Contains(511001271))
+                        return 511001271;
+                    else if (avail.Contains(11))
+                        return 11;
+                }
+            }
+
+            if (last_cards.Count > 0)
+                    return 13701;
+
             if (last_chain_card != null && last_chain_card.IsCode(CardId.WRUM))
             {
                 WRUMCount++;
@@ -394,7 +448,7 @@ namespace WindBot.Game.AI.Decks
                     return 266;
                 else return 264;
             }
-            return 13701;
+            return Program.Rand.Next(avail.Count);
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -585,6 +639,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool FNo0_Slash()
         {
+            return false;
             if (Duel.Player == 0 && Duel.Turn == 1)
                 return false;
             return true;
@@ -1015,98 +1070,6 @@ namespace WindBot.Game.AI.Decks
             return false;
         }
 
-        private bool Oricha()
-        {
-            if (Util.ChainContainsCard(CardId.Oricha)) return false;
-            if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(Card.HasXyzMaterial(1, 12))))
-            {
-                if (!(Card.HasXyzMaterial(1, 12)))
-                {
-                    AI.SelectAnnounceID(12);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 95856586)))
-                {
-                    AI.SelectAnnounceID(95856586);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 13706)))
-                {
-                    AI.SelectAnnounceID(13706);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 10)))
-                {
-                    AI.SelectAnnounceID(10);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 26493435)))
-                {
-                    AI.SelectAnnounceID(26493435);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000382)))
-                {
-                    AI.SelectAnnounceID(100000382);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 160000107)))
-                {
-                    AI.SelectAnnounceID(160000107);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000097)))
-                {
-                    AI.SelectAnnounceID(100000097);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000096)))
-                {
-                    AI.SelectAnnounceID(100000096);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000098)))
-                {
-                    AI.SelectAnnounceID(100000098);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 146)))
-                {
-                    AI.SelectAnnounceID(146);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 511001271)))
-                {
-                    AI.SelectAnnounceID(511001271);
-                    return true;
-                }
-                AI.SelectAnnounceID(11);
-                return true;
-            }
-
-            if (Duel.Player == 0 && Duel.Phase == DuelPhase.Main1 && Bot.Deck.ContainsCardWithId(CardId.Numeronlead) && (ActivateDescription == Util.GetStringId(41418852, 0) || ActivateDescription == -1))
-            {
-                AI.SelectCard(CardId.Numeronlead, 595, 588, 597, 13717, 13708, 13709, 13710, 13713, 596);
-                AI.SelectAnnounceID(13701);
-                return true;
-            }
-
-            if (Card.HasXyzMaterial(1, 10))
-            {
-                List<ClientCard> Oricamonster = Bot.GetMonsters();
-                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard mon in Oricamonster2)
-                    Oricamonster.Add(mon);
-                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
-                Oricamonster.Remove(topmon);
-                Oricamonster.Sort(CardContainer.CompareCardAttack);
-                Oricamonster.Reverse();
-                AI.SelectCard(Oricamonster);
-            }
-
-            return true;
-        }
-
         private bool Numeronlead()
         {
             AI.SelectAnnounceID(13701);
@@ -1287,11 +1250,6 @@ namespace WindBot.Game.AI.Decks
             ClientCard target = GetProblematicEnemyCard_Alter(true);
             AI.SelectCard(target);
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
-        }
-
-        private bool ImFeelingUnlucky()
-        {
-            return DefaultDontChainMyself();
         }
     }
 }

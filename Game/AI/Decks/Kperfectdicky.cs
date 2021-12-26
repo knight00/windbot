@@ -433,6 +433,7 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             IList<int> activatem = new List<int>();
+            IList<int> spsummonm = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
 
@@ -448,11 +449,13 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.CynetUniverse, CynetUniverseEffect);
             activatem.Add(CardId.CynetUniverse);
             AddExecutor(ExecutorType.SpSummon, CardId.Linkslayer);
+            spsummonm.Add(CardId.Linkslayer);
             AddExecutor(ExecutorType.Activate, CardId.Linkslayer, LinkslayerEffect);
             activatem.Add(CardId.Linkslayer);
             AddExecutor(ExecutorType.Activate, CardId.MindControl, MindControlEffect);
             activatem.Add(CardId.MindControl);
             AddExecutor(ExecutorType.SpSummon, CardId.Backlinker);
+            spsummonm.Add(CardId.Backlinker);
             AddExecutor(ExecutorType.Activate, CardId.Backlinker, BacklinkerEffect);
             activatem.Add(CardId.Backlinker);
             AddExecutor(ExecutorType.Activate, CardId.BootStagguard, BootStagguardEffect);
@@ -490,16 +493,21 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.BalancerLord, BalancerLordEffect);
             activatem.Add(CardId.BalancerLord);
             AddExecutor(ExecutorType.SpSummon, CardId.DecodeTalker, LinkSummon);
+            spsummonm.Add(CardId.DecodeTalker);
             AddExecutor(ExecutorType.Activate, CardId.DecodeTalker);
             activatem.Add(CardId.DecodeTalker);
             AddExecutor(ExecutorType.SpSummon, CardId.TriGateWizard, LinkSummon);
+            spsummonm.Add(CardId.TriGateWizard);
             AddExecutor(ExecutorType.Activate, CardId.TriGateWizard);
             activatem.Add(CardId.TriGateWizard);
             AddExecutor(ExecutorType.SpSummon, CardId.EncodeTalker, LinkSummon);
+            spsummonm.Add(CardId.EncodeTalker);
             AddExecutor(ExecutorType.Activate, CardId.EncodeTalker);
             activatem.Add(CardId.EncodeTalker);
             AddExecutor(ExecutorType.SpSummon, CardId.Honeybot, LinkSummon);
+            spsummonm.Add(CardId.Honeybot);
             AddExecutor(ExecutorType.SpSummon, CardId.BinarySorceress, LinkSummon);
+            spsummonm.Add(CardId.BinarySorceress);
             AddExecutor(ExecutorType.Activate, CardId.BinarySorceress);
             activatem.Add(CardId.BinarySorceress);
             AddExecutor(ExecutorType.SpellSet, CardId.CynetBackdoor, DefaultSpellSet);
@@ -573,6 +581,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Manifestation, Manifestation_eff);
             activatem.Add(CardId.Manifestation);
             AddExecutor(ExecutorType.SpSummon, CardId.Anima, Anima_ss);
+            spsummonm.Add(CardId.Anima);
             AddExecutor(ExecutorType.Activate, CardId.Anima);
             activatem.Add(CardId.Anima);
             AddExecutor(ExecutorType.Activate, CardId.Needlefiber, Needlefiber_eff);
@@ -584,7 +593,9 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Multifaker, Multifaker_deckss);
             activatem.Add(CardId.Multifaker);
             AddExecutor(ExecutorType.SpSummon, CardId.Hexstia, Hexstia_ss);
+            spsummonm.Add(CardId.Hexstia);
             AddExecutor(ExecutorType.SpSummon, CardId.Linkuriboh, Linkuriboh_ss);
+            spsummonm.Add(CardId.Linkuriboh);
             AddExecutor(ExecutorType.Activate, CardId.Linkuriboh, Linkuriboh_eff);
             activatem.Add(CardId.Linkuriboh);
             AddExecutor(ExecutorType.Activate, CardId.Marionetter, Marionetter_eff);
@@ -595,8 +606,11 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, CardId.Marionetter, Marionetter_summon);
             AddExecutor(ExecutorType.Summon, CardId.GR_WC, tuner_summon);
             AddExecutor(ExecutorType.SpSummon, CardId.Needlefiber, Needlefiber_ss);
+            spsummonm.Add(CardId.Needlefiber);
             AddExecutor(ExecutorType.SpSummon, CardId.Borrelsword, Borrelsword_ss);
+            spsummonm.Add(CardId.Borrelsword);
             AddExecutor(ExecutorType.SpSummon, CardId.TripleBurstDragon, TripleBurstDragon_ss);
+            spsummonm.Add(CardId.TripleBurstDragon);
             AddExecutor(ExecutorType.Activate, CardId.PotofDesires, PotofDesires_activate);
             activatem.Add(CardId.PotofDesires);
             AddExecutor(ExecutorType.Summon, CardId.Silquitous, Silquitous_summon);
@@ -608,6 +622,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.BlackWhirlwind, BlackWhirlwindEffect);
             activatem.Add(CardId.BlackWhirlwind);
             AddExecutor(ExecutorType.SpSummon, CardId.KrisTheCrackOfDawn);
+            spsummonm.Add(CardId.KrisTheCrackOfDawn);
             AddExecutor(ExecutorType.SummonOrSet, CardId.KrisTheCrackOfDawn);
             AddExecutor(ExecutorType.Summon, CardId.SiroccoTheDawn, SiroccoTheDawnSummon);
             activatem.Add(CardId.SiroccoTheDawn);
@@ -615,18 +630,25 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.ShuraTheBlueFlame);
             AddExecutor(ExecutorType.SummonOrSet, CardId.ShuraTheBlueFlame);
             AddExecutor(ExecutorType.SpSummon, CardId.BoraTheSpear);
+            spsummonm.Add(CardId.BoraTheSpear);
             AddExecutor(ExecutorType.SummonOrSet, CardId.BoraTheSpear);
             AddExecutor(ExecutorType.SummonOrSet, CardId.KalutTheMoonShadow, KalutTheMoonShadowSummon);
             AddExecutor(ExecutorType.SpSummon, CardId.GaleTheWhirlwind);
+            spsummonm.Add(CardId.GaleTheWhirlwind);
             AddExecutor(ExecutorType.SummonOrSet, CardId.GaleTheWhirlwind);
             AddExecutor(ExecutorType.Summon, CardId.BlizzardTheFarNorth, BlizzardTheFarNorthSummon);
             activatem.Add(CardId.BlackWhirlwind);
             AddExecutor(ExecutorType.MonsterSet, CardId.MistralTheSilverShield);
             AddExecutor(ExecutorType.SpSummon, CardId.SilverwindTheAscendant);
+            spsummonm.Add(CardId.SilverwindTheAscendant);
             AddExecutor(ExecutorType.SpSummon, CardId.ArmorMaster);
+            spsummonm.Add(CardId.ArmorMaster);
             AddExecutor(ExecutorType.SpSummon, CardId.GramTheShiningStar);
+            spsummonm.Add(CardId.GramTheShiningStar);
             AddExecutor(ExecutorType.SpSummon, CardId.ArmedWing);
+            spsummonm.Add(CardId.ArmedWing);
             AddExecutor(ExecutorType.SpSummon, CardId.BlackWingedDragon);
+            spsummonm.Add(CardId.BlackWingedDragon);
             AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultUniqueTrap);
             activatem.Add(CardId.DimensionalPrison);
             AddExecutor(ExecutorType.Activate, CardId.DeltaCrowAntiReverse, DeltaCrowAntiReverseEffect);
@@ -660,6 +682,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.PotOfDesires);
             // spsummon Alternative White Dragon if possible
             AddExecutor(ExecutorType.SpSummon, CardId.AlternativeWhiteDragon, AlternativeWhiteDragonSummon);
+            spsummonm.Add(CardId.AlternativeWhiteDragon);
 
             // reborn
             AddExecutor(ExecutorType.Activate, CardId.ReturnOfTheDragonLords, RebornEffect);
@@ -701,14 +724,23 @@ namespace WindBot.Game.AI.Decks
 
             // special summon from extra
             AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesCipherDragon, GalaxyEyesCipherDragonSummon);
+            spsummonm.Add(CardId.GalaxyEyesCipherDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesPrimePhotonDragon, GalaxyEyesPrimePhotonDragonSummon);
+            spsummonm.Add(CardId.GalaxyEyesPrimePhotonDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesFullArmorPhotonDragon, GalaxyEyesFullArmorPhotonDragonSummon);
+            spsummonm.Add(CardId.GalaxyEyesFullArmorPhotonDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesCipherBladeDragon, GalaxyEyesCipherBladeDragonSummon);
+            spsummonm.Add(CardId.GalaxyEyesCipherBladeDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.GalaxyEyesDarkMatterDragon, GalaxyEyesDarkMatterDragonSummon);
+            spsummonm.Add(CardId.GalaxyEyesDarkMatterDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.Giganticastle, GiganticastleSummon);
+            spsummonm.Add(CardId.Giganticastle);
             AddExecutor(ExecutorType.SpSummon, CardId.BlueEyesSpiritDragon, BlueEyesSpiritDragonSummon);
+            spsummonm.Add(CardId.BlueEyesSpiritDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.HopeHarbingerDragonTitanicGalaxy, HopeHarbingerDragonTitanicGalaxySummon);
+            spsummonm.Add(CardId.HopeHarbingerDragonTitanicGalaxy);
             AddExecutor(ExecutorType.SpSummon, CardId.SylvanPrincessprite, SylvanPrincesspriteSummon);
+            spsummonm.Add(CardId.SylvanPrincessprite);
 
             // if we don't have other things to do...
             AddExecutor(ExecutorType.Activate, CardId.SoulCharge, SoulChargeEffect);
@@ -746,13 +778,17 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.ChaosForm, ChaosFormeff);
             activatem.Add(CardId.ChaosForm);
             AddExecutor(ExecutorType.SpSummon, CardId.MissusRadiant, MissusRadiantsp);
+            spsummonm.Add(CardId.MissusRadiant);
             AddExecutor(ExecutorType.Activate, CardId.MissusRadiant, MissusRadianteff);
             activatem.Add(CardId.MissusRadiant);
             AddExecutor(ExecutorType.Activate, CardId.Linkuriboh, Linkuriboheff);
             activatem.Add(CardId.Linkuriboh);
             AddExecutor(ExecutorType.SpSummon, CardId.Linkuriboh, Linkuribohsp);
+            spsummonm.Add(CardId.Linkuriboh);
             AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider);
+            spsummonm.Add(CardId.LinkSpider);
             AddExecutor(ExecutorType.SpSummon, CardId.BirrelswordDragon, BirrelswordDragonsp);
+            spsummonm.Add(CardId.BirrelswordDragon);
             AddExecutor(ExecutorType.Activate, CardId.BirrelswordDragon, BirrelswordDragoneff);
             activatem.Add(CardId.BirrelswordDragon);
             AddExecutor(ExecutorType.Activate, CardId.TheMelodyOfAwakeningDragon, TheMelodyOfAwakeningDragoneffsecond);
@@ -792,10 +828,15 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, CardId.CyberKirin, CyberKirinSummon);
 
             AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
+            spsummonm.Add(CardId.CyberDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.CyberEndDragon);
+            spsummonm.Add(CardId.CyberEndDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.CyberTwinDragon);
+            spsummonm.Add(CardId.CyberTwinDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.CyberBarrierDragon);
+            spsummonm.Add(CardId.CyberBarrierDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.CyberLaserDragon);
+            spsummonm.Add(CardId.CyberLaserDragon);
 
             AddExecutor(ExecutorType.Activate, CardId.CyberBarrierDragon);
             activatem.Add(CardId.CyberBarrierDragon);
@@ -847,12 +888,15 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.WindwitchSnowBell, WindwitchSnowBellsp);
             activatem.Add(CardId.WindwitchSnowBell);
             AddExecutor(ExecutorType.SpSummon, CardId.WindwitchWinterBell, WindwitchWinterBellsp);
+            spsummonm.Add(CardId.WindwitchWinterBell);
             AddExecutor(ExecutorType.Activate, CardId.WindwitchWinterBell, WindwitchWinterBelleff);
             activatem.Add(CardId.WindwitchWinterBell);
             
             AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragonsp);
+            spsummonm.Add(CardId.CrystalWingSynchroDragon);
             // if fail
             AddExecutor(ExecutorType.SpSummon, CardId.ClearWingFastDragon, ClearWingFastDragonsp);
+            spsummonm.Add(CardId.ClearWingFastDragon);
             AddExecutor(ExecutorType.Activate, CardId.ClearWingFastDragon, ClearWingFastDragoneff);
             activatem.Add(CardId.ClearWingFastDragon);
             // plan B
@@ -862,6 +906,7 @@ namespace WindBot.Game.AI.Decks
             //AddExecutor(ExecutorType.SpSummon, CardId.AkashicMagician);
             //plan C
             AddExecutor(ExecutorType.SpSummon, CardId.OddEyesAbsoluteDragon, OddEyesAbsoluteDragonsp);
+            spsummonm.Add(CardId.OddEyesAbsoluteDragon);
             AddExecutor(ExecutorType.Activate, CardId.OddEyesAbsoluteDragon, OddEyesAbsoluteDragoneff);
             activatem.Add(CardId.OddEyesAbsoluteDragon);
             AddExecutor(ExecutorType.Activate, CardId.OddEyesWingDragon);
@@ -886,6 +931,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.TheEyeOfTimaeus, TheEyeOfTimaeuseff);
             activatem.Add(CardId.TheEyeOfTimaeus);
             AddExecutor(ExecutorType.SpSummon, CardId.ApprenticeLllusionMagician, ApprenticeLllusionMagiciansp);
+            spsummonm.Add(CardId.ApprenticeLllusionMagician);
             AddExecutor(ExecutorType.Activate, CardId.ApprenticeLllusionMagician, ApprenticeLllusionMagicianeff);
             activatem.Add(CardId.ApprenticeLllusionMagician);
             //other thing                     
@@ -896,15 +942,19 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.EternalSoul, EternalSouleff);
             activatem.Add(CardId.EternalSoul);
             AddExecutor(ExecutorType.SpSummon, CardId.BigEye, BigEyesp);
+            spsummonm.Add(CardId.BigEye);
             AddExecutor(ExecutorType.Activate, CardId.BigEye, BigEyeeff);
             activatem.Add(CardId.BigEye);
             AddExecutor(ExecutorType.SpSummon, CardId.Dracossack, Dracossacksp);
+            spsummonm.Add(CardId.Dracossack);
             AddExecutor(ExecutorType.Activate, CardId.Dracossack, Dracossackeff);
             activatem.Add(CardId.Dracossack);
             AddExecutor(ExecutorType.SpSummon, CardId.ApprenticeWitchling, ApprenticeWitchlingsp);
+            spsummonm.Add(CardId.ApprenticeWitchling);
             AddExecutor(ExecutorType.Activate, CardId.ApprenticeWitchling, ApprenticeWitchlingeff);
             activatem.Add(CardId.ApprenticeWitchling);
             AddExecutor(ExecutorType.SpSummon, CardId.VentriloauistsClaraAndLucika, VentriloauistsClaraAndLucikasp);
+            spsummonm.Add(CardId.VentriloauistsClaraAndLucika);
 
             //ToadallyAwesomeExecutor
             AddExecutor(ExecutorType.Activate, CardId.AquariumStage, AquariumStageEffect);
@@ -915,8 +965,10 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.FoolishBurial);
             
             AddExecutor(ExecutorType.SpSummon, CardId.PriorOfTheIceBarrier);
+            spsummonm.Add(CardId.PriorOfTheIceBarrier);
             AddExecutor(ExecutorType.Summon, CardId.GraydleSlimeJr, GraydleSlimeJrSummon);
             AddExecutor(ExecutorType.SpSummon, CardId.SwapFrog, SwapFrogSpsummon);
+            spsummonm.Add(CardId.SwapFrog);
 
             AddExecutor(ExecutorType.Activate, CardId.SwapFrog, SwapFrogEffect);
             activatem.Add(CardId.SwapFrog);
@@ -950,18 +1002,23 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, CardId.PriorOfTheIceBarrier, PriorOfTheIceBarrierSummon);
 
             AddExecutor(ExecutorType.SpSummon, CardId.CatShark, CatSharkSummon);
+            spsummonm.Add(CardId.CatShark);
             AddExecutor(ExecutorType.Activate, CardId.CatShark, CatSharkEffect);
             activatem.Add(CardId.CatShark);
             AddExecutor(ExecutorType.SpSummon, CardId.SkyCavalryCentaurea, SkyCavalryCentaureaSummon);
+            spsummonm.Add(CardId.SkyCavalryCentaurea);
             AddExecutor(ExecutorType.Activate, CardId.SkyCavalryCentaurea);
             activatem.Add(CardId.SkyCavalryCentaurea);
             AddExecutor(ExecutorType.SpSummon, CardId.DaigustoPhoenix, DaigustoPhoenixSummon);
+            spsummonm.Add(CardId.DaigustoPhoenix);
             AddExecutor(ExecutorType.Activate, CardId.DaigustoPhoenix);
             activatem.Add(CardId.DaigustoPhoenix);
             AddExecutor(ExecutorType.SpSummon, CardId.ToadallyAwesome);
+            spsummonm.Add(CardId.ToadallyAwesome);
             AddExecutor(ExecutorType.Activate, CardId.ToadallyAwesome, ToadallyAwesomeEffect);
             activatem.Add(CardId.ToadallyAwesome);
             AddExecutor(ExecutorType.SpSummon, CardId.HeraldOfTheArcLight, HeraldOfTheArcLightSummon);
+            spsummonm.Add(CardId.HeraldOfTheArcLight);
             AddExecutor(ExecutorType.Activate, CardId.HeraldOfTheArcLight);
             activatem.Add(CardId.HeraldOfTheArcLight);
             
@@ -982,11 +1039,17 @@ namespace WindBot.Game.AI.Decks
             
             // XYZ summons
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia);
+            spsummonm.Add(CardId.Number39Utopia);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne);
+            spsummonm.Add(CardId.NumberS39UtopiaOne);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning);
+            spsummonm.Add(CardId.NumberS39UtopiatheLightning);
             AddExecutor(ExecutorType.SpSummon, CardId.Number61Volcasaurus, Number61Volcasaurus);
+            spsummonm.Add(CardId.Number61Volcasaurus);
             AddExecutor(ExecutorType.SpSummon, CardId.ZwLionArms);
+            spsummonm.Add(CardId.ZwLionArms);
             AddExecutor(ExecutorType.SpSummon, CardId.AdreusKeeperOfArmageddon);
+            spsummonm.Add(CardId.AdreusKeeperOfArmageddon);
 
             // XYZ effects
             AddExecutor(ExecutorType.Activate, CardId.Number39Utopia, Number39Utopia);
@@ -1013,7 +1076,9 @@ namespace WindBot.Game.AI.Decks
 
             // Special summons
             AddExecutor(ExecutorType.SpSummon, CardId.PhotonTrasher);
+            spsummonm.Add(CardId.PhotonTrasher);
             AddExecutor(ExecutorType.SpSummon, CardId.SolarWindJammer, SolarWindJammer);
+            spsummonm.Add(CardId.SolarWindJammer);
 
             AddExecutor(ExecutorType.Activate, CardId.InstantFusion, InstantFusion);
             activatem.Add(CardId.InstantFusion);
@@ -1042,6 +1107,7 @@ namespace WindBot.Game.AI.Decks
             
             // Spummon GaiaDragonTheThunderCharger if Volcasaurus or ZwLionArms had been used
             AddExecutor(ExecutorType.SpSummon, CardId.GaiaDragonTheThunderCharger);
+            spsummonm.Add(CardId.GaiaDragonTheThunderCharger);
 
             AddExecutor(ExecutorType.Activate, CardId.BreakthroughSkill, DefaultBreakthroughSkill);
             activatem.Add(CardId.BreakthroughSkill);
@@ -1083,9 +1149,11 @@ namespace WindBot.Game.AI.Decks
             // empty field
             AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai, UnexpectedDaiFirst);
             AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher, PhotonThrasherSummonFirst);
+            spsummonm.Add(CardId.PhotonThrasher);
             AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai);
             activatem.Add(CardId.UnexpectedDai);
             AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher);
+            spsummonm.Add(CardId.PhotonThrasher);
 
             // 
             AddExecutor(ExecutorType.Activate, CardId.ReinforcementofTheArmy, ReinforcementofTheArmyEffect);
@@ -1098,16 +1166,19 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.MechaPhantomBeastOLion, MechaPhantomBeastOLionEffect);
             activatem.Add(CardId.MechaPhantomBeastOLion);
             AddExecutor(ExecutorType.SpSummon, CardId.ScrapWyvern, ScrapWyvernSummon);
+            spsummonm.Add(CardId.ScrapWyvern);
             AddExecutor(ExecutorType.Activate, CardId.ScrapWyvern, ScrapWyvernEffect);
             activatem.Add(CardId.ScrapWyvern);
             
             AddExecutor(ExecutorType.Activate, CardId.JetSynchron, JetSynchronEffect);
             activatem.Add(CardId.JetSynchron);
             AddExecutor(ExecutorType.SpSummon, CardId.CrystronNeedlefiber, CrystronNeedlefiberSummon);
+            spsummonm.Add(CardId.CrystronNeedlefiber);
             AddExecutor(ExecutorType.Activate, CardId.CrystronNeedlefiber, CrystronNeedlefiberEffect);
             activatem.Add(CardId.CrystronNeedlefiber);
             
             AddExecutor(ExecutorType.SpSummon, CardId.MekkKnightCrusadiaAstram, MekkKnightCrusadiaAstramSummon);
+            spsummonm.Add(CardId.MekkKnightCrusadiaAstram);
             AddExecutor(ExecutorType.Activate, CardId.MekkKnightCrusadiaAstram, MekkKnightCrusadiaAstramEffect);
             activatem.Add(CardId.MekkKnightCrusadiaAstram);
             
@@ -1121,6 +1192,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.MaskedChameleon);
             
             AddExecutor(ExecutorType.SpSummon, CardId.WhiteRoseDragon);
+            spsummonm.Add(CardId.WhiteRoseDragon);
             AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon, WhiteRoseDragonSummonFirst);
             AddExecutor(ExecutorType.Activate, CardId.WhiteRoseDragon, WhiteRoseDragonEffect);
             activatem.Add(CardId.WhiteRoseDragon);
@@ -1166,44 +1238,52 @@ namespace WindBot.Game.AI.Decks
             
             // extra monsters
             AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, BorreloadSavageDragonSummon);
+            spsummonm.Add(CardId.BorreloadSavageDragon);
 
             AddExecutor(ExecutorType.SpSummon, CardId.ScrapDragon, ScrapDragonSummon);
+            spsummonm.Add(CardId.ScrapDragon);
             AddExecutor(ExecutorType.Activate, CardId.ScrapDragon, ScrapDragonEffect);
             activatem.Add(CardId.ScrapDragon);
             AddExecutor(ExecutorType.SpSummon, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendSummon);
+            spsummonm.Add(CardId.ScarlightRedDragonArchfiend);
             AddExecutor(ExecutorType.Activate, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendEffect);
             activatem.Add(CardId.ScarlightRedDragonArchfiend);
             
             AddExecutor(ExecutorType.SpSummon, CardId.PSYFramelordOmega);
+            spsummonm.Add(CardId.PSYFramelordOmega);
             AddExecutor(ExecutorType.Activate, CardId.PSYFramelordOmega, PSYFramelordOmegaEffect);
             activatem.Add(CardId.PSYFramelordOmega);
             
             AddExecutor(ExecutorType.SpSummon, CardId.WhiteAuraBihamut);
+            spsummonm.Add(CardId.WhiteAuraBihamut);
             AddExecutor(ExecutorType.Activate, CardId.WhiteAuraBihamut);
             activatem.Add(CardId.WhiteAuraBihamut);
             
             AddExecutor(ExecutorType.SpSummon, CardId.GardenRoseMaiden);
+            spsummonm.Add(CardId.GardenRoseMaiden);
             AddExecutor(ExecutorType.Activate, CardId.GardenRoseMaiden);
             activatem.Add(CardId.GardenRoseMaiden);
             
             AddExecutor(ExecutorType.SpSummon, CardId.CoralDragon);
+            spsummonm.Add(CardId.CoralDragon);
             AddExecutor(ExecutorType.Activate, CardId.CoralDragon, CoralDragonEffect);
             activatem.Add(CardId.CoralDragon);
             
             AddExecutor(ExecutorType.SpSummon, CardId.ShootingRiserDragon, ShootingRiserDragonSummon);
+            spsummonm.Add(CardId.ShootingRiserDragon);
             AddExecutor(ExecutorType.Activate, CardId.ShootingRiserDragon, ShootingRiserDragonEffect);
             activatem.Add(CardId.ShootingRiserDragon);
             
             AddExecutor(ExecutorType.SpSummon, CardId.BlackRoseMoonlightDragon);
+            spsummonm.Add(CardId.BlackRoseMoonlightDragon);
 
             AddExecutor(ExecutorType.SpSummon, CardId.Number41BagooskaTheTerriblyTiredTapir, Number41BagooskaTheTerriblyTiredTapirSummon);
+            spsummonm.Add(CardId.Number41BagooskaTheTerriblyTiredTapir);
 
             AddExecutor(ExecutorType.Summon, CardId.ScrapGolem, ScrapGolemSummon);
 
             AddExecutor(ExecutorType.SpellSet, CardId.CalledbyTheGrave);
             AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike);
-
-
 
             AddExecutor(ExecutorType.Activate, CardId.Scapegoat, DefaultScapegoat);
             activatem.Add(CardId.Scapegoat);
@@ -1220,15 +1300,24 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, _CardId.InterruptedKaijuSlumber, DefaultInterruptedKaijuSlumber);
             activatem.Add(_CardId.InterruptedKaijuSlumber);
             AddExecutor(ExecutorType.SpSummon, _CardId.JizukirutheStarDestroyingKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.JizukirutheStarDestroyingKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.GadarlatheMysteryDustKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.GadarlatheMysteryDustKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.GamecieltheSeaTurtleKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.GamecieltheSeaTurtleKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.RadiantheMultidimensionalKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.RadiantheMultidimensionalKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.KumongoustheStickyStringKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.KumongoustheStickyStringKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.ThunderKingtheLightningstrikeKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.ThunderKingtheLightningstrikeKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.DogorantheMadFlameKaiju, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.DogorantheMadFlameKaiju);
             AddExecutor(ExecutorType.SpSummon, _CardId.SuperAntiKaijuWarMachineMechaDogoran, DefaultKaijuSpsummon);
+            spsummonm.Add(_CardId.SuperAntiKaijuWarMachineMechaDogoran);
 
             AddExecutor(ExecutorType.SpSummon, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
+            spsummonm.Add(_CardId.EvilswarmExcitonKnight);
             AddExecutor(ExecutorType.Activate, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
             activatem.Add(_CardId.EvilswarmExcitonKnight);
 
@@ -1251,21 +1340,23 @@ namespace WindBot.Game.AI.Decks
 
             //KCG
             AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
+            spsummonm.Add(723);
             AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
             AddExecutor(ExecutorType.Activate, CardId.Costdown, Costdown);
             activatem.Add(CardId.Costdown);
             AddExecutor(ExecutorType.Activate, CardId.CrossSacriface, CrossSacriface);
             activatem.Add(CardId.CrossSacriface);
-            AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
+            AddExecutor(ExecutorType.SpSummon, 56840427, () => false);
+            spsummonm.Add(56840427);
+
+            AddExecutor(ExecutorType.Activate, CardId.Oricha, DefaultOrica);
             activatem.Add(CardId.Oricha);
 
-            AddExecutor(ExecutorType.SpSummon);
+            AddExecutor(ExecutorType.SpSummon, ()=>!spsummonm.Contains(Card.Id) && Advancesummon());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
-            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && ImFeelingUnlucky());
             AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
             AddExecutor(ExecutorType.SpellSet, Spellset);
             AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
@@ -1376,7 +1467,7 @@ namespace WindBot.Game.AI.Decks
 
         public override bool OnSelectYesNo(long desc)
         {
-            if ((desc == Util.GetStringId(826, 12) && Duel.Player == 1) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
+            if (desc == Util.GetStringId(826, 12) || desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
             if (desc == Util.GetStringId(827, 6) || desc == Util.GetStringId(827, 1) || desc == Util.GetStringId(13709, 11) || desc == Util.GetStringId(123106, 8) || desc == Util.GetStringId(123106, 7) || desc == Util.GetStringId(13709, 12) || desc == Util.GetStringId(826, 6) || desc == Util.GetStringId(13713, 8) || desc == Util.GetStringId(827, 1))
                 return false;
@@ -1579,10 +1670,12 @@ namespace WindBot.Game.AI.Decks
         public override int OnAnnounceCard(IList<int> avail)
         {
             ClientCard orica = Bot.GetFieldSpellCard();
-            if (orica == null && avail.Contains(12201))
-                return 12201;
-            if (avail.Contains(802))
+            if (orica == null && avail.Contains(CardId.Oricha))
+                return CardId.Oricha;
+            if (Bot.MonsterZone.GetMonsters().ContainsCardWithId(10000010) && avail.Contains(802))
                 return 802;
+            if (avail.Contains(152000000))
+                return 152000000;
             return Program.Rand.Next(avail.Count);
         }
 
@@ -1593,8 +1686,10 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<long> options)
         {
-            if (options[0] == Util.GetStringId(826, 15) || options[0] == Util.GetStringId(826, 12))
+            if (options[0] == Util.GetStringId(826, 15))
                 return 0;
+            if (options[0] == Util.GetStringId(826, 12))
+                return 1;
             return options.Count > 1 ? options.Count - 1 : 0;
         }
 
@@ -1807,61 +1902,12 @@ namespace WindBot.Game.AI.Decks
             return !Card.HasType(CardType.QuickPlay) && DefaultSpellSet();
         }
 
-        private bool Oricha()
-        {
-            if (Util.ChainContainsCard(CardId.Oricha)) return false;
-            if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(Card.HasXyzMaterial(1, 12))))
-            {
-                if (!(Card.HasXyzMaterial(1, 12)))
-                {
-                    AI.SelectAnnounceID(12);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 10)))
-                {
-                    AI.SelectAnnounceID(10);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 160000107)))
-                {
-                    AI.SelectAnnounceID(160000107);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000382)))
-                {
-                    AI.SelectAnnounceID(100000382);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 146)))
-                {
-                    AI.SelectAnnounceID(146);
-                    return true;
-                }
-                AI.SelectAnnounceID(11);
-                return true;
-            }
-
-            if (Card.HasXyzMaterial(1, 10))
-            {
-                List<ClientCard> Oricamonster = Bot.GetMonsters();
-                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard mon in Oricamonster2)
-                    Oricamonster.Add(mon);
-                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
-                Oricamonster.Remove(topmon);
-                Oricamonster.Sort(CardContainer.CompareCardAttack);
-                Oricamonster.Reverse();
-                AI.SelectCard(Oricamonster);
-            }
-
-            return true;
-        }
-
         private bool FNo0_Slash()
         {
-            if (Duel.Player == 0 && Duel.Turn == 1)
-                return false;
-            return true;
+            return false;
+            //if (Duel.Player == 0 && Duel.Turn == 1)
+            //    return false;
+            //return true;
         }
 
         private bool FNo0_Slash_Effects()

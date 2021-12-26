@@ -19,7 +19,7 @@ namespace WindBot.Game
         ///////////kdiy///////
         public string Deckfolder;
         public string Deckpath;
-        public bool Seed;
+        public int Seed;
         ///////////kdiy///////       
         public int Hand;
         public bool Debug;

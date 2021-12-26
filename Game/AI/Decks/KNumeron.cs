@@ -37,15 +37,20 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             IList<int> activatem = new List<int>();
+            IList<int> spsummonm = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
 
             AddExecutor(ExecutorType.SpSummon, 602, Summonplace);
+            spsummonm.Add(602);
             AddExecutor(ExecutorType.SpSummon, 603, Summonplace);
+            spsummonm.Add(603);
             AddExecutor(ExecutorType.Activate, 603, Summonplace);
             activatem.Add(603);
             AddExecutor(ExecutorType.SpSummon, 612, Summonplace);
+            spsummonm.Add(612);
             AddExecutor(ExecutorType.SpSummon, CardId.CNo1, CNo1);
+            spsummonm.Add(CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.CNo1);
             activatem.Add(CardId.CNo1);
             AddExecutor(ExecutorType.Activate, CardId.Number100Dragon);
@@ -72,19 +77,19 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, 593, RUM_DonThousand);
             activatem.Add(593);
             AddExecutor(ExecutorType.SpSummon, 209, FNo0);
+            spsummonm.Add(209);
             AddExecutor(ExecutorType.Activate, 209, FNo0_Effects);
             AddExecutor(ExecutorType.SpSummon, 723, FNo0_Slash);
+            spsummonm.Add(723);
             AddExecutor(ExecutorType.Activate, 723, FNo0_Slash_Effects);
             activatem.Add(723);
-            AddExecutor(ExecutorType.Activate, CardId.Oricha, Oricha);
+            AddExecutor(ExecutorType.Activate, CardId.Oricha, DefaultOrica);
             activatem.Add(CardId.Oricha);
 
-            AddExecutor(ExecutorType.SpSummon, () => !Card.IsCode(CardId.CNo1) && Summonplace());
+            AddExecutor(ExecutorType.SpSummon, () =>!spsummonm.Contains(Card.Id) && Summonplace());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.SpSummon, ImFeelingUnlucky);
-            AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && ImFeelingUnlucky());
             AddExecutor(ExecutorType.Summon, () => Advancesummon() && !Card.IsCode(13711));
             // Reposition
             AddExecutor(ExecutorType.Repos, MonsterRepos);
@@ -249,8 +254,9 @@ namespace WindBot.Game.AI.Decks
         {
             ClientCard orica = Bot.GetFieldSpellCard();
             ClientCard last_chain_card = Util.GetLastChainCard();
-            if (orica == null && avail.Contains(12201))
-                return 12201;
+            if (orica == null && avail.Contains(CardId.Oricha))
+                return CardId.Oricha;
+
             if (last_chain_card != null && last_chain_card.IsCode(CardId.CNo1000))
             {
                 if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon) || Bot.SpellZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)))
@@ -258,21 +264,43 @@ namespace WindBot.Game.AI.Decks
                 return CardId.CNumber100Dragon;
             }
 
-            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.IsFaceup() && card.Sequence == Bot.Graveyard.Count - 1);
-            if (last_chain_card != null && last_chain_card.IsCode(CardId.Oricha) && last_cards.Count > 0)
+            IList<ClientCard> last_cards = Bot.Graveyard.GetMatchingCards(card => card.Sequence == Bot.Graveyard.Count - 1);
+            if (orica != null && orica.IsCode(CardId.Oricha) && last_chain_card != null && last_chain_card == orica)
             {
-                ClientCard last_card = last_cards[0];
-                if (last_card.IsCode(593))
-                    return CardId.No1000;
-                else if (last_card.IsCode(588))
-                    return CardId.CNo1000;
-                else
+                if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(orica.HasXyzMaterial(1, 13706))))
                 {
-                    return 13701;
-                    No1annouce++;
+                    if (!(orica.HasXyzMaterial(1, 13706)) && avail.Contains(13706))
+                        return 13706;
+                    else if (!(orica.HasXyzMaterial(1, 12)) && avail.Contains(12))
+                        return 12;
+                    else if (!(orica.HasXyzMaterial(1, 10)) && avail.Contains(10))
+                        return 10;
+                    else if (!(orica.HasXyzMaterial(1, 160000107)) && avail.Contains(160000107))
+                        return 160000107;
+                    else if (!(orica.HasXyzMaterial(1, 100000382)) && avail.Contains(100000382))
+                        return 100000382;
+                    else if (!(orica.HasXyzMaterial(1, 146)) && avail.Contains(146))
+                        return 146;
+                    else if (avail.Contains(11))
+                        return 11;
+                }
+
+                if (last_cards.Count > 0)
+                {
+                    ClientCard last_card = last_cards[0];
+                    if (last_card.IsCode(593))
+                        return CardId.No1000;
+                    else if (last_card.IsCode(588))
+                        return CardId.CNo1000;
+                    else
+                    {
+                        No1annouce++;
+                        return 13701;
+                    }
                 }
             }
-            return avail[0];
+
+            return Program.Rand.Next(avail.Count);
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -344,13 +372,9 @@ namespace WindBot.Game.AI.Decks
                 if (defender.IsCode(732) && defender.IsAttack())
                     defender.RealPower = defender.Attack * 2;
                 if (attacker.IsCode(CardId.Number100Dragon, CardId.CNumber100Dragon, 592) && !attacker.IsDisabled())
-                {
                     defender.RealPower = 0;
-                }
                 if (defender.IsCode(CardId.Number100Dragon, CardId.CNumber100Dragon, 592) && !defender.IsDisabled())
-                {
                     attacker.RealPower = 0;
-                }
                 if (attacker.IsCode(13701) && attacker.RealPower < defender.RealPower && Bot.LifePoints > defender.RealPower - attacker.RealPower && Bot.HasInHand(13717) && Bot.HasInExtra(CardId.CNo1000) && Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(0x48) || card.IsCode(12201,13706)) + Bot.Banished.GetMatchingCardsCount(card => (card.HasSetcode(0x48) || card.IsCode(12201, 13706)) && card.IsFaceup()) > 4)
                     return AI.Attack(attacker, defender);
                 if (!OnPreBattleBetween(attacker, defender))
@@ -443,98 +467,6 @@ namespace WindBot.Game.AI.Decks
             if (Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
                 return false;
             return base.DefaultMonsterRepos();
-        }
-
-        private bool Oricha()
-        {
-            if (Util.ChainContainsCard(CardId.Oricha)) return false;
-            if (ActivateDescription == Util.GetStringId(12744567, 0) || (ActivateDescription == -1 && !(Card.HasXyzMaterial(1, 13706))))
-            {
-                if (!(Card.HasXyzMaterial(1, 13706)))
-                {
-                    AI.SelectAnnounceID(13706);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 12)))
-                {
-                    AI.SelectAnnounceID(12);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 10)))
-                {
-                    AI.SelectAnnounceID(10);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 160000107)))
-                {
-                    AI.SelectAnnounceID(160000107);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 100000382)))
-                {
-                    AI.SelectAnnounceID(100000382);
-                    return true;
-                }
-                if (!(Card.HasXyzMaterial(1, 146)))
-                {
-                    AI.SelectAnnounceID(146);
-                    return true;
-                }
-                AI.SelectAnnounceID(11);
-                return true;
-            }
-
-            IList<ClientCard> selected = Bot.Deck.GetMatchingCards(card=>card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap()));
-            if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
-                AI.SelectCard(588, 593, CardId.Numeronlead, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
-            else if (Duel.Player == 0)
-                AI.SelectCard(CardId.Numeronlead, 588, 593, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
-            else if (Duel.Player == 1)
-                AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
-
-            List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
-            ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
-            ClientCard NumeronNo2 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13702));
-            ClientCard NumeronNo3 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13703));
-            ClientCard NumeronNo4 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13704));
-            if (NumeronNo1 != null)
-                NumeronNo.Remove(NumeronNo1); NumeronNo.Add(NumeronNo1);
-            if (NumeronNo2 != null)
-                NumeronNo.Remove(NumeronNo2); NumeronNo.Add(NumeronNo2);
-            if (NumeronNo3 != null)
-                NumeronNo.Remove(NumeronNo3); NumeronNo.Add(NumeronNo3);
-            if (NumeronNo4 != null)
-                NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
-            NumeronNo.Reverse();
-            AI.SelectNextCard(NumeronNo);
-
-            //int count = Util.GetBotAvailZonesFromExtraDeck();
-            //if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
-            //if (count > 3)
-            //{
-            //    for (int i = 0; i < 4; i++)
-            //    {
-            //        if (CNo1summon > 0 && Duel.Turn > 1)
-            //            AI.SelectAnnounceID(13714);
-            //        No1annouce++;
-            //        AI.SelectAnnounceID(13701);
-            //    }
-            //}
-
-            if (Card.HasXyzMaterial(1, 10))
-            {
-                List<ClientCard> Oricamonster = Bot.GetMonsters();
-                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard mon in Oricamonster2)
-                    Oricamonster.Add(mon);
-                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
-                Oricamonster.Remove(topmon);
-                Oricamonster.Sort(CardContainer.CompareCardAttack);
-                Oricamonster.Reverse();
-                AI.SelectCard(Oricamonster);
-            }
-
-            return true;
         }
 
         private bool Costdown()
@@ -681,14 +613,15 @@ namespace WindBot.Game.AI.Decks
 
         private bool FNo0()
         {
-            if (CNo1summon == 0)
-                return false;
-            List<ClientCard> mat1 = Bot.MonsterZone.GetMonsters();
-            List<ClientCard> mat2 = Bot.SpellZone.GetMonsters();
-            foreach (ClientCard mon in mat2)
-                mat1.Add(mon);
-            AI.SelectCard(mat1);
-            return true;
+            return false;
+            //if (CNo1summon == 0)
+            //    return false;
+            //List<ClientCard> mat1 = Bot.MonsterZone.GetMonsters();
+            //List<ClientCard> mat2 = Bot.SpellZone.GetMonsters();
+            //foreach (ClientCard mon in mat2)
+            //    mat1.Add(mon);
+            //AI.SelectCard(mat1);
+            //return true;
         }
 
         private bool FNo0_Effects()
@@ -698,9 +631,10 @@ namespace WindBot.Game.AI.Decks
 
         private bool FNo0_Slash()
         {
-            if (Duel.Player == 0 && Duel.Turn == 1)
-                return false;
-            return true;
+            return false;
+            //if (Duel.Player == 0 && Duel.Turn == 1)
+            //    return false;
+            //return true;
         }
 
         private bool FNo0_Slash_Effects()
@@ -841,11 +775,6 @@ namespace WindBot.Game.AI.Decks
             ClientCard target = GetProblematicEnemyCard_Alter(true);
             AI.SelectCard(target);
             return Card.IsMonster() && Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
-        }
-
-        private bool ImFeelingUnlucky()
-        {
-            return DefaultDontChainMyself();
         }
     }
 }

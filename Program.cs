@@ -129,7 +129,7 @@ namespace WindBot
             Info.Debug = Config.GetBool("Debug", Info.Debug);
             Info.Chat = Config.GetBool("Chat", Info.Chat);
             ////////kdiy///////
-            Info.Seed = Config.GetBool("Seed", Info.Seed);
+            Info.Seed = Config.GetInt("Seed", Info.Seed);
             ////////kdiy///////
             Info.RoomId = Config.GetInt("RoomId", Info.RoomId);
             string b64CreateGame = Config.GetString("CreateGame");
@@ -209,7 +209,7 @@ namespace WindBot
                     //////kdiy////////   
                     string seed = HttpUtility.ParseQueryString(RawUrl).Get("seed");
                     if (seed != null)
-                        Info.Seed = bool.Parse(seed);   
+                        Info.Seed = Int32.Parse(seed);   
                     //////kdiy////////          
 
                     if (Info.Name == null || Info.Host == null || port == null)
