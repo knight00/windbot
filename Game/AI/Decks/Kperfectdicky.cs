@@ -360,6 +360,28 @@ namespace WindBot.Game.AI.Decks
             public const int GhostOgreAndSnowRabbit = 59438930;
             public const int GhostBelle = 73642296;
             public const int SmashingGround = 97169186;
+
+
+            //Dragun
+            public const int RedEyesBDragon = 74677422;
+            public const int RedEyesWyvern = 67300516;
+            public const int TourGuideFromTheUnderworld = 10802915;
+            public const int Sangan = 26202165;
+            public const int CrusadiaArboria = 91646304;
+            public const int AshBlossomJoyousSpring = 14558127;
+            public const int MagiciansSouls = 97631303;
+
+            public const int RedEyesFusion = 6172122;
+            public const int MagicalizedFusion = 11827244;
+            public const int RedEyesInsight = 92353449;
+
+            public const int DragunofRedEyes = 37818794;
+            public const int SeaMonsterofTheseus = 96334243;
+            public const int ThousandEyesRestrict = 63519819;
+            public const int CrystronHalqifibrax = 50588353;
+            public const int PredaplantVerteAnaconda = 70369116;
+            public const int ImdukTheWorldChaliceDragon = 31226177;
+            public const int SalamangreatAlmiraj = 60303245;
         }
 
         private int CrossSacrifaceCount = 0;
@@ -428,6 +450,8 @@ namespace WindBot.Game.AI.Decks
 
         //ZexalWeaponsExecutor
         private int ZwCount = 0;
+
+        private bool RedEyesFusionUsed = false;
 
         public KperfectdickyExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
@@ -1321,6 +1345,38 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
             activatem.Add(_CardId.EvilswarmExcitonKnight);
 
+
+            //Dragun
+            AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, DefaultAshBlossomAndJoyousSpring);
+            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
+            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesCounter);
+            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesDestroy);
+            AddExecutor(ExecutorType.Activate, CardId.ThousandEyesRestrict, ThousandEyesRestrictEffect);
+            AddExecutor(ExecutorType.Activate, CardId.RedEyesInsight, RedEyesInsightEffect);
+            AddExecutor(ExecutorType.Activate, CardId.RedEyesFusion, RedEyesFusionEffect);
+            AddExecutor(ExecutorType.Summon, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldSummon);
+            AddExecutor(ExecutorType.Activate, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldEffect);
+            AddExecutor(ExecutorType.Summon, CardId.Sangan, SanganSummon);
+            AddExecutor(ExecutorType.Activate, CardId.Sangan, SanganEffect);
+            AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, SalamangreatAlmirajSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.ImdukTheWorldChaliceDragon, ImdukTheWorldChaliceDragonSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, LinkSpiderSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.CrusadiaArboria);
+            AddExecutor(ExecutorType.Activate, CardId.InstantFusion, InstantFusionEffect);
+            AddExecutor(ExecutorType.Summon, CardId.RedEyesWyvern);
+            AddExecutor(ExecutorType.Summon, CardId.CrusadiaArboria, SummonForMaterial);
+            AddExecutor(ExecutorType.Summon, CardId.AshBlossomJoyousSpring, SummonForMaterial);
+            AddExecutor(ExecutorType.Activate, CardId.MagiciansSouls, MagiciansSoulsEffect);
+            AddExecutor(ExecutorType.Summon, CardId.MagiciansSouls, SummonForMaterial);
+            AddExecutor(ExecutorType.SpSummon, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaSummon);
+            AddExecutor(ExecutorType.Activate, CardId.MagicalizedFusion, MagicalizedFusionEffect);
+            AddExecutor(ExecutorType.Activate, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaEffect);
+            AddExecutor(ExecutorType.SpellSet, CardId.InfiniteImpermanence, TrapSet);
+            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSet);
+            AddExecutor(ExecutorType.MonsterSet, CardId.Sangan);
+
+
+            //Timelord
             AddExecutor(ExecutorType.Summon, _CardId.SandaionTheTimelord, DefaultTimelordSummon);
             AddExecutor(ExecutorType.Summon, _CardId.GabrionTheTimelord, DefaultTimelordSummon);
             AddExecutor(ExecutorType.Summon, _CardId.MichionTheTimelord, DefaultTimelordSummon);
@@ -1441,6 +1497,9 @@ namespace WindBot.Game.AI.Decks
             MaskedChameleonUsed = false;
             ShootingRiserDragonCount = 0;
 
+            BeastOLionUsed = false;
+            RedEyesFusionUsed = false;
+
             base.OnNewTurn();
         }
 
@@ -1559,9 +1618,18 @@ namespace WindBot.Game.AI.Decks
             // select random cards
             while (selected.Count < min)
             {
-                ClientCard card = cards[Program.Rand.Next(cards.Count)];
-                selected.Add(card);
-                cards.Remove(card);
+                ClientCard dcard = cards.GetFirstMatchingFaceupCard(card => card.Controller==0 && card.IsCode(20292186));
+                if (dcard != null)
+                {
+                    selected.Add(dcard);
+                    cards.Remove(dcard);
+                }
+                else
+                {
+                    ClientCard card = cards[Program.Rand.Next(cards.Count)];
+                    selected.Add(card);
+                    cards.Remove(card);
+                }
             }
 
             if (HintMsgForMaxSelect.Contains(hint))
@@ -1622,7 +1690,7 @@ namespace WindBot.Game.AI.Decks
                             }
                         }
                     }
-                    if (isAltergeist(cardId))
+                    else if (isAltergeist(cardId))
                     {
                         if (Bot.HasInMonstersZone(CardId.Hexstia))
                         {
@@ -1661,10 +1729,33 @@ namespace WindBot.Game.AI.Decks
                         if ((Zones.z1 & available) > 0) return Zones.z1;
                         if ((Zones.z3 & available) > 0) return Zones.z3;
                     }
+                    else if (Bot.HasInMonstersZone(50277355))
+                    {
+                        for (int i = 5; i < 7; ++i)
+                        {
+                            if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(50277355))
+                            {
+                                int next_index = get_Sheep_linkzone(i);
+                                if ((available & next_index) > 0)
+                                {
+                                    return next_index;
+                                }
+                            }
+                        }
+                    }
+                    else if (location == CardLocation.MonsterZone)
+                    {
+                        return available & ~Bot.GetLinkedZones();
+                    }
                 }
             }
-
             return base.OnSelectPlace(cardId, player, location, available);
+        }
+        public int get_Sheep_linkzone(int zone)
+        {
+            if (zone == 5) return 5;
+            if (zone == 6) return 20;
+            return -1;
         }
 
         public override int OnAnnounceCard(IList<int> avail)
@@ -1983,7 +2074,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool MonsterRebornEffect()
         {
-            IList<int> targets = new[] {
+            if (Bot.HasInGraveyard(CardId.DragunofRedEyes))
+            {
+                AI.SelectCard(CardId.DragunofRedEyes);
+                return true;
+            }
+            else
+            {
+                IList<int> targets = new[] {
                     CardId.DecodeTalker,
                     CardId.EncodeTalker,
                     CardId.TriGateWizard,
@@ -1998,11 +2096,36 @@ namespace WindBot.Game.AI.Decks
                     CardId.Backlinker,
                     CardId.Kleinant
                 };
-            if (!Bot.HasInGraveyard(targets))
-            {
-                return false;
+                if (!NeedMonster())
+                    return false;
+                if (!Bot.HasInGraveyard(targets))
+                {
+                    return false;
+                }
+                AI.SelectCard(new[] {
+                    CardId.DecodeTalker,
+                    CardId.EncodeTalker,
+                    CardId.TriGateWizard,
+                    CardId.BinarySorceress,
+                    CardId.Honeybot,
+                    CardId.DualAssembloom,
+                    CardId.BootStagguard,
+                    CardId.BalancerLord,
+                    CardId.ROMCloudia,
+                    CardId.Linkslayer,
+                    CardId.RAMClouder,
+                    CardId.Backlinker,
+                    CardId.Kleinant,
+
+                    CardId.PredaplantVerteAnaconda,
+                    CardId.Sangan,
+                    CardId.ThousandEyesRestrict,
+                    CardId.MechaPhantomBeastOLion,
+                    CardId.CrusadiaArboria,
+                    CardId.AshBlossomJoyousSpring
+                });
+                return true;
             }
-            AI.SelectCard(targets);
             return true;
         }
 
@@ -7673,6 +7796,28 @@ namespace WindBot.Game.AI.Decks
 
         private bool FoolishBurialEffect()
         {
+            if (RedEyesFusionUsed)
+                return false;
+            if (Bot.HasInHand(CardId.MagicalizedFusion))
+            {
+                if (Bot.HasInGraveyard(CardId.DarkMagician) && Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
+                {
+                    AI.SelectCard(new[]
+                    {
+                        CardId.RedEyesWyvern,
+                        CardId.RedEyesBDragon
+                    });
+                    return true;
+                }
+                if (!Bot.HasInGraveyard(CardId.DarkMagician) && Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) > 0)
+                {
+                    AI.SelectCard(CardId.DarkMagician);
+                    return true;
+                }
+            }
+            if (!NeedMonster())
+                return false;
+
             if (Bot.HasInHand(CardId.GraydleSlimeJr) && !Bot.HasInGraveyard(CardId.GraydleSlimeJr))
                 AI.SelectCard(CardId.GraydleSlimeJr);
             else if (Bot.HasInGraveyard(CardId.Ronintoadin) && !Bot.HasInGraveyard(CardId.DupeFrog))
@@ -7681,6 +7826,7 @@ namespace WindBot.Game.AI.Decks
                 AI.SelectCard(CardId.Ronintoadin);
             else
                 AI.SelectCard(
+                    CardId.MechaPhantomBeastOLion,
                     CardId.GraydleSlimeJr,
                     CardId.Ronintoadin,
                     CardId.DupeFrog,
@@ -8441,6 +8587,32 @@ namespace WindBot.Game.AI.Decks
 
         private bool CrystronNeedlefiberSummon()
         {
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+                return false;
+            int[] materials = new[] {
+                CardId.CrusadiaArboria,
+                CardId.MechaPhantomBeastOLion,
+                CardId.AshBlossomJoyousSpring,
+                CardId.SeaMonsterofTheseus,
+                CardId.MechaPhantomBeastOLionToken,
+                CardId.DarkMagician,
+                CardId.ImdukTheWorldChaliceDragon,
+                CardId.Sangan,
+                CardId.TourGuideFromTheUnderworld,
+                CardId.MagiciansSouls,
+                CardId.SalamangreatAlmiraj,
+                CardId.LinkSpider,
+                CardId.ThousandEyesRestrict,
+                CardId.SeaMonsterofTheseus,
+                CardId.MaxxC,
+                CardId.RedEyesWyvern
+            };
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
+            {
+                AI.SelectMaterials(materials);
+                return true;
+            }
+
             if (MaskedChameleonUsed)
                 return false;
             int nonTunerCount = Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner());
@@ -8491,7 +8663,7 @@ namespace WindBot.Game.AI.Decks
         {
             if (Duel.Player == 0)
             {
-                AI.SelectCard(CardId.RedRoseDragon);
+                AI.SelectCard(CardId.MechaPhantomBeastOLion, CardId.RedRoseDragon);
                 return true;
             }
             else
@@ -8816,7 +8988,252 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
-        private bool JustDontIt()
+        private bool DragunofRedEyesCounter()
+        {
+            if (ActivateDescription != -1 && ActivateDescription != Util.GetStringId(CardId.DragunofRedEyes, 1))
+                return false;
+            if (Duel.LastChainPlayer != 1)
+                return false;
+            AI.SelectCard(new[] {
+                CardId.RedEyesWyvern,
+                CardId.MechaPhantomBeastOLion
+            });
+            return true;
+        }
+
+        private bool DragunofRedEyesDestroy()
+        {
+            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(CardId.DragunofRedEyes, 1))
+                return false;
+            AI.SelectCard(Util.GetBestEnemyMonster());
+            return true;
+        }
+
+        private bool ThousandEyesRestrictEffect()
+        {
+            AI.SelectCard(Util.GetBestEnemyMonster());
+            return true;
+        }
+
+        private bool RedEyesInsightEffect()
+        {
+            if (Bot.HasInHand(CardId.RedEyesFusion))
+                return false;
+            if (Bot.GetRemainingCount(CardId.RedEyesWyvern, 1) == 0 && Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 1 && !Bot.HasInHand(CardId.RedEyesBDragon))
+                return false;
+            AI.SelectCard(CardId.RedEyesWyvern);
+            return true;
+        }
+
+        private bool RedEyesFusionEffect()
+        {
+            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
+            { // you don't want to use DragunofRedEyes which is treated as RedEyesBDragon as fusion material
+                if (Util.GetBotAvailZonesFromExtraDeck() == 0)
+                    return false;
+                if (Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 0 && !Bot.HasInHand(CardId.RedEyesBDragon))
+                    return false;
+            }
+            AI.SelectMaterials(CardLocation.Deck);
+            RedEyesFusionUsed = true;
+            return true;
+        }
+
+        private bool TourGuideFromTheUnderworldSummon()
+        {
+            if (Bot.GetRemainingCount(CardId.TourGuideFromTheUnderworld, 2) == 0 && Bot.GetRemainingCount(CardId.Sangan, 2) == 0)
+                return false;
+            return true;
+        }
+
+        private bool TourGuideFromTheUnderworldEffect()
+        {
+            AI.SelectCard(CardId.Sangan);
+            return true;
+        }
+
+        private bool SanganSummon()
+        {
+            return true;
+        }
+
+        private bool SanganEffect()
+        {
+            if (Bot.HasInMonstersZone(CardId.SalamangreatAlmiraj) && !Bot.HasInHand(CardId.CrusadiaArboria))
+                AI.SelectCard(CardId.CrusadiaArboria);
+            else if (!Bot.HasInHand(CardId.MaxxC))
+                AI.SelectCard(CardId.MaxxC);
+            else if (!Bot.HasInHand(CardId.AshBlossomJoyousSpring))
+                AI.SelectCard(CardId.AshBlossomJoyousSpring);
+            else if (!Bot.HasInHand(CardId.MagiciansSouls))
+                AI.SelectCard(CardId.MagiciansSouls);
+            else if (!Bot.HasInHand(CardId.CrusadiaArboria))
+                AI.SelectCard(CardId.CrusadiaArboria);
+            else
+                AI.SelectCard(new[] {
+                    CardId.AshBlossomJoyousSpring,
+                    CardId.MaxxC,
+                    CardId.CrusadiaArboria
+                });
+            return true;
+        }
+
+        private bool SalamangreatAlmirajSummon()
+        {
+            int[] materials = new[] {
+                CardId.Sangan,
+                CardId.MechaPhantomBeastOLion
+            };
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials) && !card.IsSpecialSummoned) == 0)
+                return false;
+            AI.SelectMaterials(materials);
+            return true;
+        }
+
+        private bool ImdukTheWorldChaliceDragonSummon()
+        {
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+                return false;
+            if (Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) >= 0)
+                return false;
+            if (Bot.GetMonsterCount() == 1 && Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0 && !Util.IsTurn1OrMain2())
+                return false;
+            if (Bot.GetMonsterCount() >= 2 && Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+                return false;
+            return true;
+        }
+
+        private bool LinkSpiderSummon()
+        {
+            if (!Bot.HasInMonstersZone(CardId.MechaPhantomBeastOLionToken))
+                return false;
+            AI.SelectMaterials(CardId.MechaPhantomBeastOLionToken);
+            return true;
+        }
+
+        private bool NeedMonster()
+        {
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+                return false;
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+                return false;
+            if (Bot.GetMonsterCount() == 0 && Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0)
+                return false;
+            if (Bot.GetMonsterCount() >= 2)
+                return false;
+
+            return true;
+        }
+
+        private bool InstantFusionEffect()
+        {
+            if (!NeedMonster())
+                return false;
+
+            if (Enemy.GetMonsterCount() > 0)
+                AI.SelectCard(CardId.ThousandEyesRestrict);
+            else
+                AI.SelectCard(CardId.SeaMonsterofTheseus);
+            return true;
+        }
+
+        private bool SummonForMaterial()
+        {
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+                return false;
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => (card.HasType(CardType.Effect) || card.IsTuner()) && card.Level < 8) == 1)
+                return true;
+            if (Bot.HasInHand(CardId.MagiciansSouls))
+                return true;
+            return false;
+        }
+
+        private bool MagiciansSoulsEffect()
+        {
+            if (Card.Location == CardLocation.Hand)
+            {
+                if (RedEyesFusionUsed)
+                    return false;
+                if (Bot.GetMonsterCount() >= 2)
+                    return false;
+                AI.SelectOption(1);
+                AI.SelectYesNo(true);
+                return true;
+            }
+            else
+            {
+                int[] costs = new[] {
+                    CardId.RedEyesInsight,
+                    CardId.RedEyesFusion
+                };
+                if (Bot.HasInHand(costs))
+                {
+                    AI.SelectCard(costs);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        private bool PredaplantVerteAnacondaSummon()
+        {
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+                return false;
+
+            int[] materials = new[] {
+                CardId.ImdukTheWorldChaliceDragon,
+                CardId.Sangan,
+                CardId.TourGuideFromTheUnderworld,
+                CardId.CrusadiaArboria,
+                CardId.MechaPhantomBeastOLion,
+                CardId.MagiciansSouls,
+                CardId.SalamangreatAlmiraj,
+                CardId.LinkSpider,
+                CardId.ThousandEyesRestrict,
+                CardId.AshBlossomJoyousSpring,
+                CardId.MaxxC,
+                CardId.RedEyesWyvern,
+                CardId.CrystronHalqifibrax
+            };
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
+            {
+                AI.SelectMaterials(materials);
+                return true;
+            }
+            return false;
+        }
+
+        private bool MagicalizedFusionEffect()
+        {
+            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
+            { // you don't want to use DragunofRedEyes which is treated as RedEyesBDragon as fusion material
+                if (Util.GetBotAvailZonesFromExtraDeck() == 0)
+                    return false;
+                if (Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
+                    return false;
+            }
+            AI.SelectMaterials(CardLocation.Grave);
+            return true;
+        }
+
+        private bool PredaplantVerteAnacondaEffect()
+        {
+            if (ActivateDescription == Util.GetStringId(CardId.PredaplantVerteAnaconda, 0))
+                return false;
+            AI.SelectCard(CardId.RedEyesFusion);
+            AI.SelectMaterials(CardLocation.Deck);
+            return true;
+        }
+
+        private bool TrapSet()
+        {
+            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }) && Bot.GetHandCount() == 1)
+                return false;
+            AI.SelectPlace(Zones.z0 + Zones.z1 + Zones.z3 + Zones.z4);
+            return true;
+        }
+
+            private bool JustDontIt()
         {
             return false;
         }

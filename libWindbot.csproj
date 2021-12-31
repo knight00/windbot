@@ -50,6 +50,19 @@
     <Compile Include="Game\AI\Decks\AltergeistExecutor.cs" />
     <Compile Include="Game\AI\Decks\FamiliarPossessedExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlackwingExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_AHDXSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_AMLExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_ASFExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_CWExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_DFSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_GDExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_HHExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_KDExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_NWSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_PCExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_PJSSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_SFExecutor.cs" />
+    <Compile Include="Game\AI\Decks\GX_XYExecutor.cs" />
     <Compile Include="Game\AI\Decks\LuckyExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesMaxDragonExecutor.cs" />
@@ -92,6 +105,7 @@
     <Compile Include="Game\AI\Decks\TrickstarExecutor.cs" />
     <Compile Include="Game\AI\Decks\WitchcraftExecutor.cs" />
     <Compile Include="Game\AI\Decks\YosenjuExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ZCG_RaExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZexalWeaponsExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZoodiacExecutor.cs" />
     <Compile Include="Game\DecksManager.cs" />
