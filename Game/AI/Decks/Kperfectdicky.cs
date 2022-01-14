@@ -382,6 +382,15 @@ namespace WindBot.Game.AI.Decks
             public const int PredaplantVerteAnaconda = 70369116;
             public const int ImdukTheWorldChaliceDragon = 31226177;
             public const int SalamangreatAlmiraj = 60303245;
+
+
+            public const int DPhenoix = 60461804;
+            public const int SHeroInferno = 19324993;
+            public const int SHeroAdvance = 1948619;
+            public const int SHeroCross = 58004362;
+            public const int FusionCall = 6498706;
+            public const int MiracleFusion = 45906428;
+            public const int FusionDestiny = 52947044;
         }
 
         private int CrossSacrifaceCount = 0;
@@ -460,6 +469,73 @@ namespace WindBot.Game.AI.Decks
             IList<int> spsummonm = new List<int>();
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
+
+            AddExecutor(ExecutorType.Activate, CardId.FusionDestiny, FusionDestiny);
+            activatem.Add(CardId.FusionDestiny);
+            AddExecutor(ExecutorType.SpSummon, CardId.SHeroInferno, SHeroInferno);
+            spsummonm.Add(CardId.SHeroInferno);
+            AddExecutor(ExecutorType.Activate, CardId.SHeroInferno, SHeroInferno);
+            activatem.Add(CardId.SHeroInferno);
+            AddExecutor(ExecutorType.SpSummon, CardId.SHeroAdvance, SHeroAdvance);
+            spsummonm.Add(CardId.SHeroAdvance);
+            AddExecutor(ExecutorType.Activate, CardId.SHeroAdvance, SHeroAdvance);
+            activatem.Add(CardId.SHeroAdvance);
+            AddExecutor(ExecutorType.SpSummon, CardId.SHeroCross, SHeroCross);
+            spsummonm.Add(CardId.SHeroCross);
+            AddExecutor(ExecutorType.Activate, CardId.SHeroCross, SHeroCross);
+            activatem.Add(CardId.SHeroCross);
+            activatem.Add(CardId.FusionDestiny);
+            AddExecutor(ExecutorType.SpSummon, CardId.DPhenoix, DPhenoix);
+            spsummonm.Add(CardId.DPhenoix);
+            AddExecutor(ExecutorType.Activate, CardId.DPhenoix, DPhenoix);
+            activatem.Add(CardId.DPhenoix);
+
+            //Dragun
+            AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, DefaultAshBlossomAndJoyousSpring);
+            activatem.Add(CardId.AshBlossomJoyousSpring);
+            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
+            activatem.Add(CardId.SolemnStrike);
+            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesCounter);
+            activatem.Add(CardId.DragunofRedEyes);
+            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesDestroy);
+            activatem.Add(CardId.DragunofRedEyes);
+            AddExecutor(ExecutorType.Activate, CardId.ThousandEyesRestrict, ThousandEyesRestrictEffect);
+            activatem.Add(CardId.ThousandEyesRestrict);
+            AddExecutor(ExecutorType.Activate, CardId.RedEyesInsight, RedEyesInsightEffect);
+            activatem.Add(CardId.RedEyesInsight);
+            AddExecutor(ExecutorType.Activate, CardId.RedEyesFusion, RedEyesFusionEffect);
+            activatem.Add(CardId.RedEyesFusion);
+            AddExecutor(ExecutorType.Summon, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldSummon);
+            AddExecutor(ExecutorType.Activate, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldEffect);
+            activatem.Add(CardId.TourGuideFromTheUnderworld);
+            AddExecutor(ExecutorType.Summon, CardId.Sangan, SanganSummon);
+            AddExecutor(ExecutorType.Activate, CardId.Sangan, SanganEffect);
+            activatem.Add(CardId.Sangan);
+            AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, SalamangreatAlmirajSummon);
+            spsummonm.Add(CardId.SalamangreatAlmiraj);
+            AddExecutor(ExecutorType.SpSummon, CardId.ImdukTheWorldChaliceDragon, ImdukTheWorldChaliceDragonSummon);
+            spsummonm.Add(CardId.ImdukTheWorldChaliceDragon);
+            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, LinkSpiderSummon);
+            spsummonm.Add(CardId.LinkSpider);
+            AddExecutor(ExecutorType.SpSummon, CardId.CrusadiaArboria);
+            spsummonm.Add(CardId.CrusadiaArboria);
+            AddExecutor(ExecutorType.Activate, CardId.InstantFusion, InstantFusionEffect);
+            activatem.Add(CardId.InstantFusion);
+            AddExecutor(ExecutorType.Summon, CardId.RedEyesWyvern);
+            AddExecutor(ExecutorType.Summon, CardId.CrusadiaArboria, SummonForMaterial);
+            AddExecutor(ExecutorType.Summon, CardId.AshBlossomJoyousSpring, SummonForMaterial);
+            AddExecutor(ExecutorType.Activate, CardId.MagiciansSouls, MagiciansSoulsEffect);
+            activatem.Add(CardId.MagiciansSouls);
+            AddExecutor(ExecutorType.Summon, CardId.MagiciansSouls, SummonForMaterial);
+            AddExecutor(ExecutorType.SpSummon, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaSummon);
+            spsummonm.Add(CardId.PredaplantVerteAnaconda);
+            AddExecutor(ExecutorType.Activate, CardId.MagicalizedFusion, MagicalizedFusionEffect);
+            activatem.Add(CardId.MagicalizedFusion);
+            AddExecutor(ExecutorType.Activate, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaEffect);
+            activatem.Add(CardId.PredaplantVerteAnaconda);
+            AddExecutor(ExecutorType.SpellSet, CardId.InfiniteImpermanence, TrapSet);
+            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSet);
+            AddExecutor(ExecutorType.MonsterSet, CardId.Sangan);
 
             //ST1732Executor
             AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, DefaultCosmicCyclone);
@@ -1345,35 +1421,6 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
             activatem.Add(_CardId.EvilswarmExcitonKnight);
 
-
-            //Dragun
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, DefaultAshBlossomAndJoyousSpring);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesCounter);
-            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesDestroy);
-            AddExecutor(ExecutorType.Activate, CardId.ThousandEyesRestrict, ThousandEyesRestrictEffect);
-            AddExecutor(ExecutorType.Activate, CardId.RedEyesInsight, RedEyesInsightEffect);
-            AddExecutor(ExecutorType.Activate, CardId.RedEyesFusion, RedEyesFusionEffect);
-            AddExecutor(ExecutorType.Summon, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldSummon);
-            AddExecutor(ExecutorType.Activate, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldEffect);
-            AddExecutor(ExecutorType.Summon, CardId.Sangan, SanganSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Sangan, SanganEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, SalamangreatAlmirajSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.ImdukTheWorldChaliceDragon, ImdukTheWorldChaliceDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, LinkSpiderSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CrusadiaArboria);
-            AddExecutor(ExecutorType.Activate, CardId.InstantFusion, InstantFusionEffect);
-            AddExecutor(ExecutorType.Summon, CardId.RedEyesWyvern);
-            AddExecutor(ExecutorType.Summon, CardId.CrusadiaArboria, SummonForMaterial);
-            AddExecutor(ExecutorType.Summon, CardId.AshBlossomJoyousSpring, SummonForMaterial);
-            AddExecutor(ExecutorType.Activate, CardId.MagiciansSouls, MagiciansSoulsEffect);
-            AddExecutor(ExecutorType.Summon, CardId.MagiciansSouls, SummonForMaterial);
-            AddExecutor(ExecutorType.SpSummon, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaSummon);
-            AddExecutor(ExecutorType.Activate, CardId.MagicalizedFusion, MagicalizedFusionEffect);
-            AddExecutor(ExecutorType.Activate, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaEffect);
-            AddExecutor(ExecutorType.SpellSet, CardId.InfiniteImpermanence, TrapSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSet);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Sangan);
 
 
             //Timelord
@@ -9177,7 +9224,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool PredaplantVerteAnacondaSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || Bot.HasInSpellZone(CardId.PredaplantVerteAnaconda, true))
                 return false;
 
             int[] materials = new[] {
@@ -9195,7 +9242,7 @@ namespace WindBot.Game.AI.Decks
                 CardId.RedEyesWyvern,
                 CardId.CrystronHalqifibrax
             };
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
+            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials) || (!((card.HasType(CardType.Fusion) || card.HasType(CardType.Synchro) || card.HasType(CardType.Xyz) || card.HasType(CardType.Link)) && !card.IsDisabled()))) >= 2)
             {
                 AI.SelectMaterials(materials);
                 return true;
@@ -9220,7 +9267,15 @@ namespace WindBot.Game.AI.Decks
         {
             if (ActivateDescription == Util.GetStringId(CardId.PredaplantVerteAnaconda, 0))
                 return false;
-            AI.SelectCard(CardId.RedEyesFusion);
+            AI.SelectCard(CardId.RedEyesFusion, CardId.FusionDestiny);
+            AI.SelectMaterials(CardLocation.Deck);
+            return true;
+        }
+
+        private bool FusionDestiny()
+        {
+            if (Bot.HasInMonstersZone(CardId.DPhenoix))
+               return false;
             AI.SelectMaterials(CardLocation.Deck);
             return true;
         }

@@ -27,6 +27,8 @@ namespace WindBot.Game.AI.Decks
             public const int ZsArmsSage = 68258355;
             public const int ZwTornadoBringer = 266;
             public const int ZwLightningBlade = 264;
+            public const int Astralball = 501;
+            public const int Astralhope = 502;
             public const int RRRUM = 511001625;
             public const int RRBlur = 511002857;
             public const int RRLoud = 511002676;
@@ -37,6 +39,7 @@ namespace WindBot.Game.AI.Decks
             public const int Number39Double = 62517849;
             public const int ZwLionArms = 265;
             public const int ZwDragon = 2896663;
+            public const int HopeZS = 504;
             public const int Number39Utopia = 60;
             public const int NumberC39Utopia = 61;
             public const int NumberC39UtopiaVictory = 63;
@@ -144,10 +147,22 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.SeventhSword);
             activatem.Add(CardId.SeventhSword);
 
+            AddExecutor(ExecutorType.SpSummon, CardId.HopeZS, HopeZS);
+            spsummonm.Add(CardId.HopeZS);
+            AddExecutor(ExecutorType.SpSummon, CardId.Astralball, Astralball);
+            spsummonm.Add(CardId.Astralball);
+            AddExecutor(ExecutorType.Activate, CardId.Astralball, Astralball);
+            activatem.Add(CardId.Astralball);
+            AddExecutor(ExecutorType.SpSummon, CardId.Astralhope, Astralhope);
+            activatem.Add(CardId.Astralhope);
+            AddExecutor(ExecutorType.Activate, CardId.Astralhope, Astralhope);
+            activatem.Add(CardId.Astralhope);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Double, Number39UtopiaDouble);
             spsummonm.Add(CardId.Number39Double);
             AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
             activatem.Add(CardId.Number39Double);
+            AddExecutor(ExecutorType.Activate, CardId.HopeZS, HopeZSEffects);
+            activatem.Add(CardId.HopeZS);
             AddExecutor(ExecutorType.Activate, CardId.NumberN99, NumberN99);
             activatem.Add(CardId.NumberN99);
             AddExecutor(ExecutorType.Activate, CardId.Number93, Number93);
@@ -679,6 +694,47 @@ namespace WindBot.Game.AI.Decks
         {
             ZwCount++;
             return true;
+        }
+
+        private bool HopeZS()
+        {
+            if (Bot.Deck.GetMatchingCardsCount(card=>card.HasSetcode(0x207e)) > 0)
+            {
+                AI.SelectCard(
+                CardId.ZsAscent,
+                CardId.ZsArmsSage
+                );
+                return true;
+            }
+            return false;
+        }
+
+        private bool HopeZSEffects()
+        {
+            return true;
+        }
+
+        private bool Astralball()
+        {
+            if (Bot.ExtraDeck.GetMatchingCardsCount(card => card.Rank == 4) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool Astralhope()
+        {
+            if (!(Card.Location == CardLocation.MonsterZone || Card.Location == CardLocation.SpellZone))
+                return true;
+            if (Bot.GetHandCount() > 0)
+                return true;
+            if (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.IsCode(CardId.HopeZS)) + Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.IsCode(CardId.HopeZS)) > 0)
+            {
+               AI.SelectCard(CardId.HopeZS);
+               return true;
+            }
+            return false;
         }
 
         private bool Number39UtopiaDouble()
