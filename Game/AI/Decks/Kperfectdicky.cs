@@ -484,9 +484,6 @@ namespace WindBot.Game.AI.Decks
             spsummonm.Add(CardId.SHeroCross);
             AddExecutor(ExecutorType.Activate, CardId.SHeroCross, SHeroCross);
             activatem.Add(CardId.SHeroCross);
-            activatem.Add(CardId.FusionDestiny);
-            AddExecutor(ExecutorType.SpSummon, CardId.DPhenoix, DPhenoix);
-            spsummonm.Add(CardId.DPhenoix);
             AddExecutor(ExecutorType.Activate, CardId.DPhenoix, DPhenoix);
             activatem.Add(CardId.DPhenoix);
 
@@ -654,6 +651,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Protocol, Protocol_negate);
             AddExecutor(ExecutorType.Activate, CardId.Protocol, Protocol_activate_not_use);
             activatem.Add(CardId.Protocol);
+
             AddExecutor(ExecutorType.Activate, CardId.AB_JS, Hand_act_eff);
             activatem.Add(CardId.AB_JS);
             AddExecutor(ExecutorType.Activate, CardId.GB_HM, Hand_act_eff);
@@ -662,6 +660,17 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.GO_SR);
             AddExecutor(ExecutorType.Activate, CardId.GR_WC, GR_WC_activate);
             activatem.Add(CardId.GR_WC);
+            AddExecutor(ExecutorType.Activate, 67750322, Hand_act_eff);
+            activatem.Add(67750322);
+            AddExecutor(ExecutorType.Activate, 18964575, Hand_act_eff);
+            activatem.Add(18964575);
+            AddExecutor(ExecutorType.Activate, 19665973, Hand_act_eff);
+            activatem.Add(19665973);
+            AddExecutor(ExecutorType.Activate, 27204311, Hand_act_eff);
+            activatem.Add(27204311);
+            AddExecutor(ExecutorType.Activate, 55063751, Hand_act_eff);
+            activatem.Add(55063751);
+
             AddExecutor(ExecutorType.Activate, CardId.WakingtheDragon, WakingtheDragon_eff);
             activatem.Add(CardId.WakingtheDragon);
             AddExecutor(ExecutorType.Activate, CardId.EvenlyMatched, EvenlyMatched_activate);
@@ -1986,6 +1995,8 @@ namespace WindBot.Game.AI.Decks
 
         private bool Advancesummon()
         {
+            if (Card.IsCode(CardId.AB_JS, CardId.GO_SR, CardId.GR_WC, CardId.GB_HM, 67750322, CardId.EffectVeiler, CardId.Honest, 18964575, 19665973, 27204311, 55063751))
+                return false;
             if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
             {
                 List<ClientCard> monster_sorted = new List<ClientCard>();
@@ -2023,12 +2034,16 @@ namespace WindBot.Game.AI.Decks
                     else continue;
                 }
                 AI.SelectMaterials(tribute);
-                AI.SelectPosition(CardPosition.FaceUpDefence);
-                return true;
             }
 
-            if (Card.Level > 4)
-                return false;
+            ClientCard card_ex_left = Enemy.MonsterZone[6];
+            ClientCard card_ex_right = Enemy.MonsterZone[5];
+            if (card_ex_left != null && card_ex_left.IsCode(CardId.SHeroAdvance) && Card.HasSetcode(0x8))
+                AI.SelectPlace(Zones.z1);
+            else if (card_ex_right != null && card_ex_left.IsCode(CardId.SHeroAdvance) && Card.HasSetcode(0x8))
+                AI.SelectPlace(Zones.z3);
+            else if ((card_ex_left != null && card_ex_left.IsCode(CardId.SHeroAdvance)) || (card_ex_right != null && card_ex_left.IsCode(CardId.SHeroAdvance)))
+                AI.SelectPlace(Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6);
             AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
@@ -2150,6 +2165,13 @@ namespace WindBot.Game.AI.Decks
                     return false;
                 }
                 AI.SelectCard(new[] {
+                    CardId.PredaplantVerteAnaconda,
+                    CardId.Sangan,
+                    CardId.ThousandEyesRestrict,
+                    CardId.MechaPhantomBeastOLion,
+                    CardId.CrusadiaArboria,
+                    CardId.AshBlossomJoyousSpring,
+
                     CardId.DecodeTalker,
                     CardId.EncodeTalker,
                     CardId.TriGateWizard,
@@ -2162,14 +2184,7 @@ namespace WindBot.Game.AI.Decks
                     CardId.Linkslayer,
                     CardId.RAMClouder,
                     CardId.Backlinker,
-                    CardId.Kleinant,
-
-                    CardId.PredaplantVerteAnaconda,
-                    CardId.Sangan,
-                    CardId.ThousandEyesRestrict,
-                    CardId.MechaPhantomBeastOLion,
-                    CardId.CrusadiaArboria,
-                    CardId.AshBlossomJoyousSpring
+                    CardId.Kleinant
                 });
                 return true;
             }
@@ -3035,7 +3050,8 @@ namespace WindBot.Game.AI.Decks
         {
             if (Card.IsCode(CardId.AB_JS) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
                 return false;
-            if (Card.IsCode(CardId.GO_SR) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.GO_SR)) return false;
+            if (Card.IsCode(CardId.GO_SR) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.GO_SR))
+                return false;
             return (Duel.LastChainPlayer == 1);
         }
 
@@ -9280,6 +9296,39 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
+        private bool SHeroInferno()
+        {
+            return Bot.Deck.GetMatchingCardsCount(card => card.HasSetcode(0x3008)) > 1;
+        }
+
+        private bool SHeroAdvance()
+        {
+            return Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(0x46) || (card.HasSetcode(0xa5) && card.HasType(CardType.QuickPlay))) > 0;
+        }
+
+        private bool SHeroCross()
+        {
+            AI.SelectCard(9411399, 26964762, 81866673, 37780349, 66262416);
+            return true;
+        }
+
+        private bool DPhenoix()
+        {
+            if (Card.Location == CardLocation.Onfield)
+            {
+                AI.SelectCard(9411399, 26964762, 81866673, 37780349, 66262416);
+                ClientCard target = GetProblematicEnemyCard_Alter(true, false);
+                IList<ClientCard> opp_scard = Enemy.GetSpells();
+                if (target != null)
+                    AI.SelectNextCard(target);
+                else if (opp_scard != null)
+                    AI.SelectNextCard(opp_scard);
+            }
+            else
+                AI.SelectCard(CardId.DPhenoix, 9411399, 26964762, 81866673, 37780349, 66262416);
+            return true;
+        }
+
         private bool TrapSet()
         {
             if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }) && Bot.GetHandCount() == 1)
@@ -9288,7 +9337,7 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
-            private bool JustDontIt()
+        private bool JustDontIt()
         {
             return false;
         }

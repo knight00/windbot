@@ -13,6 +13,13 @@ namespace WindBot.Game.AI.Decks
     {
         public class CardId
         {
+            public const int AB_JS = 14558127;
+            public const int GO_SR = 59438930;
+            public const int GR_WC = 62015408;
+            public const int GB_HM = 73642296;
+            public const int EffectVeiler = 97268402;
+            public const int Honest = 37742478;
+
             public const int Number100Dragon = 13714;
             public const int CNumber100Dragon = 494;
             public const int TreasureDraw = 511001126;
@@ -38,6 +45,28 @@ namespace WindBot.Game.AI.Decks
         {
             IList<int> activatem = new List<int>();
             IList<int> spsummonm = new List<int>();
+            AddExecutor(ExecutorType.Activate, CardId.AB_JS, Hand_act_eff);
+            activatem.Add(CardId.AB_JS);
+            AddExecutor(ExecutorType.Activate, CardId.GB_HM, Hand_act_eff);
+            activatem.Add(CardId.GB_HM);
+            AddExecutor(ExecutorType.Activate, CardId.GO_SR, Hand_act_eff);
+            activatem.Add(CardId.GO_SR);
+            AddExecutor(ExecutorType.Activate, CardId.GR_WC, Hand_act_eff);
+            activatem.Add(CardId.GR_WC);
+            AddExecutor(ExecutorType.Activate, 67750322, Hand_act_eff);
+            activatem.Add(67750322);
+            AddExecutor(ExecutorType.Activate, 18964575, Hand_act_eff);
+            activatem.Add(18964575);
+            AddExecutor(ExecutorType.Activate, 19665973, Hand_act_eff);
+            activatem.Add(19665973);
+            AddExecutor(ExecutorType.Activate, 27204311, Hand_act_eff);
+            activatem.Add(27204311);
+            AddExecutor(ExecutorType.Activate, 55063751, Hand_act_eff);
+            activatem.Add(55063751);
+            AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, DefaultEffectVeiler);
+            activatem.Add(CardId.EffectVeiler);
+            AddExecutor(ExecutorType.Activate, CardId.Honest, DefaultHonestEffect);
+            activatem.Add(CardId.Honest);
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
 
@@ -407,48 +436,46 @@ namespace WindBot.Game.AI.Decks
 
         private bool Advancesummon()
         {
+            if (Card.IsCode(CardId.AB_JS, CardId.GO_SR, CardId.GR_WC, CardId.GB_HM, 67750322, CardId.EffectVeiler, CardId.Honest, 18964575, 19665973, 27204311, 55063751))
+                return false;
             if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
             {
                 List<ClientCard> monster_sorted = new List<ClientCard>();
-                IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
-                IList<ClientCard> monster_sorted2 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0));
-                foreach (ClientCard monster in monster_sorted1)
+                List<ClientCard> monster_sorted0 = new List<ClientCard>();
+                IList<ClientCard> monster_sorted01 = Bot.MonsterZone.GetMonsters();
+                IList<ClientCard> monster_sorted02 = Bot.SpellZone.GetMonsters();
+                IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack - 500));
+                IList<ClientCard> monster_sorted2 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack - 500));
+                foreach (ClientCard monster in monster_sorted01)
                 {
                     monster_sorted.Add(monster);
                 }
-                foreach (ClientCard monster in monster_sorted2)
+                foreach (ClientCard monster in monster_sorted02)
                 {
                     monster_sorted.Add(monster);
                 }
-                monster_sorted.Sort(CardContainer.CompareCardAttack);
+                foreach (ClientCard card in monster_sorted)
+                {
+                    if (card.IsDisabled() || (card.Attack < card.BaseAttack - 500))
+                    {
+                        monster_sorted.Remove(card);
+                        monster_sorted0.Add(card);
+                    }
+                }
+                foreach (ClientCard card in monster_sorted0)
+                {
+                    monster_sorted.Add(card);
+                }
+                monster_sorted0.Sort(CardContainer.CompareCardAttack);
                 List<ClientCard> tribute = new List<ClientCard>();
-                foreach (ClientCard monster in monster_sorted)
+                foreach (ClientCard monster in monster_sorted0)
                 {
                     if (monster.Rank < 1 || monster.IsDisabled() || (monster.Attack == 0 && monster.BaseAttack > 0))
                         tribute.Add(monster);
                     else continue;
                 }
                 AI.SelectMaterials(tribute);
-
-                if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
-                {
-                    for (int i = 4; i >= 0; --i)
-                    {
-                        if (Bot.SpellZone[i] == null)
-                        {
-                            int place = (int)System.Math.Pow(2, i) * 256;
-                            AI.SelectPlace(place);
-                            AI.SelectPosition(CardPosition.FaceUpDefence);
-                            return true;
-                        }
-                    }
-                    AI.SelectPosition(CardPosition.FaceUpDefence);
-                    return true;
-                }
             }
-
-            if (Card.Level > 4)
-                return false;
             AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
@@ -467,6 +494,15 @@ namespace WindBot.Game.AI.Decks
             if (Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
                 return false;
             return base.DefaultMonsterRepos();
+        }
+
+        public bool Hand_act_eff()
+        {
+            if (Card.IsCode(CardId.AB_JS) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+                return false;
+            if (Card.IsCode(CardId.GO_SR) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.GO_SR))
+                return false;
+            return (Duel.LastChainPlayer == 1);
         }
 
         private bool Costdown()
