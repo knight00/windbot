@@ -1465,6 +1465,8 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Oricha, DefaultOrica);
             activatem.Add(CardId.Oricha);
 
+            activatem.Add(CardId.TreasureDraw);
+            activatem.Add(157);
             AddExecutor(ExecutorType.SpSummon, ()=>!spsummonm.Contains(Card.Id) && Advancesummon());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
