@@ -329,21 +329,7 @@ namespace WindBot.Game.AI
                 else if (Duel.Player == 1)
                     AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
 
-                List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
-                ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
-                ClientCard NumeronNo2 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13702));
-                ClientCard NumeronNo3 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13703));
-                ClientCard NumeronNo4 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13704));
-                if (NumeronNo1 != null)
-                    NumeronNo.Remove(NumeronNo1); NumeronNo.Add(NumeronNo1);
-                if (NumeronNo2 != null)
-                    NumeronNo.Remove(NumeronNo2); NumeronNo.Add(NumeronNo2);
-                if (NumeronNo3 != null)
-                    NumeronNo.Remove(NumeronNo3); NumeronNo.Add(NumeronNo3);
-                if (NumeronNo4 != null)
-                    NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
-                NumeronNo.Reverse();
-                AI.SelectNextCard(NumeronNo);
+                AI.SelectNextCard(13701);
 
                 //int count = Util.GetBotAvailZonesFromExtraDeck();
                 //if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();

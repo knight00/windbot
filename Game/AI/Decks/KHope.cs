@@ -29,8 +29,8 @@ namespace WindBot.Game.AI.Decks
             public const int Dondondon = 59724555;
             public const int UtopiaMini = 8512558;
             public const int ZwHorseSword = 32164201;
-            public const int ZsAscent = 4647954;
-            public const int ZsArmsSage = 68258355;
+            public const int ZsAscent = 503;
+            public const int ZsArmsSage = 505;
             public const int ZwTornadoBringer = 266;
             public const int ZwLightningBlade = 264;
             public const int Astralball = 501;
@@ -39,13 +39,13 @@ namespace WindBot.Game.AI.Decks
             public const int RRBlur = 511002857;
             public const int RRLoud = 511002676;
             public const int GodPheonix = 824;
+            public const int NoEvo = 511001611;
 
             public const int ClosedGod = 98127546;
             public const int Number86 = 63504681;
             public const int Number39Double = 62517849;
             public const int ZwLionArms = 265;
             public const int ZwDragon = 2896663;
-            public const int HopeZS = 504;
             public const int Number39Utopia = 60;
             public const int NumberC39Utopia = 61;
             public const int NumberC39UtopiaVictory = 63;
@@ -104,6 +104,11 @@ namespace WindBot.Game.AI.Decks
         {
             IList<int> activatem = new List<int>();
             IList<int> spsummonm = new List<int>();
+
+            AddExecutor(ExecutorType.Activate, CardId.SeventhSword);
+            activatem.Add(CardId.SeventhSword);
+            AddExecutor(ExecutorType.Activate, 98);
+            activatem.Add(98);
 
             AddExecutor(ExecutorType.Activate, CardId.AB_JS, Hand_act_eff);
             activatem.Add(CardId.AB_JS);
@@ -171,11 +176,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.Honest);
             AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
             activatem.Add(CardId.MysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.SeventhSword);
-            activatem.Add(CardId.SeventhSword);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.HopeZS, HopeZS);
-            spsummonm.Add(CardId.HopeZS);
             AddExecutor(ExecutorType.SpSummon, CardId.Astralball, Astralball);
             spsummonm.Add(CardId.Astralball);
             AddExecutor(ExecutorType.Activate, CardId.Astralball, Astralball);
@@ -188,12 +189,11 @@ namespace WindBot.Game.AI.Decks
             spsummonm.Add(CardId.Number39Double);
             AddExecutor(ExecutorType.Activate, CardId.Number39Double, Number39UtopiaDoubleEffects);
             activatem.Add(CardId.Number39Double);
-            AddExecutor(ExecutorType.Activate, CardId.HopeZS, HopeZSEffects);
-            activatem.Add(CardId.HopeZS);
             AddExecutor(ExecutorType.Activate, CardId.NumberN99, NumberN99);
             activatem.Add(CardId.NumberN99);
             AddExecutor(ExecutorType.Activate, CardId.Number93, Number93);
             activatem.Add(CardId.Number93);
+            spsummonm.Add(CardId.Number93);
             AddExecutor(ExecutorType.Activate, CardId.Number6, Number6);
             activatem.Add(CardId.Number6);
             AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, Summonplace);
@@ -237,6 +237,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.RDM);
             AddExecutor(ExecutorType.SpSummon, CardId.NumberC39Utopia, () => false);
             spsummonm.Add(CardId.NumberC39Utopia);
+            AddExecutor(ExecutorType.Activate, CardId.NoEvo, NoEvo);
+            activatem.Add(CardId.NoEvo);
 
             AddExecutor(ExecutorType.Activate, CardId.Oricha, DefaultOrica);
             activatem.Add(CardId.Oricha);
@@ -431,8 +433,6 @@ namespace WindBot.Game.AI.Decks
                         return 12;
                     else if (!(Card.HasXyzMaterial(1, 95856586)) && avail.Contains(95856586))
                         return 95856586;
-                    else if (!(Card.HasXyzMaterial(1, 13706)) && avail.Contains(13706))
-                        return 13706;
                     else if (!(Card.HasXyzMaterial(1, 10)) && avail.Contains(10))
                         return 10;
                     else if (!(Card.HasXyzMaterial(1, CardId.XyzChangeTactics)) && avail.Contains(CardId.XyzChangeTactics))
@@ -732,19 +732,6 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
-        private bool HopeZS()
-        {
-            if (Bot.Deck.GetMatchingCardsCount(card=>card.HasSetcode(0x207e)) > 0)
-            {
-                AI.SelectCard(
-                CardId.ZsAscent,
-                CardId.ZsArmsSage
-                );
-                return true;
-            }
-            return false;
-        }
-
         private bool HopeZSEffects()
         {
             return true;
@@ -754,6 +741,7 @@ namespace WindBot.Game.AI.Decks
         {
             if (Bot.ExtraDeck.GetMatchingCardsCount(card => card.Rank == 4) > 0)
             {
+                AI.SelectCard(Bot.ExtraDeck.GetMatchingCards(card => card.Rank == 4));
                 return true;
             }
             return false;
@@ -765,11 +753,6 @@ namespace WindBot.Game.AI.Decks
                 return true;
             if (Bot.GetHandCount() > 0)
                 return true;
-            if (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.IsCode(CardId.HopeZS)) + Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.IsCode(CardId.HopeZS)) > 0)
-            {
-               AI.SelectCard(CardId.HopeZS);
-               return true;
-            }
             return false;
         }
 
@@ -843,7 +826,7 @@ namespace WindBot.Game.AI.Decks
             if (Util.ChainContainsCard(CardId.Number39Utopia))
                 return false;
             if (Duel.Player == 1
-                || (Bot.BattlingMonster == Card && (Bot.HasInHand(CardId.DoubleChance) || Bot.Deck.ContainsCardWithId(CardId.DoubleChance))))
+                || (Bot.BattlingMonster == Card && (Bot.HasInHand(CardId.DoubleChance) || Bot.GetRemainingCount(CardId.DoubleChance,2) > 0)))
             {
                 if (Duel.Player == 1)
                 {
@@ -1048,21 +1031,20 @@ namespace WindBot.Game.AI.Decks
             return true;
         }
 
-        // private bool SeventhSword()
-        //{
-        //    IList<ClientCard> targets = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && card.IsCode(99) && !Card.IsDisabled());
-        //    if (targets.Count == 0)
-        //    {
-        //        AI.SelectAnnounceID(99);
-        //        AI.SelectAnnounceID(98);
-        //    }
-        //    else
-        //    {
-        //        AI.SelectAnnounceID(97);
-        //        AI.SelectAnnounceID(96);
-        //    }
-        //    return true;
-        //}
+        private bool NoEvo()
+        {
+            AI.SelectCard(511001781);
+            AI.SelectNextCard(511010011);
+            AI.SelectThirdCard(511002054);
+            return true;
+        }
+
+        private bool SeventhSword()
+        {
+            AI.SelectCard(99);
+            AI.SelectNextCard(98);
+            return true;
+        }
 
         private bool GagagaLeader()
         {

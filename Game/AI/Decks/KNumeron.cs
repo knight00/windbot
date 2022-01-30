@@ -566,22 +566,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool Numeronlead()
         {
-            List<ClientCard> NumeronNo = Bot.ExtraDeck.GetMonsters();
-            ClientCard NumeronNo1 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13701));
-            ClientCard NumeronNo2 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13702));
-            ClientCard NumeronNo3 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13703));
-            ClientCard NumeronNo4 = Bot.ExtraDeck.GetFirstMatchingCard(card => card.IsCode(13704));
-            if (NumeronNo1 != null)
-                NumeronNo.Remove(NumeronNo1); NumeronNo.Add(NumeronNo1);
-            if (NumeronNo2 != null)
-                NumeronNo.Remove(NumeronNo2); NumeronNo.Add(NumeronNo2);
-            if (NumeronNo3 != null)
-                NumeronNo.Remove(NumeronNo3); NumeronNo.Add(NumeronNo3);
-            if (NumeronNo4 != null)
-                NumeronNo.Remove(NumeronNo4); NumeronNo.Add(NumeronNo4);
-            NumeronNo.Reverse();
-            AI.SelectCard(NumeronNo);
-
+            AI.SelectCard(13701);
             for (int i = 0; i < 4; i++)
             {
                 if (CNo1summon > 0 && Duel.Turn > 1 && i==0)

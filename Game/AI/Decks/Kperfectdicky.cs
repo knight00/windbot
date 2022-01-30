@@ -9300,7 +9300,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool SHeroInferno()
         {
-            return Bot.Deck.GetMatchingCardsCount(card => card.HasSetcode(0x3008)) > 1;
+            return true;
         }
 
         private bool SHeroAdvance()

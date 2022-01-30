@@ -1,4 +1,4 @@
-﻿using YGOSharp.OCGWrapper.Enums;
+using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using WindBot;
 using WindBot.Game;
@@ -23,7 +23,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpSummon);
             AddExecutor(ExecutorType.SummonOrSet);
             AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-            AddExecutor(ExecutorType.Activate, DefaultField);
+            AddExecutor(ExecutorType.Activate);
         }
 
         public override int OnRockPaperScissors()
