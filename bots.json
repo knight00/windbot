@@ -4,21 +4,21 @@
         "deck": "AI_perfectdicky",
         "dialog": "donthousand",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "悠悠",
         "deck": "MokeyMokey",
         "dialog": "default",
         "difficulty": 1,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "悠悠王",
         "deck": "MokeyMokeyKing",
         "dialog": "mokey.zh-CN",
         "difficulty": 1,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "神风AI",
@@ -116,231 +116,378 @@
         "deck": "Altergeist",
         "dialog": "near.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "ABC-Dragon Buster",
         "deck": "ABC",
         "dialog": "default",
         "difficulty": 3,
-        "masterRules": [5]
+        "masterRules": [ 5 ]
     },
     {
         "name": "複製植物－青眼",
         "deck": "Blue-Eyes",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "MAX龍果",
         "deck": "BlueEyesMaxDragon",
         "dialog": "kiwi.zh-TW",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "永遠之魂－削血",
         "deck": "Burn",
         "dialog": "default",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "燃血鬥士",
         "deck": "ChainBurn",
         "dialog": "soul.zh-CN",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "試作型機器人1732",
         "deck": "ST1732",
         "dialog": "default",
         "difficulty": 2,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "奇魔果",
         "deck": "DarkMagician",
         "dialog": "ayane.zh-CN",
         "difficulty": 3,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "謎之劍士LV4－龍騎星爆",
         "deck": "Dragunity",
         "dialog": "swordsman.zh-CN",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "Dogmatika",
         "deck": "Dogmatika",
         "dialog": "default",
         "difficulty": 3,
-        "masterRules": [5]
+        "masterRules": [ 5 ]
     },
     {
         "name": "我太帥了",
         "deck": "Dragun",
         "dialog": "nlch.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "憑依裝著",
         "deck": "FamiliarPossessed",
         "dialog": "default",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "永遠之魂－青蛙",
         "deck": "Frog",
         "dialog": "soul.zh-CN",
         "difficulty": 1,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "報社鬥士",
         "deck": "GrenMajuThunderBoarder",
         "dialog": "kiwi.zh-TW",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "永遠之魂－荷魯斯",
         "deck": "Horus",
         "dialog": "soul.zh-CN",
         "difficulty": 1,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "奇異果",
         "deck": "LightswornShaddoldinosour",
         "dialog": "kiwi.zh-TW",
         "difficulty": 3,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "Mathmech",
         "deck": "MathMech",
         "dialog": "default",
         "difficulty": 2,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "重編程梁龍－自奏天琴",
         "deck": "Orcust",
         "dialog": "nlch.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "幻煌果",
         "deck": "Phantasm",
         "dialog": "default",
         "difficulty": 0,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "尼亞－機殼",
         "deck": "Qliphort",
         "dialog": "near.zh-CN",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "謎之劍士LV4-R5",
         "deck": "Rank V",
         "dialog": "swordsman.zh-CN",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "琪露諾－彩虹",
         "deck": "Rainbow",
         "dialog": "cirno.zh-CN",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "謎之劍士LV4－L8",
         "deck": "Level VIII",
         "dialog": "default",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "重編程梁龍－轉生炎獸",
         "deck": "Salamangreat",
         "dialog": "nlch.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "重編程梁龍－閃刀姬",
         "deck": "SkyStriker",
         "dialog": "ayane.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "時劫者",
         "deck": "TimeThief",
         "dialog": "default",
         "difficulty": 2,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "琪露諾－餅蛙",
         "deck": "Toadally Awesome",
         "dialog": "cirno.zh-CN",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "尼亞－惡作劇明星",
         "deck": "Trickstar",
         "dialog": "near.zh-CN",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "比特機靈－微風",
         "deck": "PureWinds",
         "dialog": "default",
         "difficulty": 1,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "玻璃女巫",
         "deck": "Witchcraft",
         "dialog": "default",
         "difficulty": 3,
-        "masterRules": [4, 5]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "尼亞－妖仙獸",
         "deck": "Yosenju",
         "dialog": "near.zh-CN",
         "difficulty": 0,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "謎之劍士LV4-異熱同心武器",
         "deck": "Zexal Weapons",
         "dialog": "swordsman.zh-CN",
         "difficulty": 2,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "複製植物－十二獸",
         "deck": "Zoodiac",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
-        "masterRules": [3, 4, 5]
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·神仙特供人机",
+        "deck": "ALHG",
+        "dialog": "Shen01",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·蒸蒸日上",
+        "deck": "SGS",
+        "dialog": "copy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·复仇女巫",
+        "deck": " Monv",
+        "dialog": "verre.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·廷达的信仰",
+        "deck": " Galaxy",
+        "dialog": "copy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·鸟均",
+        "deck": " Niaojun",
+        "dialog": "copy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·乱欲",
+        "deck": " Luanyu",
+        "dialog": "cirno.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·红莲魔兽",
+        "deck": " Honglianmo",
+        "dialog": "soul.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·屑2号干员-加强",
+        "deck": " Operatorwd",
+        "dialog": "Crisis",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·苍穹",
+        "deck": " Cangqiong",
+        "dialog": "anothercopy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·悠悠皇帝",
+        "deck": " Youyou",
+        "dialog": "mokey.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·干涸的力量",
+        "deck": " Shitu",
+        "dialog": "copy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·里除",
+        "deck": " Facedown",
+        "dialog": "VI-1911.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·94服一届冠军卡组",
+        "deck": " ChamDeck1",
+        "dialog": "swordsman.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·屑2号-干员",
+        "deck": " Operator",
+        "dialog": "Crisis",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·屑3号",
+        "deck": " Crisis1",
+        "dialog": "Crisis",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·蕾米莉亚",
+        "deck": " HMX",
+        "dialog": "swordsman.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "NA·祟德天皇",
+        "deck": " Tenmu",
+        "dialog": "swordsman.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "OCG+·先史遗产",
+        "deck": " Chronomaly",
+        "dialog": "near.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "OCG+·XYZ",
+        "deck": " XYZ",
+        "dialog": "near.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "ZCG·殉道者",
+        "deck": "Martyr",
+        "dialog": "ZZ",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "ZCG·六芒星",
+        "deck": "PointStar",
+        "dialog": "ZZ-Star",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "ZCG·太阳神",
@@ -350,17 +497,31 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "ZCG·装甲",
+        "deck": "Armor",
+        "dialog": "ZZ-Star",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "BOSS·新序系",
+        "deck": "BossOrder",
+        "dialog": "BossOrder",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "千尊",
         "deck": "AI_Numeron",
         "dialog": "donthousand",
         "difficulty": 4,
-        "masterRules": [3, 5]
+        "masterRules": [ 3, 5 ]
     },
     {
         "name": "Zexal",
         "deck": "AI_Hope",
         "dialog": "donthousand",
         "difficulty": 4,
-        "masterRules": [3, 5]
+        "masterRules": [ 3, 5 ]
     }
 ]

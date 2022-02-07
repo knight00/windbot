@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Game\AI\Deck.cs" />
+    <Compile Include="Game\AI\Decks\BOSS_NewOrder.cs" />
     <Compile Include="Game\AI\Decks\GX_AHDXSExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_AMLExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_ASFExecutor.cs" />
@@ -87,6 +88,28 @@
     <Compile Include="Game\AI\Decks\KHope.cs" />
     <Compile Include="Game\AI\Decks\KNumeron.cs" />
     <Compile Include="Game\AI\Decks\Kperfectdicky.cs" />
+    <Compile Include="Game\AI\Decks\NA_ALHGExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_CangqiongExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_ChamDeck1Executor.cs" />
+    <Compile Include="Game\AI\Decks\NA_Crisis1.cs" />
+    <Compile Include="Game\AI\Decks\NA_FacedownExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_GalaxyExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_HonglianmoExecutor .cs" />
+    <Compile Include="Game\AI\Decks\NA_LuanyuExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_MonvExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_NiaojunExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_OperatorExecutor .cs" />
+    <Compile Include="Game\AI\Decks\NA_OperatorwdExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_PaysageAMOTK.cs" />
+    <Compile Include="Game\AI\Decks\NA_PaysageHMXExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_SGSExecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_ShituEcecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_YouyouExecutor.cs" />
+    <Compile Include="Game\AI\Decks\OCG+_ChronomalyExecutor.cs" />
+    <Compile Include="Game\AI\Decks\OCG+_XYZExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ZCG_ArmorExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ZCG_MartyrExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ZCG_PointStarExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_RaExecutor.cs" />
     <Compile Include="Game\DecksManager.cs" />
     <Compile Include="Game\AI\Decks\ABCExecutor.cs" />

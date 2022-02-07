@@ -929,7 +929,24 @@ namespace WindBot.Game
             }
             m_selector.Insert(m_selector_pointer, new CardSelector(loc));
         }
+        //////diy//////
+        public void SelectFourthCard(params int[] ids)
+        {
+            if (m_selector_pointer == -1)
+            {
+                Log(LogLevel.Error, "Error: Call SelectFourthCard() before SelectCard()");
+                m_selector_pointer = 0;
+            }
+            m_selector.Insert(m_selector_pointer, new CardSelector(ids));
+        }
+        //////diy//////
 
+        /////diy//////
+        public void CleanSelectCards()
+        {
+            m_selector = new List<CardSelector>();
+        }
+        /////diy//////
         public void SelectMaterials(ClientCard card)
         {
             m_materialSelector = new CardSelector(card);

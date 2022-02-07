@@ -189,7 +189,26 @@ namespace WindBot.Game
         {
             return GetCards(SpellZone);
         }
+        /////diy/////
+        public List<ClientCard> GetDeck()
+        {
+            return GetCards(Deck);
+        }
+        /////diy/////
 
+        /////diy /////
+        public List<ClientCard> GetHands()
+        {
+            return GetCards(Hand);
+        }
+        /////diy /////
+
+        /////diy /////
+        public List<ClientCard> GetExtra()
+        {
+            return GetCards(ExtraDeck);
+        }
+        /////diy /////
         public List<ClientCard> GetMonstersInExtraZone()
         {
             return GetMonsters().Where(card => card.Sequence >= 5).ToList();
