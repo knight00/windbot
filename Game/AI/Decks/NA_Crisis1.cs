@@ -11,12 +11,12 @@ namespace WindBot.Game.AI.Decks
     {
         public class CardId
         {
-            public const int 呼啸骑士团学徒 = 79040001;
-            public const int 锋盔骑士团学徒 = 79040002;
-            public const int 沸血骑士团学徒 = 79040003;
-            public const int 训练用钳兽 = 79040004;
-            public const int 锋盔训练 = 79040005;
-            public const int 饲养技巧 = 79040006;
+            public const int Huxiao = 79040001;
+            public const int Fengkui = 79040002;
+            public const int Feixue = 79040003;
+            public const int Xunlian = 79040004;
+            public const int FengkuiXun = 79040005;
+            public const int Siyang = 79040006;
         }
 
         private int RockCount = 0;
@@ -25,31 +25,31 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-            AddExecutor(ExecutorType.Activate, CardId.饲养技巧, 饲养技巧效果);
-            AddExecutor(ExecutorType.Activate, CardId.锋盔训练, 锋盔训练效果);
-            AddExecutor(ExecutorType.SpSummon, CardId.呼啸骑士团学徒, 呼啸骑士团学徒特招);
-            AddExecutor(ExecutorType.SpSummon, CardId.锋盔骑士团学徒, 锋盔骑士团学徒特招);
-            AddExecutor(ExecutorType.SpSummon, CardId.沸血骑士团学徒, 沸血骑士团学徒特招);
+            AddExecutor(ExecutorType.Activate, CardId.Siyang, SiyangEffect);
+            AddExecutor(ExecutorType.Activate, CardId.FengkuiXun, FengkuiXunEffect);
+            AddExecutor(ExecutorType.SpSummon, CardId.Huxiao, HuxiaoSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.Fengkui, FengkuiSummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.Feixue, FeixueSummon);
         }
 
 
-        private bool 饲养技巧效果()
+        private bool SiyangEffect()
         {
             return true;
         }
-        private bool 锋盔训练效果()
+        private bool FengkuiXunEffect()
         {
             return true;
         }
-        private bool 呼啸骑士团学徒特招()
+        private bool HuxiaoSummon()
         {
             return true;
         }
-        private bool 锋盔骑士团学徒特招()
+        private bool FengkuiSummon()
         {
             return true;
         }
-        private bool 沸血骑士团学徒特招()
+        private bool FeixueSummon()
         {
             return true;
         }

@@ -1,4 +1,4 @@
-﻿using YGOSharp.OCGWrapper.Enums;
+using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using WindBot;
 using WindBot.Game;
@@ -11,51 +11,51 @@ namespace WindBot.Game.AI.Decks
     {
         public class CardId
         {
-            public const int 深海衍生物 = 79029101;
-            public const int 无人机衍生物 = 79029029;
-            public const int 磐蟹衍生物 = 79029377;
+            public const int S1 = 79029101;
+            public const int S2 = 79029029;
+            public const int S3 = 79029377;
 
-            public const int 杰西卡 = 79029045;
-            public const int 自爆小车 = 79029360;
-            public const int 风笛 = 79029466;
-            public const int 香草 = 79029046;
-            public const int 芙兰卡BPRS = 79029902;
-            public const int 近卫小车 = 79029174;
-            public const int 卡夫卡 = 79029374;
-            public const int 芬 = 79029151;
-            public const int 桃金娘 = 79029140;
-            public const int 幽灵鲨 = 79029085;
-            public const int 红 = 79029038;
+            public const int S4 = 79029045;
+            public const int S5 = 79029360;
+            public const int S6 = 79029466;
+            public const int S7 = 79029046;
+            public const int S8 = 79029902;
+            public const int S9 = 79029174;
+            public const int S10 = 79029374;
+            public const int S11 = 79029151;
+            public const int S12 = 79029140;
+            public const int S13 = 79029085;
+            public const int S14 = 79029038;
 
-            public const int 行动霓虹 = 79029031;
-            public const int 行动灰烬 = 79029220;
-            public const int 行动领点占据 = 79029219;
-            public const int 行动目标护送 = 79029042;
-            public const int 行动防线突破 = 79029047;
-            public const int 行动拟真模拟 = 79029451;
-            public const int 行动战术指导 = 79029253;
-            public const int 行动潮汐守望 = 79029461;
-            public const int 行动青色怒火 = 79029479;
-            public const int 行动双龙出鞘 = 79029482;
-            public const int 行动分头行动 = 79029057;
-            public const int 部署精锐救援 = 79029354;
-            public const int 据点重工基地 = 79029223;
-            public const int 据点阿戈尔遗迹 = 79029100;
+            public const int S15 = 79029031;
+            public const int S16 = 79029220;
+            public const int S17 = 79029219;
+            public const int S18 = 79029042;
+            public const int S19 = 79029047;
+            public const int S20 = 79029451;
+            public const int S21 = 79029253;
+            public const int S22 = 79029461;
+            public const int S23 = 79029479;
+            public const int S24 = 79029482;
+            public const int S25 = 79029057;
+            public const int S26 = 79029354;
+            public const int S27 = 79029223;
+            public const int S28 = 79029100;
 
-            public const int 燃灰杰西卡 = 79029258;
-            public const int 铝热剑芙兰卡 = 79029437;
-            public const int 卡缇 = 79029164;
-            public const int 松果 = 79029364;
-            public const int 暗锁 = 79029032;
-            public const int 临光 = 79029097;
-            public const int 近卫阿米娅 = 79029359;
+            public const int S29 = 79029258;
+            public const int S30 = 79029437;
+            public const int S31 = 79029164;
+            public const int S32 = 79029364;
+            public const int S33 = 79029032;
+            public const int S34 = 79029097;
+            public const int S35 = 79029359;
             public const int stormeye = 79029318;
-            public const int 推进之王跃空锤 = 79029225;
-            public const int 星熊 = 79029061;
-            public const int 陈绝影 = 79029480;
-            public const int 珂克可 = 79029292;
+            public const int S36 = 79029225;
+            public const int S37 = 79029061;
+            public const int Chenjueying = 79029480;
+            public const int Kekeke = 79029292;
 
-            public const int 电脑网挖矿 = 57160136;
+            public const int Diannaowang = 57160136;
             public const int SolemnStrike = 40605147;
             public const int Impermanence = 10045474;
             public const int AshBlossom = 14558127;
@@ -82,90 +82,90 @@ namespace WindBot.Game.AI.Decks
         public OperatorExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.电脑网挖矿, 电脑网挖矿检索);
-            AddExecutor(ExecutorType.Summon, CardId.杰西卡, 通招杰西卡);
-            AddExecutor(ExecutorType.Activate, CardId.杰西卡, 杰西卡1效特招);
-            AddExecutor(ExecutorType.SpSummon, CardId.燃灰杰西卡, 燃灰杰西卡同调);
-            AddExecutor(ExecutorType.Activate, CardId.燃灰杰西卡, 燃灰杰西卡1效堆墓检索);
-            AddExecutor(ExecutorType.Activate, CardId.香草, 香草2效除外);
-            AddExecutor(ExecutorType.Activate, CardId.行动霓虹, 行动霓虹2效苏生);
-            AddExecutor(ExecutorType.SpSummon, CardId.铝热剑芙兰卡, 铝热剑芙兰卡同调);
-            AddExecutor(ExecutorType.Activate, CardId.行动领点占据, 行动领点占据2效堆墓);
-            AddExecutor(ExecutorType.Activate, CardId.铝热剑芙兰卡, 铝热剑芙兰卡1效堆墓检索);
-            AddExecutor(ExecutorType.Activate, CardId.行动防线突破, 行动防线突破1效2效);
-            AddExecutor(ExecutorType.Activate, CardId.行动拟真模拟, 行动拟真模拟2效苏生);
-            AddExecutor(ExecutorType.Activate, CardId.芙兰卡BPRS, 芙兰卡BPRS1效特招);
-            AddExecutor(ExecutorType.Activate, CardId.芙兰卡BPRS, 芙兰卡BPRS2效检索或堆墓);
-            AddExecutor(ExecutorType.SpSummon, CardId.芬, 芬特招);
-            AddExecutor(ExecutorType.SpSummon, CardId.stormeye, stormeye同调);
-            AddExecutor(ExecutorType.SpSummon, CardId.卡缇, 卡缇link召唤);
-            AddExecutor(ExecutorType.Activate, CardId.卡缇, 卡缇1效检索); 
-            AddExecutor(ExecutorType.Activate, CardId.据点重工基地, 据点重工基地发动和1效掷骰子);
-            AddExecutor(ExecutorType.SpSummon, CardId.松果, 松果link召唤);
-            AddExecutor(ExecutorType.Activate, CardId.松果, 松果1效检索2效放置);
-            AddExecutor(ExecutorType.Activate, CardId.据点阿戈尔遗迹, 据点阿戈尔遗迹3效token);
-            AddExecutor(ExecutorType.SpSummon, CardId.临光, 临光link召唤);
-            AddExecutor(ExecutorType.Activate, CardId.临光, 临光1效苏生);
-            AddExecutor(ExecutorType.SpSummon, CardId.近卫阿米娅, 近卫阿米娅link召唤);
-            AddExecutor(ExecutorType.Activate, CardId.近卫阿米娅, 近卫阿米娅2效3效);
-            AddExecutor(ExecutorType.Activate, CardId.行动青色怒火, 行动青色怒火效果);
-            AddExecutor(ExecutorType.Summon, CardId.风笛, 通招风笛);
-            AddExecutor(ExecutorType.Activate, CardId.风笛, 风笛1效2效);
-            AddExecutor(ExecutorType.SpSummon, CardId.推进之王跃空锤, 推进之王跃空锤超量);
-            AddExecutor(ExecutorType.Activate, CardId.推进之王跃空锤, 推进之王跃空锤效果);
-            AddExecutor(ExecutorType.Summon, CardId.幽灵鲨, 通招幽灵鲨);
-            AddExecutor(ExecutorType.Activate, CardId.幽灵鲨, 幽灵鲨效果);
-            AddExecutor(ExecutorType.Summon, CardId.自爆小车, 通招自爆小车);
-            AddExecutor(ExecutorType.Activate, CardId.自爆小车, 自爆小车效果);
-            AddExecutor(ExecutorType.Activate, CardId.行动分头行动, 行动分头行动效果);
-            AddExecutor(ExecutorType.Activate, CardId.行动潮汐守望, 行动潮汐守望效果);
-            AddExecutor(ExecutorType.SpSummon, CardId.暗锁, 暗锁link召唤);
-            AddExecutor(ExecutorType.SpSummon, CardId.星熊, 星熊超量);
-            AddExecutor(ExecutorType.Activate, CardId.星熊, 星熊效果);
-            AddExecutor(ExecutorType.Activate, CardId.stormeye, stormeye效果);
-            AddExecutor(ExecutorType.Activate, CardId.行动目标护送, 行动目标护送2效);
-            AddExecutor(ExecutorType.Activate, CardId.红, 红效果);
-            AddExecutor(ExecutorType.Activate, CardId.陈绝影, 陈绝影效果);
-            AddExecutor(ExecutorType.Summon, CardId.香草, 通招香草);
-            AddExecutor(ExecutorType.SpSummon, CardId.珂克可, 珂克可link召唤);
-            AddExecutor(ExecutorType.SpSummon, CardId.珂克可, 珂克可效果);
+            AddExecutor(ExecutorType.Activate, CardId.Diannaowang, DiannaowangEffect);
+            AddExecutor(ExecutorType.Summon, CardId.S4, S4Summon);
+            AddExecutor(ExecutorType.Activate, CardId.S4, S41Spsummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.S29, S29Summon);
+            AddExecutor(ExecutorType.Activate, CardId.S29, S291Eff);
+            AddExecutor(ExecutorType.Activate, CardId.S7, S72Eff);
+            AddExecutor(ExecutorType.Activate, CardId.S15, S152E);
+            AddExecutor(ExecutorType.SpSummon, CardId.S30, S30S);
+            AddExecutor(ExecutorType.Activate, CardId.S17, S172E);
+            AddExecutor(ExecutorType.Activate, CardId.S30, S301E);
+            AddExecutor(ExecutorType.Activate, CardId.S19, S191E2);
+            AddExecutor(ExecutorType.Activate, CardId.S20, S202E);
+            AddExecutor(ExecutorType.Activate, CardId.S8, S81S);
+            AddExecutor(ExecutorType.Activate, CardId.S8, S82E);
+            AddExecutor(ExecutorType.SpSummon, CardId.S11, S11S);
+            AddExecutor(ExecutorType.SpSummon, CardId.stormeye, stormeyeS);
+            AddExecutor(ExecutorType.SpSummon, CardId.S31, S31linkS);
+            AddExecutor(ExecutorType.Activate, CardId.S31, S311E); 
+            AddExecutor(ExecutorType.Activate, CardId.S27, S27EE);
+            AddExecutor(ExecutorType.SpSummon, CardId.S32, S32link);
+            AddExecutor(ExecutorType.Activate, CardId.S32, S32EEf);
+            AddExecutor(ExecutorType.Activate, CardId.S28, S28token);
+            AddExecutor(ExecutorType.SpSummon, CardId.S34, S34linkS);
+            AddExecutor(ExecutorType.Activate, CardId.S34, S341S);
+            AddExecutor(ExecutorType.SpSummon, CardId.S35, S35linkS);
+            AddExecutor(ExecutorType.Activate, CardId.S35, S352EEE);
+            AddExecutor(ExecutorType.Activate, CardId.S23, S23Effect);
+            AddExecutor(ExecutorType.Summon, CardId.S6, S6Summon);
+            AddExecutor(ExecutorType.Activate, CardId.S6, S61eff);
+            AddExecutor(ExecutorType.SpSummon, CardId.S36, S36efff);
+            AddExecutor(ExecutorType.Activate, CardId.S36, S36Eff);
+            AddExecutor(ExecutorType.Summon, CardId.S13, Summons);
+            AddExecutor(ExecutorType.Activate, CardId.S13, S13Suu);
+            AddExecutor(ExecutorType.Summon, CardId.S5, S5ssw);
+            AddExecutor(ExecutorType.Activate, CardId.S5, S5sssww);
+            AddExecutor(ExecutorType.Activate, CardId.S25, S25effect);
+            AddExecutor(ExecutorType.Activate, CardId.S22, S22efffec);
+            AddExecutor(ExecutorType.SpSummon, CardId.S33, S33linsss);
+            AddExecutor(ExecutorType.SpSummon, CardId.S37, S37xyz);
+            AddExecutor(ExecutorType.Activate, CardId.S37, S37effect);
+            AddExecutor(ExecutorType.Activate, CardId.stormeye, stormeyeeffect);
+            AddExecutor(ExecutorType.Activate, CardId.S18, S182effect);
+            AddExecutor(ExecutorType.Activate, CardId.S14, S14effect);
+            AddExecutor(ExecutorType.Activate, CardId.Chenjueying, Chenjueyingeffect);
+            AddExecutor(ExecutorType.Summon, CardId.S7, S7summons);
+            AddExecutor(ExecutorType.SpSummon, CardId.Kekeke, Kekekelinksummon);
+            AddExecutor(ExecutorType.SpSummon, CardId.Kekeke, Kekekeeffect);
             AddExecutor(ExecutorType.Repos, MonsterRepos);
-            AddExecutor(ExecutorType.SpellSet, CardId.行动领点占据, 行动领点占据盖放);
-            AddExecutor(ExecutorType.Activate, CardId.行动领点占据, 行动领点占据1效);
+            AddExecutor(ExecutorType.SpellSet, CardId.S17, S17sset);
+            AddExecutor(ExecutorType.Activate, CardId.S17, S171effects);
             AddExecutor(ExecutorType.MonsterSet, MonsterSet);
         }
         private bool NormalSummoned = false;
-        private bool 杰西卡1效已发动 = false;
-        private bool 卡缇1效已发动 = false;
-        private bool 松果1效已发动 = false;
-        private bool 松果2效已发动 = false;
-        private bool 松果3效已发动 = false;
-        private bool 临光1效已发动 = false;
-        private bool 风笛1效已发动 = false;
-        private bool 近卫阿米娅3效已发动 = false;
-        private bool 近卫阿米娅3效适用 = false;
-        private bool 燃灰杰西卡已同调 = false;
-        private bool 铝热剑芙兰卡已同调 = false;
-        private bool stormeye已同调 = false;
-        private bool 推进之王跃空锤已超量 = false;
+        private bool S41oe = false;
+        private bool S311oe = false;
+        private bool S321oe = false;
+        private bool S322oe = false;
+        private bool S323oe = false;
+        private bool S341oe = false;
+        private bool S61oe = false;
+        private bool S353oe = false;
+        private bool S353oeee = false;
+        private bool S29os = false;
+        private bool S30os = false;
+        private bool stormeyeos = false;
+        private bool S36ox = false;
 
 
         public override void OnNewTurn()
         {
             NormalSummoned = false;
-            杰西卡1效已发动 = false;
-            卡缇1效已发动 = false;
-            松果1效已发动 = false;
-            松果2效已发动 = false;
-            松果3效已发动 = false;
-            临光1效已发动 = false;
-            风笛1效已发动 = false;
-            近卫阿米娅3效已发动 = false;
-            近卫阿米娅3效适用 = false;
-            燃灰杰西卡已同调 = false;
-            铝热剑芙兰卡已同调 = false;
-            stormeye已同调 = false;
-            推进之王跃空锤已超量 = false;
+            S41oe = false;
+            S311oe = false;
+            S321oe = false;
+            S322oe = false;
+            S323oe = false;
+            S341oe = false;
+            S61oe = false;
+            S353oe = false;
+            S353oeee = false;
+            S29os = false;
+            S30os = false;
+            stormeyeos = false;
+            S36ox = false;
 
         }
         public bool MonsterRepos()
@@ -182,32 +182,32 @@ namespace WindBot.Game.AI.Decks
                 return true;
             return false;
         }
-        private bool 通招杰西卡()
+        private bool S4Summon()
         {
             NormalSummoned = true;
             return true;
         }
-        private bool 通招风笛()
+        private bool S6Summon()
         {
             NormalSummoned = true;
             return true;
         }
-        private bool 通招幽灵鲨()
+        private bool Summons()
         {
             NormalSummoned = true;
             return true;
         }
-        private bool 通招自爆小车()
+        private bool S5ssw()
         {
             NormalSummoned = true;
             return true;
         }
-        private bool 通招香草()
+        private bool S7summons()
         {
             NormalSummoned = true;
             return true;
         }
-        private bool 燃灰杰西卡同调()
+        private bool S29Summon()
         {
             if (Duel.Phase == DuelPhase.Main1)
             {
@@ -220,179 +220,179 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool 铝热剑芙兰卡同调()
+        private bool S30S()
         {
-            if (铝热剑芙兰卡已同调 == true) 
+            if (S30os == true) 
             {
                 return false;
             }
             else
             {
-                铝热剑芙兰卡已同调 = true;
+                S30os = true;
                     return true;
             }
         }
-        private bool stormeye同调()
+        private bool stormeyeS()
         {
-            if (stormeye已同调 == true)
+            if (stormeyeos == true)
             {
                 return false;
             }
             else
             {
-                stormeye已同调 = true;
+                stormeyeos = true;
                 return true;
             }
         }
-        private bool 芬特招()
+        private bool S11S()
         {
                 return true;
         }
-        private bool 推进之王跃空锤超量()
+        private bool S36efff()
         {
-            if (推进之王跃空锤已超量 == true)
+            if (S36ox == true)
             {
                 return false;
             }
-            else if (Bot.HasInMonstersZone(CardId.卡缇) || Bot.HasInMonstersZone(CardId.松果))
+            else if (Bot.HasInMonstersZone(CardId.S31) || Bot.HasInMonstersZone(CardId.S32))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.卡缇,
-                        CardId.松果
+                        CardId.S31,
+                        CardId.S32
                     });
-                推进之王跃空锤已超量 = true;
+                S36ox = true;
                 return true;
             }
             return false;
         }
-        private bool 星熊超量()
+        private bool S37xyz()
         {
-            if (Bot.HasInMonstersZone(CardId.暗锁))
+            if (Bot.HasInMonstersZone(CardId.S33))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.暗锁
+                        CardId.S33
                 });
                 return true;
             }
             return false;
         }
-        private bool 卡缇link召唤()
+        private bool S31linkS()
         {
-            if (卡缇1效已发动 == true)
+            if (S311oe == true)
             {
                 return false;
             }
-            else if (Bot.HasInMonstersZone(CardId.杰西卡) || Bot.HasInMonstersZone(CardId.香草) || Bot.HasInMonstersZone(CardId.自爆小车) || Bot.HasInMonstersZone(CardId.芬))
+            else if (Bot.HasInMonstersZone(CardId.S4) || Bot.HasInMonstersZone(CardId.S7) || Bot.HasInMonstersZone(CardId.S5) || Bot.HasInMonstersZone(CardId.S11))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.杰西卡,
-                        CardId.香草,
-                        CardId.自爆小车,
-                        CardId.芬
+                        CardId.S4,
+                        CardId.S7,
+                        CardId.S5,
+                        CardId.S11
                     });
                 return true;
             }
             return false;
         }
-        private bool 松果link召唤()
+        private bool S32link()
         {
-            if (松果1效已发动 == true)
+            if (S321oe == true)
             {
                 return false;
             }
-            else if (Bot.HasInMonstersZone(CardId.杰西卡) || Bot.HasInMonstersZone(CardId.香草) || Bot.HasInMonstersZone(CardId.自爆小车) || Bot.HasInMonstersZone(CardId.芬) || Bot.HasInMonstersZone(CardId.卡缇))
+            else if (Bot.HasInMonstersZone(CardId.S4) || Bot.HasInMonstersZone(CardId.S7) || Bot.HasInMonstersZone(CardId.S5) || Bot.HasInMonstersZone(CardId.S11) || Bot.HasInMonstersZone(CardId.S31))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.卡缇,
-                        CardId.杰西卡,
-                        CardId.香草,
-                        CardId.自爆小车,
-                        CardId.芬
+                        CardId.S31,
+                        CardId.S4,
+                        CardId.S7,
+                        CardId.S5,
+                        CardId.S11
                     });
                 return true;
             }
             return false;
         }
-        private bool 暗锁link召唤()
+        private bool S33linsss()
         {
-            if (Bot.HasInMonstersZone(CardId.幽灵鲨))
+            if (Bot.HasInMonstersZone(CardId.S13))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.幽灵鲨
+                        CardId.S13
                 });
                 return true;
             }
             return false;
         }
-        private bool 临光link召唤()
+        private bool S34linkS()
         {
-            if (临光1效已发动 == true)
+            if (S341oe == true)
             {
                 return false;
             }
-            else if (Bot.HasInMonstersZone(CardId.深海衍生物) || Bot.HasInMonstersZone(CardId.杰西卡) || Bot.HasInMonstersZone(CardId.香草) || Bot.HasInMonstersZone(CardId.自爆小车) || Bot.HasInMonstersZone(CardId.芬) || Bot.HasInMonstersZone(CardId.卡缇) || Bot.HasInMonstersZone(CardId.松果))
+            else if (Bot.HasInMonstersZone(CardId.S1) || Bot.HasInMonstersZone(CardId.S4) || Bot.HasInMonstersZone(CardId.S7) || Bot.HasInMonstersZone(CardId.S5) || Bot.HasInMonstersZone(CardId.S11) || Bot.HasInMonstersZone(CardId.S31) || Bot.HasInMonstersZone(CardId.S32))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.深海衍生物,
-                        CardId.松果,
-                        CardId.卡缇,
-                        CardId.杰西卡,
-                        CardId.香草,
-                        CardId.自爆小车,
-                        CardId.芬
+                        CardId.S1,
+                        CardId.S32,
+                        CardId.S31,
+                        CardId.S4,
+                        CardId.S7,
+                        CardId.S5,
+                        CardId.S11
                     });
                 return true;
             }
             return false;
         }
-        private bool 珂克可link召唤()
+        private bool Kekekelinksummon()
         {
-            if (Bot.HasInMonstersZone(CardId.杰西卡) && Bot.HasInMonstersZone(CardId.香草))
+            if (Bot.HasInMonstersZone(CardId.S4) && Bot.HasInMonstersZone(CardId.S7))
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.临光,
-                        CardId.深海衍生物,
-                        CardId.松果,
-                        CardId.卡缇,
-                        CardId.杰西卡,
-                        CardId.香草,
-                        CardId.自爆小车,
-                        CardId.芬,
-                        CardId.星熊
+                        CardId.S34,
+                        CardId.S1,
+                        CardId.S32,
+                        CardId.S31,
+                        CardId.S4,
+                        CardId.S7,
+                        CardId.S5,
+                        CardId.S11,
+                        CardId.S37
                     });
                 return true;
             }
             return false;
         }
-        private bool 近卫阿米娅link召唤()
+        private bool S35linkS()
         {
-            if (近卫阿米娅3效已发动 == true)
+            if (S353oe == true)
             {
                 return false;
             }
             else
             {
                 AI.SelectMaterials(new List<int>() {
-                        CardId.深海衍生物,
-                        CardId.临光,
-                        CardId.松果,
-                        CardId.卡缇,
-                        CardId.杰西卡,
-                        CardId.香草,
-                        CardId.自爆小车,
-                        CardId.风笛,
-                        CardId.芬
+                        CardId.S1,
+                        CardId.S34,
+                        CardId.S32,
+                        CardId.S31,
+                        CardId.S4,
+                        CardId.S7,
+                        CardId.S5,
+                        CardId.S6,
+                        CardId.S11
                     });
                 return true;
             }
         }
-        private bool 杰西卡1效特招()
+        private bool S41Spsummon()
         {
-            杰西卡1效已发动 = true;
+            S41oe = true;
             if (Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(CardId.行动领点占据);
-                AI.SelectNextCard(CardId.香草);
+                AI.SelectCard(CardId.S17);
+                AI.SelectNextCard(CardId.S7);
                 AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
@@ -401,26 +401,26 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 电脑网挖矿检索()
+        private bool DiannaowangEffect()
         {
-            AI.SelectCard(CardId.行动霓虹,
-                CardId.行动拟真模拟,
-                CardId.据点阿戈尔遗迹
+            AI.SelectCard(CardId.S15,
+                CardId.S20,
+                CardId.S28
                 );
-            AI.SelectNextCard(CardId.杰西卡,
-                CardId.风笛,
-                CardId.香草,
-                CardId.自爆小车,
-                CardId.芬
+            AI.SelectNextCard(CardId.S4,
+                CardId.S6,
+                CardId.S7,
+                CardId.S5,
+                CardId.S11
                 );
             return true;
         }
-        private bool 燃灰杰西卡1效堆墓检索()
+        private bool S291Eff()
         {
             if (Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(CardId.行动霓虹);
-                AI.SelectNextCard(CardId.芙兰卡BPRS);
+                AI.SelectCard(CardId.S15);
+                AI.SelectNextCard(CardId.S8);
                 return true;
             }
             else
@@ -428,11 +428,11 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 香草2效除外()
+        private bool S72Eff()
         {
             if (Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(CardId.行动目标护送);
+                AI.SelectCard(CardId.S18);
                 return true;
             }
             else
@@ -440,13 +440,13 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 行动领点占据2效堆墓()
+        private bool S172E()
         {
             if (Card.Location == CardLocation.Removed)
             {
                 AI.SelectCard(
-                    CardId.行动防线突破,
-                    CardId.行动霓虹
+                    CardId.S19,
+                    CardId.S15
                     );
                 return true;
             }
@@ -455,14 +455,14 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 行动霓虹2效苏生()
+        private bool S152E()
         {
             if (Card.Location == CardLocation.Grave)
             {
                 AI.SelectCard(
-                    CardId.铝热剑芙兰卡,
-                    CardId.香草,
-                    CardId.燃灰杰西卡
+                    CardId.S30,
+                    CardId.S7,
+                    CardId.S29
                     );
                 return true;
             }
@@ -471,12 +471,12 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 铝热剑芙兰卡1效堆墓检索()
+        private bool S301E()
         {
             if (Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(CardId.行动霓虹);
-                AI.SelectNextCard(CardId.行动拟真模拟);
+                AI.SelectCard(CardId.S15);
+                AI.SelectNextCard(CardId.S20);
                 AI.SelectOption(1);
                 return true;
             }
@@ -485,7 +485,7 @@ namespace WindBot.Game.AI.Decks
                 return true;
             }
         }
-        private bool 行动防线突破1效2效()
+        private bool S191E2()
         {
             if (Card.Location == CardLocation.Grave)
             {
@@ -493,23 +493,23 @@ namespace WindBot.Game.AI.Decks
             }
             else if (Card.Location == CardLocation.SpellZone)
             {
-                if (近卫阿米娅3效适用 == true && Duel.LastChainPlayer == 1)
+                if (S353oeee == true && Duel.LastChainPlayer == 1)
                 {
                     return true;
                 }
-                else if (近卫阿米娅3效适用 == false)
+                else if (S353oeee == false)
                 {
-                    近卫阿米娅3效适用 = true;
+                    S353oeee = true;
                     return false;
                 } 
             }
             return false;
         }
-        private bool 行动拟真模拟2效苏生()
+        private bool S202E()
         {
             if (Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(CardId.燃灰杰西卡);
+                AI.SelectCard(CardId.S29);
                 AI.SelectPosition(CardPosition.FaceUpAttack);
                 return true;
             }
@@ -518,12 +518,12 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 芙兰卡BPRS1效特招()
+        private bool S81S()
         {
             if (Card.Location == CardLocation.Hand)
             {
-                AI.SelectCard(CardId.行动霓虹);
-                AI.SelectCard(CardId.行动目标护送);
+                AI.SelectCard(CardId.S15);
+                AI.SelectCard(CardId.S18);
                 return true;
             }
             else
@@ -531,13 +531,13 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 芙兰卡BPRS2效检索或堆墓()
+        private bool S82E()
         {
             if (Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(CardId.行动霓虹);
+                AI.SelectCard(CardId.S15);
                 var x = ActivateDescription;
-                if (ActivateDescription == Util.GetStringId(CardId.芙兰卡BPRS, 1) || ActivateDescription == 1)
+                if (ActivateDescription == Util.GetStringId(CardId.S8, 1) || ActivateDescription == 1)
                     AI.SelectOption(1);
                 return true;
             }
@@ -546,12 +546,12 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 卡缇1效检索()
+        private bool S311E()
         {
             if (Card.Location == CardLocation.MonsterZone)
             {
-                卡缇1效已发动 = true;
-                AI.SelectCard(CardId.据点重工基地);
+                S311oe = true;
+                AI.SelectCard(CardId.S27);
                 return true;
             }
             else
@@ -559,16 +559,16 @@ namespace WindBot.Game.AI.Decks
                 return false;
             }
         }
-        private bool 据点重工基地发动和1效掷骰子()
+        private bool S27EE()
         {
             if (Card.Location == CardLocation.FieldZone)
             {
                 AI.SelectCard(
-                        CardId.行动战术指导,
-                        CardId.行动潮汐守望,
-                        CardId.部署精锐救援,
-                        CardId.卡夫卡,
-                        CardId.自爆小车
+                        CardId.S21,
+                        CardId.S22,
+                        CardId.S26,
+                        CardId.S10,
+                        CardId.S5
                         );
                 return true;
             }
@@ -577,186 +577,186 @@ namespace WindBot.Game.AI.Decks
                 return true;
             }
         }
-        private bool 松果1效检索2效放置()
+        private bool S32EEf()
         {
-            if (Card.Location == CardLocation.MonsterZone && 松果1效已发动 == false)
+            if (Card.Location == CardLocation.MonsterZone && S321oe == false)
             {
-                松果1效已发动 = true;
-                int target = 松果1效检索判定();
+                S321oe = true;
+                int target = S321pa();
                 if (target > 0)
                     AI.SelectCard(target);
                 else
                     AI.SelectCard(
-                    CardId.据点阿戈尔遗迹,
-                    CardId.据点重工基地
+                    CardId.S28,
+                    CardId.S27
                     );
                 return true;
             }
-            else if (Card.Location == CardLocation.Grave && 松果2效已发动 == false)
+            else if (Card.Location == CardLocation.Grave && S322oe == false)
             {
-                松果2效已发动 = true;
+                S322oe = true;
                 return true;
             }
-            else if (Card.Location == CardLocation.MonsterZone && Bot.HasInHand(CardId.据点阿戈尔遗迹) && 松果3效已发动 == false)
+            else if (Card.Location == CardLocation.MonsterZone && Bot.HasInHand(CardId.S28) && S323oe == false)
             {
-                AI.SelectCard(CardId.据点阿戈尔遗迹);
+                AI.SelectCard(CardId.S28);
             }
             return false;
         }
-        private int 松果1效检索判定()
+        private int S321pa()
         {
-            if (!Bot.HasInSpellZone(CardId.据点重工基地) && !Bot.HasInHand(CardId.据点重工基地) )
+            if (!Bot.HasInSpellZone(CardId.S27) && !Bot.HasInHand(CardId.S27) )
             {
-                return CardId.据点重工基地;
+                return CardId.S27;
             }
             else 
             {
-                return CardId.据点阿戈尔遗迹;
+                return CardId.S28;
             }
 
         }
-        private bool 据点阿戈尔遗迹3效token()
+        private bool S28token()
         {
             if (Card.Location == CardLocation.SpellZone)
             {
                 AI.SelectCard(
-                        CardId.行动潮汐守望,
-                        CardId.幽灵鲨
+                        CardId.S22,
+                        CardId.S13
                         );
                 return true;
             }
                 return false;
         }
-        private bool 临光1效苏生()
+        private bool S341S()
         {
-            if (Bot.HasInGraveyard(CardId.杰西卡))
+            if (Bot.HasInGraveyard(CardId.S4))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.杰西卡);
+                S341oe = true;
+                AI.SelectCard(CardId.S4);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.香草))
+            else if (Bot.HasInGraveyard(CardId.S7))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.香草);
+                S341oe = true;
+                AI.SelectCard(CardId.S7);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.风笛))
+            else if (Bot.HasInGraveyard(CardId.S6))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.风笛);
+                S341oe = true;
+                AI.SelectCard(CardId.S6);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.香草))
+            else if (Bot.HasInGraveyard(CardId.S7))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.香草);
+                S341oe = true;
+                AI.SelectCard(CardId.S7);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.自爆小车))
+            else if (Bot.HasInGraveyard(CardId.S5))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.自爆小车);
+                S341oe = true;
+                AI.SelectCard(CardId.S5);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.红))
+            else if (Bot.HasInGraveyard(CardId.S14))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.红);
+                S341oe = true;
+                AI.SelectCard(CardId.S14);
                 return true;
             }
-            else if (Bot.HasInGraveyard(CardId.芬))
+            else if (Bot.HasInGraveyard(CardId.S11))
             {
-                临光1效已发动 = true;
-                AI.SelectCard(CardId.芬);
+                S341oe = true;
+                AI.SelectCard(CardId.S11);
                 return true;
             }
             else
             {
-                临光1效已发动 = true;
+                S341oe = true;
                 return true;
             }
         }
-        private bool 近卫阿米娅2效3效()
+        private bool S352EEE()
         {
-            if (近卫阿米娅3效已发动 == false)
+            if (S353oe == false)
             {
-             近卫阿米娅3效已发动 = true;
+             S353oe = true;
               return true;
             }
             else if (Duel.CurrentChain.Count != 0 && Duel.Player == 1)
             {
-                近卫阿米娅3效适用 = true;
+                S353oeee = true;
                 return true;
             }
               return false;
         }
-        private bool 风笛1效2效()
+        private bool S61eff()
         {
-            if (风笛1效已发动 == false)
+            if (S61oe == false)
             {
-                风笛1效已发动 = true;
+                S61oe = true;
                 AI.SelectNumber(8); 
                 return true;
             }
-            else if (风笛1效已发动 == true || Bot.HasInHand(CardId.桃金娘))
+            else if (S61oe == true || Bot.HasInHand(CardId.S12))
             {
-                AI.SelectCard(CardId.行动霓虹,
-                CardId.行动拟真模拟,
-                CardId.据点阿戈尔遗迹
+                AI.SelectCard(CardId.S15,
+                CardId.S20,
+                CardId.S28
                 );
-                AI.SelectNextCard(CardId.芬,
-                CardId.风笛
+                AI.SelectNextCard(CardId.S11,
+                CardId.S6
                 );
                 return true;
             }
             return false;
         }
-        private bool 推进之王跃空锤效果()
+        private bool S36Eff()
         {
-            AI.SelectCard(CardId.行动青色怒火,
-            CardId.行动分头行动,
-            CardId.行动潮汐守望
+            AI.SelectCard(CardId.S23,
+            CardId.S25,
+            CardId.S22
             );
             return true;
         }
-        private bool 行动分头行动效果()
+        private bool S25effect()
         {
             if (Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(CardId.行动青色怒火,
-            CardId.行动潮汐守望);
+                AI.SelectCard(CardId.S23,
+            CardId.S22);
                 return true;
             }
-            else if (Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.近卫阿米娅) && Bot.HasInMonstersZone(CardId.陈绝影))
+            else if (Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.S35) && Bot.HasInMonstersZone(CardId.Chenjueying))
             {
-                AI.SelectCard(CardId.近卫阿米娅);
+                AI.SelectCard(CardId.S35);
                 return true;
             }
                 return false;
         }
-        private bool 行动潮汐守望效果()
+        private bool S22efffec()
         {
-            AI.SelectCard(CardId.幽灵鲨,
-            CardId.据点阿戈尔遗迹);
+            AI.SelectCard(CardId.S13,
+            CardId.S28);
             return true;
         }
-        private bool 自爆小车效果()
+        private bool S5sssww()
         {
             if (Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(CardId.红);
+                AI.SelectCard(CardId.S14);
                 return true;
             }
-            else if (Card.Location == CardLocation.Hand && (Bot.HasInHand(CardId.杰西卡) || Bot.HasInHand(CardId.香草) || Bot.HasInHand(CardId.自爆小车)))
+            else if (Card.Location == CardLocation.Hand && (Bot.HasInHand(CardId.S4) || Bot.HasInHand(CardId.S7) || Bot.HasInHand(CardId.S5)))
             {
                 ClientCard target = Util.GetProblematicEnemyMonster(Card.GetDefensePower());
                 if (target != null)
                 {
                     AI.SelectCard(
-                        CardId.自爆小车,
-                        CardId.香草,
-                        CardId.杰西卡
+                        CardId.S5,
+                        CardId.S7,
+                        CardId.S4
                         );
                     AI.SelectNextCard(target);
                     return true;
@@ -764,15 +764,15 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool 幽灵鲨效果()
+        private bool S13Suu()
         {
             return true;
         }
-        private bool 行动青色怒火效果()
+        private bool S23Effect()
         {
-            if (Bot.HasInMonstersZone(CardId.近卫阿米娅) && Bot.HasInExtra(CardId.陈绝影))
+            if (Bot.HasInMonstersZone(CardId.S35) && Bot.HasInExtra(CardId.Chenjueying))
             { 
-             AI.SelectCard(CardId.陈绝影);
+             AI.SelectCard(CardId.Chenjueying);
             return true;
             }
             else if (Duel.LastChainPlayer == 1)
@@ -781,7 +781,7 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool 星熊效果()
+        private bool S37effect()
         {
             if (Duel.Turn != 1 && Duel.Player == 0)
             {
@@ -793,44 +793,44 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool stormeye效果()
+        private bool stormeyeeffect()
         {
                 return true;
         }
-        private bool 行动目标护送2效()
+        private bool S182effect()
         {
             if (Duel.Phase == DuelPhase.End)
             {
                 AI.SelectCard(
-                    CardId.芙兰卡BPRS,
-                    CardId.暗锁,
-                    CardId.自爆小车,
-                    CardId.芬,
-                    CardId.红,
-                    CardId.香草
+                    CardId.S8,
+                    CardId.S33,
+                    CardId.S5,
+                    CardId.S11,
+                    CardId.S14,
+                    CardId.S7
                     );
                 return true;
             }
             return false;
         }
-        private bool 红效果()
+        private bool S14effect()
         {
-            if (近卫阿米娅3效适用 == true && Duel.LastChainPlayer == 1)
+            if (S353oeee == true && Duel.LastChainPlayer == 1)
             {
                 return true;
             }
-            else if (近卫阿米娅3效适用 == false)
+            else if (S353oeee == false)
             {
-                近卫阿米娅3效适用 = true;
+                S353oeee = true;
                 return false;
             }
             return false;
         }
-        private bool 陈绝影效果()
+        private bool Chenjueyingeffect()
         {
-            if (Bot.HasInBanished(CardId.近卫阿米娅))
+            if (Bot.HasInBanished(CardId.S35))
             {
-                AI.SelectCard(CardId.陈绝影);
+                AI.SelectCard(CardId.Chenjueying);
                 return true;
             }
             else if (Duel.LastChainPlayer == 1 && Duel.Player == 1)
@@ -860,7 +860,7 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool 行动领点占据盖放()
+        private bool S17sset()
         {
             if (Duel.Turn == 1 || Duel.Phase == DuelPhase.Main2)
             {
@@ -868,21 +868,21 @@ namespace WindBot.Game.AI.Decks
             }
             return false;
         }
-        private bool 行动领点占据1效()
+        private bool S171effects()
         {
             if (Card.Location == CardLocation.SpellZone)
             {
                 AI.SelectCard(
-                    CardId.陈绝影,
-                    CardId.近卫阿米娅,
-                    CardId.星熊,
-                    CardId.临光
+                    CardId.Chenjueying,
+                    CardId.S35,
+                    CardId.S37,
+                    CardId.S34
                     );
                 return true;
             }
             return false;
         }
-        public bool 珂克可效果()
+        public bool Kekekeeffect()
         {
             return true;
         }
