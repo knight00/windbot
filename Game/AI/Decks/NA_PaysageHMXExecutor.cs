@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using WindBot;
 using WindBot.Game;
 using WindBot.Game.AI;
-using System.Reflection.Emit;
-using System.Web.UI;
 
 namespace WindBot.Game.AI.Decks
 {
