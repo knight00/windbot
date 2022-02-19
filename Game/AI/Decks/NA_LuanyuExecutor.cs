@@ -96,6 +96,13 @@ namespace WindBot.Game.AI.Decks
         bool Ld32 = false;
         bool X13 = false;
         bool Buzhimingzhuzi = false;
+        bool AnnounceID11 = false;
+        bool AnnounceID111 = false;
+        bool AnnounceID112 = false;
+        bool AnnounceID13 = false;
+        bool AnnounceID131 = false;
+        bool AnnounceID132 = false;
+
 
         List<int> Duiqi_list = new List<int> {
           CardId.Lfashujiaoliu, CardId.Lcunqubeiju, CardId.Buzhihuoshan, CardId.Yiduiyi
@@ -260,6 +267,40 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, AllEffect);
             AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
 
+        }
+        public override int OnAnnounceCard(IList<int> avail)
+        {
+            if (AnnounceID11 && avail.Contains(8824590))
+            {
+                AnnounceID11 = false;
+                return 8824590;
+            }
+            else if (AnnounceID111 && avail.Contains(8824591))
+            {
+                AnnounceID111 = false;
+                return 8824591;
+            }
+            else if (AnnounceID112 && avail.Contains(8824584))
+            {
+                AnnounceID112 = false;
+                return 8824584;
+            }
+            else if (AnnounceID13 && avail.Contains(9951088))
+            {
+                AnnounceID13 = false;
+                return 9951088;
+            }
+            else if (AnnounceID131 && avail.Contains(8824591))
+            {
+                AnnounceID131 = false;
+                return 8824591;
+            }
+            else if (AnnounceID132 && avail.Contains(8824584))
+            {
+                AnnounceID132 = false;
+                return 8824584;
+            }
+            return avail[0];
         }
         //无效
         List<int> should_not_negate = new List<int>
@@ -603,7 +644,8 @@ namespace WindBot.Game.AI.Decks
                     if (flag3)
                     {
                         base.AI.SelectCard(8824590);
-                        base.AI.SelectAnnounceID(8824590);
+                        AnnounceID11 = true;
+                        //base.AI.SelectAnnounceID(8824590);
                         result = true;
                     }
                     else
@@ -633,12 +675,14 @@ namespace WindBot.Game.AI.Decks
                                 bool flag7 = base.Duel.Player == 0;
                                 if (flag7)
                                 {
-                                    base.AI.SelectAnnounceID(8824591);
+                                    AnnounceID111 = true;
+                                   // base.AI.SelectAnnounceID(8824591);
                                     result = true;
                                 }
                                 else
                                 {
-                                    base.AI.SelectAnnounceID(8824584);
+                                    AnnounceID112 = true;
+                                    //base.AI.SelectAnnounceID(8824584);
                                     result = true;
                                 }
                             }
@@ -709,14 +753,16 @@ namespace WindBot.Game.AI.Decks
                         bool flag4 = !this.X13;
                         if (flag4)
                         {
-                            base.AI.SelectAnnounceID(9951088);
+                            AnnounceID13 = true;
+                            //base.AI.SelectAnnounceID(9951088);
                             base.AI.SelectPosition(CardPosition.FaceUpDefence);
                             this.X13 = true;
                             result = true;
                         }
                         else
                         {
-                            base.AI.SelectAnnounceID(8824591);
+                            AnnounceID131 = true;
+                            //base.AI.SelectAnnounceID(8824591);
                             base.AI.SelectPosition(CardPosition.FaceUpDefence);
                             result = true;
                         }
@@ -733,7 +779,8 @@ namespace WindBot.Game.AI.Decks
                     if (flag6)
                     {
                         base.AI.SelectCard(8824584);
-                        base.AI.SelectAnnounceID(8824584);
+                        AnnounceID132 = true;
+                       //base.AI.SelectAnnounceID(8824584);
                         result = true;
                     }
                     else

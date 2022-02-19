@@ -50,6 +50,7 @@ namespace WindBot.Game.AI.Decks
             this.Hundunjuhe = false;
             this.Pohuaijian = false;
             this.Heidijia = false;
+
         }
 
         // Token: 0x060003FA RID: 1018 RVA: 0x000220A0 File Offset: 0x000202A0
@@ -175,7 +176,40 @@ namespace WindBot.Game.AI.Decks
         {
             return Duel.CurrentChain.Any(card => card.HasType(CardType.Spell));
         }
-
+        public override int OnAnnounceCard(IList<int> avail)
+        {
+            if (selectCardX11 && avail.Contains(8824590))
+            {
+                selectCardX11 = false;
+                return 8824590;
+            }
+            else if (selectCardX111 && avail.Contains(8824591))
+            {
+                selectCardX111 = false;
+                return 8824591;
+            }
+            else if (selectCardX112 && avail.Contains(8824584))
+            {
+                selectCardX112 = false;
+                return 8824584;
+            }
+            else if(announceIDX13 && avail.Contains(9951088))
+            {
+                announceIDX13 = false;
+                return 9951088; 
+            }
+            else if (announceIDX132 && avail.Contains(8824591))
+            {
+                announceIDX132 = false;
+                return 8824591;
+            }
+            else if (announceIDX133 && avail.Contains(8824584))
+            {
+                announceIDX133 = false;
+                return 8824584;
+            }
+            return avail[0];
+        }
         // Token: 0x06000403 RID: 1027 RVA: 0x0002236C File Offset: 0x0002056C
         private bool X11Effect()
         {
@@ -190,11 +224,12 @@ namespace WindBot.Game.AI.Decks
                 bool flag2 = base.Card.Overlays.Count >= 1;
                 if (flag2)
                 {
-                    bool flag3 = base.Duel.CurrentChain.Count > 0 && ChainContainsSpellCard() && base.Duel.LastChainPlayer == 1;
+                    bool flag3 = Duel.CurrentChain.Count > 0 && ChainContainsSpellCard() && Duel.LastChainPlayer == 1;
                     if (flag3)
                     {
                         base.AI.SelectCard(8824590);
-                        base.AI.SelectAnnounceID(8824590);
+                        selectCardX11 = true;
+                        //base.AI.SelectAnnounceID(8824590);
                         result = true;
                     }
                     else
@@ -221,15 +256,17 @@ namespace WindBot.Game.AI.Decks
                             bool flag6 = base.Card.Location == CardLocation.MonsterZone;
                             if (flag6)
                             {
-                                bool flag7 = base.Duel.Player == 0;
+                                bool flag7 = Duel.Player == 0;
                                 if (flag7)
                                 {
-                                    base.AI.SelectAnnounceID(8824591);
+                                    selectCardX111 = true;
+                                    //base.AI.SelectAnnounceID(8824591);
                                     result = true;
                                 }
                                 else
                                 {
-                                    base.AI.SelectAnnounceID(8824584);
+                                    selectCardX112 = true;
+                                    //base.AI.SelectAnnounceID(8824584);
                                     result = true;
                                 }
                             }
@@ -261,14 +298,16 @@ namespace WindBot.Game.AI.Decks
                         bool flag4 = !this.X13;
                         if (flag4)
                         {
-                            base.AI.SelectAnnounceID(9951088);
+                            announceIDX13 = true;
+                            //base.AI.SelectAnnounceID(9951088);
                             base.AI.SelectPosition(CardPosition.FaceUpDefence);
                             this.X13 = true;
                             result = true;
                         }
                         else
                         {
-                            base.AI.SelectAnnounceID(8824591);
+                            announceIDX132 = true;
+                           // base.AI.SelectAnnounceID(8824591);
                             base.AI.SelectPosition(CardPosition.FaceUpDefence);
                             result = true;
                         }
@@ -285,7 +324,8 @@ namespace WindBot.Game.AI.Decks
                     if (flag6)
                     {
                         base.AI.SelectCard(8824584);
-                        base.AI.SelectAnnounceID(8824584);
+                        announceIDX133 = true;
+                        //base.AI.SelectAnnounceID(8824584);
                         result = true;
                     }
                     else
@@ -536,6 +576,12 @@ namespace WindBot.Game.AI.Decks
 
         // Token: 0x04000298 RID: 664
         private bool X13 = false;
+        private bool selectCardX11 = false;
+        private bool selectCardX111 = false;
+        private bool selectCardX112 = false;
+        private bool announceIDX13 = false;
+        private bool announceIDX132 = false;
+        private bool announceIDX133 = false;
 
         // Token: 0x02000092 RID: 146
         public class CardId

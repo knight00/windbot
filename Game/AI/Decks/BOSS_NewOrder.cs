@@ -1,6 +1,7 @@
 using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using WindBot;
 using WindBot.Game;
 using WindBot.Game.AI;
@@ -349,8 +350,8 @@ namespace WindBot.Game.AI.Decks
         {
             if (!Bot.HasInExtra(CardId.Y13) || Bot.GetCountCardInZone(Bot.MonsterZone, CardId.Y13) >= 2) return false;
             {
-                foreach (ClientCard card in Bot.MonsterZone)
-                    foreach (ClientCard card2 in Bot.MonsterZone)
+                foreach (ClientCard card in Bot.GetMonsters())
+                    foreach (ClientCard card2 in Bot.GetMonsters())
                         //if (Rank(card.Id) < 13 && Rank(card.Id) >= 4 && Rank(card2.Id) < 13 && Rank(card2.Id) >= 4 && Rank(card2.Id) != Rank(card.Id))
                         if ((card.Rank == 4 || card.Rank == 6 || card.Rank == 8 || card.Rank == 10 || card.Rank == 12) && (card2.Rank == 4 || card2.Rank == 6 || card2.Rank == 8 || card2.Rank == 10 || card2.Rank == 12) && card.Rank != card2.Rank && card.HasSetcode(0xd107) && card2.HasSetcode(0xd107))
                         {
@@ -367,6 +368,25 @@ namespace WindBot.Game.AI.Decks
                         }
             }
             return false;
+        }
+        private bool CheckDifferent(List<ClientCard> clients)
+        {
+            int check = 0; 
+            int check2 = 0; 
+            bool result = false;
+            for (int num = 1; num < clients.Count; num++)
+            {
+                //8 8 4 4
+                check = clients[num-1].Rank;
+                check2 = clients[num].Rank;
+                if (check != check2)
+                {
+                    result = true;
+                    break;
+                }
+
+            }
+            return result;
         }
         //新序0 效果
         private bool Y0Effect()
