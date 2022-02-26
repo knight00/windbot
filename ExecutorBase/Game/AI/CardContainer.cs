@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using YGOSharp.OCGWrapper.Enums;
 using System;
 using System.Linq;
@@ -94,7 +94,12 @@ namespace WindBot.Game.AI
         {
             return cards.Where(card => card?.Data != null && card.HasType(CardType.Monster)).ToList();
         }
-
+        /////diy/////
+        public static List<ClientCard> GetSpells(this IEnumerable<ClientCard> cards)
+        {
+            return cards.Where(card => card?.Data != null && (card.HasType(CardType.Spell) || card.HasType(CardType.Trap))).ToList();
+        }
+        /////diy/////
         public static List<ClientCard> GetFaceupPendulumMonsters(this IEnumerable<ClientCard> cards)
         {
             return cards.Where(card => card?.Data != null && card.HasType(CardType.Monster) && card.IsFaceup() && card.HasType(CardType.Pendulum)).ToList();

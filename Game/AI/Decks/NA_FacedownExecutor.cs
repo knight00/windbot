@@ -106,7 +106,7 @@ namespace WindBot.Game.AI.Decks
             //天启
             AddExecutor(ExecutorType.Activate, CardId.Tianqidijun);
             //邪魂 时空仲裁
-            AddExecutor(ExecutorType.Activate, CardId.Shikongzhongcaijiguan);
+            //AddExecutor(ExecutorType.Activate, CardId.Shikongzhongcaijiguan);
             //万物创伤
             AddExecutor(ExecutorType.Activate, CardId.Wanshichuangshang);
             //霜星效果

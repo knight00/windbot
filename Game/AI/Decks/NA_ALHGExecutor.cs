@@ -778,7 +778,8 @@ namespace WindBot.Game.AI.Decks
         //青眼幻龙
         private bool QingyanhuanlongEffect()
         {
-            if (Card.IsDisabled()) return false;
+            ClientCard card = Util.GetLastChainCard();
+            if (Card.IsDisabled() || (card!=null && card.IsCode(CardId.Lan)) ) return false;
             AI.SelectCard(
                 CardId.Shengyuelong,
                 CardId.WhiteDragon
