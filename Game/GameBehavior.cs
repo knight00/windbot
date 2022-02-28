@@ -225,6 +225,12 @@ namespace WindBot.Game
             foreach (int card in Deck.SideCards)
                 deck.Write(card);
             Connection.Send(deck);
+            /////diy/////
+            if (Game.Username.Contains("·"))
+            {
+                _ai.Prompting();
+            }
+            /////diy/////
             _ai.OnJoinGame();
         }
 

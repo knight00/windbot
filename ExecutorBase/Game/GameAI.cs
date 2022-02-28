@@ -47,7 +47,14 @@ namespace WindBot.Game
         {
             _dialogs.SendDeckSorry(card);
         }
-
+      
+        /////diy/////
+        public void Prompting()
+        {
+            _dialogs.SendDownloadPrompt();
+        }
+        /////diy/////
+        
         /// <summary>
         /// Called when the AI join the game.
         /// </summary>

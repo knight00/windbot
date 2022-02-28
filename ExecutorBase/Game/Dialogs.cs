@@ -92,7 +92,13 @@ namespace WindBot.Game.AI
             else
                 InternalSendMessageForced(_deckerror, card);
         }
-
+        ///// diy/////
+        public void SendDownloadPrompt()
+        {
+            InternalSendMessageForced(new[] { "提示-本人机需先下载额外卡包（人机用卡包+ZCG卡包）解压至KCG主目录才可进行决斗！！！"});
+            InternalSendMessageForced(new[] { "详情请在KCG群文件中查找下载！！！" }); 
+        }
+        ///// diy/////
         public void SendWelcome()
         {
             InternalSendMessage(_welcome);
