@@ -108,6 +108,7 @@
     <Compile Include="Game\AI\Decks\NA_YouyouExecutor.cs" />
     <Compile Include="Game\AI\Decks\NekrozExecutor.cs" />
     <Compile Include="Game\AI\Decks\OCG+_ChronomalyExecutor.cs" />
+    <Compile Include="Game\AI\Decks\OCG+_TrueKing.cs" />
     <Compile Include="Game\AI\Decks\OCG+_XYZExecutor.cs" />
     <Compile Include="Game\AI\Decks\OldSchoolExecutor.cs" />
     <Compile Include="Game\AI\Decks\OrcustExecutor.cs" />
