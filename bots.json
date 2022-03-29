@@ -399,6 +399,13 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "NA·聚集的暗 (DIY)",
+        "deck": "Xiehun",
+        "dialog": "copy.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "NA·乱欲 (DIY)",
         "deck": "Luanyu",
         "dialog": "cirno.zh-CN",
@@ -532,7 +539,14 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "BOSS·新序系 (DIY)",
+        "name": "ZCG·冥界 (DIY)",
+        "deck": "Hades",
+        "dialog": "ZZ",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "BOSS·新序系（DIY）",
         "deck": "BossOrder",
         "dialog": "BossOrder",
         "difficulty": 3,

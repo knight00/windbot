@@ -106,7 +106,7 @@ namespace WindBot.Game.AI.Decks
             //天启
             AddExecutor(ExecutorType.Activate, CardId.Tianqidijun);
             //邪魂 时空仲裁
-            //AddExecutor(ExecutorType.Activate, CardId.Shikongzhongcaijiguan);
+            AddExecutor(ExecutorType.Activate, CardId.Shikongzhongcaijiguan);
             //万物创伤
             AddExecutor(ExecutorType.Activate, CardId.Wanshichuangshang);
             //霜星效果
@@ -589,7 +589,7 @@ namespace WindBot.Game.AI.Decks
         //剑姬 次元斩
         private bool JianjiciyuanzhanEffect()
         {
-            if (Enemy.BattlingMonster.HasPosition(CardPosition.Attack) && (Bot.BattlingMonster.Attack - Enemy.BattlingMonster.GetDefensePower() >= Enemy.LifePoints)) return false;
+            //if (Enemy.BattlingMonster.HasPosition(CardPosition.Attack) && (Bot.BattlingMonster.Attack - Enemy.BattlingMonster.GetDefensePower() >= Enemy.LifePoints)) return false;
             return true;
         }
         //月下 雷

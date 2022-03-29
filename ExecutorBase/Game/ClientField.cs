@@ -169,7 +169,6 @@ namespace WindBot.Game
         {
             return GetCards(MonsterZone);
         }
-
         public List<ClientCard> GetGraveyardMonsters()
         {
             return GetCards(Graveyard, CardType.Monster);
@@ -190,6 +189,13 @@ namespace WindBot.Game
             return GetCards(SpellZone);
         }
         /////diy/////
+        public List<ClientCard> GetGraveyard()
+        {
+            return GetCards(Graveyard);
+        }
+        /////diy/////
+
+        /////diy/////
         public List<ClientCard> GetDeck()
         {
             return GetCards(Deck);
@@ -209,6 +215,32 @@ namespace WindBot.Game
             return GetCards(ExtraDeck);
         }
         /////diy /////
+        
+        /////diy /////
+        public int GetMonstersMainZoneCount()
+        {
+            int count = 0;
+            if (MonsterZone[0] != null)
+                count++;
+            if (MonsterZone[1] != null)
+                count++;
+            if (MonsterZone[2] != null)
+                count++;
+            if (MonsterZone[3] != null)
+                count++;
+            if (MonsterZone[4] != null)
+                count++;
+            return count;
+        }
+        /////diy /////
+        
+        /////diy /////
+        public int GetGraveyardCount()
+        {
+            return GetCount(Graveyard);
+        }
+        /////diy /////
+        
         public List<ClientCard> GetMonstersInExtraZone()
         {
             return GetMonsters().Where(card => card.Sequence >= 5).ToList();

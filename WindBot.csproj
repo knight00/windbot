@@ -104,11 +104,13 @@
     <Compile Include="Game\AI\Decks\NA_PaysageHMXExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_SGSExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_ShituEcecutor.cs" />
+    <Compile Include="Game\AI\Decks\NA_XiehunExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_YouyouExecutor.cs" />
     <Compile Include="Game\AI\Decks\OCG+_ChronomalyExecutor.cs" />
     <Compile Include="Game\AI\Decks\OCG+_TrueKing.cs" />
     <Compile Include="Game\AI\Decks\OCG+_XYZExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_ArmorExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ZCG_HadesExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_MartyrExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_PointStarExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_RaExecutor.cs" />
