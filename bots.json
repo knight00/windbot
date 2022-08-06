@@ -49,6 +49,12 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "冒險家",
+        "deck": "Brave",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
         "name": "永遠之魂－削血",
         "deck": "Burn",
         "dialog": "default",

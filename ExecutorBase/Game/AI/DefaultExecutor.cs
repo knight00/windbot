@@ -60,6 +60,7 @@ namespace WindBot.Game.AI
             public const int SolemnWarning = 84749824;
             public const int SolemnStrike = 40605147;
             public const int TorrentialTribute = 53582587;
+            public const int EvenlyMatched = 15693423;
             public const int HeavyStorm = 19613556;
             public const int HammerShot = 26412047;
             public const int DarkHole = 53129443;
@@ -554,8 +555,9 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultEffectVeiler()
         {
-            if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(_CardId.GalaxySoldier) && Enemy.Hand.Count >= 3) return false;
-            if (Util.ChainContainsCard(_CardId.EffectVeiler))
+            ClientCard LastChainCard = Util.GetLastChainCard();
+            if (LastChainCard != null && (LastChainCard.IsCode(_CardId.GalaxySoldier) && Enemy.Hand.Count >= 3
+                                    || LastChainCard.IsCode(_CardId.EffectVeiler, _CardId.InfiniteImpermanence)))
                 return false;
             return DefaultBreakthroughSkill();
         }
@@ -593,7 +595,9 @@ namespace WindBot.Game.AI
         protected bool DefaultInfiniteImpermanence()
         {
             // TODO: disable s & t
-            if (!DefaultUniqueTrap())
+            ClientCard LastChainCard = Util.GetLastChainCard();
+            if (LastChainCard != null && (LastChainCard.IsCode(_CardId.GalaxySoldier) && Enemy.Hand.Count >= 3
+                                    || LastChainCard.IsCode(_CardId.EffectVeiler, _CardId.InfiniteImpermanence)))
                 return false;
             return DefaultDisableMonster();
         }
@@ -868,7 +872,8 @@ namespace WindBot.Game.AI
                 _CardId.EvilswarmExcitonKnight,
                 _CardId.BlackRoseDragon,
                 _CardId.JudgmentDragon,
-                _CardId.TopologicTrisbaena
+                _CardId.TopologicTrisbaena,
+                _CardId.EvenlyMatched
             };
             int[] destroyAllOpponentList =
             {

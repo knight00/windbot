@@ -100,10 +100,10 @@ namespace WindBot.Game.AI.Decks {
         #region Activate Effect Flags
 
         private enum ActivatedEffect {
-            None = 0b000,
-            First = 0b001,
-            Second = 0b010,
-            Third = 0b100
+            None = 0x0,
+            First = 0x1,
+            Second = 0x2,
+            Third = 0x4
         }
 
         private bool NormalSummonUsed = false;

@@ -20,7 +20,7 @@ namespace WindBot.Game
         public string Deckfolder;
         public string Deckpath;
         public int Seed;
-        ///////////kdiy///////       
+        ///////////kdiy///////  
         public int Hand;
         public bool Debug;
         public bool _chat;
@@ -43,7 +43,7 @@ namespace WindBot.Game
             //////////kdiy///////
             Deckfolder = Info.Deckfolder;
             Deckpath = Info.Deckpath;
-            //////////kdiy///////            
+            //////////kdiy/////// 
             Hand = Info.Hand;
             Debug = Info.Debug;
             _chat = Info.Chat;

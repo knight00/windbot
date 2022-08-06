@@ -190,7 +190,7 @@ namespace WindBot
                     string deckpath = HttpUtility.ParseQueryString(RawUrl).Get("deckpath");
                     if (deckpath != null)
                         Info.Deckpath = deckpath;  
-                    /////////kdiy//////       
+                    /////////kdiy//////
                     string version = HttpUtility.ParseQueryString(RawUrl).Get("version");
                     if (version != null)
                         Info.Version = Int16.Parse(version);
@@ -205,12 +205,12 @@ namespace WindBot
                         Info.Debug= bool.Parse(debug);
                     string chat = HttpUtility.ParseQueryString(RawUrl).Get("chat");
                     if (chat != null)
-                        Info.Chat = bool.Parse(chat);       
-                    //////kdiy////////   
+                        Info.Chat = bool.Parse(chat);
+                    //////kdiy////////
                     string seed = HttpUtility.ParseQueryString(RawUrl).Get("seed");
                     if (seed != null)
                         Info.Seed = Int32.Parse(seed);   
-                    //////kdiy////////          
+                    //////kdiy////////
 
                     if (Info.Name == null || Info.Host == null || port == null)
                     {
