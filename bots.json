@@ -28,7 +28,7 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "ABC-Dragon Buster",
+        "name": "ABC-屠龍者",
         "deck": "ABC",
         "dialog": "default",
         "difficulty": 3,
@@ -51,6 +51,7 @@
     {
         "name": "冒險家",
         "deck": "Brave",
+        "dialog": "default",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
     },
@@ -90,7 +91,7 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "Dogmatika",
+        "name": "教導",
         "deck": "Dogmatika",
         "dialog": "default",
         "difficulty": 3,
@@ -139,7 +140,7 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "Mathmech",
+        "name": "斬機",
         "deck": "MathMech",
         "dialog": "default",
         "difficulty": 2,
