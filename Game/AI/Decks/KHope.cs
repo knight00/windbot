@@ -627,16 +627,10 @@ namespace WindBot.Game.AI.Decks
                 List<ClientCard> monster_sorted0 = new List<ClientCard>();
                 IList<ClientCard> monster_sorted01 = Bot.MonsterZone.GetMonsters();
                 IList<ClientCard> monster_sorted02 = Bot.SpellZone.GetMonsters();
-                IList<ClientCard> monster_sorted1 = Bot.MonsterZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack - 500));
-                IList<ClientCard> monster_sorted2 = Bot.SpellZone.GetMonsters().GetMatchingCards(card => card.IsDisabled() || (card.Attack < card.BaseAttack - 500));
                 foreach (ClientCard monster in monster_sorted01)
-                {
                     monster_sorted.Add(monster);
-                }
                 foreach (ClientCard monster in monster_sorted02)
-                {
                     monster_sorted.Add(monster);
-                }
                 foreach (ClientCard card in monster_sorted)
                 {
                     if (card.IsDisabled() || (card.Attack < card.BaseAttack - 500))
@@ -645,10 +639,7 @@ namespace WindBot.Game.AI.Decks
                         monster_sorted0.Add(card);
                     }
                 }
-                foreach (ClientCard card in monster_sorted0)
-                {
-                    monster_sorted.Add(card);
-                }
+                monster_sorted.AddRange(monster_sorted0);
                 monster_sorted0.Sort(CardContainer.CompareCardAttack);
                 List<ClientCard> tribute = new List<ClientCard>();
                 foreach (ClientCard monster in monster_sorted0)
@@ -657,8 +648,12 @@ namespace WindBot.Game.AI.Decks
                         tribute.Add(monster);
                     else continue;
                 }
+                if (tribute.Count == 0)
+                    return false;
                 AI.SelectMaterials(tribute);
             }
+
+            Summonplace();
             AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
