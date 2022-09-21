@@ -1847,10 +1847,10 @@ namespace WindBot.Game
                 filter <<= 1;
             }
             races = _ai.OnAnnounceRace(count, races);
-            int reply = 0;
+            ulong reply = 0;
             for (int i = 0; i < count; ++i)
-                reply += (int)races[i];
-            Connection.Send(CtosMessage.Response, reply);
+                reply |= (ulong)races[i];
+            Connection.Send(CtosMessage.Response, (long)reply);
         }
 
         private void OnRockPaperScissors(BinaryReader packet)
