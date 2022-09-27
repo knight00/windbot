@@ -55,10 +55,11 @@ namespace WindBot.Game
             IList<ClientCard> oldgrave = Graveyard;
             Graveyard = Deck;
             Deck = oldgrave;
-            foreach(ClientCard card in Graveyard)
+            foreach (ClientCard card in Graveyard)
                 card.Location = CardLocation.Grave;
             int i = 0;
-            foreach (ClientCard card in Deck.ToList()) {
+            foreach (ClientCard card in Deck.ToList())
+            {
                 if (extra_buf[i])
                 {
                     card.Position = (int)CardPosition.FaceDown;
@@ -104,7 +105,7 @@ namespace WindBot.Game
             return GetCount(Deck);
         }
         ////kdiy/////////////////
-        
+
         public int GetSpellCountWithoutField()
         {
             int count = 0;
@@ -127,7 +128,7 @@ namespace WindBot.Game
                 count++;
             if (MonsterZone[zone] != null)
                 count++;
-            if(zone == 1 && IncludeExtraMonsterZone)
+            if (zone == 1 && IncludeExtraMonsterZone)
             {
                 if (MonsterZone[5] != null)
                     count++;
@@ -215,7 +216,7 @@ namespace WindBot.Game
             return GetCards(ExtraDeck);
         }
         /////diy /////
-        
+
         /////diy /////
         public int GetMonstersMainZoneCount()
         {
@@ -233,14 +234,24 @@ namespace WindBot.Game
             return count;
         }
         /////diy /////
-        
+
         /////diy /////
         public int GetGraveyardCount()
         {
             return GetCount(Graveyard);
         }
+
+        public List<ClientCard> GetFields()
+        {
+            List<ClientCard> cards = new List<ClientCard>();
+            cards.AddRange(GetCards(MonsterZone));
+            cards.AddRange(GetCards(SpellZone));
+            if (cards.Count() <= 0) cards = null;
+            return cards;
+        }
+
         /////diy /////
-        
+
         public List<ClientCard> GetMonstersInExtraZone()
         {
             return GetMonsters().Where(card => card.Sequence >= 5).ToList();
@@ -270,7 +281,7 @@ namespace WindBot.Game
         {
             return HasInCards(Graveyard, cardId);
         }
-    
+
         public bool HasInGraveyard(IList<int> cardId)
         {
             return HasInCards(Graveyard, cardId);
