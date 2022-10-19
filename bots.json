@@ -469,6 +469,13 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "NA·龙灾",
+        "deck": "DragonDisaster",
+        "dialog": "DragonDisaster",
+        "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "NA·屑2号-干员 (DIY)",
         "deck": "Operator",
         "dialog": "Crisis",

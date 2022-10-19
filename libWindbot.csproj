@@ -95,6 +95,7 @@
     <Compile Include="Game\AI\Decks\NA_CangqiongExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_ChamDeck1Executor.cs" />
     <Compile Include="Game\AI\Decks\NA_Crisis1.cs" />
+    <Compile Include="Game\AI\Decks\NA_DragonDisasterExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_FacedownExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_GalaxyExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_HonglianmoExecutor .cs" />
