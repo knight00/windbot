@@ -1,4 +1,4 @@
-﻿namespace YGOSharp.OCGWrapper.Enums
+namespace YGOSharp.OCGWrapper.Enums
 {
     public enum CardAttribute
     {
@@ -9,5 +9,8 @@
         Light = 0x10,
         Dark = 0x20,
         Divine = 0x40,
+        /////zdiy/////
+        Hades = 0x80
+        /////zdiy/////
     }
 }
