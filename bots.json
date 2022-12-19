@@ -147,6 +147,20 @@
         "masterRules": [ 4, 5 ]
     },
     {
+        "name": "雷龍",
+        "deck": "ThunderDragon",
+        "dialog": "Zefra.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "剎帝利",
+        "deck": "Kashtira",
+        "dialog": "Zefra.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 5 ]
+    },
+    {
         "name": "重編程梁龍－自奏天琴",
         "deck": "Orcust",
         "dialog": "nlch.zh-CN",

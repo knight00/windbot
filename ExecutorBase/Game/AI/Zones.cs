@@ -1,4 +1,4 @@
-﻿namespace WindBot.Game.AI
+namespace WindBot.Game.AI
 {
     public static class Zones
     {
@@ -10,6 +10,7 @@
         z5 = 0x20,
         z6 = 0x40,
 
+        FieldZone = 0x20,
         MonsterZones = 0x7f,
         MainMonsterZones = 0x1f,
         ExtraMonsterZones = 0x60,
