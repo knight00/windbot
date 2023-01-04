@@ -6,6 +6,7 @@ using WindBot.Game;
 using WindBot.Game.AI;
 namespace WindBot.Game.AI.Decks
 {
+    //77238102
     [Deck("Mode", "AI_Mode")]
     class Mode_ZCGExecutor : DefaultExecutor
     {
@@ -48,6 +49,12 @@ namespace WindBot.Game.AI.Decks
             MonsterRelease = 0x2000,//祭品解放
             MoveToField = 0x4000,
         }
+        private bool isOnState(State state)
+        {
+            return state == State.Spsummon
+            || state == State.Summon || state == State.Equip
+            || state == State.MoveToField;
+        }
         State state = 0;
         State state_2 = 0;
         CardLocation toLoc = 0;
@@ -72,36 +79,38 @@ namespace WindBot.Game.AI.Decks
         };
         List<int> best_summon_cardsid_0 = new List<int>()
         {
-
+            77238051
         };
         List<int> best_remove_cardsid_0 = new List<int>()
         {
-            77238028 , 77238030,77238048,77238049
+            77238028 , 77238030,77238048,77238049,77238054,77238066,77238067
         };
         List<int> best_destory_cardsid_0 = new List<int>()
         {
-            77238028 , 77238030,77238048,77238049
+            77238062,77238028 , 77238030,77238048,77238049,77238054,77238060,77238066
+            ,77238067
         };
         List<int> best_effect_release_cardsid_0 = new List<int>()
         {
-            77238028,77238048,77238049
+            77238028,77238048,77238049,77238054,77238060,77238067
         };
         List<int> best_monster_release_cardsid_0 = new List<int>()
         {
-
+            77238067
         };
         List<int> best_sendtograve_cardsid_0 = new List<int>() {
          77238012,77238000,77238017,77238018,77238019,77238028,77238030,77238044
-            ,77238048,77238049
+            ,77238048,77238049,77238060,77238066,77238067
 
         };
         List<int> best_sendtohand_cardsid_0 = new List<int>()
         {
-            77238026,77238014, 77238021, 77238020,77238033,77238034,77238042,77238045
-            ,77238047,77238049
+            77238063,77238026,77238014, 77238021, 77238020,77238033,77238034,77238042,77238045
+            ,77238047,77238049,77238057,77238062,77238064
         };
         List<int> best_sendtodeck_cardsid_0 = new List<int>()
         {
+            77238066,77238067
         };
         List<int> best_control_cardsid_0 = new List<int>()
         {
@@ -116,7 +125,8 @@ namespace WindBot.Game.AI.Decks
         List<int> best_discard_cardsid_0 = new List<int>()
         {
            77238012,77238000,77238017,77238018,77238019,77238028,77238030
-            ,77238031,77238035,77238044,77238048,77238049,77238050,77238031
+            ,77238031,77238035,77238044,77238048,77238049,77238050,77238031,
+           77238054,77238060,77238066,77238067
         };
         //对方区域的卡片往自己场上特殊召唤
         List<int> best_spsummon_cardsid_1 = new List<int>()
@@ -128,33 +138,36 @@ namespace WindBot.Game.AI.Decks
         };
         List<int> best_remove_cardsid_1 = new List<int>()
         {
-            77238029
+            77238029,77238062,77238063,77238064
         };
         List<int> best_destory_cardsid_1 = new List<int>()//怪兽区域破坏移动到下面写
         {
-            77238020, 77238021,77238033,
+            77238020, 77238021,77238033,77238063,77238064
         };
         List<int> best_effect_release_cardsid_1 = new List<int>()
         {
-                 77238021,77238042,77238029,77238026
+                 77238021,77238042,77238029,77238026,77238062,77238063
+            ,77238064
         };
         List<int> best_monster_release_cardsid_1 = new List<int>()
         {
-                  77238021,77238042,77238029,77238026
+                  77238021,77238042,77238029,77238026,77238062,77238063,
+                  77238064
         };
         List<int> best_sendtograve_cardsid_1 = new List<int>()
         {
-          77238021,77238033,77238042,77238047
+          77238021,77238033,77238042,77238047,77238062,77238063
+            ,77238064
         };
         //自己区域的卡移动到自己场上
         List<int> move_to_field_cardsId_0 = new List<int>()
         {
-            77238029
+            77238029,77238062,77238063
         };
         //对方怪兽移动到自己场上 
         List<int> move_to_field_cardsId_1 = new List<int>()
         {
-            77238029
+            77238029,77238062
         };
         List<int> best_sendtohand_cardsid_1 = new List<int>()
         {
@@ -162,11 +175,13 @@ namespace WindBot.Game.AI.Decks
         };
         List<int> best_sendtodeck_cardsid_1 = new List<int>()
         {
-            77238021,77238033,77238042,77238044,77238047
+            77238021,77238033,77238042,77238044,77238047,77238062,77238063,
+            77238064
         };
         List<int> best_control_cardsid_1 = new List<int>()
         {
-            77238013, 77238033,77238029
+            77238013, 77238033,77238029,77238062,77238063
+            ,77238064
         };
         //装备卡给对方怪兽装备
         List<int> best_equip_cardsid_1 = new List<int>()
@@ -175,17 +190,19 @@ namespace WindBot.Game.AI.Decks
         };
         List<int> best_rule_cardsid_1 = new List<int>()
         {
-        77238021
+            77238021,77238062,77238063
         };
         List<int> best_discard_cardsid_1 = new List<int>()
         {
-            77238013,77238033,77238034
+            77238013,77238033,77238034,77238062,77238063
+            ,77238064
         };
 
 
         List<int> no_disabled_cardsid = new List<int>()
         {
-
+            77238058,77238059,77238060,77238062,77238063
+            ,77238064,77238065
         };//效果无效仍然可以发动的卡
         List<int> no_target_m_cardsid = new List<int>()
         {
@@ -196,7 +213,7 @@ namespace WindBot.Game.AI.Decks
         };//不取效果对象的魔陷区域卡
         List<int> no_e_destory_cardsid = new List<int>()
         {
-        77238013
+            77238013
         };//不会被效果破坏的卡
         List<int> no_b_destory_cardsid = new List<int>()
         {
@@ -209,6 +226,7 @@ namespace WindBot.Game.AI.Decks
         };//不会被攻击的卡
         List<int> no_imm_cardsid = new List<int>()
         {
+            77238058,77238066,77238067
         };//不受影响的卡
         List<int> no_con_cardsid = new List<int>()
         {
@@ -226,17 +244,17 @@ namespace WindBot.Game.AI.Decks
         //使用优先级
         List<int> Activate_1 = new List<int>()
         {
-            77238021,77238000,77238001,77238002,77238005,77238008,77238014
+            77238058,77238057,77238053,77238021,77238000,77238001,77238002,77238005,77238008,77238014
             ,77238015,77238016,77238020,77238025,77238026,77238030,77238040
-            ,77238033
+            ,77238033,77238062,77238065
         };
         List<int> Activate_2 = new List<int>()
         {
-
+            77238059,77238061
         };
         List<int> SpellSet_1 = new List<int>()
         {
-
+            77238064
         };
         List<int> SpellSet_2 = new List<int>()
         {
@@ -260,11 +278,12 @@ namespace WindBot.Game.AI.Decks
         };
         List<int> Summon_1 = new List<int>()
         {
-            77238042,77238026,77238013,77238022
+            77238042,77238026,77238013,77238022,77238057
         };
         List<int> Summon_2 = new List<int>()
         {
             77238003,77238004,77238005,77238008,77238011,77238025,77238027,77238043
+            ,77238055,77238056
         };
         private bool _MonsterSet_1()
         {
@@ -301,6 +320,11 @@ namespace WindBot.Game.AI.Decks
         }
         private bool _SpellSet()
         {
+            List<int> nocardsId = new List<int>()
+            {
+                77238066,77238067
+            };
+            if (nocardsId.Contains(Card.Id)) return false;
             return true;
         }
         bool inversion = false;
@@ -379,6 +403,80 @@ namespace WindBot.Game.AI.Decks
             }
             return res;
         }
+        private List<int> GetZoneNoOperateCardsId(State state = 0, CardLocation selectZone = 0)
+        {
+            if (state == 0 && this.state != 0) state = this.state;
+            if (selectZone == 0 && this.selectZone != 0) selectZone = this.selectZone;
+            List<int> res = new List<int>();
+            if(this.player == 0)
+            {
+                if ((selectZone & CardLocation.Hand) > 0)
+                {
+                    if (!isOnState(state))
+                    {
+                        if (Bot.GetCountCardInZone(Bot.GetMonsters(), CardType.Monster, 0xa160) > 0)
+                        {
+                            res.AddRange(new List<int>()
+                        {
+                            77238061
+                        });
+                        }
+                        res.AddRange(new List<int>()
+                        {
+                           77238063,77238064
+                        });
+                    }
+                }
+                if ((selectZone & CardLocation.MonsterZone) > 0)
+                {
+                    if (!isOnState(state))
+                    {
+                        if (Bot.GetCountCardInZone(Bot.GetMonsters(), CardType.Monster, 0xa160) > 0)
+                        {
+                            res.AddRange(new List<int>()
+                        {
+                            77238061
+                        });
+
+                        }
+                        res.AddRange(new List<int>()
+                        {
+                        });
+                    }
+                }
+                if ((selectZone & CardLocation.SpellZone) > 0)
+                {
+                    if (!isOnState(state))
+                    {
+                        res.AddRange(new List<int>()
+                        {
+                            77238063,77238064
+                        });
+                    }
+                }
+                if ((selectZone & CardLocation.Grave) > 0)
+                {
+
+                }
+                if ((selectZone & CardLocation.Removed) > 0)
+                {
+
+                }
+                if ((selectZone & CardLocation.Deck) > 0)
+                {
+                }
+                if ((selectZone & CardLocation.Extra) > 0)
+                {
+
+                }
+            }
+            else
+            {
+
+            }
+            res = res.Distinct().ToList();
+            return res;
+        }
         //loc表示当前自己的位置，toLoc表示卡片效果要将卡片所送去的区域，区域不同优先级不同
         private List<int> GetZoneBestCardsId(CardLocation selectZone = 0, CardLocation toLoc = 0, ClientField player = null,State state = 0)
         {
@@ -411,6 +509,13 @@ namespace WindBot.Game.AI.Decks
                             77238001,77238002
                         });
                     }
+                    if (Bot.GetCountCardInZone(Bot.GetMonsters(), CardType.Monster, 0xa160) > 0)
+                    {
+                        tempCardsId.AddRange(new List<int>()
+                        {
+                            77238061
+                        });
+                    }
                 }
                 if (state == State.SendToDeck)
                 {
@@ -420,8 +525,13 @@ namespace WindBot.Game.AI.Decks
                         tempCardsId.AddRange(new List<int>()
                         {
                            77238000,77238031,77238049,77238048,77238050,
-                           77238031
+                           77238031,77238060
                         });
+                        if (Enemy.GetMonsters().Count(card => card != null && card.IsFaceup()
+                         && card.HasSetcode(0xa160)) <= 0)
+                        {
+                            tempCardsId.Add(77238065);
+                        }
                     }
                 }
                 if (state == State.SendToGrave)
@@ -436,6 +546,11 @@ namespace WindBot.Game.AI.Decks
                         {
                            77238031,77238035,77238036,77238050,77238031
                         });
+                        if (Enemy.GetMonsters().Count(card => card != null && card.IsFaceup()
+                           && card.HasSetcode(0xa160)) <= 0)
+                        {
+                            tempCardsId.Add(77238065);
+                        }
                     }
                 }
                 if (state == State.DisCard)
@@ -444,6 +559,11 @@ namespace WindBot.Game.AI.Decks
                     List<ClientCard> cards = Bot.GetHands().Where(card => card != null && card.HasType(CardType.Normal)).ToList();
                     IList<int> ids = ClientCardsToCardsId(cards, true);
                     if (ids.Count >= 0) tempCardsId.AddRange(ids);
+                    if (Enemy.GetMonsters().Count(card => card != null && card.IsFaceup()
+                    && card.HasSetcode(0xa160)) <= 0)
+                    {
+                        tempCardsId.Add(77238065);
+                    }
                 }
                 if (state == State.MoveToField)
                 {
@@ -452,6 +572,17 @@ namespace WindBot.Game.AI.Decks
                     {
                         tempCardsId.AddRange(best_field_cardsId);
                         tempCardsId.AddRange(best_spsummon_cardsid_0);
+                    }
+                }
+                if (state == State.Remove)
+                {
+                    tempCardsId.AddRange(best_remove_cardsid_0);
+                    if ((selectZone & CardLocation.Grave) > 0)
+                    {
+                        tempCardsId.AddRange(new List<int>
+                        {
+                            77238051,
+                        });
                     }
                 }
             }
@@ -587,6 +718,7 @@ namespace WindBot.Game.AI.Decks
                     }
                 }
             }
+            tempCardsId = tempCardsId.Distinct().ToList();
             return tempCardsId;
         }
         private IList<ClientCard> CardsIdToClientCards(IList<int> cardsId, IList<ClientCard> cardsList, bool uniqueId = true, bool alias = true)
@@ -626,47 +758,78 @@ namespace WindBot.Game.AI.Decks
             List<ClientCard> res = new List<ClientCard>();
             List<ClientCard> temp = new List<ClientCard>();
             if (cards.Count <= 0) return res;
+            List<int> NoOpCardsId = GetZoneNoOperateCardsId(state, selectZone);
+            List<ClientCard> NoOpCards = CardsIdToClientCards(NoOpCardsId, cards, false).ToList();
             if ((selectZone & CardLocation.Hand) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.Hand).ToList();
+                temp = cards.Where(card => card != null && card.Location == CardLocation.Hand && !NoOpCards.Contains(card)).ToList();
                 res.AddRange(temp);
             }
             if ((selectZone & CardLocation.MonsterZone) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.MonsterZone && (card.IsDisabled() || card.IsFacedown() || !(!card.IsFaceup() & isFaceup) && !(IsShouldNotBeTarget(card) & target) && !(no_imm_cardsid.Contains(card.Id) & !(state == State.Rule)
+                temp = cards.Where(card => card != null &&  !NoOpCards.Contains(card) && card.Location == CardLocation.MonsterZone && (card.IsDisabled() || card.IsFacedown() || !(!card.IsFaceup() & isFaceup) && !(IsShouldNotBeTarget(card) & target) && !(no_imm_cardsid.Contains(card.Id) & !(state == State.Rule)
                 && !(no_con_cardsid.Contains(card.Id) & (state == State.Control))
                  && !(no_e_destory_cardsid.Contains(card.Id) & (state == State.Destory))))).ToList();
+                if (state != State.Rule)
+                {
+                    temp = temp.Where(card => card != null && (card.IsDisabled() || CheckOther(card))).ToList();
+                }
                 res.AddRange(temp);
+
             }
             if ((selectZone & CardLocation.SpellZone) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.SpellZone && (card.IsDisabled() || card.IsFacedown() || !(!card.IsFaceup() & isFaceup) && !(IsShouldNotBeTarget(card) & target) && !(no_imm_cardsid.Contains(card.Id) & !(state == State.Rule)
+                temp = cards.Where(card => card != null && !NoOpCards.Contains(card) && card.Location == CardLocation.SpellZone && (card.IsDisabled() || card.IsFacedown() || !(!card.IsFaceup() & isFaceup) && !(IsShouldNotBeTarget(card) & target) && !(no_imm_cardsid.Contains(card.Id) & !(state == State.Rule)
                 && !(no_con_cardsid.Contains(card.Id) & (state == State.Control))
                 && !(no_e_destory_cardsid.Contains(card.Id) & (state == State.Destory))))).ToList();
+                if (state != State.Rule)
+                {
+                    temp = temp.Where(card => card != null && (card.IsDisabled() || CheckOther(card))).ToList();
+                }
                 res.AddRange(temp);
             }
             if ((selectZone & CardLocation.Grave) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.Grave).ToList();
+                temp = cards.Where(card => card != null && !NoOpCards.Contains(card) && card.Location == CardLocation.Grave).ToList();
                 res.AddRange(temp);
             }
             if ((selectZone & CardLocation.Removed) > 0)
             {
-                temp = cards.Where(card => card != null && !(!card.IsFaceup() & isFaceup) && card.Location == CardLocation.Removed).ToList();
+                temp = cards.Where(card => card != null && !NoOpCards.Contains(card) && !(!card.IsFaceup() & isFaceup) && card.Location == CardLocation.Removed).ToList();
                 res.AddRange(temp);
             }
             if ((selectZone & CardLocation.Deck) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.Deck).ToList();
+                temp = cards.Where(card => card != null && !NoOpCards.Contains(card) && card.Location == CardLocation.Deck).ToList();
                 res.AddRange(temp);
             }
             if ((selectZone & CardLocation.Extra) > 0)
             {
-                temp = cards.Where(card => card != null && card.Location == CardLocation.Extra).ToList();
+                temp = cards.Where(card => card != null && !NoOpCards.Contains(card) && card.Location == CardLocation.Extra).ToList();
                 res.AddRange(temp);
             }
             res = res.Distinct().ToList();
             return res;
+        }
+        private bool CheckOther(ClientCard card)
+        {
+            if (card.HasSetcode(0xa160) && Card.HasSetcode(0xa70)) return false;
+            if (((CardType)Card.Type & (CardType.Spell | CardType.Trap)) > 0)
+            {
+                List<int> immCardsId = new List<int>()
+                {
+                    77238052,
+                };
+                if (immCardsId.Contains(card.Id)) return false;
+            }
+            if (((CardType)Card.Type & (CardType.Monster)) > 0)
+            {
+                List<int> immCardsId = new List<int>()
+                {
+                };
+                if (immCardsId.Contains(card.Id)) return false;
+            }
+            return true;
         }
         List<ClientCard> copyCards = new List<ClientCard>();
         /// <summary>
@@ -704,7 +867,7 @@ namespace WindBot.Game.AI.Decks
             List<ClientCard> defaultCards = GetDefaultCards(selectZone,player,state,isFaceup,target,firstMonster,inversion);
             List<int> cardsid = GetZoneBestCardsId(selectZone, toLoc, player, state);
             if (cardsid.Count <= 0) return defaultSelect ? defaultCards : res;
-            if(cardsid.Count() > 0) resid.AddRange(cardsid);
+            if(cardsid.Count > 0) resid.AddRange(cardsid);
             resid = resid.Distinct().ToList();
             List<ClientCard> zoneCards = copyCards.Count > 0 ? new List<ClientCard>(copyCards) : GetZoneCards(selectZone, player);
             res = CardsIdToClientCards(cardsid, zoneCards, false).ToList();
@@ -747,16 +910,46 @@ namespace WindBot.Game.AI.Decks
             return res;
 
         }
+        private bool CheckSetCode(int setcode, int cardsid)
+        {
+            if (setcode == 0xa160)
+            {
+                List<int> sui_hun = new List<int>() { };
+                for (int keyId = 77238040; keyId < 77238064; ++keyId)
+                {
+                    sui_hun.Add(keyId);
+                }
+                if (sui_hun.Contains(cardsid)) return true;
+            }
+            return false;
+        }
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
             copyCards.Clear();
             if (isSelect)
             {
                 isSelect = false;
+                if (state == State.Spsummon || state == State.MoveToField || state == State.Summon)
+                {
+                    if (GetZoneCards(CardLocation.Onfield, Enemy).Count(card => card != null
+                      && card.IsFaceup() && !card.IsDisabled() && card.HasSetcode(0xa70))>0
+                        && GetZoneCards(CardLocation.Onfield | CardLocation.Hand, Bot).Count(card => card != null
+                      && (card.Location&CardLocation.Onfield)>0 ? !card.IsDisabled(): true && card.HasSetcode(0xa70) &&
+                      ((card.Location & CardLocation.Hand) > 0 ? card.HasType(CardType.Spell | CardType.Trap) : true)) <= 0)
+                    {
+                        List<ClientCard> res = cards.Where(card => card != null && CheckSetCode(0xa160,card.Id)).ToList();
+                        if (res.Count >= 0)
+                        {
+                            res.Sort(CardContainer.CompareCardAttack);
+                            res.Reverse();
+                            return Util.CheckSelectCount(res, cards, min, max);
+                        } 
+                    }
+                }
                 copyCards = new List<ClientCard>(cards);
                 List<ClientCard> opCards = GetZoneOperateCards();
                 copyCards.Clear();
-                if (opCards.Count>0) return Util.CheckSelectCount(opCards, cards, min, max);
+                if (opCards.Count > 0) return Util.CheckSelectCount(opCards, cards, min, max);
                 List<ClientCard> eCards = cards.Where(card => card != null && card.Controller != 0).ToList();
                 List<ClientCard> mCards = cards.Where(card => card != null && card.Controller == 0).ToList();
                 if (player == 1)
@@ -832,6 +1025,32 @@ namespace WindBot.Game.AI.Decks
             ResetFlag();
             return base.OnSelectCard(cards, min, max, hint, cancelable);
         }
+        private bool HasForbear(ClientCard ccard)
+        {
+            if (ccard == null) return false;
+            if (GetZoneCards(CardLocation.Onfield, Enemy).Count(card => card != null
+                     && card.IsFaceup() && !card.IsDisabled() && card.HasSetcode(0xa70)) > 0
+                       && GetZoneCards(CardLocation.Onfield | CardLocation.Hand, Bot).Count(card => card != null
+                     && (card.Location & CardLocation.Onfield) > 0 ? !card.IsDisabled() : true && card.HasSetcode(0xa70)
+                      && ((card.Location & CardLocation.Hand) > 0 ? card.HasType(CardType.Spell | CardType.Trap) : true)) <= 0)
+            {
+                return ccard.HasSetcode(0xa160);
+            }
+            return false;
+        }
+        private bool HasDisForber(ClientCard ccard)
+        {
+            if (ccard == null) return false;
+            if (GetZoneCards(CardLocation.Onfield, Enemy).Count(card => card != null
+                    && card.IsFaceup() && !card.IsDisabled() && card.HasSetcode(0xa160)) > 0
+                      || GetZoneCards(CardLocation.Onfield, Bot).Count(card => card != null
+                    && card.IsFaceup() && !card.IsDisabled() && card.HasSetcode(0xa160)) > 0)
+            {
+                return ccard.HasSetcode(0xa70);
+            }
+            return false;
+        }
+
         private void ClearFlag()
         {
                 state_2 = 0;
@@ -1024,9 +1243,19 @@ namespace WindBot.Game.AI.Decks
         {
             return _Activate();
         }
+        private bool isShouldDisable(ClientCard card)
+        {
+            if (card == null) return true;
+            if (card.Controller == 0) return false;
+            if (card.IsDisabled()) return true;
+            if (no_imm_cardsid.Contains(card.Id) || no_disabled_cardsid.Contains(card.Id)) return false;
+            return true;
+        }
         //效果发动
         private bool _Activate()
         {
+            //if (HasForbear(Card)) return true;
+            //if (HasDisForber(Card)) return false;
             if (Card.IsDisabled() && !no_disabled_cardsid.Contains(Card.Id)) return false;
             if (!FieldActivate(Card)) return false;
             if ((Card.Location == CardLocation.Hand || ((Card.Location == CardLocation.SpellZone || Card.Location == CardLocation.FieldZone) && Card.IsFacedown()))
@@ -1036,6 +1265,44 @@ namespace WindBot.Game.AI.Decks
             }
             switch (Card.Id)
             {
+                case 77238100:
+                    SetState(State.EffectRelease, CardLocation.Grave, CardLocation.MonsterZone,0,false,true);
+                    return true;
+                case 77238065:
+                    SetState(State.Spsummon, CardLocation.MonsterZone,CardLocation.Grave,0,false,true,false,true,true,true);
+                    return true;
+                case 77238062:
+                    if (Duel.Phase==DuelPhase.Standby)
+                    {
+                        SetState(State.Spsummon, CardLocation.MonsterZone, CardLocation.Deck | CardLocation.Hand | CardLocation.Grave, 0,false,true,false,true,true,true);
+                    }
+                    return true;
+                case 77238059:
+                    ClientCard card = Util.GetLastChainCard();
+                    if (card == null) return false;
+                    if (card.Controller == 0)
+                    {
+                        SetState(0, 0, 0, 1, true, true);
+
+                    }
+                    else
+                    {
+                        SetState(0, 0, 0, 0, true,true);
+                    }
+                    return true;
+                case 77238057:
+                    SetState(State.Spsummon, CardLocation.MonsterZone, CardLocation.Deck,0,false,true,false,true,true,true);
+                    return true;
+                case 77238053:
+                    SetState(State.Control, CardLocation.MonsterZone, CardLocation.MonsterZone, 1,true,true,false);
+                    return true;
+                case 77238052:
+                    if (Duel.Phase >= DuelPhase.Battle)
+                    {
+                        SetState(State.Destory, CardLocation.Grave, CardLocation.MonsterZone, 1,false,true);
+                        return true;
+                    }
+                    return true;
                 case 77238042:
                     SetState(State.Destory, CardLocation.Grave, CardLocation.MonsterZone,1,false,true);
                     return true;
@@ -1043,8 +1310,12 @@ namespace WindBot.Game.AI.Decks
                     SetState(0,CardLocation.Deck,CardLocation.Deck,0,false,true,false,false);
                     return true;
                 case 77238022: //地缚神 欧西科(ZCG)
+                    if (!hasField(true)) return false;
                     if (ActivateDescription == Util.GetStringId(77238022, 1))
                     {
+                        ClientCard chaincard77238022 = Util.GetLastChainCard();
+                        if (chaincard77238022 == null) return false;
+                        if (!isShouldDisable(chaincard77238022)) return false;
                         List<ClientCard> card77238022 = Bot.GetMonsters().Where(_card77238022 => _card77238022 != null && _card77238022 != Card).ToList();
                         copyCards = new List<ClientCard>(card77238022);
                         SetState(State.EffectRelease, CardLocation.Grave, CardLocation.MonsterZone, 0, false, false, false, true);
@@ -1059,23 +1330,20 @@ namespace WindBot.Game.AI.Decks
                     }
                     return true;
                 case 77238051:
-                    //if (ActivateDescription == Util.GetStringId(77238051, 0))
-                    //{
-                    //    isSelect = true;
-                    //    SetState(State.DisCard, CardLocation.Grave, CardLocation.Hand, 0, false);
-                    //    List<ClientCard> cards =  CardsIdToClientCards(GetZoneOperateCardsId(selectZone, toLoc,Bot,state),Bot.GetHands(),false).ToList();
-                    //    if (cards.Count > 0)
-                    //    {
-                    //        SetState(State.SendToHand, CardLocation.Hand, CardLocation.Deck, 0, false);
-                    //        List<ClientCard> dcards = CardsIdToClientCards(GetZoneOperateCardsId(selectZone, toLoc, Bot, state), Bot.GetHands(), false).ToList();
-                    //        if (dcards.Count > 0)
-                    //        {
-                    //            isSelect = true;
-                    //            AI.SelectCard(cards);
-                    //            AI.SelectNextCard(dcards);
-                    //        }
-                    //    }
-                    //}
+                    if (ActivateDescription == Util.GetStringId(77238051, 0))
+                    {
+                        SetState(State.DisCard,CardLocation.Grave,CardLocation.Hand,0,false,true,false);
+                        List<int> cardsId = GetZoneBestCardsId();
+                        if (cardsId.Count <= 0)
+                        {
+                            if ((Bot.GetHandCount() - GetZoneNoOperateCardsId().Count) <= 0)
+                            {
+                                ClearFlag();
+                                return false;
+                            }
+                        }
+                        SetState_2(State.SendToHand, CardLocation.Hand, CardLocation.Deck,0,false,true,false,false);
+                    }
                     return true; 
                 case 77238046:
                     if (Card.Location == CardLocation.Grave)
@@ -1190,9 +1458,9 @@ namespace WindBot.Game.AI.Decks
                     return true;
                 case 77238009:
                     SetState(State.SendToDeck, CardLocation.Deck, CardLocation.Hand, 0, false);
-                    List<ClientCard> card = GetZoneOperateCards(false, false, false);
-                    if (card.Count <= 0) return false;
-                    AI.SelectCard(card);
+                    List<ClientCard> card77238009 = GetZoneOperateCards(false, false, false);
+                    if (card77238009.Count <= 0) return false;
+                    AI.SelectCard(card77238009);
                     return false;
                 case 77238015:
                     if ((Bot.GetMonsterCount() < Enemy.GetMonsterCount() && GetBestPlayer(true) != 0)
@@ -1208,6 +1476,7 @@ namespace WindBot.Game.AI.Decks
                     SetState_2(State.Spsummon, CardLocation.MonsterZone, CardLocation.Hand | CardLocation.Deck | CardLocation.Grave, 0, false, true,false,true,true,true);
                     return true;
                 default:
+                    ClearFlag();
                     return true;
             }
         }
@@ -1259,20 +1528,23 @@ namespace WindBot.Game.AI.Decks
         private bool _SpSummon_1()
         {
             if (!SpSummon_1.Contains(Card.Id)) return false;
-            return _Summon();
+            return _SpSummon();
         }
         private bool _SpSummon_2()
         {
             if (!SpSummon_2.Contains(Card.Id)) return false;
-            return _Summon();
+            return _SpSummon();
         }
         private bool _SpSummon_3()
         {
-            return _Summon();
+            return _SpSummon();
         }
         //特殊召唤怪兽
         private bool _SpSummon()
         {
+            ClearFlag();
+            if (HasForbear(Card)) return true;
+            if (HasDisForber(Card)) return false;
             switch (Card.Id)
             {
                 case 77238045://碎魂者 铁爪死神(ZCG)
@@ -1338,6 +1610,9 @@ namespace WindBot.Game.AI.Decks
         //召唤怪兽
         private bool _Summon()
         {
+            ClearFlag();
+            if (HasForbear(Card)) return true;
+            if (HasDisForber(Card)) return Card.Level < 5;
             if (summon_no_release_cardsid.Contains(Card.Id)) return true;
             switch (Card.Id)
             {
