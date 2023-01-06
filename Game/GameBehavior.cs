@@ -226,7 +226,7 @@ namespace WindBot.Game
                 deck.Write(card);
             Connection.Send(deck);
             /////diy/////
-            if (Game.Username.Contains("·"))
+            if (Game.Username.Contains("·") && !Game.Username.Contains("ZCG"))
             {
                 _ai.Prompting();
             }

@@ -75,6 +75,7 @@
     <Compile Include="Game\AI\Decks\KHope.cs" />
     <Compile Include="Game\AI\Decks\KNumeron.cs" />
     <Compile Include="Game\AI\Decks\Kperfectdicky.cs" />
+    <Compile Include="Game\AI\Decks\Mode_ModeDT1Executor.cs" />
     <Compile Include="Game\AI\Decks\Mode_ZCGExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_ALHGExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_CangqiongExecutor.cs" />
@@ -183,6 +184,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Decks\AI_Mode.ydk" />
+    <None Include="Decks\AI_ModeDT1.ydk" />
     <None Include="LICENSE">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

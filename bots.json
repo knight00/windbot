@@ -599,6 +599,13 @@
         "deck": "Mode",
         "dialog": "ZZ",
         "difficulty": 1,
-        "masterRules": [ 3]
+        "masterRules": [ 3 ]
+    },
+    {
+        "name": "暗痣人",
+        "deck": "ModeDT1",
+        "dialog": "default",
+        "difficulty": 1,
+        "masterRules": [ 3 ]
     }
 ]
