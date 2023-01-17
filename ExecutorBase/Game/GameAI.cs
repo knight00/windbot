@@ -49,9 +49,9 @@ namespace WindBot.Game
         }
       
         /////diy/////
-        public void Prompting()
+        public void Prompting(int index)
         {
-            _dialogs.SendDownloadPrompt();
+            _dialogs.SendDownloadPrompt(index);
         }
         /////diy/////
         

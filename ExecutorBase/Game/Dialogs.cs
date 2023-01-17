@@ -93,10 +93,22 @@ namespace WindBot.Game.AI
                 InternalSendMessageForced(_deckerror, card);
         }
         ///// diy/////
-        public void SendDownloadPrompt()
+        public void SendDownloadPrompt(int index)
         {
-            InternalSendMessageForced(new[] { "提示-本人机需先下载额外卡包（人机用卡包+ZCG卡包）解压至KCG主目录才可进行决斗！！！"});
-            InternalSendMessageForced(new[] { "详情请在KCG群文件中查找下载！！！" }); 
+            switch (index)
+            {
+                case 0:
+                    InternalSendMessageForced(new[] { "提示-本人机需先下载额外卡包（人机用卡包+ZCG卡包）解压至KCG主目录才可进行决斗！！！" });
+                    InternalSendMessageForced(new[] { "详情请在KCG群文件中查找下载！！！" });
+                    break;
+                case 1:
+                    InternalSendMessageForced(new[] { "模式指定人机【殉道者】|【六芒星】暂无法使用，暂未对指定卡片进行转换写入" });
+                    InternalSendMessageForced(new[] { "模式ZCG万能人机仍在完善中，因人力原因，全部完成大概需几月左右时间，敬请期待！" });
+                    break;
+                default:
+                    break;
+            }
+
         }
         ///// diy/////
         public void SendWelcome()

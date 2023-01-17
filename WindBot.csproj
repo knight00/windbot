@@ -75,7 +75,7 @@
     <Compile Include="Game\AI\Decks\KHope.cs" />
     <Compile Include="Game\AI\Decks\KNumeron.cs" />
     <Compile Include="Game\AI\Decks\Kperfectdicky.cs" />
-    <Compile Include="Game\AI\Decks\Mode_ModeDT1Executor.cs" />
+    <Compile Include="Game\AI\Decks\Mode_DT1Executor.cs" />
     <Compile Include="Game\AI\Decks\Mode_ZCGExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_ALHGExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_CangqiongExecutor.cs" />

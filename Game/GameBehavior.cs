@@ -226,10 +226,8 @@ namespace WindBot.Game
                 deck.Write(card);
             Connection.Send(deck);
             /////diy/////
-            if (Game.Username.Contains("·") && !Game.Username.Contains("ZCG"))
-            {
-                _ai.Prompting();
-            }
+            if (Game.Username.Contains("·") && !Game.Username.Contains("ZCG")) _ai.Prompting(0);
+            if(Game.Username.Contains("ZCG")) _ai.Prompting(1);
             /////diy/////
             _ai.OnJoinGame();
         }

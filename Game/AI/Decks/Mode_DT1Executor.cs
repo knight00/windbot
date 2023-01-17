@@ -8,7 +8,7 @@ using WindBot.Game.AI;
 namespace WindBot.Game.AI.Decks
 {
     [Deck("ModeDT1", "AI_ModeDT1")]
-    class Mode_ModeDT1Executor : DefaultExecutor
+    class Mode_DT1Executor : DefaultExecutor
     {
         public class CardId
         {
@@ -31,8 +31,9 @@ namespace WindBot.Game.AI.Decks
 
             public const int Bingjie = 100000155;
         }
+        bool MODE_RULE_5DS_DARK_TUNER = true;
         bool summon = false;
-            public Mode_ModeDT1Executor(GameAI ai, Duel duel)
+            public Mode_DT1Executor(GameAI ai, Duel duel)
        : base(ai, duel)
         {
             AddExecutor(ExecutorType.SpSummon, CardId.Bingjie, BingjieSummon);
@@ -47,19 +48,34 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Quanliyiji, QuanliyijiEffect);
             AddExecutor(ExecutorType.Activate, CardId.DT, DTEffect);
             AddExecutor(ExecutorType.Activate, CardId.Dawang);
-            AddExecutor(ExecutorType.Activate, CardId.Xueren, XuerenEffect);
+            //AddExecutor(ExecutorType.Activate, CardId.Xueren, XuerenEffect);
             AddExecutor(ExecutorType.Summon, CardId.DT, DTsummon);
             AddExecutor(ExecutorType.MonsterSet, CardId.Xueren, () => { summon = true;return true; });
-            AddExecutor(ExecutorType.MonsterSet, CardId.Chuan, DSet);
+            if (!MODE_RULE_5DS_DARK_TUNER)
+            {
+                AddExecutor(ExecutorType.MonsterSet, CardId.Chuan, DSet);
+            }
             AddExecutor(ExecutorType.Summon, CardId.Chuan, Dsummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Longxia, DSet);
+            if (!MODE_RULE_5DS_DARK_TUNER)
+            {
+                AddExecutor(ExecutorType.MonsterSet, CardId.Longxia, DSet);
+            }
             AddExecutor(ExecutorType.Summon, CardId.Longxia, Dsummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Dawang, DSet);
+            if (!MODE_RULE_5DS_DARK_TUNER)
+            {
+                AddExecutor(ExecutorType.MonsterSet, CardId.Dawang, DSet);
+            }
             AddExecutor(ExecutorType.Summon, CardId.Dawang, Dsummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Xiyi, DSet);
+            if (!MODE_RULE_5DS_DARK_TUNER)
+            {
+                AddExecutor(ExecutorType.MonsterSet, CardId.Xiyi, DSet);
+            }
             AddExecutor(ExecutorType.Summon, CardId.Xiyi, Dsummon);
             AddExecutor(ExecutorType.Summon, CardId.Gui, Guisummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Gui, DSet);
+            if (!MODE_RULE_5DS_DARK_TUNER)
+            {
+                AddExecutor(ExecutorType.MonsterSet, CardId.Gui, DSet);
+            }
             AddExecutor(ExecutorType.Repos, _Repos);
             AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
         }
@@ -77,8 +93,7 @@ namespace WindBot.Game.AI.Decks
             if (e >= b)
             {
                 if (Data.Attack >= e) return CardPosition.FaceUpAttack;
-                if(Bot.HasInSpellZone(CardId.Hepingshizhe,true,true) && e >= 1900)
-                return CardPosition.FaceUpAttack;
+                if(Bot.HasInSpellZone(CardId.Hepingshizhe,true,true) && e >= 1900) return CardPosition.FaceUpAttack;
                 return CardPosition.FaceUpDefence;
             }
             return base.OnSelectPosition(cardId, positions);
@@ -125,6 +140,7 @@ namespace WindBot.Game.AI.Decks
             if (Bot.HasInExtra(CardId.Bingjie) && Bot.GetMonsters().Count(card => card != null
              && card.Level == 3) > 0 && Bot.HasInGraveyard(CardId.DT))
             {
+                select = true;
                 AI.SelectCard(CardId.DT);
                 return true;
             }
@@ -136,6 +152,7 @@ namespace WindBot.Game.AI.Decks
                  && _card.Level == 3).ToList();
                 if (cards.Count > 0)
                 {
+                    select = true;
                     AI.SelectCard(cards);
                     return true;
                 }
@@ -149,6 +166,7 @@ namespace WindBot.Game.AI.Decks
                 if (b <= e && e > 1900) res = true;
                 if (res)
                 {
+                    select = true;
                     AI.SelectCard(CardId.Gui);
                     return true;
                 }
@@ -158,6 +176,7 @@ namespace WindBot.Game.AI.Decks
             int count = Bot.GetGraveyard().Count(card => card != null && cardsId.Contains(card.Id));
             if (count <= 0) return false;
             AI.SelectCard(cardsId);
+            select = true;
             return true;
         }
         private bool BingjieSummon()
@@ -169,15 +188,30 @@ namespace WindBot.Game.AI.Decks
         {
             ClientCard card = Util.GetBestEnemyCard();
             if (card != null) AI.SelectCard(card);
+            select = true;
             return true;
         }
+        bool select = false;
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
+        {
+            if (select) { select = false; return null; }
+            if (cards.Any(card=>card != null && card.Location==CardLocation.MonsterZone))
+            {
+                XueRen = false;
+                List<ClientCard> mcards = cards.Where(card => card != null && card.Controller == 0).ToList();
+                List<ClientCard> ecards = cards.Where(card => card != null && card.Controller != 0).ToList();
+                ecards.Sort(CardContainer.CompareCardAttack);
+                ecards.Reverse();
+                mcards.Sort(CardContainer.CompareCardAttack);
+                ecards.AddRange(mcards);
+                return Util.CheckSelectCount(ecards, cards, min, max);
+            }
+            return base.OnSelectCard(cards, min, max, hint, cancelable);
+        }
+        bool XueRen = false;
         private bool XuerenEffect()
         {
-            List<ClientCard> cards = Enemy.GetMonsters().Where(card => card != null && card.IsFaceup() && !card.IsShouldNotBeTarget()).ToList();
-            if (cards.Count <= 0) { AI.SelectCard(Card); return true; };
-            cards.Sort(CardContainer.CompareCardAttack);
-            cards.Reverse();
-            AI.SelectCard(cards);
+            XueRen = true;
             return true;
         }
         private bool _Repos()
@@ -186,12 +220,14 @@ namespace WindBot.Game.AI.Decks
             {
                 List<ClientCard> cards = Enemy.GetMonsters().Where(card => card != null && card.IsFaceup() && !card.IsShouldNotBeTarget()).ToList();
                 if (cards?.Count <= 0) return false;
+                return true;
             }
             return DefaultMonsterRepos();
         }
         private bool BingjingEffect()
         {
             AI.SelectCard(CardId.Chuan, CardId.Longxia);
+            select = true;
             return true;
         }
         private IList<ClientCard> CardsIdToClientCards(IList<int> cardsId, IList<ClientCard> cardsList, bool uniqueId = true, bool alias = true)
@@ -277,6 +313,7 @@ namespace WindBot.Game.AI.Decks
             int count = Bot.GetHands().Count(card => card != null
             && cardsId.Contains(card.Id));
             if (count <= 0) return false;
+            select = true;
             AI.SelectCard(cardsId);
             return true;
         }
@@ -285,6 +322,7 @@ namespace WindBot.Game.AI.Decks
             if (Bot.HasInMonstersZone(CardId.Bingjie, false, false, true))
             {
                 AI.SelectCard(CardId.Bingjie);
+                select = true;
                 return true;
             }
             int b_attack = Util.GetBestAttack(Bot);
@@ -306,6 +344,7 @@ namespace WindBot.Game.AI.Decks
         private bool DengjiEffect()
         {
             if (!SpellActivate(Card.Id)) return false;
+            select = true; 
             return true;
         }
         private bool DituEffect()
@@ -314,11 +353,13 @@ namespace WindBot.Game.AI.Decks
             if (Bot.HasInExtra(CardId.Bingjie) && !Bot.HasInHandOrHasInMonstersZone(CardId.DT)
                 && CheckRemainInDeck(CardId.DT) > 0)
             {
+                select = true;
                 AI.SelectCard(CardId.DT);
                 return true;
             }
             if (CheckRemainInDeck(CardId.Xueren) > 0)
             {
+                select = true;
                 AI.SelectCard(CardId.Xueren);
                 return true;
             }
