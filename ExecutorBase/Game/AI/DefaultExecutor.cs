@@ -120,6 +120,8 @@ namespace WindBot.Game.AI
 
             //////kdiy/////////////////
             public const int qianyannajishen = 63519819;
+            public const int GR_WC = 62015408;
+            public const int Honest = 37742478;
             //////kdiy/////////////////
         }
 
@@ -346,12 +348,9 @@ namespace WindBot.Game.AI
                 //}
             }
 
-            if (Card.HasXyzMaterial(1, 10))
+            if (Card.HasXyzMaterial(1, 10) && Bot.GetRealMonsters().Count() > 0)
             {
-                List<ClientCard> Oricamonster = Bot.GetMonsters();
-                List<ClientCard> Oricamonster2 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard mon in Oricamonster2)
-                    Oricamonster.Add(mon);
+                List<ClientCard> Oricamonster = Bot.GetRealMonsters();
                 ClientCard topmon = Oricamonster.GetHighestAttackMonster();
                 Oricamonster.Remove(topmon);
                 Oricamonster.Sort(CardContainer.CompareCardAttack);
@@ -769,6 +768,91 @@ namespace WindBot.Game.AI
             }
             return tributecount <= 0;
         }
+
+        ///////kdiy/////////
+        protected bool Summonplace()
+        {
+            if(Bot.GetMonsters().GetHighestAttackMonster() != null && Bot.GetMonsters().GetHighestAttackMonster().GetDefensePower() > Card.Attack)
+            {
+                if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
+                {
+                    for (int i = 4; i >= 0; --i)
+                    {
+                        if (Bot.SpellZone[i] == null)
+                        {
+                            int place = (int)System.Math.Pow(2, i) * 256;
+                            AI.SelectPlace(place);
+                            AI.SelectPosition(CardPosition.FaceUpAttack);
+                            return true;
+                        }
+                    }
+                }
+            }
+            if(Enemy.GetMonsterCount() == 0 || !Util.IsOneEnemyBetterThanValue(Card.Attack, false))
+                AI.SelectPosition(CardPosition.FaceUpAttack);
+            else
+                AI.SelectPosition(CardPosition.FaceUpDefence);
+            return DefaultMonsterSummon();
+        }
+
+        protected bool Advancesummon()
+        {
+            if (Card.IsCode(_CardId.AshBlossom, _CardId.GhostOgreAndSnowRabbit, _CardId.GR_WC, _CardId.GhostBelle, 67750322, _CardId.EffectVeiler, _CardId.Honest, 18964575, 19665973, 27204311, _CardId.GamecieltheSeaTurtleKaiju))
+                return false;
+            if (Card.Level > 4 && Bot.GetRealMonsters() != null && Bot.GetRealMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack < 1000 && card.BaseAttack > 1000)) > 0)
+            {
+                List<ClientCard> monster_sorted = new List<ClientCard>();
+                IList<ClientCard> monsters = Bot.GetRealMonsters().GetMatchingCards(card => card.Level > 0 || card.IsDisabled() || (card.Attack < 1000 && card.BaseAttack > 1000));
+                monster_sorted.AddRange(monsters);
+                monster_sorted.Sort(CardContainer.CompareCardAttack);
+                List<ClientCard> tribute = new List<ClientCard>();
+                foreach (ClientCard monster in monster_sorted)
+                {
+                    if (!monster.HasType(CardType.Xyz | CardType.Link) || monster.IsDisabled() || (monster.Attack == 0 && monster.BaseAttack > 0))
+                        tribute.Add(monster);
+                }
+                if (tribute.Count > 0)
+                    AI.SelectMaterials(tribute);
+            }
+
+            ClientCard card_ex_left = Enemy.MonsterZone[6];
+            ClientCard card_ex_right = Enemy.MonsterZone[5];
+            if (card_ex_left != null && card_ex_left.IsCode(1948619) && Card.HasSetcode(0x8))
+                AI.SelectPlace(Zones.z1);
+            else if (card_ex_right != null && card_ex_left.IsCode(1948619) && Card.HasSetcode(0x8))
+                AI.SelectPlace(Zones.z3);
+            else if ((card_ex_left != null && card_ex_left.IsCode(1948619)) || (card_ex_right != null && card_ex_left.IsCode(1948619)))
+                AI.SelectPlace(Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6);
+            else
+                Summonplace();
+            return DefaultMonsterSummon();
+        }
+
+        protected bool Spellset()
+        {
+            if (Card.HasType(CardType.QuickPlay) && Duel.Player == 0 && Duel.Phase == DuelPhase.Main2)
+                return Bot.GetSpellCountWithoutField() < 4;
+            return !Card.HasType(CardType.QuickPlay) && DefaultSpellSet();
+        }
+
+        protected bool MonsterRepos()
+        {
+            if (!Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
+                return true;
+            if (Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
+                return false;
+            return DefaultMonsterRepos();
+        }
+
+        protected bool Hand_act_eff()
+        {
+            if (Card.IsCode(_CardId.AshBlossom) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+                return false;
+            if (Card.IsCode(_CardId.GhostOgreAndSnowRabbit) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(_CardId.GhostOgreAndSnowRabbit))
+                return false;
+            return Duel.LastChainPlayer == 1;
+        }
+        ///////kdiy/////////
 
         /// <summary>
         /// Activate when we have no field.

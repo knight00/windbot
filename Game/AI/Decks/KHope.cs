@@ -13,15 +13,8 @@ namespace WindBot.Game.AI.Decks
     {
         public class CardId
         {
-            public const int AB_JS = 14558127;
-            public const int GO_SR = 59438930;
-            public const int GR_WC = 62015408;
-            public const int GB_HM = 73642296;
-            public const int EffectVeiler = 97268402;
-
             public const int StarDrawing = 24610207;
             public const int Goblindbergh = 25259669;
-            public const int Honest = 37742478;
             public const int GagagaLeader = 511015114;
             public const int GagagaMagician = 511013003;
             public const int GagagaGuard = 12423762;
@@ -110,14 +103,14 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, 98);
             activatem.Add(98);
 
-            AddExecutor(ExecutorType.Activate, CardId.AB_JS, Hand_act_eff);
-            activatem.Add(CardId.AB_JS);
-            AddExecutor(ExecutorType.Activate, CardId.GB_HM, Hand_act_eff);
-            activatem.Add(CardId.GB_HM);
-            AddExecutor(ExecutorType.Activate, CardId.GO_SR, Hand_act_eff);
-            activatem.Add(CardId.GO_SR);
-            AddExecutor(ExecutorType.Activate, CardId.GR_WC, Hand_act_eff);
-            activatem.Add(CardId.GR_WC);
+            AddExecutor(ExecutorType.Activate, _CardId.AshBlossom, Hand_act_eff);
+            activatem.Add(_CardId.AshBlossom);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostBelle, Hand_act_eff);
+            activatem.Add(_CardId.GhostBelle);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostOgreAndSnowRabbit, Hand_act_eff);
+            activatem.Add(_CardId.GhostOgreAndSnowRabbit);
+            AddExecutor(ExecutorType.Activate, _CardId.GR_WC, Hand_act_eff);
+            activatem.Add(_CardId.GR_WC);
             AddExecutor(ExecutorType.Activate, 67750322, Hand_act_eff);
             activatem.Add(67750322);
             AddExecutor(ExecutorType.Activate, 18964575, Hand_act_eff);
@@ -128,8 +121,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(27204311);
             AddExecutor(ExecutorType.Activate, 55063751, Hand_act_eff);
             activatem.Add(55063751);
-            AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, DefaultEffectVeiler);
-            activatem.Add(CardId.EffectVeiler);
+            AddExecutor(ExecutorType.Activate, _CardId.EffectVeiler, DefaultEffectVeiler);
+            activatem.Add(_CardId.EffectVeiler);
 
             AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
             activatem.Add(CardId.DarkHole);
@@ -146,7 +139,7 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Summon, CardId.Dondondon, Summonplace);
             AddExecutor(ExecutorType.Summon, CardId.GagagaLeader, GagagaLeader);
             AddExecutor(ExecutorType.Summon, CardId.StarDrawing, Summonplace);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Honest, Honest);
+            AddExecutor(ExecutorType.MonsterSet, _CardId.Honest, Honest);
             AddExecutor(ExecutorType.SummonOrSet, CardId.ZwTornadoBringer, () => false);
             AddExecutor(ExecutorType.SummonOrSet, CardId.ZwLightningBlade, () => false);
 
@@ -172,8 +165,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.GagagaMagician);
             AddExecutor(ExecutorType.Activate, CardId.GagagaKing, GagagaKingEffect);
             activatem.Add(CardId.GagagaKing);
-            AddExecutor(ExecutorType.Activate, CardId.Honest, DefaultHonestEffect);
-            activatem.Add(CardId.Honest);
+            AddExecutor(ExecutorType.Activate, _CardId.Honest, DefaultHonestEffect);
+            activatem.Add(_CardId.Honest);
             AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
             activatem.Add(CardId.MysticalSpaceTyphoon);
 
@@ -597,90 +590,6 @@ namespace WindBot.Game.AI.Decks
                 CardId.NumberS39UtopiaOne,
                 CardId.NumberS39UtopiatheLightning
                 );
-        }
-
-        private bool Summonplace()
-        {
-            if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
-            {
-                for (int i = 4; i >= 0; --i)
-                {
-                    if (Bot.SpellZone[i] == null)
-                    {
-                        int place = (int)System.Math.Pow(2, i) * 256;
-                        AI.SelectPlace(place);
-                        return true;
-                    }
-                }
-                return true;
-            }
-            return true;
-        }
-
-        private bool Advancesummon()
-        {
-            if (Card.IsCode(CardId.AB_JS, CardId.GO_SR, CardId.GR_WC, CardId.GB_HM, 67750322, CardId.EffectVeiler, CardId.Honest, 18964575, 19665973, 27204311, 55063751))
-                return false;
-            if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
-            {
-                List<ClientCard> monster_sorted = new List<ClientCard>();
-                List<ClientCard> monster_sorted0 = new List<ClientCard>();
-                IList<ClientCard> monster_sorted01 = Bot.MonsterZone.GetMonsters();
-                IList<ClientCard> monster_sorted02 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard monster in monster_sorted01)
-                    monster_sorted.Add(monster);
-                foreach (ClientCard monster in monster_sorted02)
-                    monster_sorted.Add(monster);
-                foreach (ClientCard card in monster_sorted)
-                {
-                    if (card.IsDisabled() || (card.Attack < card.BaseAttack - 500))
-                    {
-                        monster_sorted.Remove(card);
-                        monster_sorted0.Add(card);
-                    }
-                }
-                monster_sorted.AddRange(monster_sorted0);
-                monster_sorted0.Sort(CardContainer.CompareCardAttack);
-                List<ClientCard> tribute = new List<ClientCard>();
-                foreach (ClientCard monster in monster_sorted0)
-                {
-                    if (monster.Rank < 1 || monster.IsDisabled() || (monster.Attack == 0 && monster.BaseAttack > 0))
-                        tribute.Add(monster);
-                    else continue;
-                }
-                if (tribute.Count == 0)
-                    return false;
-                AI.SelectMaterials(tribute);
-            }
-
-            Summonplace();
-            AI.SelectPosition(CardPosition.FaceUpDefence);
-            return true;
-        }
-
-        private bool Spellset()
-        {
-            if (Card.HasType(CardType.QuickPlay) && Duel.Player == 0 && Duel.Phase == DuelPhase.Main2)
-                return Bot.GetSpellCountWithoutField() < 4;
-            return !Card.HasType(CardType.QuickPlay) && DefaultSpellSet();
-        }
-
-        private bool MonsterRepos()
-        {
-            if (!Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
-                return true;
-            if (Card.IsAttack() && (Card.HasXyzMaterial() || !Bot.IsFieldEmpty()) && !Card.IsDisabled())
-                return false;
-            return base.DefaultMonsterRepos();
-        }
-
-        public bool Hand_act_eff()
-        {
-            if (Card.IsCode(CardId.AB_JS) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
-                return false;
-            if (Card.IsCode(CardId.GO_SR) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.GO_SR))
-                return false;
-            return (Duel.LastChainPlayer == 1);
         }
 
         private bool FNo0_Slash()

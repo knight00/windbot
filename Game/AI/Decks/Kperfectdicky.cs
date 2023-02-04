@@ -59,10 +59,6 @@ namespace WindBot.Game.AI.Decks
             public const int Kunquery = 52927340;
             public const int Marionetter = 53143898;
             public const int Multifaker = 42790071;
-            public const int AB_JS = 14558127;
-            public const int GO_SR = 59438930;
-            public const int GR_WC = 62015408;
-            public const int GB_HM = 73642296;
             public const int Silquitous = 89538537;
             public const int MaxxC = 23434538;
             public const int Meluseek = 25533642;
@@ -127,7 +123,6 @@ namespace WindBot.Game.AI.Decks
             public const int WhiteStoneOfAncients = 71039903;
             public const int WhiteStoneOfLegend = 79814787;
             public const int SageWithEyesOfBlue = 8240199;
-            public const int EffectVeiler = 97268402;
             public const int GalaxyCyclone = 5133471;
             public const int HarpiesFeatherDuster = 18144506;
             public const int ReturnOfTheDragonLords = 6853254;
@@ -155,7 +150,6 @@ namespace WindBot.Game.AI.Decks
             public const int DeviritualTalismandra = 80701178;
             public const int ManguOfTheTenTousandHands = 95492061;
             public const int DevirrtualCandoll = 53303460;
-            public const int AshBlossom = 14558127;
             public const int BlueEyesChaosMaxDragon = 55410871;
             public const int CreatureSwap = 31036355;
             public const int TheMelodyOfAwakeningDragon = 48800175;
@@ -284,7 +278,6 @@ namespace WindBot.Game.AI.Decks
             public const int StarDrawing = 24610207;
             public const int SacredCrane = 30914564;
             public const int Goblindbergh = 25259669;
-            public const int Honest = 37742478;
             public const int Kagetokage = 94656263;
             public const int HeroicChallengerExtraSword = 34143852;
             public const int TinGoldfish = 18063928;
@@ -356,9 +349,6 @@ namespace WindBot.Game.AI.Decks
             public const int Number41BagooskaTheTerriblyTiredTapir = 90590303;
             public const int MekkKnightCrusadiaAstram = 21887175;
             public const int ScrapWyvern = 47363932;
-
-            public const int GhostOgreAndSnowRabbit = 59438930;
-            public const int GhostBelle = 73642296;
             public const int SmashingGround = 97169186;
 
 
@@ -420,9 +410,9 @@ namespace WindBot.Game.AI.Decks
         List<int> cards_improper = new List<int>
         {
             0,CardId.WakingtheDragon, CardId.SolemnStrike, CardId.Spoofing,   CardId.OneForOne, CardId.PotofDesires,
-            CardId.Manifestation, CardId.SecretVillage, CardId.ImperialOrder,   _CardId.HarpiesFeatherDuster, CardId.GR_WC,
-            CardId.Protocol, CardId.SolemnJudgment, CardId.Storm, CardId.GO_SR, CardId.Silquitous,
-            CardId.MaxxC,  CardId.Impermanence, CardId.Meluseek,   CardId.AB_JS, CardId.Kunquery,
+            CardId.Manifestation, CardId.SecretVillage, CardId.ImperialOrder,   _CardId.HarpiesFeatherDuster, _CardId.GR_WC,
+            CardId.Protocol, CardId.SolemnJudgment, CardId.Storm, _CardId.GhostOgreAndSnowRabbit, CardId.Silquitous,
+            CardId.MaxxC,  CardId.Impermanence, CardId.Meluseek, _CardId.AshBlossom, CardId.Kunquery,
             CardId.Marionetter, CardId.Multifaker
         };
 
@@ -430,7 +420,7 @@ namespace WindBot.Game.AI.Decks
         {
             53262004, 98338152, 32617464, 45041488, CardId.SolemnStrike,
             61257789, 23440231, 27354732, 12408276, 82419869, CardId.Impermanence,
-            49680980, 18621798, 38814750, 17266660, 94689635,CardId.AB_JS,
+            49680980, 18621798, 38814750, 17266660, 94689635, _CardId.AshBlossom,
             74762582, 75286651, 4810828,  44665365, 21123811, _CardId.CrystalWingSynchroDragon,
             82044279, 82044280, 79606837, 10443957, 1621413,  CardId.Protocol,
             90809975, 8165596,  9753964,  53347303, 88307361, _CardId.GamecieltheSeaTurtleKaiju,
@@ -652,14 +642,14 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Protocol, Protocol_activate_not_use);
             activatem.Add(CardId.Protocol);
 
-            AddExecutor(ExecutorType.Activate, CardId.AB_JS, Hand_act_eff);
-            activatem.Add(CardId.AB_JS);
-            AddExecutor(ExecutorType.Activate, CardId.GB_HM, Hand_act_eff);
-            activatem.Add(CardId.GB_HM);
-            AddExecutor(ExecutorType.Activate, CardId.GO_SR, Hand_act_eff);
-            activatem.Add(CardId.GO_SR);
-            AddExecutor(ExecutorType.Activate, CardId.GR_WC, GR_WC_activate);
-            activatem.Add(CardId.GR_WC);
+            AddExecutor(ExecutorType.Activate, _CardId.AshBlossom, Hand_act_eff);
+            activatem.Add(_CardId.AshBlossom);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostBelle, Hand_act_eff);
+            activatem.Add(_CardId.GhostBelle);
+            AddExecutor(ExecutorType.Activate, _CardId.GhostOgreAndSnowRabbit, Hand_act_eff);
+            activatem.Add(_CardId.GhostOgreAndSnowRabbit);
+            AddExecutor(ExecutorType.Activate, _CardId.GR_WC, GR_WC_activate);
+            activatem.Add(_CardId.GR_WC);
             AddExecutor(ExecutorType.Activate, 67750322, Hand_act_eff);
             activatem.Add(67750322);
             AddExecutor(ExecutorType.Activate, 18964575, Hand_act_eff);
@@ -713,7 +703,7 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.OneForOne);
             AddExecutor(ExecutorType.Summon, CardId.Meluseek, Meluseek_summon);
             AddExecutor(ExecutorType.Summon, CardId.Marionetter, Marionetter_summon);
-            AddExecutor(ExecutorType.Summon, CardId.GR_WC, tuner_summon);
+            AddExecutor(ExecutorType.Summon, _CardId.GR_WC, tuner_summon);
             AddExecutor(ExecutorType.SpSummon, CardId.Needlefiber, Needlefiber_ss);
             spsummonm.Add(CardId.Needlefiber);
             AddExecutor(ExecutorType.SpSummon, CardId.Borrelsword, Borrelsword_ss);
@@ -863,14 +853,13 @@ namespace WindBot.Game.AI.Decks
 
             //BlueEyesMaxDragonExecutor
             //counter
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossom, DefaultAshBlossomAndJoyousSpring);
-            activatem.Add(CardId.AshBlossom);
+            AddExecutor(ExecutorType.Activate, _CardId.AshBlossom, DefaultAshBlossomAndJoyousSpring);
+            activatem.Add(_CardId.AshBlossom);
             AddExecutor(ExecutorType.Activate, CardId.MaxxC, MaxxCeff);
             AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, DefaultInfiniteImpermanence);
             activatem.Add(CardId.InfiniteImpermanence);
             AddExecutor(ExecutorType.Activate, CardId.CalledByTheGrave, CalledByTheGraveeff);
             activatem.Add(CardId.CalledByTheGrave);
-            activatem.Add(CardId.UpstartGoblin);
             AddExecutor(ExecutorType.Activate, CardId.BlueEyesAlternativeWhiteDragon, BlueEyesAlternativeWhiteDragoneff);
             activatem.Add(CardId.BlueEyesAlternativeWhiteDragon);
             AddExecutor(ExecutorType.Activate, CardId.CreatureSwap, CreatureSwapeff);
@@ -964,8 +953,8 @@ namespace WindBot.Game.AI.Decks
             
             //DarkMagicianExecutor
             //counter
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossom, ChainEnemy);
-            activatem.Add(CardId.AshBlossom);
+            AddExecutor(ExecutorType.Activate, _CardId.AshBlossom, ChainEnemy);
+            activatem.Add(_CardId.AshBlossom);
             AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragoneff);
             activatem.Add(CardId.CrystalWingSynchroDragon);
             AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin, UpstartGoblineff);
@@ -1211,8 +1200,8 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.Kagetokage);
             AddExecutor(ExecutorType.Activate, CardId.SummonerMonk, SummonerMonkEffect);
             activatem.Add(CardId.SummonerMonk);
-            AddExecutor(ExecutorType.Activate, CardId.Honest, DefaultHonestEffect);
-            activatem.Add(CardId.Honest);
+            AddExecutor(ExecutorType.Activate, _CardId.Honest, DefaultHonestEffect);
+            activatem.Add(_CardId.Honest);
             
             // Spummon GaiaDragonTheThunderCharger if Volcasaurus or ZwLionArms had been used
             AddExecutor(ExecutorType.SpSummon, CardId.GaiaDragonTheThunderCharger);
@@ -1397,11 +1386,11 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Scapegoat, DefaultScapegoat);
             activatem.Add(CardId.Scapegoat);
             AddExecutor(ExecutorType.Activate, _CardId.GhostOgreAndSnowRabbit, DefaultGhostOgreAndSnowRabbit);
-            activatem.Add(CardId.GhostOgreAndSnowRabbit);
+            activatem.Add(_CardId.GhostOgreAndSnowRabbit);
             AddExecutor(ExecutorType.Activate, _CardId.GhostBelle, DefaultGhostBelleAndHauntedMansion);
-            activatem.Add(CardId.GhostBelle);
+            activatem.Add(_CardId.GhostBelle);
             AddExecutor(ExecutorType.Activate, _CardId.EffectVeiler, DefaultEffectVeiler);
-            activatem.Add(CardId.EffectVeiler);
+            activatem.Add(_CardId.EffectVeiler);
             AddExecutor(ExecutorType.Activate, _CardId.SmashingGround, DefaultSmashingGround);
             activatem.Add(CardId.SmashingGround);
             AddExecutor(ExecutorType.Activate, _CardId.AllureofDarkness, DefaultAllureofDarkness);
@@ -1995,80 +1984,6 @@ namespace WindBot.Game.AI.Decks
             return null;
         }
 
-        private bool Summonplace()
-        {
-            if (Bot.GetFieldSpellCard() != null && Bot.GetFieldSpellCard().HasXyzMaterial(1, 10))
-            {
-                for (int i = 4; i >= 0; --i)
-                {
-                    if (Bot.SpellZone[i] == null)
-                    {
-                        int place = (int)System.Math.Pow(2, i) * 256;
-                        AI.SelectPlace(place);
-                        return true;
-                    }
-                }
-                return true;
-            }
-            return true;
-        }
-
-        private bool Advancesummon()
-        {
-            if (Card.IsCode(CardId.AB_JS, CardId.GO_SR, CardId.GR_WC, CardId.GB_HM, 67750322, CardId.EffectVeiler, CardId.Honest, 18964575, 19665973, 27204311, 55063751))
-                return false;
-            if (Card.Level > 4 && DefaultMonsterSummon() && (Bot.MonsterZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0 || Bot.SpellZone.GetMonsters().GetMatchingCardsCount(card => card.Level > 0 || card.IsDisabled() || (card.Attack == 0 && card.BaseAttack > 0)) > 0))
-            {
-                List<ClientCard> monster_sorted = new List<ClientCard>();
-                List<ClientCard> monster_sorted0 = new List<ClientCard>();
-                IList<ClientCard> monster_sorted01 = Bot.MonsterZone.GetMonsters();
-                IList<ClientCard> monster_sorted02 = Bot.SpellZone.GetMonsters();
-                foreach (ClientCard monster in monster_sorted01)
-                    monster_sorted.Add(monster);
-                foreach (ClientCard monster in monster_sorted02)
-                    monster_sorted.Add(monster);
-                foreach (ClientCard card in monster_sorted)
-                {
-                    if (card.IsDisabled() || (card.Attack < card.BaseAttack - 500))
-                    {
-                        monster_sorted.Remove(card);
-                        monster_sorted0.Add(card);
-                    }
-                }
-                monster_sorted.AddRange(monster_sorted0);
-                monster_sorted0.Sort(CardContainer.CompareCardAttack);
-                List<ClientCard> tribute = new List<ClientCard>();
-                foreach (ClientCard monster in monster_sorted0)
-                {
-                    if (monster.Rank < 1 || monster.IsDisabled() || (monster.Attack == 0 && monster.BaseAttack > 0))
-                        tribute.Add(monster);
-                    else continue;
-                }
-                if (tribute.Count == 0)
-                    return false;
-                AI.SelectMaterials(tribute);
-            }
-
-            ClientCard card_ex_left = Enemy.MonsterZone[6];
-            ClientCard card_ex_right = Enemy.MonsterZone[5];
-            if (card_ex_left != null && card_ex_left.IsCode(CardId.SHeroAdvance) && Card.HasSetcode(0x8))
-                AI.SelectPlace(Zones.z1);
-            else if (card_ex_right != null && card_ex_left.IsCode(CardId.SHeroAdvance) && Card.HasSetcode(0x8))
-                AI.SelectPlace(Zones.z3);
-            else if ((card_ex_left != null && card_ex_left.IsCode(CardId.SHeroAdvance)) || (card_ex_right != null && card_ex_left.IsCode(CardId.SHeroAdvance)))
-                AI.SelectPlace(Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6);
-            else Summonplace();
-            AI.SelectPosition(CardPosition.FaceUpDefence);
-            return true;
-        }
-
-        private bool Spellset()
-        {
-            if (Card.HasType(CardType.QuickPlay) && Duel.Player == 0 && Duel.Phase == DuelPhase.Main2)
-                return Bot.GetSpellCountWithoutField() < 4;
-            return !Card.HasType(CardType.QuickPlay) && DefaultSpellSet();
-        }
-
         private bool FNo0_Slash()
         {
             return false;
@@ -2630,10 +2545,10 @@ namespace WindBot.Game.AI.Decks
         {
             if (target == null) target = Card;
             if (target.Location != CardLocation.SpellZone && target.Location != CardLocation.Hand) return true;
-            if (Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !Bot.HasInHandOrHasInMonstersZone(CardId.GO_SR) && !isCounter && !Bot.HasInSpellZone(CardId.SolemnStrike)) return false;
+            if (Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !Bot.HasInHandOrHasInMonstersZone(_CardId.GhostOgreAndSnowRabbit) && !isCounter && !Bot.HasInSpellZone(CardId.SolemnStrike)) return false;
             if (target.IsSpell())
             {
-                if (Enemy.HasInMonstersZone(CardId.NaturalBeast, true) && !Bot.HasInHandOrHasInMonstersZone(CardId.GO_SR) && !isCounter && !Bot.HasInSpellZone(CardId.SolemnStrike)) return false;
+                if (Enemy.HasInMonstersZone(CardId.NaturalBeast, true) && !Bot.HasInHandOrHasInMonstersZone(_CardId.GhostOgreAndSnowRabbit) && !isCounter && !Bot.HasInSpellZone(CardId.SolemnStrike)) return false;
                 if (Enemy.HasInSpellZone(CardId.ImperialOrder, true) || Bot.HasInSpellZone(CardId.ImperialOrder, true)) return false;
                 if (Enemy.HasInMonstersZone(CardId.SwordsmanLV7, true) || Bot.HasInMonstersZone(CardId.SwordsmanLV7, true)) return false;
                 return true;
@@ -2916,9 +2831,9 @@ namespace WindBot.Game.AI.Decks
                     _CardId.HarpiesFeatherDuster,
                     CardId.PotofDesires,
                     CardId.OneForOne,
-                    CardId.GO_SR,
-                    CardId.AB_JS,
-                    CardId.GR_WC,
+                    _CardId.GhostOgreAndSnowRabbit,
+                    _CardId.AshBlossom,
+                    _CardId.GR_WC,
                     CardId.MaxxC,
                     CardId.Spoofing,
                     CardId.SolemnJudgment,
@@ -3058,15 +2973,6 @@ namespace WindBot.Game.AI.Decks
                 }
             }
             return true;
-        }
-
-        public bool Hand_act_eff()
-        {
-            if (Card.IsCode(CardId.AB_JS) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
-                return false;
-            if (Card.IsCode(CardId.GO_SR) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.GO_SR))
-                return false;
-            return (Duel.LastChainPlayer == 1);
         }
 
         public bool WakingtheDragon_eff()
@@ -4330,10 +4236,10 @@ namespace WindBot.Game.AI.Decks
             if (!Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.Meluseek) && !Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.Multifaker))
             {
                 AI.SelectCard(
-                    CardId.GR_WC,
+                    _CardId.GR_WC,
                     CardId.MaxxC,
                     CardId.Kunquery,
-                    CardId.GO_SR
+                    _CardId.GhostOgreAndSnowRabbit
                     );
                 if (Util.IsTurn1OrMain2()) AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
@@ -4341,10 +4247,10 @@ namespace WindBot.Game.AI.Decks
             if (!summoned && !Meluseek_searched && !Bot.HasInHand(CardId.Marionetter))
             {
                 AI.SelectCard(
-                    CardId.GR_WC,
+                    _CardId.GR_WC,
                     CardId.MaxxC,
                     CardId.Kunquery,
-                    CardId.GO_SR
+                    _CardId.GhostOgreAndSnowRabbit
                     );
                 return true;
             }
@@ -4777,9 +4683,9 @@ namespace WindBot.Game.AI.Decks
         public bool Needlefiber_eff()
         {
             AI.SelectCard(
-                CardId.GR_WC,
-                CardId.GO_SR,
-                CardId.AB_JS
+                _CardId.GR_WC,
+                _CardId.GhostOgreAndSnowRabbit,
+                _CardId.AshBlossom
                 );
             return true;
         }
@@ -5006,7 +4912,7 @@ namespace WindBot.Game.AI.Decks
                 CardId.DragonSpiritOfWhite,
                 CardId.WhiteStoneOfLegend,
                 CardId.GalaxyCyclone,
-                CardId.EffectVeiler,
+                _CardId.EffectVeiler,
                 CardId.TradeIn,
                 CardId.SageWithEyesOfBlue
                 );
@@ -5152,7 +5058,7 @@ namespace WindBot.Game.AI.Decks
             }
             AI.SelectCard(
                 CardId.WhiteStoneOfAncients,
-                CardId.EffectVeiler,
+                _CardId.EffectVeiler,
                 CardId.WhiteStoneOfLegend
                 );
             return true;
@@ -5739,9 +5645,9 @@ namespace WindBot.Game.AI.Decks
                         AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
                     return UniqueFaceupSpell();
                 }
-                if (lastCard.IsCode(CardId.AshBlossom))
+                if (lastCard.IsCode(_CardId.AshBlossom))
                 {
-                    AI.SelectCard(CardId.AshBlossom);
+                    AI.SelectCard(_CardId.AshBlossom);
                     if (Util.ChainContainsCard(CardId.TheMelodyOfAwakeningDragon))
                         AI.SelectNextCard(CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesChaosMaxDragon, CardId.BlueEyesAlternativeWhiteDragon);
                     return UniqueFaceupSpell();

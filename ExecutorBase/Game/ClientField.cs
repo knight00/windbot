@@ -170,6 +170,24 @@ namespace WindBot.Game
         {
             return GetCards(MonsterZone);
         }
+        ///kdiy///
+        public List<ClientCard> GetRealMonsters()
+        {
+            List<ClientCard> monsters = new List<ClientCard>();
+            foreach (ClientCard card in GetMonsters())
+            {
+                if(card.EquipTarget == null && (!(card.HasType(CardType.Spell | CardType.Trap)) || (card.HasType(CardType.TrapMonster) && card.HasType(CardType.Monster))))
+                    monsters.Add(card);
+            }
+            foreach (ClientCard card in GetSpells())
+            {
+                if(card.EquipTarget == null && (!(card.HasType(CardType.Spell | CardType.Trap)) || (card.HasType(CardType.TrapMonster) && card.HasType(CardType.Monster))))
+                    monsters.Add(card);
+            }
+            if (monsters.Count() <= 0) monsters = null;
+            return monsters;
+        }
+        ///kdiy///
         public List<ClientCard> GetGraveyardMonsters()
         {
             return GetCards(Graveyard, CardType.Monster);
