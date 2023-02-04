@@ -226,7 +226,7 @@ namespace WindBot.Game
                 deck.Write(card);
             Connection.Send(deck);
             /////diy/////
-            if (Game.Username.Contains("·") && !Game.Username.Contains("ZCG")) _ai.Prompting(0);
+            if(Game.Username.Contains("·") && !Game.Username.Contains("ZCG")) _ai.Prompting(0);
             if(Game.Username.Contains("ZCG")) _ai.Prompting(1);
             /////diy/////
             _ai.OnJoinGame();
@@ -1248,6 +1248,8 @@ namespace WindBot.Game
 
         private void OnSelectDisfield(BinaryReader packet)
         {
+            //ygo/////////
+            //OnSelectPlace(packet);
             packet.ReadByte(); // player
             packet.ReadByte(); // TODO: min
             int field = ~packet.ReadInt32();
@@ -1338,6 +1340,7 @@ namespace WindBot.Game
             BinaryWriter reply = GamePacketFactory.Create(CtosMessage.Response);
             reply.Write(resp);
             Connection.Send(reply);
+            //ygo/////////
         }
 
         private void OnSelectEffectYn(BinaryReader packet)

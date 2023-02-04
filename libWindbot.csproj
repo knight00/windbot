@@ -64,6 +64,7 @@
     <Compile Include="Game\AI\Decks\GX_PJSSExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_SFExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_XYExecutor.cs" />
+    <Compile Include="Game\AI\Decks\KashtiraExecutor.cs" />
     <Compile Include="Game\AI\Decks\LuckyExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesMaxDragonExecutor.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Game\AI\Decks\LightswornExecutor.cs" />
     <Compile Include="Game\AI\Decks\LightswornShaddoldinosourExecutor.cs" />
     <Compile Include="Game\AI\Decks\MathMechExecutor.cs" />
+    <Compile Include="Game\AI\Decks\Mode_DT1Executor.cs" />
+    <Compile Include="Game\AI\Decks\Mode_ZCGExecutor.cs" />
     <Compile Include="Game\AI\Decks\MokeyMokeyExecutor.cs" />
     <Compile Include="Game\AI\Decks\MokeyMokeyKingExecutor.cs" />
     <Compile Include="Game\AI\Decks\NA_ALHGExecutor.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Game\AI\Decks\SkyStrikerExecutor.cs" />
     <Compile Include="Game\AI\Decks\ST1732Executor.cs" />
     <Compile Include="Game\AI\Decks\SwordsoulExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ThunderDragonExecutor.cs" />
     <Compile Include="Game\AI\Decks\TimeThiefExecutor.cs" />
     <Compile Include="Game\AI\Decks\ToadallyAwesomeExecutor.cs" />
     <Compile Include="Game\AI\Decks\TrickstarExecutor.cs" />
