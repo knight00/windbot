@@ -117,10 +117,6 @@ namespace WindBot
             Info.Deck = Config.GetString("Deck", Info.Deck);
             Info.DeckFile = Config.GetString("DeckFile", Info.DeckFile);
             Info.Dialog = Config.GetString("Dialog", Info.Dialog);
-            ////////kdiy///////
-            Info.Deckfolder = Config.GetString("Deckfolder", Info.Deckfolder);
-            Info.Deckpath = Config.GetString("Deckpath", Info.Deckpath);
-            ////////kdiy///////
             Info.Host = Config.GetString("Host", Info.Host);
             Info.Port = Config.GetInt("Port", Info.Port);
             Info.HostInfo = Config.GetString("HostInfo", Info.HostInfo);
@@ -183,14 +179,6 @@ namespace WindBot
                     string dialog = HttpUtility.ParseQueryString(RawUrl).Get("dialog");
                     if (dialog != null)
                         Info.Dialog = dialog;
-                    /////////kdiy//////
-                    string deckfolder = HttpUtility.ParseQueryString(RawUrl).Get("deckfolder");
-                    if (deckfolder != null)
-                        Info.Deckfolder = deckfolder;                      
-                    string deckpath = HttpUtility.ParseQueryString(RawUrl).Get("deckpath");
-                    if (deckpath != null)
-                        Info.Deckpath = deckpath;  
-                    /////////kdiy//////
                     string version = HttpUtility.ParseQueryString(RawUrl).Get("version");
                     if (version != null)
                         Info.Version = Int16.Parse(version);
@@ -209,7 +197,7 @@ namespace WindBot
                     //////kdiy////////
                     string seed = HttpUtility.ParseQueryString(RawUrl).Get("seed");
                     if (seed != null)
-                        Info.Seed = Int32.Parse(seed);   
+                        Info.Seed = Int32.Parse(seed);
                     //////kdiy////////
 
                     if (Info.Name == null || Info.Host == null || port == null)

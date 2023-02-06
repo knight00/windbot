@@ -33,10 +33,6 @@ namespace WindBot
         public string Deck { get; set; }
         public string DeckFile { get; set; }
         public string Dialog { get; set; }
-        /////////kdiy/////
-        public string Deckfolder { get; set; }
-        public string Deckpath { get; set; }
-        /////////kdiy/////       
         public string Host { get; set; }
         public int Port { get; set; }
         public string HostInfo { get; set; }
@@ -44,9 +40,9 @@ namespace WindBot
         public int Hand { get; set; }
         public bool Debug { get; set; }
         public bool Chat { get; set; }
-        /////////kdiy/////       
+        /////////kdiy/////
         public int Seed { get; set; }
-        /////////kdiy/////       
+        /////////kdiy/////
         public int RoomId { get; set; }
         public CreateGameInfo CreateGame { get; set; }
         public WindBotInfo()
@@ -55,10 +51,6 @@ namespace WindBot
             Deck = null;
             DeckFile = null;
             Dialog = "default";
-            /////////kdiy/////
-            Deckfolder = "";
-            Deckpath = "";
-            /////////kdiy/////           
             Host = "127.0.0.1";
             Port = 7911;
             HostInfo = "";
@@ -66,9 +58,9 @@ namespace WindBot
             Hand = 0;
             Debug = false;
             Chat = true;
-            /////////kdiy/////  
-            Seed = 0;     
-            /////////kdiy/////       
+            /////////kdiy/////
+            Seed = 0;
+            /////////kdiy/////
             RoomId = 0;
             CreateGame = null;
         }

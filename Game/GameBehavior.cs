@@ -75,10 +75,7 @@ namespace WindBot.Game
                 Logger.WriteLine("Custom deck provided, loading: " + Game.DeckFile + ".");
             ////kdiy///////
             //Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck);
-            if (game.Deckfolder == "")
-                Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck, game.Deckpath, game.Seed);
-            else
-                Deck = Deck.Load(_ai.Executor.Deck, game.Deckfolder + "/" + game.Deckpath, game.Seed);
+            Deck = Deck.Load(Game.DeckFile ?? _ai.Executor.Deck, game.Seed);
             ////kdiy///////
 
             _select_hint = 0;

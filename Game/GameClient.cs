@@ -17,10 +17,8 @@ namespace WindBot.Game
         public string DeckFile;
         public string Dialog;
         ///////////kdiy///////
-        public string Deckfolder;
-        public string Deckpath;
         public int Seed;
-        ///////////kdiy///////  
+        ///////////kdiy///////
         public int Hand;
         public bool Debug;
         public bool _chat;
@@ -40,15 +38,11 @@ namespace WindBot.Game
             Deck = Info.Deck;
             DeckFile = Info.DeckFile;
             Dialog = Info.Dialog;
-            //////////kdiy///////
-            Deckfolder = Info.Deckfolder;
-            Deckpath = Info.Deckpath;
-            //////////kdiy/////// 
             Hand = Info.Hand;
             Debug = Info.Debug;
             _chat = Info.Chat;
             //////////kdiy///////
-            Seed = Info.Seed;    
+            Seed = Info.Seed;
             //////////kdiy///////
             RoomId = Info.RoomId;
             CreateGame = Info.CreateGame;

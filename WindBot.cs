@@ -49,12 +49,6 @@ namespace WindBot
             [DataMember]
             public string Dialog { get; set; }
             [DataMember]
-            /////kdiy////////	
-            public string Deckfolder { get; set; }
-            [DataMember]
-            public string Deckpath { get; set; }
-            [DataMember]
-            /////kdiy////////	
             public string Host { get; set; }
             [DataMember]
             public string Port { get; set; }
@@ -87,10 +81,6 @@ namespace WindBot
                 if (data.Deck != null) Info.Deck = data.Deck;
                 if (data.DeckFile != null) Info.DeckFile = data.DeckFile;
                 if (data.Dialog != null) Info.Dialog = data.Dialog;
-                /////////kdiy/////////
-                if (data.Deckfolder != null) Info.Deckfolder = data.Deckfolder;
-                if (data.Deckpath != null) Info.Deckpath = data.Deckpath;
-                /////////kdiy/////////
                 if (data.Port != null) Info.Port = int.Parse(data.Port);
                 if (data.Hand != null) Info.Hand = int.Parse(data.Hand);
                 if (data.Host != null) Info.Host = data.Host;

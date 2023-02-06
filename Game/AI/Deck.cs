@@ -30,20 +30,13 @@ namespace WindBot.Game
 
         ////kdiy/////////
         //public static Deck Load(string name)
-        public static Deck Load(string name,string deckpath,int seed)
+        public static Deck Load(string name, int seed)
         ////kdiy/////////
         {
             StreamReader reader = null;
             Deck deck = new Deck();
             try
             {
-                ////////kdiy///////
-                if (name.Contains("AI_perfectdicky")) {
-                string path = Path.Combine(Program.AssetPath, @"..");
-                reader = new StreamReader(new FileStream(Path.Combine(path, "deck/", deckpath + ".ydk"), FileMode.Open, FileAccess.Read));
-                }
-                else
-                ////////kdiy///////
                 reader = new StreamReader(new FileStream(Path.IsPathRooted(name) ? name : Path.Combine(Program.AssetPath, "Decks/", name + ".ydk"), FileMode.Open, FileAccess.Read));
 
                 bool main = true;
