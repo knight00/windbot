@@ -63,13 +63,13 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.Activate, CardId.Cyclone, OtherSpellEffect);
             activatem.Add(CardId.Cyclone);
 
-            AddExecutor(ExecutorType.SpSummon, 602, Summonplace);
+            AddExecutor(ExecutorType.SpSummon, 602, DefaultMonsterSummon);
             spsummonm.Add(602);
-            AddExecutor(ExecutorType.SpSummon, 603, Summonplace);
+            AddExecutor(ExecutorType.SpSummon, 603, DefaultMonsterSummon);
             spsummonm.Add(603);
-            AddExecutor(ExecutorType.Activate, 603, Summonplace);
+            AddExecutor(ExecutorType.Activate, 603, DefaultMonsterSummon);
             activatem.Add(603);
-            AddExecutor(ExecutorType.SpSummon, 612, Summonplace);
+            AddExecutor(ExecutorType.SpSummon, 612, DefaultMonsterSummon);
             spsummonm.Add(612);
             AddExecutor(ExecutorType.SpSummon, CardId.CNo1, CNo1);
             spsummonm.Add(CardId.CNo1);
@@ -110,11 +110,11 @@ namespace WindBot.Game.AI.Decks
 
             activatem.Add(CardId.TreasureDraw);
             activatem.Add(157);
-            AddExecutor(ExecutorType.SpSummon, () =>!spsummonm.Contains(Card.Id) && Summonplace());
+            AddExecutor(ExecutorType.SpSummon, () =>!spsummonm.Contains(Card.Id) && DefaultMonsterSummon());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.Summon, () => Advancesummon() && !Card.IsCode(13711));
+            AddExecutor(ExecutorType.Summon, () => DefaultMonsterSummon() && !Card.IsCode(13711));
             // Reposition
             AddExecutor(ExecutorType.Repos, MonsterRepos);
             AddExecutor(ExecutorType.SpellSet, Spellset);
@@ -159,11 +159,65 @@ namespace WindBot.Game.AI.Decks
             No1annouce = 0;
         }
 
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        {
+            if (player == 0)
+            {
+                YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get((int)cardId);
+                if (cardData != null && (location & CardLocation.SpellZone) == CardLocation.SpellZone)
+                {
+                    ClientCard field = Bot.GetFieldSpellCard();
+                    if (cardData.HasType(CardType.Monster) && field != null && !field.IsDisabled() && (field.HasXyzMaterial(1, 10) || field.IsCode(10)) && available > 0xff)
+                    {
+                        if ((available & Zones.z3 << 8) > 0)
+                            return Zones.z3 << 8;
+                        if ((available & Zones.z2 << 8) > 0)
+                            return Zones.z2 << 8;
+                        if ((available & Zones.z1 << 8) > 0)
+                            return Zones.z1 << 8;
+                        if ((available & Zones.z4 << 8) > 0)
+                            return Zones.z4 << 8;
+                        if ((available & Zones.z0 << 8) > 0)
+                            return Zones.z0 << 8;
+                    }
+                    else if (location == CardLocation.SpellZone)
+                    {
+                        if ((available & Zones.z4) > 0)
+                            return Zones.z4;
+                        if ((available & Zones.z3) > 0)
+                            return Zones.z3;
+                        if ((available & Zones.z2) > 0)
+                            return Zones.z2;
+                        if ((available & Zones.z1) > 0)
+                            return Zones.z1;
+                        if ((available & Zones.z0) > 0)
+                            return Zones.z0;
+                    }
+                }
+                else if (location == CardLocation.MonsterZone)
+                {
+                    ClientCard card_ex_left = Enemy.MonsterZone[6];
+                    ClientCard card_ex_right = Enemy.MonsterZone[5];
+                    if (cardData != null && card_ex_left != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
+                        return Zones.z1;
+                    else if (cardData != null && card_ex_right != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
+                        return Zones.z3;
+                    else if ((card_ex_left != null && card_ex_left.IsCode(1948619)) || (card_ex_right != null && card_ex_left.IsCode(1948619)))
+                        return Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6;
+                    else
+                        return available & ~Bot.GetLinkedZones();
+                }
+            }
+            return base.OnSelectPlace(cardId, player, location, available);
+        }
+
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
+                if (Card.Location == CardLocation.SpellZone)
+                    return CardPosition.FaceUpAttack;
                 if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !(cardData.HasType(CardType.Xyz) && !Card.IsDisabled()))
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;

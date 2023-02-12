@@ -478,8 +478,6 @@ namespace WindBot.Game.AI.Decks
             activatem.Add(CardId.DPhenoix);
 
             //Dragun
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, DefaultAshBlossomAndJoyousSpring);
-            activatem.Add(CardId.AshBlossomJoyousSpring);
             AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
             activatem.Add(CardId.SolemnStrike);
             AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesCounter);
@@ -1456,11 +1454,11 @@ namespace WindBot.Game.AI.Decks
 
             activatem.Add(CardId.TreasureDraw);
             activatem.Add(157);
-            AddExecutor(ExecutorType.SpSummon, ()=>!spsummonm.Contains(Card.Id) && Advancesummon());
+            AddExecutor(ExecutorType.SpSummon, ()=>!spsummonm.Contains(Card.Id) && DefaultMonsterSummon());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherSpellEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherTrapEffect());
             AddExecutor(ExecutorType.Activate, ()=>!activatem.Contains(Card.Id) && OtherMonsterEffect());
-            AddExecutor(ExecutorType.SummonOrSet, Advancesummon);
+            AddExecutor(ExecutorType.SummonOrSet, DefaultMonsterSummon);
             AddExecutor(ExecutorType.SpellSet, Spellset);
             AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
 
@@ -1550,6 +1548,134 @@ namespace WindBot.Game.AI.Decks
             base.OnNewTurn();
         }
 
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
+        {
+            if (player == 0)
+            {
+                YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get((int)cardId);
+                if (cardData != null && (location & CardLocation.SpellZone) == CardLocation.SpellZone)
+                {
+                    ClientCard field = Bot.GetFieldSpellCard();
+                    if (cardData.HasType(CardType.Monster) && field != null && !field.IsDisabled() && (field.HasXyzMaterial(1, 10) || field.IsCode(10)) && available > 0xff)
+                    {
+                        if ((available & Zones.z3 << 8) > 0)
+                            return Zones.z3 << 8;
+                        if ((available & Zones.z2 << 8) > 0)
+                            return Zones.z2 << 8;
+                        if ((available & Zones.z1 << 8) > 0)
+                            return Zones.z1 << 8;
+                        if ((available & Zones.z4 << 8) > 0)
+                            return Zones.z4 << 8;
+                        if ((available & Zones.z0 << 8) > 0)
+                            return Zones.z0 << 8;
+                    }
+                    else if (location == CardLocation.SpellZone)
+                    {
+                        if (cardId == CardId.MekkKnightCrusadiaAstram || cardId == CardId.ScrapWyvern || cardId == CardId.CrystronNeedlefiber)
+                        {
+                            ClientCard b = Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.BorreloadSavageDragon);
+                            int zone = (1 << (b?.Sequence ?? 0)) & available;
+                            if (zone > 0)
+                                return zone;
+                        }
+                        if ((available & Zones.z4) > 0)
+                            return Zones.z4;
+                        if ((available & Zones.z3) > 0)
+                            return Zones.z3;
+                        if ((available & Zones.z2) > 0)
+                            return Zones.z2;
+                        if ((available & Zones.z1) > 0)
+                            return Zones.z1;
+                        if ((available & Zones.z0) > 0)
+                            return Zones.z0;
+                    }
+                }
+                else if (location == CardLocation.MonsterZone)
+                {
+                    if (cardId == CardId.Linkuriboh)
+                    {
+                        if ((Zones.z5 & available) > 0) return Zones.z5;
+                        if ((Zones.z6 & available) > 0) return Zones.z6;
+                        for (int i = 4; i >= 0; --i)
+                        {
+                            if (Bot.MonsterZone[i] == null)
+                            {
+                                int place = (int)System.Math.Pow(2, i);
+                                return place;
+                            }
+                        }
+                    }
+                    else if (isAltergeist(cardId))
+                    {
+                        if (Bot.HasInMonstersZone(CardId.Hexstia))
+                        {
+                            for (int i = 0; i < 7; ++i)
+                            {
+                                if (i == 4) continue;
+                                if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(CardId.Hexstia))
+                                {
+                                    int next_index = get_Hexstia_linkzone(i);
+                                    if (next_index != -1 && (available & (int)(System.Math.Pow(2, next_index))) > 0)
+                                    {
+                                        return (int)(System.Math.Pow(2, next_index));
+                                    }
+                                }
+                            }
+                        }
+                        if (cardId == CardId.Hexstia)
+                        {
+                            // ex zone
+                            if ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && isAltergeist(Bot.MonsterZone[1].Id)) return Zones.z5;
+                            if ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && isAltergeist(Bot.MonsterZone[3].Id)) return Zones.z6;
+                            if (((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && !isAltergeist(Bot.MonsterZone[3].Id))
+                                || ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] == null)) return Zones.z5;
+                            if (((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && !isAltergeist(Bot.MonsterZone[1].Id))
+                                || ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] == null)) return Zones.z6;
+                            // main zone
+                            for (int i = 1; i < 5; ++i)
+                            {
+                                if (Bot.MonsterZone[i] != null && isAltergeist(Bot.MonsterZone[i].Id))
+                                {
+                                    if ((available & (int)System.Math.Pow(2, i - 1)) > 0) return (int)System.Math.Pow(2, i - 1);
+                                }
+                            }
+                        }
+                        // 1 or 3
+                        if ((Zones.z1 & available) > 0) return Zones.z1;
+                        if ((Zones.z3 & available) > 0) return Zones.z3;
+                    }
+                    else if (Bot.HasInMonstersZone(50277355))
+                    {
+                        for (int i = 5; i < 7; ++i)
+                        {
+                            if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(50277355))
+                            {
+                                int next_index = get_Sheep_linkzone(i);
+                                if ((available & next_index) > 0)
+                                {
+                                    return next_index;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ClientCard card_ex_left = Enemy.MonsterZone[6];
+                        ClientCard card_ex_right = Enemy.MonsterZone[5];
+                        if (cardData != null && card_ex_left != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
+                            return Zones.z1;
+                        else if (cardData != null && card_ex_right != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
+                            return Zones.z3;
+                        else if ((card_ex_left != null && card_ex_left.IsCode(1948619)) || (card_ex_right != null && card_ex_left.IsCode(1948619)))
+                            return Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6;
+                        else
+                            return available & ~Bot.GetLinkedZones();
+                    }
+                }
+            }
+            return base.OnSelectPlace(cardId, player, location, available);
+        }
+
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
             if (Util.IsTurn1OrMain2()
@@ -1563,7 +1689,7 @@ namespace WindBot.Game.AI.Decks
             {
                 if ((cardId == 78371393 || cardId == 4779091 || cardId == 31764700 || cardId == 24 || cardId == 900000098) && !Card.IsDisabled())
                     return CardPosition.FaceUpAttack;
-                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !Card.IsDisabled())
+                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true))
                     return CardPosition.FaceUpDefence;
                 return CardPosition.FaceUpAttack;
             }
@@ -1693,111 +1819,6 @@ namespace WindBot.Game.AI.Decks
             return selected;
         }
 
-        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
-        {
-            if (location == CardLocation.SpellZone)
-            {
-                if (cardId == CardId.MekkKnightCrusadiaAstram || cardId == CardId.ScrapWyvern || cardId == CardId.CrystronNeedlefiber)
-                {
-                    ClientCard b = Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.BorreloadSavageDragon);
-                    int zone = (1 << (b?.Sequence ?? 0)) & available;
-                    if (zone > 0)
-                        return zone;
-                }
-                if ((available & Zones.z4) > 0)
-                    return Zones.z4;
-                if ((available & Zones.z3) > 0)
-                    return Zones.z3;
-                if ((available & Zones.z2) > 0)
-                    return Zones.z2;
-                if ((available & Zones.z1) > 0)
-                    return Zones.z1;
-                if ((available & Zones.z0) > 0)
-                    return Zones.z0;
-            }
-
-            if (player == 0)
-            {
-                if (location == CardLocation.SpellZone)
-                {
-                    //undefined
-                }
-                else if (location == CardLocation.MonsterZone)
-                {
-                    if (cardId == CardId.Linkuriboh)
-                    {
-                        if ((Zones.z5 & available) > 0) return Zones.z5;
-                        if ((Zones.z6 & available) > 0) return Zones.z6;
-                        for (int i = 4; i >= 0; --i)
-                        {
-                            if (Bot.MonsterZone[i] == null)
-                            {
-                                int place = (int)System.Math.Pow(2, i);
-                                return place;
-                            }
-                        }
-                    }
-                    else if (isAltergeist(cardId))
-                    {
-                        if (Bot.HasInMonstersZone(CardId.Hexstia))
-                        {
-                            for (int i = 0; i < 7; ++i)
-                            {
-                                if (i == 4) continue;
-                                if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(CardId.Hexstia))
-                                {
-                                    int next_index = get_Hexstia_linkzone(i);
-                                    if (next_index != -1 && (available & (int)(System.Math.Pow(2, next_index))) > 0)
-                                    {
-                                        return (int)(System.Math.Pow(2, next_index));
-                                    }
-                                }
-                            }
-                        }
-                        if (cardId == CardId.Hexstia)
-                        {
-                            // ex zone
-                            if ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && isAltergeist(Bot.MonsterZone[1].Id)) return Zones.z5;
-                            if ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && isAltergeist(Bot.MonsterZone[3].Id)) return Zones.z6;
-                            if (((Zones.z6 & available) > 0 && Bot.MonsterZone[3] != null && !isAltergeist(Bot.MonsterZone[3].Id))
-                                || ((Zones.z5 & available) > 0 && Bot.MonsterZone[1] == null)) return Zones.z5;
-                            if (((Zones.z5 & available) > 0 && Bot.MonsterZone[1] != null && !isAltergeist(Bot.MonsterZone[1].Id))
-                                || ((Zones.z6 & available) > 0 && Bot.MonsterZone[3] == null)) return Zones.z6;
-                            // main zone
-                            for (int i = 1; i < 5; ++i)
-                            {
-                                if (Bot.MonsterZone[i] != null && isAltergeist(Bot.MonsterZone[i].Id))
-                                {
-                                    if ((available & (int)System.Math.Pow(2, i - 1)) > 0) return (int)System.Math.Pow(2, i - 1);
-                                }
-                            }
-                        }
-                        // 1 or 3
-                        if ((Zones.z1 & available) > 0) return Zones.z1;
-                        if ((Zones.z3 & available) > 0) return Zones.z3;
-                    }
-                    else if (Bot.HasInMonstersZone(50277355))
-                    {
-                        for (int i = 5; i < 7; ++i)
-                        {
-                            if (Bot.MonsterZone[i] != null && Bot.MonsterZone[i].IsCode(50277355))
-                            {
-                                int next_index = get_Sheep_linkzone(i);
-                                if ((available & next_index) > 0)
-                                {
-                                    return next_index;
-                                }
-                            }
-                        }
-                    }
-                    else if (location == CardLocation.MonsterZone)
-                    {
-                        return available & ~Bot.GetLinkedZones();
-                    }
-                }
-            }
-            return base.OnSelectPlace(cardId, player, location, available);
-        }
         public int get_Sheep_linkzone(int zone)
         {
             if (zone == 5) return 5;
