@@ -322,6 +322,7 @@ namespace WindBot.Game.AI
         protected bool DefaultOrica()
         {
             if (Util.ChainContainsCard(12201)) return false;
+
             if (Card.HasXyzMaterial(1, 13706))
             {
                 IList<ClientCard> selected = Bot.Deck.GetMatchingCards(card => card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap()));
@@ -333,29 +334,41 @@ namespace WindBot.Game.AI
                     AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
 
                 AI.SelectNextCard(13701);
-
-                //int count = Util.GetBotAvailZonesFromExtraDeck();
-                //if (Card.HasXyzMaterial(1, 10)) count += 5 - Bot.GetSpellCountWithoutField();
-                //if (count > 3)
-                //{
-                //    for (int i = 0; i < 4; i++)
-                //    {
-                //        if (CNo1summon > 0 && Duel.Turn > 1)
-                //            AI.SelectAnnounceID(13714);
-                //        No1annouce++;
-                //        AI.SelectAnnounceID(13701);
-                //    }
-                //}
             }
 
-            if (Card.HasXyzMaterial(1, 10) && Bot.GetRealMonsters().Count() > 0)
+            if ((Card.HasXyzMaterial(1, 10) || Card.IsCode(10)) && !Card.HasXyzMaterial(1, 13706))
             {
                 List<ClientCard> Oricamonster = Bot.GetRealMonsters();
-                ClientCard topmon = Oricamonster.GetHighestAttackMonster();
-                Oricamonster.Remove(topmon);
-                Oricamonster.Sort(CardContainer.CompareCardAttack);
-                Oricamonster.Reverse();
-                AI.SelectCard(Oricamonster);
+                if (Oricamonster == null) return false;
+                IList<ClientCard> Oricamonster_mzone = Oricamonster.GetMatchingCards(card => card.Location == CardLocation.MonsterZone);
+                IList<ClientCard> Oricamonster_szone = Oricamonster.GetMatchingCards(card => card.Location == CardLocation.SpellZone);
+                if (Oricamonster_mzone.Count == 0)
+                {
+                    if (Oricamonster_szone.Count > 1)
+                    {
+                        ClientCard topmon = Oricamonster_szone.GetHighestAttackMonster();
+                        AI.SelectCard(topmon);
+                    }
+                    else
+                        return false;
+                }
+            }
+
+            if ((Card.HasXyzMaterial(1, 10) || Card.IsCode(10)) && Bot.GetRealMonsters() != null)
+            {
+                List<ClientCard> Oricamonster = Bot.GetRealMonsters();
+                IList<ClientCard> Oricamonster_mzone = Oricamonster.GetMatchingCards(card => card.Location == CardLocation.MonsterZone);
+                if (Oricamonster_mzone.Count > 0)
+                {
+                    ClientCard topmon = Oricamonster_mzone.GetHighestAttackMonster();
+                    Oricamonster_mzone.Remove(topmon);
+                    if (Oricamonster_mzone.Count > 0)
+                    {
+                        List<ClientCard> Oricamonster_mzone2 = new List<ClientCard>(Oricamonster_mzone);
+                        Oricamonster_mzone2.Sort(CardContainer.CompareCardAttack);
+                        AI.SelectCard(Oricamonster_mzone2);
+                    }
+                }
             }
 
             return true;

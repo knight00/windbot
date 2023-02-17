@@ -346,15 +346,23 @@ namespace WindBot.Game.AI.Decks
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
+            if (cardId == 78371393 || cardId == 4779091 || cardId == 31764700 || cardId == 24 || cardId == 900000098)
+                return CardPosition.FaceUpAttack;
+
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
-                if (Card.Location == CardLocation.SpellZone)
-                    return CardPosition.FaceUpAttack;
-                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true) && !(cardData.HasType(CardType.Xyz) && !Card.IsDisabled()))
-                    return CardPosition.FaceUpDefence;
+                if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true))
+                {
+                    ClientCard field = Bot.GetFieldSpellCard();
+                    if (cardData.HasType(CardType.Monster) && field != null && !field.IsDisabled() && (field.HasXyzMaterial(1, 10) || field.IsCode(10)))
+                        return CardPosition.FaceUpAttack;
+                    else
+                        return CardPosition.FaceDown;
+                }
                 return CardPosition.FaceUpAttack;
             }
+
             return 0;
         }
 
@@ -561,11 +569,7 @@ namespace WindBot.Game.AI.Decks
 
         public override ClientCard OnSelectAttacker(IList<ClientCard> attackers, IList<ClientCard> defenders)
         {
-            List<ClientCard> att = new List<ClientCard>();
-            foreach (ClientCard tc in attackers)
-            {
-                att.Add(tc);
-            }
+            List<ClientCard> att = new List<ClientCard>(attackers);
             if (att.Count > 0)
             {
                 att.Sort(CardContainer.CompareCardAttack);

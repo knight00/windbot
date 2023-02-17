@@ -1678,19 +1678,24 @@ namespace WindBot.Game.AI.Decks
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
+            if (cardId == 78371393 || cardId == 4779091 || cardId == 31764700 || cardId == 24 || cardId == 900000098)
+                return CardPosition.FaceUpAttack;
+
             if (Util.IsTurn1OrMain2()
                && (cardId == CardId.Meluseek || cardId == CardId.Silquitous))
-            {
                 return CardPosition.FaceUpDefence;
-            }
 
             YGOSharp.OCGWrapper.NamedCard cardData = YGOSharp.OCGWrapper.NamedCard.Get(cardId);
             if (cardData != null)
             {
-                if ((cardId == 78371393 || cardId == 4779091 || cardId == 31764700 || cardId == 24 || cardId == 900000098) && !Card.IsDisabled())
-                    return CardPosition.FaceUpAttack;
                 if (Util.IsAllEnemyBetterThanValue(cardData.Attack, true))
-                    return CardPosition.FaceUpDefence;
+                {
+                    ClientCard field = Bot.GetFieldSpellCard();
+                    if (cardData.HasType(CardType.Monster) && field != null && !field.IsDisabled() && (field.HasXyzMaterial(1, 10) || field.IsCode(10)))
+                        return CardPosition.FaceUpAttack;
+                    else
+                        return CardPosition.FaceDown;
+                }
                 return CardPosition.FaceUpAttack;
             }
 
@@ -1818,14 +1823,6 @@ namespace WindBot.Game.AI.Decks
 
             return selected;
         }
-
-        public int get_Sheep_linkzone(int zone)
-        {
-            if (zone == 5) return 5;
-            if (zone == 6) return 20;
-            return -1;
-        }
-
         public override int OnAnnounceCard(IList<int> avail)
         {
             ClientCard orica = Bot.GetFieldSpellCard();
@@ -1836,6 +1833,13 @@ namespace WindBot.Game.AI.Decks
             if (avail.Contains(152000000))
                 return 152000000;
             return Program.Rand.Next(avail.Count);
+        }
+
+        public int get_Sheep_linkzone(int zone)
+        {
+            if (zone == 5) return 5;
+            if (zone == 6) return 20;
+            return -1;
         }
 
         public override int OnAnnounceNumber(IList<int> numbers)
@@ -1857,75 +1861,9 @@ namespace WindBot.Game.AI.Decks
             // go first
             return true;
         }
-
-        public bool MonsterRepos()
-        {
-            if (Card.Attack == 0) return (Card.IsAttack() && Card.Id != 78371393 && Card.Id != 4779091 && Card.Id != 31764700 && Card.Id != 24 && Card.Id != 900000098);
-            if (Card.Id == 78371393 || Card.Id == 4779091 || Card.Id == 31764700 || Card.Id == 24 || Card.Id == 900000098) return (Card.IsDefense());
-
-            if (Card.IsCode(CardId.Meluseek) || Bot.HasInMonstersZone(CardId.Meluseek))
-            {
-                return Card.HasPosition(CardPosition.Defence);
-            }
-
-            if (isAltergeist(Card) && Bot.HasInHandOrInSpellZone(CardId.Protocol) && Card.IsFacedown())
-                return true;
-
-            if (Card.IsFacedown())
-                return true;
-            if (Card.IsCode(CardId.Number41BagooskaTheTerriblyTiredTapir) && Card.IsDefense())
-                return Card.Overlays.Count == 0;
-
-            bool enemyBetter = Util.IsAllEnemyBetter(true);
-            if (Card.IsAttack() && enemyBetter)
-                return true;
-            if (Card.IsFacedown())
-                return true;
-            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
-                return true;
-            if (Card.IsDefense() && Card.IsCode(CardId.BlueEyesSpiritDragon, CardId.AzureEyesSilverDragon))
-                return true;
-            if (Card.IsAttack() && Card.IsCode(CardId.SageWithEyesOfBlue, CardId.WhiteStoneOfAncients, CardId.WhiteStoneOfLegend))
-                return true;
-
-            return false;
-        }
-
-        public bool MonsterSet()
-        {
-            if (Util.GetOneEnemyBetterThanMyBest() == null && Bot.GetMonsterCount() > 0) return false;
-            if (Card.Level > 4) return false;
-            int rest_lp = Bot.LifePoints;
-            int count = Bot.GetMonsterCount();
-            List<ClientCard> list = Enemy.GetMonsters();
-            list.Sort(CardContainer.CompareCardAttack);
-            foreach (ClientCard card in list)
-            {
-                if (!card.HasPosition(CardPosition.Attack)) continue;
-                if (count-- > 0) continue;
-                rest_lp -= card.Attack;
-            }
-            if (rest_lp < 1700)
-            {
-                AI.SelectPosition(CardPosition.FaceDownDefence);
-                return true;
-            }
-            return false;
-        }
-
-        public bool MonsterSummon()
-        {
-            if (Enemy.GetMonsterCount() + Bot.GetMonsterCount() > 0) return false;
-            return Card.Attack >= Enemy.LifePoints;
-        }
-
         public override ClientCard OnSelectAttacker(IList<ClientCard> attackers, IList<ClientCard> defenders)
         {
-            List<ClientCard> att = new List<ClientCard>();
-            foreach (ClientCard tc in attackers)
-            {
-                att.Add(tc);
-            }
+            List<ClientCard> att = new List<ClientCard>(attackers);
             if (att.Count > 0)
             {
                 att.Sort(CardContainer.CompareCardAttack);
@@ -2003,6 +1941,67 @@ namespace WindBot.Game.AI.Decks
             }
 
             return null;
+        }
+
+        public bool MonsterRepos()
+        {
+            if (Card.Attack == 0) return (Card.IsAttack() && Card.Id != 78371393 && Card.Id != 4779091 && Card.Id != 31764700 && Card.Id != 24 && Card.Id != 900000098);
+            if (Card.Id == 78371393 || Card.Id == 4779091 || Card.Id == 31764700 || Card.Id == 24 || Card.Id == 900000098) return (Card.IsDefense());
+
+            if (Card.IsCode(CardId.Meluseek) || Bot.HasInMonstersZone(CardId.Meluseek))
+            {
+                return Card.HasPosition(CardPosition.Defence);
+            }
+
+            if (isAltergeist(Card) && Bot.HasInHandOrInSpellZone(CardId.Protocol) && Card.IsFacedown())
+                return true;
+
+            if (Card.IsFacedown())
+                return true;
+            if (Card.IsCode(CardId.Number41BagooskaTheTerriblyTiredTapir) && Card.IsDefense())
+                return Card.Overlays.Count == 0;
+
+            bool enemyBetter = Util.IsAllEnemyBetter(true);
+            if (Card.IsAttack() && enemyBetter)
+                return true;
+            if (Card.IsFacedown())
+                return true;
+            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
+                return true;
+            if (Card.IsDefense() && Card.IsCode(CardId.BlueEyesSpiritDragon, CardId.AzureEyesSilverDragon))
+                return true;
+            if (Card.IsAttack() && Card.IsCode(CardId.SageWithEyesOfBlue, CardId.WhiteStoneOfAncients, CardId.WhiteStoneOfLegend))
+                return true;
+
+            return false;
+        }
+
+        public bool MonsterSet()
+        {
+            if (Util.GetOneEnemyBetterThanMyBest() == null && Bot.GetMonsterCount() > 0) return false;
+            if (Card.Level > 4) return false;
+            int rest_lp = Bot.LifePoints;
+            int count = Bot.GetMonsterCount();
+            List<ClientCard> list = Enemy.GetMonsters();
+            list.Sort(CardContainer.CompareCardAttack);
+            foreach (ClientCard card in list)
+            {
+                if (!card.HasPosition(CardPosition.Attack)) continue;
+                if (count-- > 0) continue;
+                rest_lp -= card.Attack;
+            }
+            if (rest_lp < 1700)
+            {
+                AI.SelectPosition(CardPosition.FaceDownDefence);
+                return true;
+            }
+            return false;
+        }
+
+        public bool MonsterSummon()
+        {
+            if (Enemy.GetMonsterCount() + Bot.GetMonsterCount() > 0) return false;
+            return Card.Attack >= Enemy.LifePoints;
         }
 
         private bool FNo0_Slash()
