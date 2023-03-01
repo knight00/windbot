@@ -543,35 +543,40 @@
         "deck": "Martyr",
         "dialog": "ZZ",
         "difficulty": 3,
-        "masterRules": [-1]
+        "mode": "MODE_RULE_ZCG_NO_RANDOM",
+        "masterRules": [5]
     },
     {
         "name": "ZCG·六芒星 (DIY)",
         "deck": "PointStar",
         "dialog": "ZZ-Star",
         "difficulty": 3,
-        "masterRules": [-1]
+        "mode": "MODE_RULE_ZCG_NO_RANDOM",
+        "masterRules": [5]
     },
     {
         "name": "ZCG·太阳神 (DIY)",
         "deck": "Ra",
         "dialog": "ZZ-Star",
         "difficulty": 3,
-        "masterRules": [-1]
+        "mode": "MODE_RULE_ZCG_NO_RANDOM",
+        "masterRules": [5]
     },
     {
         "name": "ZCG·装甲 (DIY)",
         "deck": "Armor",
         "dialog": "ZZ-Star",
         "difficulty": 3,
-        "masterRules": [ -1 ]
+        "mode": "MODE_RULE_ZCG_NO_RANDOM",
+        "masterRules": [5]
     },
     {
         "name": "ZCG·冥界 (DIY)",
         "deck": "Hades",
         "dialog": "ZZ",
         "difficulty": 3,
-        "masterRules": [-1]
+        "mode": "MODE_RULE_ZCG_NO_RANDOM",
+        "masterRules": [5]
     },
     {
         "name": "BOSS·新序系（DIY）",
@@ -599,13 +604,15 @@
         "deck": "Mode",
         "dialog": "ZZ",
         "difficulty": 1,
-        "masterRules": [ -1 ]
+        "mode": "MODE_RULE_ZCG",
+        "masterRules": [ 5 ]
     },
     {
         "name": "暗痣人",
         "deck": "ModeDT1",
         "dialog": "default",
         "difficulty": 1,
-        "masterRules": [ -1 ]
+        "mode": "MODE_RULE_5DS_DARK_TUNER",
+        "masterRules": [ 5 ]
     }
 ]
