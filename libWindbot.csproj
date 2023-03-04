@@ -50,6 +50,7 @@
     <Compile Include="Game\AI\Decks\AltergeistExecutor.cs" />
     <Compile Include="Game\AI\Decks\FamiliarPossessedExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlackwingExecutor.cs" />
+    <Compile Include="Game\AI\Decks\KashtiraExecutor.cs" />
     <Compile Include="Game\AI\Decks\LuckyExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesExecutor.cs" />
     <Compile Include="Game\AI\Decks\BlueEyesMaxDragonExecutor.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="Game\AI\Decks\SkyStrikerExecutor.cs" />
     <Compile Include="Game\AI\Decks\ST1732Executor.cs" />
     <Compile Include="Game\AI\Decks\SwordsoulExecutor.cs" />
+    <Compile Include="Game\AI\Decks\TearlamentsExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ThunderDragonExecutor.cs" />
     <Compile Include="Game\AI\Decks\TimeThiefExecutor.cs" />
     <Compile Include="Game\AI\Decks\ToadallyAwesomeExecutor.cs" />
     <Compile Include="Game\AI\Decks\TrickstarExecutor.cs" />

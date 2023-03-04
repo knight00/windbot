@@ -14,7 +14,7 @@
     {
         "name": "Blue-Eyes",
         "deck": "Blue-Eyes",
-        "difficulty": 3,
+        "difficulty": 2,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -102,6 +102,12 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "Kashtira",
+        "deck": "Kashtira",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
         "name": "Lightsworn Shaddoll Dino",
         "deck": "LightswornShaddoldinosour",
         "difficulty": 3,
@@ -178,6 +184,17 @@
         "deck": "Swordsoul",
         "difficulty": 3,
         "masterRules": [ 5 ]
+    },
+    {
+        "name": "Thunder Dragon",
+        "deck": "ThunderDragon",
+        "difficulty": 2,
+        "masterRules": [ 4, 5 ]
+    },
+        "name": "Tearlaments",
+        "deck": "Tearlaments",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "Time Thief",

@@ -1372,6 +1372,12 @@ namespace WindBot.Game
                 location = CardLocation.SpellZone;
                 filter = (field >> 8) & Zones.SpellZones;
             }
+            else if ((field & 0x2000) != 0)
+            {
+                player = 0;
+                location = CardLocation.FieldZone;
+                filter = Zones.FieldZone;
+            }
             else if ((field & 0xc000) != 0)
             {
                 player = 0;
@@ -1390,6 +1396,12 @@ namespace WindBot.Game
                 location = CardLocation.SpellZone;
                 filter = (field >> 24) & Zones.SpellZones;
             }
+            else if ((field & 0x20000000) != 0)
+            {
+                player = 1;
+                location = CardLocation.FieldZone;
+                filter = Zones.FieldZone;
+            }
             else
             {
                 player = 1;
@@ -1403,7 +1415,7 @@ namespace WindBot.Game
             byte[] resp = new byte[3];
             resp[0] = (byte)GetLocalPlayer(player);
 
-            if (location != CardLocation.PendulumZone)
+            if (location != CardLocation.PendulumZone && location != CardLocation.FieldZone)
             {
                 resp[1] = (byte)location;
                 if ((selected & filter) > 0)
@@ -1423,8 +1435,9 @@ namespace WindBot.Game
                 if ((selected & filter) > 0)
                     filter &= selected;
 
-                if ((filter & Zones.z0) != 0) resp[2] = 6;
-                if ((filter & Zones.z1) != 0) resp[2] = 7;
+                if ((filter & Zones.FieldZone) != 0) resp[2] = 5;
+                if ((filter & Zones.z0) != 0) resp[2] = 6; // left pendulum zone
+                if ((filter & Zones.z1) != 0) resp[2] = 7; // right pendulum zone
             }
 
             BinaryWriter reply = GamePacketFactory.Create(CtosMessage.Response);

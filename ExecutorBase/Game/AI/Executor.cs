@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using YGOSharp.OCGWrapper.Enums;
@@ -167,6 +167,11 @@ namespace WindBot.Game.AI
         {
             // For overriding
             return null;
+        }
+
+        public virtual void OnSelectChain(IList<ClientCard> cards)
+        {
+            return;
         }
 
         public virtual bool OnSelectYesNo(long desc)

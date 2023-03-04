@@ -24,6 +24,7 @@ Written in C# targeting .NET Framework 4. Use Visual Studio 2015 or newer.
 * Frog
 * Gren Maju Stun
 * Horus
+* Kashtira
 * Lightsworn Shaddoll Dino
 * Mathmech
 * Normal Monster Mash
@@ -35,6 +36,8 @@ Written in C# targeting .NET Framework 4. Use Visual Studio 2015 or newer.
 * Rose Scrap Synchro
 * Salamangreat
 * Sky Striker
+* Thunder Dragon
+* Tearlaments
 * Time Thief
 * Toadally Awesome
 * Trickstar

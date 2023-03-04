@@ -1,9 +1,7 @@
 using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using WindBot;
-using WindBot.Game;
-using WindBot.Game.AI;
+
 namespace WindBot.Game.AI.Decks
 {
     [Deck("Kashtira", "AI_Kashtira")]
@@ -176,7 +174,7 @@ namespace WindBot.Game.AI.Decks
             if (flag >= 0) ++flag;
             if (flag >= 2) { flag = -1; activate_DimensionShifter = false; }
         }
-        public override bool OnSelectYesNo(int desc)
+        public override bool OnSelectYesNo(long desc)
         {
             if (desc == 1149312192)
             {
@@ -192,7 +190,7 @@ namespace WindBot.Game.AI.Decks
             }
             return base.OnSelectPosition(cardId, positions);
         }
-        public override int OnSelectOption(IList<int> options)
+        public override int OnSelectOption(IList<long> options)
         {
             if (options.Count == 2 && options[1] == Util.GetStringId(CardId.KashtiraBirth, 0))
                 return 1;
@@ -204,11 +202,11 @@ namespace WindBot.Game.AI.Decks
             {
                 if (opt_1) return options.IndexOf(Util.GetStringId(CardId.MechaPhantomBeastAuroradon, 3));
                 else if (opt_0) return 0;
-                return options[options.Count - 1];
+                return options.Count - 1;
             }
             return base.OnSelectOption(options);
         }
-        public override int OnSelectPlace(int cardId, int player, CardLocation location, int available)
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
         {
             if (cardId == 0 && player == 1)
             {
@@ -226,7 +224,7 @@ namespace WindBot.Game.AI.Decks
             }
             return base.OnSelectPlace(cardId, player, location, available);
         }
-        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, int hint, bool cancelable)
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
             if (cards.Any(card => card != null && card.Location == CardLocation.Extra
                  && hint == HintMsg.Remove && min == 1 && max == 1))

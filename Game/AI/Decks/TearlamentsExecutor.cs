@@ -2,10 +2,7 @@ using YGOSharp.OCGWrapper;
 using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using WindBot;
-using WindBot.Game;
-using WindBot.Game.AI;
-using System;
+
 namespace WindBot.Game.AI.Decks
 {
     [Deck("Tearlaments", "AI_Tearlaments")]
@@ -48,10 +45,10 @@ namespace WindBot.Game.AI.Decks
             public const int IP = 65741786;
         }
         // false: EDOPro
-        const bool IS_YGOPRO = true;
+        const bool IS_YGOPRO = false;
         // YGOPro: 0x181
         // EDOPro: 0x182
-        int SETCODE = 0x181;
+        int SETCODE = 0x182;
 
         bool activate_TearlamentsScheiren_1 = false;
         bool activate_TearlamentsScheiren_2 = false;
@@ -656,7 +653,7 @@ namespace WindBot.Game.AI.Decks
             }
             return base.OnSelectPosition(cardId, positions);
         }
-        public override int OnSelectPlace(int cardId, int player, CardLocation location, int available)
+        public override int OnSelectPlace(long cardId, int player, CardLocation location, int available)
         {
             if (player == 0 && location == CardLocation.MonsterZone)
             {
@@ -700,7 +697,7 @@ namespace WindBot.Game.AI.Decks
             }
             return base.OnSelectPlace(cardId, player, location, available);
         }
-        public override int OnSelectOption(IList<int> options)
+        public override int OnSelectOption(IList<long> options)
         {
             if (options.Count == 2 && (IS_YGOPRO ? options.Contains(1190) : options.Contains(573)))
             {
@@ -708,7 +705,7 @@ namespace WindBot.Game.AI.Decks
             }
             return base.OnSelectOption(options);
         }
-        public override bool OnSelectYesNo(int desc)
+        public override bool OnSelectYesNo(long desc)
         {
             if (desc == 1233663200) pre_activate_PrimevalPlanetPerlereino = true;
             return base.OnSelectYesNo(desc);
@@ -981,7 +978,7 @@ namespace WindBot.Game.AI.Decks
             if (Bot.HasInMonstersZone(CardId.ElShaddollWinda, true, false, true) ||
                 Enemy.HasInMonstersZone(CardId.ElShaddollWinda, true, false, true)) spsummoned = true;
         }
-        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, int hint, bool cancelable)
+        public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, long hint, bool cancelable)
         {
             if ((AI.HaveSelectedCards() && mcard_0.All(card => card == null) && ran_fusion_mode_0.All(flag => !flag))
                 || (hint == HintMsg.FusionMaterial)) return null;
@@ -992,8 +989,7 @@ namespace WindBot.Game.AI.Decks
                 return Util.CheckSelectCount(CardsIdToClientCards(ids, cards, false, true), cards, min, max);
 
             }
-            //!IS_YGOPRO && select_TearlamentsKitkallos && hint == HintMsg.AddToHand
-            if ((IS_YGOPRO && hint == HintMsg.OperateCard) || (!IS_YGOPRO && select_TearlamentsKitkallos && hint == HintMsg.AddToHand))
+            if (select_TearlamentsKitkallos && hint == HintMsg.AddToHand)
             {
                 if (!IS_YGOPRO) select_TearlamentsKitkallos = false;
                 IList<int> ids = new List<int>();
@@ -1429,8 +1425,7 @@ namespace WindBot.Game.AI.Decks
                 res = CardsIdToClientCards(ids, cards, false);
                 return res.Count > 0 ? Util.CheckSelectCount(res, cards, min, max) : null;
             }
-            //(IS_YGOPRO && hint == HintMsg.Disable) || (!IS_YGOPRO && hint == HintMsg.Negate)
-            if (IS_YGOPRO && hint == HintMsg.Disable)
+            if (hint == HintMsg.Negate)
             {
                 if (chain_TearlamentsSulliek != null && cards.Contains(chain_TearlamentsSulliek))
                 {
