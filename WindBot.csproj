@@ -71,7 +71,6 @@
     <Compile Include="Game\AI\Decks\GX_PJSSExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_SFExecutor.cs" />
     <Compile Include="Game\AI\Decks\GX_XYExecutor.cs" />
-    <Compile Include="Game\AI\Decks\KashtiraExecutor.cs" />
     <Compile Include="Game\AI\Decks\KHope.cs" />
     <Compile Include="Game\AI\Decks\KNumeron.cs" />
     <Compile Include="Game\AI\Decks\Kperfectdicky.cs" />
@@ -105,6 +104,9 @@
     <Compile Include="Game\AI\Decks\ZCG_MartyrExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_PointStarExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_RaExecutor.cs" />
+    <Compile Include="Game\AI\Decks\KashtiraExecutor.cs" />
+    <Compile Include="Game\AI\Decks\TearlamentsExecutor.cs" />
+    <Compile Include="Game\AI\Decks\ThunderDragonExecutor.cs" />
     <Compile Include="Game\AI\Decks\[HealingJAMExecutor].cs" />
     <Compile Include="Game\AI\Decks\[ImaginaryArkExecutor].cs" />
     <Compile Include="Game\DecksManager.cs" />
@@ -183,8 +185,6 @@
     <None Include="COPYING">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Decks\AI_Mode.ydk" />
-    <None Include="Decks\AI_ModeDT1.ydk" />
     <None Include="LICENSE">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

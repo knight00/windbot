@@ -248,6 +248,13 @@ namespace WindBot.Game.AI.Decks
             }
         }
         #endregion
+
+        public override bool OnSelectHand()
+        {
+            // go first
+            return true;
+        }
+
         public override void OnNewTurn()
         {
             handActivated = false;
@@ -649,23 +656,23 @@ namespace WindBot.Game.AI.Decks
                 if (res.Count > 0) return Util.CheckSelectCount(res, cards, min, max);
                 return null;
             }
-            //if (hint == HintMsg.OperateCard)
-            //{
-            //    if (cards.Any(card => card != null && card.Location == CardLocation.Removed))
-            //    {
-            //        selectFlag[(int)Select.TheChaosCreator] = true;
-            //        List<ClientCard> res = new List<ClientCard>();
-            //        List<ClientCard> cards_1 = cards.Where(card => card != null && card.Controller == 0 && (card.IsCode(CardId.ThunderDragonColossus) || card.IsCode(CardId.ThunderDragonTitan))).ToList();
-            //        if (cards_1.Count > 0) res.AddRange(cards_1);
-            //        List<ClientCard> cards_2 = cards.Where(card => card != null && card.Controller == 0 && !card.IsCode(CardId.ThunderDragonColossus) && !card.IsCode(CardId.ThunderDragonTitan)).ToList();
-            //        if (cards_2.Count > 0) res.AddRange(cards_2);
-            //        List<ClientCard> cards_3 = cards.Where(card => card != null && card.Controller == 1).ToList();
-            //        if (cards_3.Count > 0) res.AddRange(cards_3);
-            //        if (res.Count > 0) return Util.CheckSelectCount(res, cards, min, max);
-            //        return null;
-            //    }
-            //    return null;
-            //}
+            if (false /*hint == HintMsg.OperateCard*/)
+            {
+                if (cards.Any(card => card != null && card.Location == CardLocation.Removed))
+                {
+                    selectFlag[(int)Select.TheChaosCreator] = true;
+                    List<ClientCard> res = new List<ClientCard>();
+                    List<ClientCard> cards_1 = cards.Where(card => card != null && card.Controller == 0 && (card.IsCode(CardId.ThunderDragonColossus) || card.IsCode(CardId.ThunderDragonTitan))).ToList();
+                    if (cards_1.Count > 0) res.AddRange(cards_1);
+                    List<ClientCard> cards_2 = cards.Where(card => card != null && card.Controller == 0 && !card.IsCode(CardId.ThunderDragonColossus) && !card.IsCode(CardId.ThunderDragonTitan)).ToList();
+                    if (cards_2.Count > 0) res.AddRange(cards_2);
+                    List<ClientCard> cards_3 = cards.Where(card => card != null && card.Controller == 1).ToList();
+                    if (cards_3.Count > 0) res.AddRange(cards_3);
+                    if (res.Count > 0) return Util.CheckSelectCount(res, cards, min, max);
+                    return null;
+                }
+                return null;
+            }
             if (selectFlag[(int)Select.TheChaosCreator])
             {
                 selectFlag[(int)Select.TheChaosCreator] = false;

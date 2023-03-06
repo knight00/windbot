@@ -1,9 +1,6 @@
 using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using WindBot;
-using WindBot.Game;
-using WindBot.Game.AI;
 namespace WindBot.Game.AI.Decks
 {
     [Deck("Kashtira", "AI_Kashtira")]
@@ -142,6 +139,13 @@ namespace WindBot.Game.AI.Decks
             AddExecutor(ExecutorType.SpellSet, SpellSet);
             AddExecutor(ExecutorType.Repos, DefaultRepos);
         }
+
+        public override bool OnSelectHand()
+        {
+            // go first
+            return true;
+        }
+
         public override void OnNewTurn()
         {
             if (pre_link_mode < 0) pre_link_mode = Program.Rand.Next(2);
@@ -197,7 +201,7 @@ namespace WindBot.Game.AI.Decks
             {
                 if (opt_1) return options.IndexOf(Util.GetStringId(CardId.MechaPhantomBeastAuroradon, 3));
                 else if (opt_0) return 0;
-                return options.IndexOf(options.Count - 1);
+                return options.Count - 1;
             }
             return base.OnSelectOption(options);
         }

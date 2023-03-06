@@ -42,6 +42,12 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "淚流滿面",
+        "deck": "Tearlaments",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
         "name": "MAX龍果",
         "deck": "BlueEyesMaxDragon",
         "dialog": "kiwi.zh-TW",
@@ -151,14 +157,14 @@
         "deck": "ThunderDragon",
         "dialog": "Zefra.zh-CN",
         "difficulty": 2,
-        "masterRules": [ 5 ]
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "剎帝利",
         "deck": "Kashtira",
         "dialog": "Zefra.zh-CN",
-        "difficulty": 2,
-        "masterRules": [ 5 ]
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "重編程梁龍－自奏天琴",
@@ -610,7 +616,6 @@
     {
         "name": "暗痣人",
         "deck": "ModeDT1",
-        "dialog": "default",
         "difficulty": 1,
         "mode": "MODE_RULE_5DS_DARK_TUNER",
         "masterRules": [ 5 ]

@@ -169,6 +169,11 @@ namespace WindBot.Game.AI
             return null;
         }
 
+        public virtual void OnSelectChain(IList<ClientCard> cards)
+        {
+            return;
+        }
+
         public virtual bool OnSelectYesNo(long desc)
         {
             return true;
