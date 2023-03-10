@@ -42,7 +42,7 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "淚流滿面",
+        "name": "珠泪哀歌",
         "deck": "Tearlaments",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
@@ -286,14 +286,14 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "[癒合果醬]",
+        "name": "癒合果醬",
         "deck": "[HealingJAM]",
         "dialog": "default",
         "difficulty": 2,
         "masterRules": [ 7 ]
     },
     {
-        "name": "[幻方舟]",
+        "name": "幻方舟",
         "deck": "[ImaginaryArk]",
         "dialog": "default",
         "difficulty": 2,
@@ -543,22 +543,6 @@
         "dialog": "near.zh-CN",
         "difficulty": 3,
         "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "ZCG·殉道者 (DIY)",
-        "deck": "Martyr",
-        "dialog": "ZZ",
-        "difficulty": 3,
-        "mode": "MODE_RULE_ZCG_NO_RANDOM",
-        "masterRules": [5]
-    },
-    {
-        "name": "ZCG·六芒星 (DIY)",
-        "deck": "PointStar",
-        "dialog": "ZZ-Star",
-        "difficulty": 3,
-        "mode": "MODE_RULE_ZCG_NO_RANDOM",
-        "masterRules": [5]
     },
     {
         "name": "ZCG·太阳神 (DIY)",
