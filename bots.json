@@ -395,6 +395,7 @@
         "deck": "ALHG",
         "dialog": "Shen01",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -402,6 +403,7 @@
         "deck": "SGS",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -409,6 +411,7 @@
         "deck": "Monv",
         "dialog": "verre.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -416,6 +419,7 @@
         "deck": "Galaxy",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -423,6 +427,7 @@
         "deck": "Niaojun",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -430,6 +435,7 @@
         "deck": "Xiehun",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -437,6 +443,7 @@
         "deck": "Luanyu",
         "dialog": "cirno.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -444,6 +451,7 @@
         "deck": "Honglianmo",
         "dialog": "soul.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -451,6 +459,7 @@
         "deck": "Operatorwd",
         "dialog": "Crisis",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -458,6 +467,7 @@
         "deck": "Cangqiong",
         "dialog": "anothercopy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -465,6 +475,7 @@
         "deck": "Youyou",
         "dialog": "mokey.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -472,6 +483,7 @@
         "deck": "Shitu",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -479,6 +491,7 @@
         "deck": "Facedown",
         "dialog": "VI-1911.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -486,13 +499,7 @@
         "deck": "ChamDeck1",
         "dialog": "swordsman.zh-CN",
         "difficulty": 3,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "NA·龙灾",
-        "deck": "DragonDisaster",
-        "dialog": "DragonDisaster",
-        "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -500,6 +507,7 @@
         "deck": "Operator",
         "dialog": "Crisis",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -507,6 +515,7 @@
         "deck": "Crisis1",
         "dialog": "Crisis",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -514,6 +523,7 @@
         "deck": "HMX",
         "dialog": "swordsman.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -521,6 +531,7 @@
         "deck": "Tenmu",
         "dialog": "swordsman.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -528,6 +539,7 @@
         "deck": "Chronomaly",
         "dialog": "near.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -535,6 +547,7 @@
         "deck": "XYZ",
         "dialog": "near.zh-CN",
         "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -542,6 +555,15 @@
         "deck": "TrueKing",
         "dialog": "near.zh-CN",
         "difficulty": 3,
+        "vip": true,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "BOSS·新序系（DIY）",
+        "deck": "BossOrder",
+        "dialog": "BossOrder",
+        "difficulty": 3,
+        "vip": true,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -567,13 +589,6 @@
         "difficulty": 3,
         "mode": "MODE_RULE_ZCG_NO_RANDOM",
         "masterRules": [5]
-    },
-    {
-        "name": "BOSS·新序系（DIY）",
-        "deck": "BossOrder",
-        "dialog": "BossOrder",
-        "difficulty": 3,
-        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "千尊 (Anime)",
