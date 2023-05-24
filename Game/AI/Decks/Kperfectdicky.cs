@@ -1828,7 +1828,7 @@ namespace WindBot.Game.AI.Decks
             ClientCard orica = Bot.GetFieldSpellCard();
             if (orica == null && avail.Contains(CardId.Oricha))
                 return CardId.Oricha;
-            if (Bot.MonsterZone.GetMonsters().ContainsCardWithId(10000010) && avail.Contains(802))
+            if (Bot.MonsterZone.GetMonsters() != null && Bot.MonsterZone.GetMonsters().ContainsCardWithId(10000010) && avail.Contains(802))
                 return 802;
             if (avail.Contains(152000000))
                 return 152000000;

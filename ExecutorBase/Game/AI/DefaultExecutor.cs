@@ -323,16 +323,14 @@ namespace WindBot.Game.AI
         {
             if (Util.ChainContainsCard(12201)) return false;
 
-            if (Card.HasXyzMaterial(1, 13706))
+            if (Card.HasXyzMaterial(1, 13706) && Bot.Deck.GetMatchingCardsCount(card => card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap())) > 0)
             {
-                IList<ClientCard> selected = Bot.Deck.GetMatchingCards(card => card.HasSetcode(0x14b) && (card.IsSpell() || card.IsTrap()));
                 if (Duel.Player == 1 && (Bot.HasInGraveyard(13705) || Bot.HasInBanished(13705) || Enemy.HasInGraveyard(13705) || Enemy.HasInBanished(13705)))
                     AI.SelectCard(588, 593, 13707, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
                 else if (Duel.Player == 0)
                     AI.SelectCard(13707, 588, 593, 595, 13717, 13708, 13709, 13710, 13713, 596, 597);
                 else if (Duel.Player == 1)
                     AI.SelectCard(595, 588, 593, 13717, 13708, 13709, 13710, 13713, 596, 597);
-
                 AI.SelectNextCard(13701);
             }
 

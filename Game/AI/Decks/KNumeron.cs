@@ -345,7 +345,7 @@ namespace WindBot.Game.AI.Decks
 
             if (last_chain_card != null && last_chain_card.IsCode(CardId.CNo1000))
             {
-                if ((Bot.MonsterZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon) || Bot.SpellZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)))
+                if ((Bot.MonsterZone.GetMonsters() != null && Bot.MonsterZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)) || (Bot.SpellZone.GetMonsters() != null && Bot.SpellZone.GetMonsters().ContainsCardWithId(CardId.CNumber100Dragon)))
                     return CardId.CNo1000;
                 return CardId.CNumber100Dragon;
             }
