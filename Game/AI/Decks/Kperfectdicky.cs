@@ -1574,12 +1574,9 @@ namespace WindBot.Game.AI.Decks
                         if (cardId == CardId.MekkKnightCrusadiaAstram || cardId == CardId.ScrapWyvern || cardId == CardId.CrystronNeedlefiber)
                         {
                             ClientCard b = Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.BorreloadSavageDragon);
-                            if (b != null)
-                            {
-                                int zone = (1 << (b?.Sequence ?? 0)) & available;
-                                if (zone > 0)
-                                    return zone;
-                            }
+                            int zone = (1 << (b?.Sequence ?? 0)) & available;
+                            if (zone > 0)
+                                return zone;
                         }
                         if ((available & Zones.z4) > 0)
                             return Zones.z4;
