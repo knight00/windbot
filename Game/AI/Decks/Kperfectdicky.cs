@@ -1569,7 +1569,7 @@ namespace WindBot.Game.AI.Decks
                         if ((available & Zones.z0 << 8) > 0)
                             return Zones.z0 << 8;
                     }
-                    else if (location == CardLocation.SpellZone)
+                    else
                     {
                         if (cardId == CardId.MekkKnightCrusadiaAstram || cardId == CardId.ScrapWyvern || cardId == CardId.CrystronNeedlefiber)
                         {
@@ -1664,9 +1664,9 @@ namespace WindBot.Game.AI.Decks
                         ClientCard card_ex_right = Enemy.MonsterZone[5];
                         if (cardData != null && card_ex_left != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
                             return Zones.z1;
-                        else if (cardData != null && card_ex_right != null && card_ex_left.IsCode(1948619) && cardData.HasSetcode(0x8))
+                        else if (cardData != null && card_ex_right != null && card_ex_right.IsCode(1948619) && cardData.HasSetcode(0x8))
                             return Zones.z3;
-                        else if ((card_ex_left != null && card_ex_left.IsCode(1948619)) || (card_ex_right != null && card_ex_left.IsCode(1948619)))
+                        else if ((card_ex_left != null && card_ex_left.IsCode(1948619)) || (card_ex_right != null && card_ex_right.IsCode(1948619)))
                             return Zones.z0 | Zones.z2 | Zones.z4 | Zones.z5 | Zones.z6;
                         else
                             return available & ~Bot.GetLinkedZones();
