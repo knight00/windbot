@@ -1219,7 +1219,7 @@ namespace WindBot.Game
 
             IList<ClientCard> cards = new List<ClientCard>();
             IList<int> counters = new List<int>();
-            int count = packet.ReadByte();
+            int count = packet.ReadInt32();
             for (int i = 0; i < count; ++i)
             {
                 packet.ReadInt32(); // card id
