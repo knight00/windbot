@@ -1215,7 +1215,7 @@ namespace WindBot.Game
         {
             packet.ReadByte(); // player
             int type = packet.ReadInt16();
-            int quantity = packet.ReadInt32();
+            short quantity = packet.ReadInt16();
 
             IList<ClientCard> cards = new List<ClientCard>();
             IList<int> counters = new List<int>();
