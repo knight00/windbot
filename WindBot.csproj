@@ -98,7 +98,6 @@
     <Compile Include="Game\AI\Decks\OCG+_ChronomalyExecutor.cs" />
     <Compile Include="Game\AI\Decks\OCG+_TrueKing.cs" />
     <Compile Include="Game\AI\Decks\OCG+_XYZExecutor.cs" />
-    <Compile Include="Game\AI\Decks\ThunderDragonExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_ArmorExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_HadesExecutor.cs" />
     <Compile Include="Game\AI\Decks\ZCG_MartyrExecutor.cs" />
