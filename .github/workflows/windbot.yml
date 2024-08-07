@@ -32,7 +32,7 @@ jobs:
       run: |
         echo "ARTIFACT=WindBotIgnite-Release-$(date +%Y%m%d)-${{ github.sha }}.zip" >> $GITHUB_ENV
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v2
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
