@@ -616,14 +616,7 @@
         "name": "暗痣人",
         "deck": "ModeDT1",
         "difficulty": 1,
-        "mode": "STORY1",
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "暗痣人",
-        "deck": "ModeDT1",
-        "difficulty": 1,
-        "mode": "STORY2",
-        "masterRules": [ 5 ]
+        "mode": "STORY",
+        "masterRules": [ 3, 4, 5 ]
     }
 ]
