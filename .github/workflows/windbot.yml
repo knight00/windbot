@@ -32,7 +32,7 @@ jobs:
       run: |
         echo "ARTIFACT=WindBotIgnite-Release-$(date +%Y%m%d)-${{ github.sha }}.zip" >> $GITHUB_ENV
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v2
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
@@ -84,8 +84,8 @@ jobs:
     - name: Install mono
       shell: bash
       run: |
-        choco install mono --x86
-    - name: Install ndk 15
+        choco install mono --x86 --ignore-checksums
+    - name: Install SDK 24, SDK 25 and NDK 15
       shell: bash
       env:
         VS_PREFIX: "16.0_"
@@ -113,8 +113,8 @@ jobs:
       with:
         release_id: ${{ needs.create_release.outputs.output }}
         assets_path: assets
-        
-        
+
+
 # assets to upload android
     # - $ARTIFACT
     # - libWindbot.aar
