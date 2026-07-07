@@ -7,6 +7,7 @@ using WindBot.Game;
 using WindBot.Game.AI;
 using YGOSharp.OCGWrapper;
 using System.Runtime.Serialization.Json;
+using System.Linq;
 
 namespace WindBot
 {
@@ -88,7 +89,7 @@ namespace WindBot
             }
 
             bool loadedone = false;
-            foreach (var absPath in dbPaths)
+            foreach (var absPath in dbPaths.Select(r=>r.TrimEnd('\0')))
             {
                 try
                 {
