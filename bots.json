@@ -7,11 +7,18 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "ABC-屠龍者",
-        "deck": "ABC",
+        "name": "悠悠",
+        "deck": "MokeyMokey",
         "dialog": "default",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
+        "difficulty": 1,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "悠悠王",
+        "deck": "MokeyMokeyKing",
+        "dialog": "mokey.zh-CN",
+        "difficulty": 1,
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "尼亞－幻變騷靈",
@@ -21,10 +28,11 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "Apophis",
-        "deck": "Apophis",
+        "name": "ABC-屠龍者",
+        "deck": "ABC",
+        "dialog": "default",
         "difficulty": 3,
-        "masterRules": [ 4, 5 ]
+        "masterRules": [ 5 ]
     },
     {
         "name": "複製植物－青眼",
@@ -34,10 +42,10 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "Blue-Eyes 2025",
-        "deck": "BE2025",
-        "difficulty": 4,
-        "masterRules": [ 5 ]
+        "name": "珠泪哀歌",
+        "deck": "Tearlaments",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "MAX龍果",
@@ -52,12 +60,6 @@
         "dialog": "default",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
-    },
-    {
-        "name": "Branded",
-        "deck": "Albaz",
-        "difficulty": 3,
-        "masterRules": [ 3, 5 ]
     },
     {
         "name": "永遠之魂－削血",
@@ -88,6 +90,13 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "謎之劍士LV4－龍騎星爆",
+        "deck": "Dragunity",
+        "dialog": "swordsman.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "教導",
         "deck": "Dogmatika",
         "dialog": "default",
@@ -102,28 +111,9 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "謎之劍士LV4－龍騎星爆",
-        "deck": "Dragunity",
-        "dialog": "swordsman.zh-CN",
-        "difficulty": 2,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "Exosister",
-        "deck": "Exosister",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
-    },
-    {
         "name": "憑依裝著",
         "deck": "FamiliarPossessed",
         "dialog": "default",
-        "difficulty": 0,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "Feelin' Lucky",
-        "deck": "Lucky",
         "difficulty": 0,
         "masterRules": [ 3, 4, 5 ]
     },
@@ -149,36 +139,11 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "Invoked Dogmatika",
-        "deck": "Dragma",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "剎帝利",
-        "deck": "Kashtira",
-        "dialog": "Zefra.zh-CN",
-        "difficulty": 3,
-        "masterRules": [ 4, 5 ]
-    },
-    {
         "name": "奇異果",
         "deck": "LightswornShaddoldinosour",
         "dialog": "kiwi.zh-TW",
         "difficulty": 3,
         "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "Maliss",
-        "deck": "Maliss",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "Maliss OCG",
-        "deck": "MalissOCG",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
     },
     {
         "name": "斬機",
@@ -188,18 +153,18 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "悠悠",
-        "deck": "MokeyMokey",
-        "dialog": "default",
-        "difficulty": 1,
-        "masterRules": [ 3, 4, 5 ]
+        "name": "雷龍",
+        "deck": "ThunderDragon",
+        "dialog": "Zefra.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 4, 5 ]
     },
     {
-        "name": "悠悠王",
-        "deck": "MokeyMokeyKing",
-        "dialog": "mokey.zh-CN",
-        "difficulty": 1,
-        "masterRules": [ 3, 4, 5 ]
+        "name": "剎帝利",
+        "deck": "Kashtira",
+        "dialog": "Zefra.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
     },
     {
         "name": "重編程梁龍－自奏天琴",
@@ -244,18 +209,6 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "Ryzeal",
-        "deck": "Ryzeal",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "Sacred Beast",
-        "deck": "SacredBeast",
-        "difficulty": 4,
-        "masterRules": [ 3, 5 ]
-    },
-    {
         "name": "重編程梁龍－轉生炎獸",
         "deck": "Salamangreat",
         "dialog": "nlch.zh-CN",
@@ -270,30 +223,11 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "Superheavy Samurai",
-        "deck": "SuperheavySamurai",
-        "difficulty": 3,
-        "masterRules": [ 4, 5 ]
-    },
-    {
         "name": "劍魂",
         "deck": "Swordsoul",
         "dialog": "default",
         "difficulty": 3,
         "masterRules": [ 5 ]
-    },
-    {
-        "name": "雷龍",
-        "deck": "ThunderDragon",
-        "dialog": "Zefra.zh-CN",
-        "difficulty": 2,
-        "masterRules": [ 4, 5 ]
-    },
-	{
-        "name": "珠泪哀歌",
-        "deck": "Tearlaments",
-        "difficulty": 3,
-        "masterRules": [ 4, 5 ]
     },
     {
         "name": "時劫者",
@@ -336,24 +270,6 @@
         "dialog": "near.zh-CN",
         "difficulty": 0,
         "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "Yubel",
-        "deck": "Yubel",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "Yummy",
-        "deck": "Neko",
-        "difficulty": 4,
-        "masterRules": [ 5 ]
-    },
-    {
-        "name": "Zefra",
-        "deck": "Zefra",
-        "difficulty": 3,
-        "masterRules": [ 5 ]
     },
     {
         "name": "謎之劍士LV4-異熱同心武器",

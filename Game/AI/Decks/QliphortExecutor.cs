@@ -130,7 +130,6 @@ namespace WindBot.Game.AI.Decks
         public override void OnNewTurn()
         {
             CardOfDemiseUsed = false;
-            base.OnNewTurn();
         }
 
         public override IList<ClientCard> OnSelectPendulumSummon(IList<ClientCard> cards, int max)
@@ -282,7 +281,6 @@ namespace WindBot.Game.AI.Decks
         {
             if (Card.Location == CardLocation.Hand)
                 return false;
-            if (DefaultCheckWhetherCardIsNegated(Card)) return false;
             int count = 0;
             int handcount = 0;
             int fieldcount = 0;

@@ -123,7 +123,6 @@ namespace WindBot.Game.AI.Decks
         {
             BeastOLionUsed = false;
             RedEyesFusionUsed = false;
-            base.OnNewTurn();
         }
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
@@ -199,7 +198,6 @@ namespace WindBot.Game.AI.Decks
 
         private bool TourGuideFromTheUnderworldSummon()
         {
-            if (DefaultCheckWhetherCardIsNegated(Card)) return false;
             if (Bot.GetRemainingCount(CardId.TourGuideFromTheUnderworld, 2) == 0 && Bot.GetRemainingCount(CardId.Sangan, 2) == 0)
                 return false;
             return true;
@@ -309,7 +307,6 @@ namespace WindBot.Game.AI.Decks
 
         private bool MagiciansSoulsEffect()
         {
-            if (DefaultCheckWhetherCardIsNegated(Card)) return false;
             if (Card.Location == CardLocation.Hand)
             {
                 if (RedEyesFusionUsed)
@@ -378,7 +375,6 @@ namespace WindBot.Game.AI.Decks
 
         private bool PredaplantVerteAnacondaEffect()
         {
-            if (DefaultCheckWhetherCardIsNegated(Card)) return false;
             if (ActivateDescription == Util.GetStringId(CardId.PredaplantVerteAnaconda, 0))
                 return false;
             AI.SelectCard(CardId.RedEyesFusion);

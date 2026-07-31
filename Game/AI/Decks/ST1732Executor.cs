@@ -153,7 +153,6 @@ namespace WindBot.Game.AI.Decks
         {
             // reset
             BalancerLordUsed = false;
-            base.OnNewTurn();
         }
 
         public override int OnSelectOption(IList<long> options)

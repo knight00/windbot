@@ -555,7 +555,6 @@ namespace WindBot.Game.AI.Decks
         }
         private bool SpeedroidTaketomborgeff()
         {
-            if (DefaultCheckWhetherCardIsNegated(Card)) return false;
             if ((Bot.GetRemainingCount(CardId.SpeedroidRedEyedDice, 1) >= 1) &&
                 Bot.HasInMonstersZone(CardId.SpeedroidTerrortop))
             {

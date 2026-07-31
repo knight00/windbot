@@ -1,4 +1,4 @@
-using YGOSharp.OCGWrapper.Enums;
+﻿using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
 using WindBot;
 using WindBot.Game;
@@ -68,11 +68,11 @@ namespace WindBot.Game.AI.Decks
         {
             if (_lastDoubleSummon == Duel.Turn)
                 return false;
-           
-            if (Duel.MainPhase.SummonableCards.Count == 0)
+
+            if (Main.SummonableCards.Count == 0)
                 return false;
 
-            if (Duel.MainPhase.SummonableCards.Count == 1 && Duel.MainPhase.SummonableCards[0].Level < 5)
+            if (Main.SummonableCards.Count == 1 && Main.SummonableCards[0].Level < 5)
             {
                 bool canTribute = false;
                 foreach (ClientCard handCard in Bot.Hand)

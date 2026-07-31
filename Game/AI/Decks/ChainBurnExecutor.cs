@@ -265,7 +265,6 @@ namespace WindBot.Game.AI.Decks
             prevent_used = false;
             Linkuribohused = true;
             Timelord_check = false;
-            base.OnNewTurn();
         }
         public override void OnNewPhase()
         {
