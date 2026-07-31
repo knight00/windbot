@@ -15,6 +15,7 @@ namespace WindBot.Game
         public int Position { get; set; }
         public int Sequence { get; set; }
         public CardLocation Location { get; set; }
+        public CardLocation LastLocation { get; set; }
         public int Alias { get; private set; }
         public int Level { get; private set; }
         public int Rank { get; private set; }
@@ -303,12 +304,12 @@ namespace WindBot.Game
         public bool HasSetcode(int setcode)
         {
             if (Data == null) return false;
-            long setcodes = Data.Setcode;
+            ulong setcodes = Data.Setcode;
             int settype = setcode & 0xfff;
             int setsubtype = setcode & 0xf000;
             while (setcodes > 0)
             {
-                long check_setcode = setcodes & 0xffff;
+                long check_setcode = (long)(setcodes & 0xffff);
                 setcodes >>= 16;
                 if ((check_setcode & 0xfff) == settype && (check_setcode & 0xf000 & setsubtype) == setsubtype) return true;
             }
@@ -370,7 +371,7 @@ namespace WindBot.Game
             return ProcCompleted != 0 || !(IsExtraCard() || HasType(CardType.Ritual) || HasType(CardType.SpSummon));
         }
 
-        public bool IsCode(int id)
+        public bool IsCode(long id)
         {
             return Id == id || Alias != 0 && Alias == id;
         }
@@ -388,6 +389,11 @@ namespace WindBot.Game
         public bool IsOriginalCode(int id)
         {
             return Id == id || Alias - Id < 10 && Alias == id;
+        }
+
+        public bool IsOnField()
+        {
+            return Location == CardLocation.MonsterZone || Location == CardLocation.SpellZone || Location == CardLocation.PendulumZone || Location == CardLocation.FieldZone;
         }
 
         public bool HasXyzMaterial()
@@ -408,6 +414,17 @@ namespace WindBot.Game
         public int GetDefensePower()
         {
             return IsAttack() ? Attack : Defense;
+        }
+
+        public int GetOriginCode()
+        {
+            int code = Id;
+            if (Data != null)
+            {
+                if (Data.Alias > 0) code = Data.Alias;
+                else code = Data.Id;
+            }
+            return code;
         }
 
         public bool Equals(ClientCard card)

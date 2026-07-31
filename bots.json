@@ -7,6 +7,54 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "ABC-屠龍者",
+        "deck": "ABC",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "阿波菲斯",
+        "deck": "Apophis",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "遗嘱执行人",
+        "deck": "Albaz",
+        "difficulty": 3,
+        "masterRules": [ 3, 5 ]
+    },
+    {
+        "name": "驱魔姐妹",
+        "deck": "Exosister",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "德拉玛",
+        "deck": "Dragma",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "迷宫",
+        "deck": "Labrynth",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "马利斯",
+        "deck": "Maliss",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "马利斯 OCG",
+        "deck": "MalissOCG",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
         "name": "悠悠",
         "deck": "MokeyMokey",
         "dialog": "default",
@@ -21,6 +69,13 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "尼亞－機殼",
+        "deck": "Qliphort",
+        "dialog": "near.zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
         "name": "尼亞－幻變騷靈",
         "deck": "Altergeist",
         "dialog": "near.zh-CN",
@@ -28,17 +83,55 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "ABC-屠龍者",
-        "deck": "ABC",
-        "dialog": "default",
+        "name": "尼亞－妖仙獸",
+        "deck": "Yosenju",
+        "dialog": "near.zh-CN",
+        "difficulty": 0,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "尼亞－惡作劇明星",
+        "deck": "Trickstar",
+        "dialog": "near.zh-CN",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "瑞泽尔",
+        "deck": "Ryzeal",
         "difficulty": 3,
         "masterRules": [ 5 ]
     },
     {
-        "name": "複製植物－青眼",
+        "name": "神圣兽",
+        "deck": "SacredBeast",
+        "difficulty": 4,
+        "masterRules": [ 3, 5 ]
+    },
+    {
+        "name": "超重武者",
+        "deck": "SuperheavySamurai",
+        "difficulty": 3,
+        "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "青眼",
         "deck": "Blue-Eyes",
         "dialog": "copy.zh-CN",
         "difficulty": 3,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "青眼 2025",
+        "deck": "BE2025",
+        "difficulty": 4,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "青眼MAX",
+        "deck": "BlueEyesMaxDragon",
+        "dialog": "kiwi.zh-TW",
+        "difficulty": 2,
         "masterRules": [ 3, 4, 5 ]
     },
     {
@@ -46,13 +139,6 @@
         "deck": "Tearlaments",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
-    },
-    {
-        "name": "MAX龍果",
-        "deck": "BlueEyesMaxDragon",
-        "dialog": "kiwi.zh-TW",
-        "difficulty": 2,
-        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "冒險家",
@@ -76,6 +162,24 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
+        "name": "尤贝尔",
+        "deck": "Yubel",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "Yummy",
+        "deck": "Neko",
+        "difficulty": 4,
+        "masterRules": [ 5 ]
+    },
+    {
+        "name": "泽弗拉",
+        "deck": "Zefra",
+        "difficulty": 3,
+        "masterRules": [ 5 ]
+    },
+    {
         "name": "試作型機器人1732",
         "deck": "ST1732",
         "dialog": "default",
@@ -83,7 +187,7 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "奇魔果",
+        "name": "黑魔术师",
         "deck": "DarkMagician",
         "dialog": "ayane.zh-CN",
         "difficulty": 3,
@@ -92,6 +196,20 @@
     {
         "name": "謎之劍士LV4－龍騎星爆",
         "deck": "Dragunity",
+        "dialog": "swordsman.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "謎之劍士LV4－L8",
+        "deck": "Level VIII",
+        "dialog": "default",
+        "difficulty": 2,
+        "masterRules": [ 3, 4, 5 ]
+    },
+    {
+        "name": "謎之劍士LV4-R5",
+        "deck": "Rank V",
         "dialog": "swordsman.zh-CN",
         "difficulty": 2,
         "masterRules": [ 3, 4, 5 ]
@@ -174,41 +292,6 @@
         "masterRules": [ 4, 5 ]
     },
     {
-        "name": "幻煌果",
-        "deck": "Phantasm",
-        "dialog": "default",
-        "difficulty": 0,
-        "masterRules": [ 4, 5 ]
-    },
-    {
-        "name": "尼亞－機殼",
-        "deck": "Qliphort",
-        "dialog": "near.zh-CN",
-        "difficulty": 0,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "謎之劍士LV4-R5",
-        "deck": "Rank V",
-        "dialog": "swordsman.zh-CN",
-        "difficulty": 2,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "琪露諾－彩虹",
-        "deck": "Rainbow",
-        "dialog": "cirno.zh-CN",
-        "difficulty": 2,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
-        "name": "謎之劍士LV4－L8",
-        "deck": "Level VIII",
-        "dialog": "default",
-        "difficulty": 2,
-        "masterRules": [ 3, 4, 5 ]
-    },
-    {
         "name": "重編程梁龍－轉生炎獸",
         "deck": "Salamangreat",
         "dialog": "nlch.zh-CN",
@@ -221,6 +304,20 @@
         "dialog": "ayane.zh-CN",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "幻煌果",
+        "deck": "Phantasm",
+        "dialog": "default",
+        "difficulty": 0,
+        "masterRules": [ 4, 5 ]
+    },
+    {
+        "name": "琪露諾－彩虹",
+        "deck": "Rainbow",
+        "dialog": "cirno.zh-CN",
+        "difficulty": 2,
+        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "劍魂",
@@ -244,13 +341,6 @@
         "masterRules": [ 3, 4, 5 ]
     },
     {
-        "name": "尼亞－惡作劇明星",
-        "deck": "Trickstar",
-        "dialog": "near.zh-CN",
-        "difficulty": 3,
-        "masterRules": [ 4, 5 ]
-    },
-    {
         "name": "比特機靈－微風",
         "deck": "PureWinds",
         "dialog": "default",
@@ -263,13 +353,6 @@
         "dialog": "default",
         "difficulty": 3,
         "masterRules": [ 4, 5 ]
-    },
-    {
-        "name": "尼亞－妖仙獸",
-        "deck": "Yosenju",
-        "dialog": "near.zh-CN",
-        "difficulty": 0,
-        "masterRules": [ 3, 4, 5 ]
     },
     {
         "name": "謎之劍士LV4-異熱同心武器",
