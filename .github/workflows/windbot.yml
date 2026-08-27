@@ -72,6 +72,26 @@ jobs:
       with:
         release_id: ${{ needs.create_release.outputs.output }}
         assets_path: assets
+  Build_linux:
+    runs-on: ubuntu-latest
+    needs: create_release
+    steps:
+    - name: Set ARTIFACT env var
+      shell: bash
+      run: |
+        echo "DESKTOP_ARTIFACT=WindBotIgnite-Release-$(date +%Y%m%d)-${{ github.sha }}.zip" >> $GITHUB_ENV
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+        submodules: true
+    - name: Pull mono builder image
+      run: |
+        docker pull ghcr.io/projectignis/net8_linux_builder:master
+        docker image tag ghcr.io/projectignis/net8_linux_builder:master net8
+    - name: Build
+      shell: bash
+      run: |
+        docker run --rm --volume $PWD:/project net8 publish net8/WindBot.csproj -p:RestorePackagesPath=./.nuget -c Release -r linux-x64
 
 
 # assets to upload android

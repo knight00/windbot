@@ -47,6 +47,7 @@ namespace WindBot.Game
                     }
                 }
             }
+#if !NET
             try
             {
                 string[] files = Directory.GetFiles(Path.Combine(Program.AssetPath, "Executors"), "*.dll", SearchOption.TopDirectoryOnly);
@@ -79,6 +80,7 @@ namespace WindBot.Game
             catch (Exception ex)
             {
             }
+#endif
 
             _list = new List<DeckInstance>();
             _list.AddRange(_decks.Values);

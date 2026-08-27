@@ -76,8 +76,8 @@ namespace WindBot
             {
                 if (databasePath == null)
                     databasePath = "cards.cdb";
-                //If databasePath is an absolute path like "‪C:/ProjectIgnis/expansions/cards.cdb",
-                //then Path.GetFullPath("../‪C:/ProjectIgnis/expansions/cards.cdb" would give an error,
+                //If databasePath is an absolute path like "C:/ProjectIgnis/expansions/cards.cdb",
+                //then Path.GetFullPath("../C:/ProjectIgnis/expansions/cards.cdb" would give an error,
                 //due to containing a colon that's not part of a volume identifier.
                 if (Path.IsPathRooted(databasePath)) dbPaths = new string[] { databasePath };
                 else dbPaths = new string[]{
