@@ -72,8 +72,15 @@ jobs:
       with:
         release_id: ${{ needs.create_release.outputs.output }}
         assets_path: assets
+
   Build_linux:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runtime_name: linux-x64
+          - runtime_name: linux-arm64
     needs: create_release
     steps:
     - name: Set ARTIFACT env var
@@ -91,7 +98,30 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        docker run --rm --volume $PWD:/project net8 publish net8/WindBot.csproj -p:RestorePackagesPath=./.nuget -c Release -r linux-x64
+        docker run --rm --volume $PWD:/project net8 publish net8/WindBot.csproj -p:RestorePackagesPath=./.nuget -c Release -r ${{ matrix.runtime_name }}
+
+  Build_mac:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runtime_name: osx-x64
+          - runtime_name: osx-arm64
+    needs: create_release
+    steps:
+    - name: Set ARTIFACT env var
+      shell: bash
+      run: |
+        echo "DESKTOP_ARTIFACT=WindBotIgnite-Release-$(date +%Y%m%d)-${{ github.sha }}.zip" >> $GITHUB_ENV
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+        submodules: true
+    - name: Build
+      shell: bash
+      run: |
+        dotnet publish net8/WindBot.csproj -p:RestorePackagesPath=./.nuget -c Release -r ${{ matrix.runtime_name }}
 
 
 # assets to upload android
