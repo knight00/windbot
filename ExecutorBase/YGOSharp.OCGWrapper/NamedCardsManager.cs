@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using System.Data;
+#if !NET
 using Mono.Data.Sqlite;
+#else
+using Microsoft.Data.Sqlite;
+#endif
 using System;
 using System.IO;
 using System.Linq;

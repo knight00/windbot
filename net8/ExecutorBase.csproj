@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PublishAot>true</PublishAot>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0-preview.5.23280.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="../ExecutorBase/Game\AI\AIUtil.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\CardContainer.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\CardExecutor.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\CardExtension.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\CardSelector.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\DeckAttribute.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\DefaultExecutor.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\Enums\*.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\Executor.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\HintMsg.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\Opcodes.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\ExecutorType.cs" />
+    <Compile Include="../ExecutorBase/Game\AI\Zones.cs" />
+    <Compile Include="../ExecutorBase/Game\BattlePhase.cs" />
+    <Compile Include="../ExecutorBase/Game\BattlePhaseAction.cs" />
+    <Compile Include="../ExecutorBase/Game\ClientCard.cs" />
+    <Compile Include="../ExecutorBase/Game\ClientField.cs" />
+    <Compile Include="../ExecutorBase/Game\ChainInfo.cs" />
+    <Compile Include="../ExecutorBase/Game\Dialogs.cs" />
+    <Compile Include="../ExecutorBase/Game\Duel.cs" />
+    <Compile Include="../ExecutorBase/Game\GameAI.cs" />
+    <Compile Include="../ExecutorBase/Game\MainPhase.cs" />
+    <Compile Include="../ExecutorBase/Game\MainPhaseAction.cs" />
+    <Compile Include="../ExecutorBase/Properties\AssemblyInfo.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardAttribute.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardLinkMarker.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardLocation.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardPosition.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardRace.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\CardType.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\DuelPhase.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\GameMessage.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\PlayerHintType.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper.Enums\Query.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper\Card.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper\CardsManager.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper\NamedCard.cs" />
+    <Compile Include="../ExecutorBase/YGOSharp.OCGWrapper\NamedCardsManager.cs" />
+  </ItemGroup>
+</Project>
